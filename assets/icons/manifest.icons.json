@@ -1,0 +1,570 @@
+[
+  {
+    "file": "icons/sword.svg",
+    "name": "broadsword",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/broadsword.html"
+  },
+  {
+    "file": "icons/shield.svg",
+    "name": "shield",
+    "source": "game-icons.net",
+    "creator": "sbed",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/sbed/shield.html"
+  },
+  {
+    "file": "icons/potion.svg",
+    "name": "potion-ball",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/potion-ball.html"
+  },
+  {
+    "file": "icons/gear.svg",
+    "name": "gears",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/gears.html"
+  },
+  {
+    "file": "icons/cog.svg",
+    "name": "cog",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/cog.html"
+  },
+  {
+    "file": "icons/dragon.svg",
+    "name": "dragon-head",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/dragon-head.html"
+  },
+  {
+    "file": "icons/map.svg",
+    "name": "treasure-map",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/treasure-map.html"
+  },
+  {
+    "file": "icons/backpack.svg",
+    "name": "backpack",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/backpack.html"
+  },
+  {
+    "file": "icons/skill-tree.svg",
+    "name": "family-tree",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/family-tree.html"
+  },
+  {
+    "file": "icons/lab.svg",
+    "name": "erlenmeyer",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/erlenmeyer.html"
+  },
+  {
+    "file": "icons/flask.svg",
+    "name": "round-bottom-flask",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/round-bottom-flask.html"
+  },
+  {
+    "file": "icons/book.svg",
+    "name": "book-cover",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/book-cover.html"
+  },
+  {
+    "file": "icons/scroll.svg",
+    "name": "scroll-unfurled",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/scroll-unfurled.html"
+  },
+  {
+    "file": "icons/anvil.svg",
+    "name": "anvil",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/anvil.html"
+  },
+  {
+    "file": "icons/hammer.svg",
+    "name": "claw-hammer",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/claw-hammer.html"
+  },
+  {
+    "file": "icons/wrench.svg",
+    "name": "spanner",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/spanner.html"
+  },
+  {
+    "file": "icons/bolt.svg",
+    "name": "screw",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/screw.html"
+  },
+  {
+    "file": "icons/nut.svg",
+    "name": "hexagonal-nut",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/hexagonal-nut.html"
+  },
+  {
+    "file": "icons/ore.svg",
+    "name": "mineral-heart",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/mineral-heart.html"
+  },
+  {
+    "file": "icons/crystal.svg",
+    "name": "crystal-growth",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/crystal-growth.html"
+  },
+  {
+    "file": "icons/chest.svg",
+    "name": "locked-chest",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/locked-chest.html"
+  },
+  {
+    "file": "icons/star.svg",
+    "name": "round-star",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/round-star.html"
+  },
+  {
+    "file": "icons/heart.svg",
+    "name": "hearts",
+    "source": "game-icons.net",
+    "creator": "skoll",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/skoll/hearts.html"
+  },
+  {
+    "file": "icons/energy.svg",
+    "name": "lightning-storm",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/lightning-storm.html"
+  },
+  {
+    "file": "icons/brain.svg",
+    "name": "brain",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/brain.html"
+  },
+  {
+    "file": "icons/dashboard.svg",
+    "name": "progression",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/progression.html"
+  },
+  {
+    "file": "icons/quest.svg",
+    "name": "stairs-goal",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/stairs-goal.html"
+  },
+  {
+    "file": "icons/trophy.svg",
+    "name": "trophy-cup",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/trophy-cup.html"
+  },
+  {
+    "file": "icons/skull.svg",
+    "name": "skull-crossed-bones",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/skull-crossed-bones.html"
+  },
+  {
+    "file": "icons/pickaxe.svg",
+    "name": "war-pick",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/war-pick.html"
+  },
+  {
+    "file": "icons/lantern.svg",
+    "name": "lantern-flame",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/lantern-flame.html"
+  },
+  {
+    "file": "icons/gauge.svg",
+    "name": "speedometer",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/speedometer.html"
+  },
+  {
+    "file": "icons/calipers.svg",
+    "name": "measure-tape",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/measure-tape.html"
+  },
+  {
+    "file": "icons/test-tubes.svg",
+    "name": "test-tubes",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/test-tubes.html"
+  },
+  {
+    "file": "icons/gauntlet.svg",
+    "name": "gauntlet",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/gauntlet.html"
+  },
+  {
+    "file": "icons/ruler.svg",
+    "name": "stone-block",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/stone-block.html"
+  },
+  {
+    "file": "icons/fire.svg",
+    "name": "small-fire",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/small-fire.html"
+  },
+  {
+    "file": "icons/snowflake.svg",
+    "name": "snowflake-2",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/snowflake-2.html"
+  },
+  {
+    "file": "icons/home.svg",
+    "name": "house",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/house.html"
+  },
+  {
+    "file": "icons/mine.svg",
+    "name": "mine-truck",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/mine-truck.html"
+  },
+  {
+    "file": "icons/bridge.svg",
+    "name": "bridge",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/bridge.html"
+  },
+  {
+    "file": "icons/pump.svg",
+    "name": "water-tank",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/water-tank.html"
+  },
+  {
+    "file": "icons/boots.svg",
+    "name": "boots",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/boots.html"
+  },
+  {
+    "file": "icons/goggles.svg",
+    "name": "steampunk-goggles",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/steampunk-goggles.html"
+  },
+  {
+    "file": "icons/gloves.svg",
+    "name": "gloves",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/gloves.html"
+  },
+  {
+    "file": "icons/helmet.svg",
+    "name": "miner",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/miner.html"
+  },
+  {
+    "file": "icons/lock.svg",
+    "name": "padlock",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/padlock.html"
+  },
+  {
+    "file": "icons/unlock.svg",
+    "name": "unlocking",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/unlocking.html"
+  },
+  {
+    "file": "icons/hourglass.svg",
+    "name": "hourglass",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/hourglass.html"
+  },
+  {
+    "file": "icons/calendar.svg",
+    "name": "calendar",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/calendar.html"
+  },
+  {
+    "file": "icons/target.svg",
+    "name": "target-arrows",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/target-arrows.html"
+  },
+  {
+    "file": "icons/sound-on.svg",
+    "name": "speaker",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/speaker.html"
+  },
+  {
+    "file": "icons/sound-off.svg",
+    "name": "speaker-off",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/speaker-off.html"
+  },
+  {
+    "file": "icons/divide.svg",
+    "name": "crystal-shine",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/crystal-shine.html"
+  },
+  {
+    "file": "icons/multiply.svg",
+    "name": "cross-mark",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/cross-mark.html"
+  },
+  {
+    "file": "icons/rock.svg",
+    "name": "rock",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/rock.html"
+  },
+  {
+    "file": "icons/abacus.svg",
+    "name": "abacus",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/abacus.html"
+  },
+  {
+    "file": "icons/robot.svg",
+    "name": "robot-antennas",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/robot-antennas.html"
+  },
+  {
+    "file": "icons/circuit.svg",
+    "name": "circuitry",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/circuitry.html"
+  },
+  {
+    "file": "icons/reactor.svg",
+    "name": "nuclear-plant",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/nuclear-plant.html"
+  },
+  {
+    "file": "icons/telescope.svg",
+    "name": "telescope",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/telescope.html"
+  },
+  {
+    "file": "icons/factory.svg",
+    "name": "factory",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/factory.html"
+  },
+  {
+    "file": "icons/bell.svg",
+    "name": "ringing-bell",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/ringing-bell.html"
+  },
+  {
+    "file": "icons/repair.svg",
+    "name": "auto-repair",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/auto-repair.html"
+  },
+  {
+    "file": "icons/settings.svg",
+    "name": "settings-knobs",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/settings-knobs.html"
+  },
+  {
+    "file": "icons/exit.svg",
+    "name": "exit-door",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/exit-door.html"
+  },
+  {
+    "file": "icons/compass.svg",
+    "name": "compass",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/compass.html"
+  },
+  {
+    "file": "icons/medal.svg",
+    "name": "medal",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/medal.html"
+  },
+  {
+    "file": "icons/level-up.svg",
+    "name": "upgrade",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/upgrade.html"
+  },
+  {
+    "file": "icons/coins.svg",
+    "name": "coins",
+    "source": "game-icons.net",
+    "creator": "delapouite",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/delapouite/coins.html"
+  },
+  {
+    "file": "icons/screwdriver.svg",
+    "name": "screwdriver",
+    "source": "game-icons.net",
+    "creator": "lorc",
+    "license": "CC BY 3.0",
+    "url": "https://game-icons.net/1x1/lorc/screwdriver.html"
+  }
+]

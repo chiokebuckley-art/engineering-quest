@@ -1,0 +1,111 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>World map: a parchment-and-hologram overview of terrain from a green valley through mountains, forest, river, factories, a city, a geometric kingdom, snowy peaks and a high-tech frontier, fading into unknown fog in the upper right</title>
+<defs>
+<linearGradient id="world-map-paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cbbd98"/><stop offset="0.5" stop-color="#b9a97f"/><stop offset="1" stop-color="#8f8467"/></linearGradient>
+<radialGradient id="world-map-stain" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#6b5a3a" stop-opacity="0.18"/><stop offset="1" stop-color="#6b5a3a" stop-opacity="0"/></radialGradient>
+<radialGradient id="world-map-light" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fff7dc" stop-opacity="0.35"/><stop offset="1" stop-color="#fff7dc" stop-opacity="0"/></radialGradient>
+<linearGradient id="world-map-fog" x1="0" y1="1" x2="1" y2="0"><stop offset="0.5" stop-color="#0b1020" stop-opacity="0"/><stop offset="0.66" stop-color="#0b1020" stop-opacity="0.5"/><stop offset="0.82" stop-color="#0b1020" stop-opacity="0.86"/><stop offset="1" stop-color="#0b1020" stop-opacity="0.96"/></linearGradient>
+<linearGradient id="world-map-valley" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7ea86a"/><stop offset="1" stop-color="#5a8a4a"/></linearGradient>
+<linearGradient id="world-map-mtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8f9a"/><stop offset="1" stop-color="#4c566a"/></linearGradient>
+<linearGradient id="world-map-snow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6fa"/><stop offset="0.4" stop-color="#c9d3e3"/><stop offset="1" stop-color="#6b7a94"/></linearGradient>
+<linearGradient id="world-map-river" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb7c8"/><stop offset="1" stop-color="#3a7f93"/></linearGradient>
+<linearGradient id="world-map-ind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a6a5a"/><stop offset="1" stop-color="#4a3f36"/></linearGradient>
+<linearGradient id="world-map-city" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a9fae"/><stop offset="1" stop-color="#5a6070"/></linearGradient>
+<linearGradient id="world-map-geo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#7c5fd6"/></linearGradient>
+<linearGradient id="world-map-tech" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fe8f2"/><stop offset="1" stop-color="#1e8a9c"/></linearGradient>
+<radialGradient id="world-map-gridglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.35"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<radialGradient id="world-map-reactor" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.6"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#world-map-paper)"/>
+<ellipse cx="300" cy="200" rx="300" ry="160" fill="url(#world-map-stain)"/><ellipse cx="900" cy="600" rx="320" ry="140" fill="url(#world-map-stain)"/><ellipse cx="640" cy="360" rx="500" ry="300" fill="url(#world-map-light)"/>
+<g fill="none" stroke="#6b5a3a" stroke-width="1" opacity="0.18"><path d="M40 60 Q 300 90 520 40 T 1000 80"/><path d="M60 660 Q 400 640 700 690 T 1240 650"/><path d="M20 300 Q 40 500 30 700"/></g>
+<!-- forest (top-left mid) -->
+<g fill="#3f6b3a" stroke="#2c4a28" stroke-width="1">
+<ellipse cx="300" cy="330" rx="150" ry="80" fill="#4a7a42" stroke="none" opacity="0.7"/>
+<circle cx="220" cy="300" r="22"/><circle cx="260" cy="280" r="26"/><circle cx="300" cy="300" r="24"/><circle cx="340" cy="285" r="22"/><circle cx="380" cy="310" r="24"/><circle cx="240" cy="340" r="24"/><circle cx="290" cy="350" r="26"/><circle cx="340" cy="345" r="22"/><circle cx="400" cy="350" r="20"/><circle cx="190" cy="340" r="18"/><circle cx="420" cy="300" r="18"/><circle cx="320" cy="390" r="20"/><circle cx="260" cy="385" r="18"/><circle cx="380" cy="390" r="18"/>
+</g>
+<g fill="#6a9a5a" opacity="0.7"><circle cx="252" cy="272" r="9"/><circle cx="292" cy="292" r="8"/><circle cx="332" cy="278" r="8"/><circle cx="282" cy="342" r="9"/><circle cx="372" cy="302" r="8"/><circle cx="232" cy="332" r="8"/></g>
+<!-- valley (bottom-left) -->
+<path d="M0 470 C 80 450 160 480 240 470 C 320 460 360 520 380 560 C 400 620 380 680 340 720 L 0 720 Z" fill="url(#world-map-valley)" stroke="#4a7040" stroke-width="2"/>
+<g fill="none" stroke="#5a8a4a" stroke-width="1.5" opacity="0.6"><path d="M30 520 Q 100 500 170 520 M40 580 Q 120 560 220 590 M60 640 Q 150 620 260 650 M120 690 Q 200 680 300 700"/></g>
+<g fill="#b9a97f" stroke="#6b5a3a" stroke-width="1"><rect x="90" y="530" width="18" height="14"/><polygon points="88,530 99,520 110,530"/><rect x="130" y="560" width="16" height="12"/><polygon points="128,560 138,552 148,560"/><rect x="200" y="610" width="18" height="14"/><polygon points="198,610 209,600 220,610"/></g>
+<g fill="#3f6b3a"><circle cx="60" cy="600" r="9"/><circle cx="80" cy="612" r="7"/><circle cx="280" cy="540" r="9"/><circle cx="300" cy="555" r="7"/><circle cx="240" cy="680" r="8"/></g>
+<!-- mountains with mines (left-centre) -->
+<g fill="url(#world-map-mtn)" stroke="#3b4252" stroke-width="1.5">
+<polygon points="260,600 330,470 400,600"/><polygon points="340,590 420,420 500,590"/><polygon points="440,610 500,500 560,610"/><polygon points="380,470 430,400 470,470"/>
+</g>
+<g fill="#c9c9cf" opacity="0.7"><polygon points="330,470 318,494 342,494"/><polygon points="420,420 404,452 436,452"/></g>
+<g fill="#1a1d2a" stroke="#c9a227" stroke-width="1.5"><path d="M352 560 V546 A12 12 0 0 1 376 546 V560 Z"/><path d="M462 590 V578 A10 10 0 0 1 482 578 V590 Z"/></g>
+<g fill="#ffb347" opacity="0.8"><circle cx="364" cy="552" r="2"/><circle cx="472" cy="583" r="2"/></g>
+<g fill="none" stroke="#4a3f36" stroke-width="1.5" opacity="0.7"><path d="M364 560 L 380 600 L 420 620 M472 590 L 460 630 L 430 650"/></g>
+<!-- river -->
+<path d="M640 0 C 620 60 680 100 660 160 C 640 220 580 240 590 300 C 600 360 660 380 640 440 C 620 500 560 520 580 580 C 600 640 700 660 720 720" fill="none" stroke="#3a7f93" stroke-width="20" stroke-linecap="round" opacity="0.5"/>
+<path d="M640 0 C 620 60 680 100 660 160 C 640 220 580 240 590 300 C 600 360 660 380 640 440 C 620 500 560 520 580 580 C 600 640 700 660 720 720" fill="none" stroke="url(#world-map-river)" stroke-width="12" stroke-linecap="round"/>
+<path d="M640 0 C 620 60 680 100 660 160 C 640 220 580 240 590 300 C 600 360 660 380 640 440 C 620 500 560 520 580 580 C 600 640 700 660 720 720" fill="none" stroke="#bfe6ee" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+<rect x="590" y="288" width="22" height="8" fill="#6b5a3a"/><rect x="574" y="574" width="24" height="8" fill="#6b5a3a"/>
+<!-- industrial factory zone (bottom centre) -->
+<g fill="url(#world-map-ind)" stroke="#2f2620" stroke-width="1.5">
+<rect x="430" y="640" width="120" height="60"/><polygon points="430,640 460,616 490,640 520,616 550,640"/><rect x="470" y="580" width="14" height="60"/><rect x="510" y="596" width="12" height="44"/>
+<rect x="760" y="620" width="130" height="70"/><polygon points="760,620 792,596 824,620 856,596 890,620"/><rect x="800" y="560" width="16" height="60"/><rect x="850" y="580" width="12" height="40"/>
+<rect x="620" y="660" width="60" height="50"/><rect x="640" y="620" width="12" height="40"/>
+</g>
+<g fill="#8f8467" opacity="0.6"><ellipse cx="477" cy="570" rx="12" ry="6"/><ellipse cx="490" cy="552" rx="16" ry="8"/><ellipse cx="808" cy="550" rx="12" ry="6"/><ellipse cx="824" cy="530" rx="16" ry="8"/><ellipse cx="646" cy="610" rx="10" ry="5"/></g>
+<g fill="#c9a227"><circle cx="440" cy="672" r="12" fill="none" stroke="#c9a227" stroke-width="4" stroke-dasharray="3 2"/><circle cx="880" cy="650" r="10" fill="none" stroke="#c9a227" stroke-width="4" stroke-dasharray="3 2"/></g>
+<!-- city (centre) -->
+<g fill="url(#world-map-city)" stroke="#3b4252" stroke-width="1.5">
+<rect x="700" y="380" width="30" height="80"/><rect x="740" y="340" width="36" height="120"/><rect x="786" y="370" width="28" height="90"/><rect x="824" y="320" width="40" height="140"/><rect x="874" y="360" width="30" height="100"/><rect x="914" y="400" width="26" height="60"/><rect x="670" y="410" width="24" height="50"/>
+<polygon points="740,340 758,310 776,340"/><polygon points="824,320 844,280 864,320"/>
+</g>
+<rect x="660" y="458" width="290" height="8" fill="#5a6070"/>
+<g fill="#ffb347" opacity="0.7"><rect x="748" y="360" width="6" height="8"/><rect x="762" y="380" width="6" height="8"/><rect x="832" y="340" width="6" height="8"/><rect x="848" y="370" width="6" height="8"/><rect x="882" y="380" width="6" height="8"/><rect x="708" y="400" width="6" height="8"/></g>
+<!-- kingdom of geometric shapes (right-centre) -->
+<g stroke="#4c3a8a" stroke-width="1.5">
+<ellipse cx="1040" cy="560" rx="120" ry="60" fill="#8f7fc0" opacity="0.35" stroke="none"/>
+<polygon points="960,590 1000,510 1040,590" fill="url(#world-map-geo)"/>
+<rect x="1050" y="530" width="50" height="50" fill="url(#world-map-geo)"/><polygon points="1050,530 1064,516 1114,516 1100,530" fill="#d9ccff"/><polygon points="1100,530 1114,516 1114,566 1100,580" fill="#6a4fc0"/>
+<circle cx="1140" cy="575" r="22" fill="url(#world-map-geo)"/>
+<polygon points="980,610 1010,596 1040,610 1010,624" fill="url(#world-map-geo)"/>
+<polygon points="1080,610 1096,590 1112,610 1096,630" fill="url(#world-map-geo)"/>
+<rect x="1010" y="640" width="30" height="30" fill="url(#world-map-geo)" transform="rotate(45 1025 655)"/>
+</g>
+<!-- snowy mountains (top centre-left) -->
+<g fill="url(#world-map-snow)" stroke="#4a5568" stroke-width="1.5">
+<polygon points="420,240 500,80 580,240"/><polygon points="350,250 410,140 470,250"/><polygon points="540,230 600,110 660,230"/><polygon points="290,260 330,190 370,260"/>
+</g>
+<g fill="#f4f6fa"><polygon points="500,80 484,112 516,112"/><polygon points="410,140 398,164 422,164"/><polygon points="600,110 588,134 612,134"/></g>
+<g fill="none" stroke="#6b7a94" stroke-width="1" opacity="0.6"><path d="M500 80 L 490 240 M410 140 L 416 250 M600 110 L 606 230"/></g>
+<!-- high-tech frontier (upper right-centre) -->
+<g fill="url(#world-map-tech)" stroke="#146370" stroke-width="1.5">
+<polygon points="840,300 860,180 880,300"/><polygon points="890,290 920,210 950,290"/><polygon points="960,300 976,240 992,300"/><rect x="850" y="270" width="140" height="10"/><polygon points="800,300 820,260 840,300"/>
+</g>
+<g fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"><path d="M860 180 L 860 160 M920 210 L 920 190 M976 240 L 976 224"/></g>
+<g fill="#22d3ee" opacity="0.8"><circle cx="860" cy="158" r="3"/><circle cx="920" cy="188" r="3"/><circle cx="976" cy="222" r="2.5"/></g>
+<!-- glowing grid plain (right) -->
+<ellipse cx="1120" cy="440" rx="150" ry="70" fill="url(#world-map-gridglow)"/>
+<g fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.6"><path d="M990 470 L 1250 470 M1000 450 L 1240 450 M1010 430 L 1230 430 M1020 410 L 1220 410 M1030 390 L 1210 390"/><path d="M1040 390 L 1010 470 M1080 390 L 1064 470 M1120 390 L 1120 470 M1160 390 L 1176 470 M1200 390 L 1230 470"/></g>
+<!-- reactor complex (upper right) -->
+<g>
+<circle cx="1090" cy="210" r="60" fill="url(#world-map-reactor)"/>
+<circle cx="1090" cy="210" r="34" fill="#232838" stroke="#2dd4bf" stroke-width="2"/>
+<circle cx="1090" cy="210" r="22" fill="#111a2e" stroke="#2dd4bf" stroke-width="1.5"/>
+<circle cx="1090" cy="210" r="8" fill="#2dd4bf"/>
+<circle cx="1090" cy="210" r="46" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.7"/>
+<g fill="#3b4252" stroke="#2dd4bf" stroke-width="1"><rect x="1030" y="240" width="20" height="30"/><rect x="1130" y="236" width="24" height="34"/><rect x="1080" y="250" width="20" height="22"/></g>
+</g>
+<!-- research station (far upper right) -->
+<g fill="#3b4252" stroke="#a78bfa" stroke-width="1.5">
+<rect x="1170" y="90" width="60" height="30" rx="3"/><rect x="1190" y="60" width="20" height="30"/><circle cx="1200" cy="52" r="10" fill="#111a2e"/><path d="M1180 120 L 1170 140 M1220 120 L 1230 140" fill="none"/>
+</g>
+<circle cx="1200" cy="52" r="4" fill="#a78bfa"/>
+<!-- fog of the unknown (upper right third) -->
+<rect width="1280" height="720" fill="url(#world-map-fog)"/>
+<g fill="none" stroke="#2dd4bf" stroke-width="1.2" opacity="0.3" stroke-linecap="round">
+<path d="M900 40 H 1000 L 1030 70 H 1120 L 1150 40 H 1260"/><path d="M960 120 L 1000 120 L 1020 100 L 1100 100"/><path d="M1180 180 L 1230 180 L 1260 210 L 1280 210"/><path d="M1000 300 L 1060 300 L 1080 330 L 1180 330 L 1200 310 L 1280 310"/><path d="M1130 260 L 1130 300 M1230 220 L 1230 260 L 1260 260"/><path d="M1220 400 L 1260 400 L 1280 380"/><path d="M1120 40 L 1120 80 M980 70 L 980 90"/>
+</g>
+<g fill="#2dd4bf" opacity="0.5"><circle cx="900" cy="40" r="3"/><circle cx="1260" cy="40" r="3"/><circle cx="960" cy="120" r="2.5"/><circle cx="1000" cy="300" r="3"/><circle cx="1280" cy="310" r="2.5"/><circle cx="1130" cy="260" r="2.5"/><circle cx="1220" cy="400" r="2.5"/><circle cx="1120" cy="40" r="2"/></g>
+<!-- hologram grid overlay -->
+<g fill="none" stroke="#22d3ee" stroke-width="0.6" opacity="0.14"><path d="M80 0 V720 M160 0 V720 M240 0 V720 M320 0 V720 M400 0 V720 M480 0 V720 M560 0 V720 M640 0 V720 M720 0 V720 M800 0 V720 M880 0 V720 M960 0 V720 M1040 0 V720 M1120 0 V720 M1200 0 V720"/><path d="M0 80 H1280 M0 160 H1280 M0 240 H1280 M0 320 H1280 M0 400 H1280 M0 480 H1280 M0 560 H1280 M0 640 H1280"/></g>
+<rect x="6" y="6" width="1268" height="708" fill="none" stroke="#6b5a3a" stroke-width="2" opacity="0.35"/>
+<rect x="14" y="14" width="1252" height="692" fill="none" stroke="#2dd4bf" stroke-width="1" opacity="0.25"/>
+</svg>

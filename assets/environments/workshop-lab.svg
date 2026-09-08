@@ -1,0 +1,91 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>Workshop Laboratory: a stone workshop interior with a wooden workbench, tool rack, small furnace, shelves and a dusty covered machine in the corner, lit by warm lamp light</title>
+<defs>
+<linearGradient id="workshop-lab-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2130"/><stop offset="0.5" stop-color="#3b4252"/><stop offset="1" stop-color="#2b3040"/></linearGradient>
+<linearGradient id="workshop-lab-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3f2e"/><stop offset="1" stop-color="#2e2019"/></linearGradient>
+<radialGradient id="workshop-lab-lamp" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.55"/><stop offset="0.5" stop-color="#ffb347" stop-opacity="0.18"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<radialGradient id="workshop-lab-fire" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fff1c7"/><stop offset="0.4" stop-color="#ffb347"/><stop offset="1" stop-color="#b91c1c"/></radialGradient>
+<radialGradient id="workshop-lab-fglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ff6a1a" stop-opacity="0.45"/><stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/></radialGradient>
+<linearGradient id="workshop-lab-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5637"/><stop offset="1" stop-color="#4a3421"/></linearGradient>
+<linearGradient id="workshop-lab-stone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c566a"/><stop offset="1" stop-color="#232838"/></linearGradient>
+<linearGradient id="workshop-lab-cloth" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a9aa6"/><stop offset="0.5" stop-color="#6b6b78"/><stop offset="1" stop-color="#3f3f4a"/></linearGradient>
+<linearGradient id="workshop-lab-brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6d1d"/><stop offset="0.5" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d1d"/></linearGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#workshop-lab-wall)"/>
+<!-- stone wall blocks -->
+<g fill="none" stroke="#1a1d2a" stroke-width="2" opacity="0.6"><path d="M0 100 H1280 M0 160 H1280 M0 220 H1280 M0 280 H1280 M0 340 H1280 M0 400 H1280"/><path d="M80 100 V160 M240 100 V160 M400 100 V160 M560 100 V160 M720 100 V160 M880 100 V160 M1040 100 V160 M1200 100 V160 M160 160 V220 M320 160 V220 M480 160 V220 M640 160 V220 M800 160 V220 M960 160 V220 M1120 160 V220 M80 220 V280 M240 220 V280 M400 220 V280 M560 220 V280 M720 220 V280 M880 220 V280 M1040 220 V280 M1200 220 V280 M160 280 V340 M320 280 V340 M480 280 V340 M640 280 V340 M800 280 V340 M960 280 V340 M1120 280 V340 M80 340 V400 M240 340 V400 M400 340 V400 M560 340 V400 M720 340 V400 M880 340 V400 M1040 340 V400 M1200 340 V400"/></g>
+<!-- ceiling beams -->
+<g fill="#3a2818" stroke="#1a1d2a" stroke-width="2"><rect x="0" y="0" width="1280" height="70"/><rect x="0" y="60" width="1280" height="16" fill="#2e2019"/></g>
+<g fill="#4a3421"><rect x="150" y="0" width="36" height="60"/><rect x="450" y="0" width="36" height="60"/><rect x="794" y="0" width="36" height="60"/><rect x="1094" y="0" width="36" height="60"/></g>
+<!-- window (night, teal) -->
+<path d="M850 150 V260 H970 V150 A60 60 0 0 0 850 150 Z" fill="#0b1020" stroke="#232838" stroke-width="8"/>
+<path d="M910 96 V260 M856 200 H964" stroke="#232838" stroke-width="6"/>
+<g fill="#2dd4bf" opacity="0.3"><circle cx="880" cy="170" r="2"/><circle cx="940" cy="150" r="1.5"/><circle cx="930" cy="230" r="1.5"/></g>
+<!-- lamp -->
+<ellipse cx="640" cy="240" rx="480" ry="300" fill="url(#workshop-lab-lamp)"/>
+<line x1="640" y1="76" x2="640" y2="150" stroke="#6b7280" stroke-width="3"/>
+<path d="M590 150 L690 150 L664 196 L616 196 Z" fill="#8a6d1d" stroke="#3a2a10" stroke-width="2"/>
+<ellipse cx="640" cy="196" rx="24" ry="8" fill="#ffb347"/>
+<circle cx="640" cy="176" r="14" fill="#fff1c7" opacity="0.9"/>
+<!-- floor -->
+<rect x="0" y="470" width="1280" height="250" fill="url(#workshop-lab-floor)"/>
+<g fill="none" stroke="#1a1d2a" stroke-width="2" opacity="0.7"><path d="M0 520 H1280 M0 580 H1280 M0 650 H1280 M0 470 H1280" stroke-width="3"/><path d="M200 470 V520 M520 470 V520 M840 470 V520 M1160 470 V520 M60 520 V580 M380 520 V580 M700 520 V580 M1020 520 V580 M240 580 V650 M560 580 V650 M880 580 V650 M1200 580 V650 M120 650 V720 M440 650 V720 M760 650 V720 M1080 650 V720"/></g>
+<ellipse cx="640" cy="560" rx="360" ry="90" fill="#ffb347" opacity="0.08"/>
+<!-- tool rack (back wall left) -->
+<g stroke="#1a1d2a" stroke-width="2">
+<rect x="60" y="180" width="300" height="16" fill="url(#workshop-lab-wood)"/>
+<rect x="60" y="330" width="300" height="16" fill="url(#workshop-lab-wood)"/>
+<g fill="#6b7280"><rect x="90" y="196" width="8" height="120"/><rect x="150" y="196" width="8" height="100"/><rect x="210" y="196" width="8" height="130"/><rect x="270" y="196" width="8" height="110"/><rect x="330" y="196" width="6" height="90"/></g>
+<path d="M76 196 H112 V214 H76 Z" fill="#6b7280"/><rect x="140" y="196" width="28" height="12" fill="#8a6d1d"/><path d="M196 196 L232 196 L214 222 Z" fill="#6b7280"/><rect x="258" y="290 " width="32" height="20" rx="4" fill="#4a3421"/><path d="M326 196 L346 196 L342 230 L330 230 Z" fill="#b87333"/>
+</g>
+<!-- shelves (back wall right) -->
+<g stroke="#1a1d2a" stroke-width="2">
+<rect x="1000" y="160" width="240" height="14" fill="url(#workshop-lab-wood)"/><rect x="1000" y="250" width="240" height="14" fill="url(#workshop-lab-wood)"/><rect x="1000" y="340" width="240" height="14" fill="url(#workshop-lab-wood)"/>
+<g stroke-width="1.5"><rect x="1010" y="124" width="30" height="36" rx="4" fill="#2dd4bf" opacity="0.7"/><rect x="1050" y="130" width="24" height="30" rx="4" fill="#a78bfa" opacity="0.6"/><rect x="1090" y="120" width="34" height="40" rx="4" fill="#ffb347" opacity="0.6"/><rect x="1140" y="134" width="22" height="26" rx="3" fill="#4ade80" opacity="0.5"/><rect x="1180" y="126" width="40" height="34" rx="2" fill="#5b2c3a"/>
+<rect x="1010" y="220" width="50" height="30" fill="#4a3421"/><rect x="1070" y="214" width="14" height="36" fill="#5b2c3a"/><rect x="1088" y="218" width="12" height="32" fill="#2f4858"/><rect x="1104" y="212" width="16" height="38" fill="#3d3a2a"/><circle cx="1160" cy="234" r="16" fill="#2b3040" stroke="#c9a227" stroke-width="4" stroke-dasharray="3 2"/><circle cx="1200" cy="236" r="12" fill="#2b3040" stroke="#b87333" stroke-width="3" stroke-dasharray="3 2"/>
+<rect x="1010" y="304" width="40" height="36" fill="#6b7280"/><ellipse cx="1030" cy="304" rx="20" ry="6" fill="#8a8f9c"/><rect x="1070" y="312" width="60" height="28" fill="#4c566a"/><g fill="#c9a227"><circle cx="1160" cy="326" r="10"/><circle cx="1184" cy="330" r="8"/><circle cx="1210" cy="324" r="12"/></g></g>
+</g>
+<!-- workbench (left) -->
+<g stroke="#1a1d2a" stroke-width="2">
+<rect x="40" y="440" width="360" height="26" rx="3" fill="url(#workshop-lab-wood)"/>
+<rect x="60" y="466" width="20" height="200" fill="#4a3421"/><rect x="360" y="466" width="20" height="200" fill="#4a3421"/>
+<rect x="60" y="560" width="320" height="16" fill="#4a3421"/><rect x="80" y="576" width="280" height="80" fill="#3a2818"/><rect x="100" y="596" width="60" height="40" fill="#2e2019"/><circle cx="130" cy="616" r="4" fill="#c9a227"/><rect x="180" y="596" width="60" height="40" fill="#2e2019"/><circle cx="210" cy="616" r="4" fill="#c9a227"/><rect x="260" y="596" width="60" height="40" fill="#2e2019"/><circle cx="290" cy="616" r="4" fill="#c9a227"/>
+<rect x="120" y="416" width="70" height="24" fill="#6b7280"/><rect x="128" y="404" width="54" height="12" fill="#4c566a"/><rect x="150" y="380" width="10" height="24" fill="#6b7280"/><rect x="132" y="376" width="46" height="8" fill="#3b4252"/>
+<circle cx="250" cy="426" r="14" fill="#2b3040" stroke="#c9a227" stroke-width="5" stroke-dasharray="4 3"/><circle cx="286" cy="430" r="9" fill="#2b3040" stroke="#b87333" stroke-width="4" stroke-dasharray="3 2"/>
+<path d="M310 440 L350 410" stroke="#6b7280" stroke-width="5" stroke-linecap="round"/><path d="M344 404 L364 410 L360 424" fill="#6b7280"/>
+<g fill="#e5e7eb" stroke="none" opacity="0.85"><rect x="60" y="428" width="50" height="12" transform="rotate(-6 85 434)"/></g>
+</g>
+<!-- small furnace (right) -->
+<g stroke="#1a1d2a" stroke-width="2">
+<ellipse cx="1120" cy="520" rx="150" ry="80" fill="url(#workshop-lab-fglow)"/>
+<rect x="1040" y="380" width="180" height="200" rx="6" fill="url(#workshop-lab-stone)"/>
+<rect x="1100" y="200" width="60" height="180" fill="#3b4252"/><rect x="1092" y="190" width="76" height="14" fill="#4c566a"/>
+<path d="M1070 580 V470 A60 60 0 0 1 1190 470 V580 Z" fill="#0b0e18"/>
+<path d="M1082 580 V478 A48 48 0 0 1 1178 478 V580 Z" fill="url(#workshop-lab-fire)"/>
+<g stroke="#1a1d2a" stroke-width="6" stroke-linecap="round"><line x1="1100" y1="500" x2="1100" y2="580"/><line x1="1130" y1="490" x2="1130" y2="580"/><line x1="1160" y1="500" x2="1160" y2="580"/></g>
+<rect x="1030" y="576" width="200" height="20" fill="#3b4252"/>
+<g fill="#c9a227"><circle cx="1052" cy="392" r="3.5"/><circle cx="1208" cy="392" r="3.5"/><circle cx="1052" cy="566" r="3.5"/><circle cx="1208" cy="566" r="3.5"/></g>
+<path d="M1040 420 H 1010 V 590" fill="none" stroke="url(#workshop-lab-brass)" stroke-width="10" stroke-linecap="round"/>
+<circle cx="1010" cy="400" r="16" fill="#1a1d2a" stroke="#c9a227" stroke-width="3"/><line x1="1010" y1="400" x2="1018" y2="390" stroke="#ef4444" stroke-width="2"/>
+</g>
+<g fill="#ffb347" opacity="0.7"><circle cx="1120" cy="450" r="1.5"/><circle cx="1100" cy="430" r="1"/><circle cx="1140" cy="420" r="1.2"/></g>
+<!-- covered machine (far right corner) -->
+<g stroke="#1a1d2a" stroke-width="2">
+<path d="M1150 700 L 1160 560 Q 1180 500 1230 560 L 1280 700 Z" fill="url(#workshop-lab-cloth)"/>
+<path d="M1150 700 L 1180 620 L 1200 700 M1200 700 L 1210 600 L 1240 700" fill="none" stroke="#2f2f3a" stroke-width="2" opacity="0.7"/>
+<path d="M1200 560 Q 1210 520 1230 560" fill="none" stroke="#3f3f4a" stroke-width="3"/>
+<circle cx="1170" cy="700" r="14" fill="#2b3040" stroke="#c9a227" stroke-width="4" stroke-dasharray="3 2"/><circle cx="1170" cy="700" r="4" fill="#c9a227"/>
+</g>
+<!-- crates, foreground -->
+<g stroke="#1a1d2a" stroke-width="2">
+<rect x="20" y="640" width="90" height="80" fill="url(#workshop-lab-wood)"/><path d="M20 640 L110 720 M110 640 L20 720" stroke="#3a2818" stroke-width="4"/>
+<rect x="1180" y="660" width="100" height="60" fill="url(#workshop-lab-wood)"/><path d="M1180 660 L1280 720 M1280 660 L1180 720" stroke="#3a2818" stroke-width="4"/>
+<rect x="950" y="650" width="60" height="50" rx="2" fill="#4c566a"/><ellipse cx="980" cy="650" rx="30" ry="8" fill="#6b7280"/>
+</g>
+<!-- dust in lamp light -->
+<g fill="#fff1c7" opacity="0.4"><circle cx="560" cy="300" r="1.2"/><circle cx="700" cy="330" r="1"/><circle cx="600" cy="380" r="1"/><circle cx="680" cy="260" r="1.2"/><circle cx="520" cy="360" r="1"/><circle cx="760" cy="400" r="1"/></g>
+<!-- vignette -->
+<path d="M0 0 H100 C 60 200 60 500 90 720 H0 Z" fill="#05070d" opacity="0.35"/>
+<path d="M1280 0 H1180 C 1220 200 1220 500 1190 720 H1280 Z" fill="#05070d" opacity="0.35"/>
+</svg>

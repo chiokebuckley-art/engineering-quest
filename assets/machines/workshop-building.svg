@@ -1,0 +1,79 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 384" role="img">
+<title>Workshop building exterior: a small stone-and-timber workshop with a gabled roof, brass chimney, gear sign above the door and warmly lit windows</title>
+<defs>
+<linearGradient id="workshop-building-stone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c566a"/><stop offset="1" stop-color="#2b3040"/></linearGradient>
+<linearGradient id="workshop-building-timber" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5637"/><stop offset="1" stop-color="#4a3421"/></linearGradient>
+<linearGradient id="workshop-building-roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3f2e"/><stop offset="1" stop-color="#2e2019"/></linearGradient>
+<linearGradient id="workshop-building-brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6d1d"/><stop offset="0.5" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d1d"/></linearGradient>
+<radialGradient id="workshop-building-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.5"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<linearGradient id="workshop-building-win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#e08a2a"/></linearGradient>
+</defs>
+<ellipse cx="256" cy="362" rx="220" ry="16" fill="#05070d" opacity="0.5"/>
+<!-- stone lower wall -->
+<g stroke="#151827" stroke-width="2.5">
+<rect x="70" y="220" width="372" height="130" fill="url(#workshop-building-stone)"/>
+<rect x="60" y="340" width="392" height="16" fill="#3b4252"/>
+</g>
+<g fill="none" stroke="#1a1d2a" stroke-width="1.5" opacity="0.7"><path d="M70 250 H442 M70 280 H442 M70 310 H442 M110 220 V250 M170 220 V250 M230 220 V250 M290 220 V250 M350 220 V250 M410 220 V250 M90 250 V280 M150 250 V280 M330 250 V280 M390 250 V280 M110 280 V310 M170 280 V310 M350 280 V310 M410 280 V310 M90 310 V340 M150 310 V340 M330 310 V340 M390 310 V340"/></g>
+<!-- timber upper wall -->
+<g stroke="#151827" stroke-width="2.5">
+<rect x="70" y="150" width="372" height="72" fill="#cbbd98"/>
+</g>
+<g fill="#4a3421"><rect x="70" y="150" width="372" height="10"/><rect x="70" y="212" width="372" height="10"/><rect x="70" y="150" width="12" height="72"/><rect x="430" y="150" width="12" height="72"/><rect x="180" y="150" width="10" height="72"/><rect x="322" y="150" width="10" height="72"/></g>
+<g stroke="#4a3421" stroke-width="8"><path d="M82 160 L 180 212 M180 160 L 82 212 M332 160 L 430 212 M430 160 L 332 212"/></g>
+<!-- upper window -->
+<rect x="232" y="164" width="48" height="40" fill="url(#workshop-building-win)" stroke="#2e2019" stroke-width="3"/>
+<path d="M256 164 V204 M232 184 H280" stroke="#2e2019" stroke-width="3"/>
+<circle cx="256" cy="184" r="50" fill="url(#workshop-building-glow)"/>
+<!-- roof -->
+<g stroke="#151827" stroke-width="2.5">
+<polygon points="50,154 256,40 462,154" fill="url(#workshop-building-roof)"/>
+<polygon points="50,154 462,154 448,166 64,166" fill="#2e2019"/>
+</g>
+<g fill="none" stroke="#3a2818" stroke-width="2" opacity="0.7"><path d="M90 132 L 422 132 M130 110 L 382 110 M170 88 L 342 88 M210 66 L 302 66"/></g>
+<path d="M256 40 L 462 154" fill="none" stroke="#7a5637" stroke-width="3" opacity="0.5"/>
+<!-- brass chimney -->
+<g stroke="#3a2a10" stroke-width="2">
+<rect x="340" y="60" width="34" height="80" fill="url(#workshop-building-brass)"/>
+<rect x="332" y="52" width="50" height="14" rx="3" fill="#c9a227"/>
+<rect x="336" y="40" width="42" height="12" rx="6" fill="#8a6d1d"/>
+</g>
+<g fill="#6b7280" opacity="0.35"><ellipse cx="357" cy="32" rx="12" ry="6"/><ellipse cx="366" cy="18" rx="16" ry="8"/><ellipse cx="380" cy="6" rx="20" ry="9"/></g>
+<g fill="#e0c25a"><circle cx="346" cy="74" r="2"/><circle cx="368" cy="74" r="2"/><circle cx="346" cy="128" r="2"/><circle cx="368" cy="128" r="2"/></g>
+<!-- door -->
+<g stroke="#151827" stroke-width="2.5">
+<path d="M222 340 V 268 A 34 34 0 0 1 290 268 V 340 Z" fill="#3b4252"/>
+<path d="M230 340 V 270 A 26 26 0 0 1 282 270 V 340 Z" fill="url(#workshop-building-timber)"/>
+</g>
+<g stroke="#2e2019" stroke-width="2"><path d="M243 250 V340 M269 250 V340 M230 300 H282"/></g>
+<circle cx="274" cy="306" r="4" fill="#c9a227"/>
+<path d="M232 274 A 24 24 0 0 1 280 274" fill="none" stroke="#6b7280" stroke-width="4"/>
+<!-- gear sign -->
+<line x1="256" y1="222" x2="256" y2="236" stroke="#6b7280" stroke-width="3"/>
+<circle cx="256" cy="250" r="18" fill="#2b3040" stroke="#c9a227" stroke-width="6" stroke-dasharray="5 4"/>
+<circle cx="256" cy="250" r="9" fill="none" stroke="#c9a227" stroke-width="3"/><circle cx="256" cy="250" r="3" fill="#ffb347"/>
+<!-- lower windows -->
+<g stroke="#2e2019" stroke-width="3">
+<rect x="110" y="262" width="60" height="50" fill="url(#workshop-building-win)"/><path d="M140 262 V312 M110 287 H170"/>
+<rect x="342" y="262" width="60" height="50" fill="url(#workshop-building-win)"/><path d="M372 262 V312 M342 287 H402"/>
+</g>
+<circle cx="140" cy="287" r="60" fill="url(#workshop-building-glow)"/><circle cx="372" cy="287" r="60" fill="url(#workshop-building-glow)"/>
+<g fill="#4a3421" stroke="#151827" stroke-width="1.5"><rect x="104" y="312" width="72" height="8"/><rect x="336" y="312" width="72" height="8"/></g>
+<!-- external pipe and small gear -->
+<path d="M442 300 H 462 V 160 Q 462 146 476 146 H 490" fill="none" stroke="#8a6d1d" stroke-width="7" stroke-linecap="round"/>
+<path d="M442 300 H 462 V 160 Q 462 146 476 146 H 490" fill="none" stroke="#c9a227" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+<circle cx="494" cy="146" r="11" fill="#2b3040" stroke="#c9a227" stroke-width="4" stroke-dasharray="3 2"/><circle cx="494" cy="146" r="3" fill="#c9a227"/>
+<rect x="452" y="296" width="20" height="10" rx="2" fill="#6b7280" stroke="#151827" stroke-width="1.5"/>
+<!-- lantern by door -->
+<circle cx="200" cy="262" r="30" fill="url(#workshop-building-glow)"/>
+<rect x="194" y="252" width="12" height="16" rx="2" fill="#8a6d1d" stroke="#3a2a10" stroke-width="1.5"/><rect x="197" y="255" width="6" height="10" fill="#ffb347"/><line x1="200" y1="240" x2="200" y2="252" stroke="#6b7280" stroke-width="2"/>
+<!-- crates and barrel -->
+<g stroke="#151827" stroke-width="2">
+<rect x="20" y="300" width="50" height="50" fill="url(#workshop-building-timber)"/><path d="M20 300 L70 350 M70 300 L20 350" stroke="#3a2818" stroke-width="3"/>
+<rect x="30" y="266" width="36" height="34" fill="url(#workshop-building-timber)"/><path d="M30 266 L66 300 M66 266 L30 300" stroke="#3a2818" stroke-width="2.5"/>
+<path d="M448 350 V 296 Q 470 288 492 296 V 350 Z" fill="#4a3421"/><path d="M448 310 H492 M448 336 H492" stroke="#6b7280" stroke-width="3"/>
+</g>
+<!-- ground -->
+<path d="M40 356 H 472" fill="none" stroke="#3b4252" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,72 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>Division Dungeon: a symmetrical hall of split stone divided by a glowing teal line down the middle, with iron gates, receding columns and cold blue-grey light</title>
+<defs>
+<linearGradient id="division-dungeon-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="0.6" stop-color="#1a2236"/><stop offset="1" stop-color="#111a2e"/></linearGradient>
+<linearGradient id="division-dungeon-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3448"/><stop offset="1" stop-color="#141a2a"/></linearGradient>
+<linearGradient id="division-dungeon-col" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#232838"/><stop offset="0.4" stop-color="#4c566a"/><stop offset="1" stop-color="#1c2130"/></linearGradient>
+<linearGradient id="division-dungeon-colR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#232838"/><stop offset="0.4" stop-color="#4c566a"/><stop offset="1" stop-color="#1c2130"/></linearGradient>
+<linearGradient id="division-dungeon-line" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.2"/><stop offset="0.5" stop-color="#2dd4bf"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0.6"/></linearGradient>
+<radialGradient id="division-dungeon-tglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.35"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+<radialGradient id="division-dungeon-cold" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#93c5fd" stop-opacity="0.22"/><stop offset="1" stop-color="#93c5fd" stop-opacity="0"/></radialGradient>
+<linearGradient id="division-dungeon-gate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b7280"/><stop offset="1" stop-color="#2b3040"/></linearGradient>
+<linearGradient id="division-dungeon-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2130"/><stop offset="1" stop-color="#2b3448"/></linearGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#division-dungeon-bg)"/>
+<!-- back wall -->
+<rect x="360" y="180" width="560" height="300" fill="url(#division-dungeon-wall)"/>
+<g fill="none" stroke="#111a2e" stroke-width="1.5" opacity="0.8"><path d="M360 220 H920 M360 260 H920 M360 300 H920 M360 340 H920 M360 380 H920 M360 420 H920 M360 460 H920"/><path d="M420 180 V220 M500 180 V220 M580 180 V220 M700 180 V220 M780 180 V220 M860 180 V220 M380 220 V260 M460 220 V260 M540 220 V260 M740 220 V260 M820 220 V260 M900 220 V260 M420 260 V300 M500 260 V300 M780 260 V300 M860 260 V300 M380 300 V340 M460 300 V340 M820 300 V340 M900 300 V340 M420 340 V380 M860 340 V380 M380 380 V420 M900 380 V420 M420 420 V460 M860 420 V460"/></g>
+<!-- vaulted ceiling arches -->
+<g fill="none" stroke="#2b3448" stroke-width="16">
+<path d="M0 260 Q 640 -120 1280 260"/><path d="M160 300 Q 640 -20 1120 300"/><path d="M300 320 Q 640 60 980 320"/>
+</g>
+<g fill="none" stroke="#3b4252" stroke-width="3" opacity="0.6"><path d="M0 250 Q 640 -130 1280 250"/><path d="M160 292 Q 640 -28 1120 292"/><path d="M300 314 Q 640 54 980 314"/></g>
+<!-- cold light -->
+<ellipse cx="640" cy="300" rx="420" ry="260" fill="url(#division-dungeon-cold)"/>
+<!-- iron gate at back -->
+<g>
+<path d="M540 480 V300 A100 100 0 0 1 740 300 V480 Z" fill="#05070d"/>
+<path d="M540 480 V300 A100 100 0 0 1 740 300 V480" fill="none" stroke="#4c566a" stroke-width="14"/>
+<g stroke="url(#division-dungeon-gate)" stroke-width="7" stroke-linecap="round"><line x1="565" y1="300" x2="565" y2="480"/><line x1="590" y1="270" x2="590" y2="480"/><line x1="615" y1="250" x2="615" y2="480"/><line x1="665" y1="250" x2="665" y2="480"/><line x1="690" y1="270" x2="690" y2="480"/><line x1="715" y1="300" x2="715" y2="480"/></g>
+<g stroke="#6b7280" stroke-width="6"><line x1="546" y1="340" x2="734" y2="340"/><line x1="546" y1="410" x2="734" y2="410"/></g>
+<g fill="#6b7280"><circle cx="565" cy="340" r="4"/><circle cx="615" cy="340" r="4"/><circle cx="665" cy="340" r="4"/><circle cx="715" cy="340" r="4"/><circle cx="565" cy="410" r="4"/><circle cx="615" cy="410" r="4"/><circle cx="665" cy="410" r="4"/><circle cx="715" cy="410" r="4"/></g>
+<rect x="628" y="360" width="24" height="30" rx="3" fill="#3b4252" stroke="#1a1d2a" stroke-width="2"/><circle cx="640" cy="372" r="4" fill="#2dd4bf" opacity="0.8"/>
+</g>
+<!-- floor -->
+<path d="M0 480 H1280 V720 H0 Z" fill="url(#division-dungeon-floor)"/>
+<g fill="none" stroke="#0b1020" stroke-width="2" opacity="0.8">
+<path d="M0 520 H1280 M0 570 H1280 M0 635 H1280"/>
+<path d="M640 480 L 200 720 M640 480 L 1080 720 M640 480 L 0 640 M640 480 L 1280 640 M640 480 L 420 720 M640 480 L 860 720 M640 480 L 0 560 M640 480 L 1280 560"/>
+</g>
+<path d="M0 480 H 640 V 720 H 0 Z" fill="#93c5fd" opacity="0.03"/>
+<!-- columns receding, symmetric -->
+<g stroke="#0b1020" stroke-width="2">
+<rect x="70" y="120" width="90" height="400" fill="url(#division-dungeon-col)"/><rect x="56" y="104" width="118" height="22" fill="#3b4252"/><rect x="56" y="514" width="118" height="26" fill="#3b4252"/><rect x="50" y="536" width="130" height="14" fill="#2b3040"/>
+<rect x="1120" y="120" width="90" height="400" fill="url(#division-dungeon-colR)"/><rect x="1106" y="104" width="118" height="22" fill="#3b4252"/><rect x="1106" y="514" width="118" height="26" fill="#3b4252"/><rect x="1100" y="536" width="130" height="14" fill="#2b3040"/>
+<rect x="250" y="190" width="64" height="310" fill="url(#division-dungeon-col)"/><rect x="240" y="178" width="84" height="16" fill="#3b4252"/><rect x="240" y="496" width="84" height="18" fill="#3b4252"/>
+<rect x="966" y="190" width="64" height="310" fill="url(#division-dungeon-colR)"/><rect x="956" y="178" width="84" height="16" fill="#3b4252"/><rect x="956" y="496" width="84" height="18" fill="#3b4252"/>
+<rect x="380" y="240" width="44" height="248" fill="url(#division-dungeon-col)"/><rect x="374" y="232" width="56" height="12" fill="#3b4252"/>
+<rect x="856" y="240" width="44" height="248" fill="url(#division-dungeon-colR)"/><rect x="850" y="232" width="56" height="12" fill="#3b4252"/>
+</g>
+<g fill="none" stroke="#111a2e" stroke-width="2" opacity="0.7"><path d="M90 140 V500 M140 140 V500 M270 200 V490 M300 200 V490 M1140 140 V500 M1190 140 V500 M980 200 V490 M1010 200 V490"/></g>
+<!-- column runes (cold) -->
+<g fill="#93c5fd" opacity="0.35"><rect x="108" y="300" width="14" height="4"/><rect x="113" y="310" width="4" height="20"/><rect x="104" y="340" width="22" height="4"/><rect x="1158" y="300" width="14" height="4"/><rect x="1163" y="310" width="4" height="20"/><rect x="1154" y="340" width="22" height="4"/></g>
+<!-- the dividing line -->
+<rect x="590" y="0" width="100" height="720" fill="url(#division-dungeon-tglow)"/>
+<ellipse cx="640" cy="480" rx="220" ry="40" fill="url(#division-dungeon-tglow)"/>
+<rect x="636" y="0" width="8" height="720" fill="url(#division-dungeon-line)" opacity="0.5"/>
+<rect x="639" y="0" width="2" height="720" fill="#e0fffa"/>
+<g fill="#2dd4bf" opacity="0.7"><rect x="626" y="500" width="28" height="3"/><rect x="620" y="560" width="40" height="3"/><rect x="612" y="640" width="56" height="3"/><rect x="630" y="140" width="20" height="3"/><rect x="622" y="60" width="36" height="3"/></g>
+<g fill="#2dd4bf" opacity="0.55"><rect x="606" y="510" width="4" height="4"/><rect x="670" y="510" width="4" height="4"/><rect x="596" y="580" width="4" height="4"/><rect x="680" y="580" width="4" height="4"/></g>
+<!-- ceiling drips / cracks -->
+<g fill="none" stroke="#0b1020" stroke-width="2"><path d="M470 180 L482 210 L474 240 L490 270"/><path d="M810 180 L798 210 L806 240 L790 270"/><path d="M180 560 L220 590 L210 640"/><path d="M1100 560 L1060 590 L1070 640"/></g>
+<!-- foreground braziers, unlit but frosted -->
+<g stroke="#0b1020" stroke-width="2">
+<rect x="20" y="600" width="70" height="120" fill="#232838"/><rect x="10" y="590" width="90" height="16" fill="#3b4252"/><ellipse cx="55" cy="590" rx="36" ry="8" fill="#1c2130"/>
+<rect x="1190" y="600" width="70" height="120" fill="#232838"/><rect x="1180" y="590" width="90" height="16" fill="#3b4252"/><ellipse cx="1225" cy="590" rx="36" ry="8" fill="#1c2130"/>
+</g>
+<g fill="#93c5fd" opacity="0.5"><ellipse cx="55" cy="588" rx="20" ry="4"/><ellipse cx="1225" cy="588" rx="20" ry="4"/></g>
+<!-- vignette -->
+<path d="M0 0 H150 C 90 200 80 500 120 720 H0 Z" fill="#05070d" opacity="0.5"/>
+<path d="M1280 0 H1130 C 1190 200 1200 500 1160 720 H1280 Z" fill="#05070d" opacity="0.5"/>
+</svg>

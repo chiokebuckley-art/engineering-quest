@@ -1,0 +1,93 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Foreman Brick, mine foreman and quest giver: a burly man with a thick moustache, a mining helmet with a lit lamp, and suspenders over a work shirt</title>
+  <defs>
+    <radialGradient id="foreman-brick-bg" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.36"/>
+      <stop offset="0.6" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </radialGradient>
+    <linearGradient id="foreman-brick-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6b490"/>
+      <stop offset="1" stop-color="#a86f4a"/>
+    </linearGradient>
+    <linearGradient id="foreman-brick-helmet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0c040"/>
+      <stop offset="1" stop-color="#8a6010"/>
+    </linearGradient>
+    <linearGradient id="foreman-brick-shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a0704a"/>
+      <stop offset="1" stop-color="#5c3d22"/>
+    </linearGradient>
+    <linearGradient id="foreman-brick-strap" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4c3120"/>
+      <stop offset="1" stop-color="#2a1a0e"/>
+    </linearGradient>
+    <linearGradient id="foreman-brick-hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b4a30"/>
+      <stop offset="1" stop-color="#2e1a0c"/>
+    </linearGradient>
+    <radialGradient id="foreman-brick-lamp" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff7d6"/>
+      <stop offset="0.3" stop-color="#ffb347" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="128" cy="118" r="100" fill="url(#foreman-brick-bg)" stroke="#ffb347" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="128" cy="118" r="92" fill="none" stroke="#ffb347" stroke-opacity="0.18"/>
+  <!-- broad shoulders and work shirt -->
+  <path d="M16 256 L16 240 Q20 200 68 184 L108 172 L148 172 L188 184 Q236 200 240 240 L240 256 Z" fill="url(#foreman-brick-shirt)" stroke="#0b1020" stroke-width="2"/>
+  <path d="M108 172 L148 172 L128 208 Z" fill="#e8d6b8" stroke="#5c3d22" stroke-width="1.5"/>
+  <path d="M108 172 L94 190 L118 216 L128 208 Z" fill="#8a5e3c" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M148 172 L162 190 L138 216 L128 208 Z" fill="#96694a" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M60 200 L60 256 M196 200 L196 256 M40 220 L216 220 M30 242 L226 242" fill="none" stroke="#0b1020" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M128 208 L128 256" fill="none" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="128" cy="222" r="2.4" fill="#c9a227" stroke="#5a4310"/>
+  <circle cx="128" cy="240" r="2.4" fill="#c9a227" stroke="#5a4310"/>
+  <!-- suspenders with brass clips -->
+  <path d="M82 186 L86 256 L102 256 L96 186 Z" fill="url(#foreman-brick-strap)" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M174 186 L170 256 L154 256 L160 186 Z" fill="url(#foreman-brick-strap)" stroke="#0b1020" stroke-width="1.5"/>
+  <rect x="86" y="236" width="14" height="8" rx="1" fill="#c9a227" stroke="#5a4310" stroke-width="1"/>
+  <rect x="156" y="236" width="14" height="8" rx="1" fill="#c9a227" stroke="#5a4310" stroke-width="1"/>
+  <!-- thick neck -->
+  <path d="M108 146 L108 180 L148 180 L148 146 Z" fill="url(#foreman-brick-skin)" stroke="#6b4a30" stroke-width="1.5"/>
+  <path d="M108 148 Q128 168 148 148 L148 160 Q128 176 108 160 Z" fill="#000" fill-opacity="0.22"/>
+  <!-- square head -->
+  <path d="M90 100 Q92 60 128 58 Q164 60 166 100 L166 134 Q166 156 146 162 L110 162 Q90 156 90 134 Z" fill="url(#foreman-brick-skin)" stroke="#6b4a30" stroke-width="2"/>
+  <path d="M150 66 Q168 96 164 136 Q158 158 132 162 Q146 150 150 128 Q156 98 150 66 Z" fill="#000" fill-opacity="0.13"/>
+  <path d="M94 128 Q100 156 128 162 Q156 156 162 128 Q152 138 128 140 Q104 138 94 128 Z" fill="#2e1a0c" fill-opacity="0.22"/>
+  <ellipse cx="89" cy="116" rx="6" ry="9" fill="url(#foreman-brick-skin)" stroke="#6b4a30" stroke-width="1.5"/>
+  <ellipse cx="167" cy="116" rx="6" ry="9" fill="#c9906a" stroke="#6b4a30" stroke-width="1.5"/>
+  <!-- sideburns -->
+  <path d="M92 96 L92 128 L98 126 L100 96 Z M164 96 L164 128 L158 126 L156 96 Z" fill="url(#foreman-brick-hair)" stroke="#2e1a0c" stroke-width="1"/>
+  <!-- mining helmet -->
+  <path d="M84 96 Q84 44 128 40 Q172 44 172 96 Z" fill="url(#foreman-brick-helmet)" stroke="#5a4310" stroke-width="2"/>
+  <path d="M78 96 Q128 86 178 96 Q180 102 176 104 Q128 96 80 104 Q76 102 78 96 Z" fill="#c9a227" stroke="#5a4310" stroke-width="2"/>
+  <path d="M96 62 Q110 48 128 48" fill="none" stroke="#fff" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M128 40 L128 92 M100 52 Q96 70 96 92 M156 52 Q160 70 160 92" fill="none" stroke="#5a4310" stroke-opacity="0.5" stroke-width="1.2"/>
+  <circle cx="128" cy="72" r="16" fill="url(#foreman-brick-lamp)"/>
+  <rect x="116" y="62" width="24" height="20" rx="3" fill="#3b4252" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="128" cy="72" r="7" fill="#fff7d6" stroke="#8a6d1d" stroke-width="1.5"/>
+  <circle cx="128" cy="72" r="3" fill="#ffb347"/>
+  <!-- heavy brows -->
+  <path d="M100 99 Q113 93 124 98" fill="none" stroke="#3a2412" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M134 98 Q145 93 158 99" fill="none" stroke="#3a2412" stroke-width="3.6" stroke-linecap="round"/>
+  <!-- eyes -->
+  <ellipse cx="113" cy="111" rx="7" ry="4.4" fill="#f3f4f6"/>
+  <circle cx="114" cy="111.5" r="3.6" fill="#4a5a3a"/>
+  <circle cx="114" cy="111.5" r="1.8" fill="#0b1020"/>
+  <circle cx="112.6" cy="110" r="1.1" fill="#fff"/>
+  <path d="M106 110 Q113 106 120 110" fill="none" stroke="#5a3a26" stroke-width="1.8"/>
+  <ellipse cx="145" cy="111" rx="7" ry="4.4" fill="#f3f4f6"/>
+  <circle cx="146" cy="111.5" r="3.6" fill="#4a5a3a"/>
+  <circle cx="146" cy="111.5" r="1.8" fill="#0b1020"/>
+  <circle cx="144.6" cy="110" r="1.1" fill="#fff"/>
+  <path d="M138 110 Q145 106 152 110" fill="none" stroke="#5a3a26" stroke-width="1.8"/>
+  <path d="M102 118 Q108 122 118 120 M154 118 Q148 122 138 120" fill="none" stroke="#6b4a30" stroke-opacity="0.4" stroke-width="1.2"/>
+  <!-- broad nose -->
+  <path d="M129 110 Q126 122 122 128 Q129 133 136 128" fill="none" stroke="#7a4a2a" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- thick moustache and mouth -->
+  <path d="M120 144 Q128 148 136 144" fill="none" stroke="#3a1a10" stroke-width="2"/>
+  <path d="M102 138 Q112 128 128 134 Q144 128 154 138 Q150 146 140 144 Q134 140 128 140 Q122 140 116 144 Q106 146 102 138 Z" fill="url(#foreman-brick-hair)" stroke="#2e1a0c" stroke-width="1.5"/>
+  <path d="M108 136 Q116 132 126 136" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1.2"/>
+</svg>

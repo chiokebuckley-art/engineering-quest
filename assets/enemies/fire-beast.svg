@@ -1,0 +1,125 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Fire Beast: a four-legged furnace-like beast with iron plated body, flames venting from its back and mouth, and coal-red eyes</title>
+  <defs>
+    <linearGradient id="fire-beast-iron" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b93a3"/>
+      <stop offset="0.5" stop-color="#4b5261"/>
+      <stop offset="1" stop-color="#1f2430"/>
+    </linearGradient>
+    <linearGradient id="fire-beast-iron2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b7280"/>
+      <stop offset="1" stop-color="#171b24"/>
+    </linearGradient>
+    <linearGradient id="fire-beast-hot" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#7c2d12"/>
+      <stop offset="0.5" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#ffb347"/>
+    </linearGradient>
+    <linearGradient id="fire-beast-flame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="0.5" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#fff1c9"/>
+    </linearGradient>
+    <radialGradient id="fire-beast-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fire-beast-shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b1020" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="128" cy="226" rx="110" ry="14" fill="url(#fire-beast-shadow)"/>
+  <ellipse cx="128" cy="150" rx="90" ry="60" fill="url(#fire-beast-glow)" opacity="0.35"/>
+
+  <!-- back vent flames -->
+  <g stroke="#7c2d12" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M112 92 C104 74 110 62 118 50 C118 62 126 66 124 78 C130 70 134 60 132 48 C142 62 144 80 134 94 Z" fill="url(#fire-beast-flame)"/>
+    <path d="M148 90 C142 76 148 64 156 54 C156 66 162 70 160 80 C166 72 168 64 168 56 C176 70 176 84 168 94 Z" fill="url(#fire-beast-flame)"/>
+    <path d="M84 100 C80 88 86 80 90 72 C92 82 98 84 96 92 C102 86 102 80 102 74 C108 86 106 96 100 102 Z" fill="url(#fire-beast-flame)"/>
+  </g>
+  <g fill="#fff1c9" opacity="0.8">
+    <path d="M118 90 C116 80 120 72 124 68 C124 76 128 80 128 88 Z"/>
+    <path d="M154 88 C152 80 156 74 160 70 C160 78 164 82 162 88 Z"/>
+  </g>
+
+  <!-- far legs -->
+  <path d="M60 166 L82 166 L80 214 L58 216 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M176 166 L198 166 L200 214 L178 216 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M52 212 L86 210 L88 224 L48 226 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2.5"/>
+  <path d="M172 210 L206 212 L210 226 L170 224 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2.5"/>
+
+  <!-- tail exhaust pipe -->
+  <path d="M196 132 C216 122 232 126 240 112 C244 100 236 90 226 92" fill="none" stroke="#0f1218" stroke-width="12" stroke-linecap="round"/>
+  <path d="M196 132 C216 122 232 126 240 112 C244 100 236 90 226 92" fill="none" stroke="url(#fire-beast-iron)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="226" cy="92" r="7" fill="#1f2430" stroke="#0f1218" stroke-width="2"/>
+  <circle cx="226" cy="92" r="3.5" fill="#ffb347"/>
+  <path d="M222 84 C218 76 222 68 228 62 C228 70 234 74 232 82 Z" fill="url(#fire-beast-flame)" opacity="0.9"/>
+
+  <!-- body: furnace barrel -->
+  <path d="M60 98 C70 88 104 84 128 84 C154 84 186 88 196 98 C208 112 208 150 196 166 C186 176 154 178 128 178 C104 178 70 176 60 166 C48 150 48 112 60 98 Z"
+        fill="url(#fire-beast-iron)" stroke="#0f1218" stroke-width="3" stroke-linejoin="round"/>
+  <!-- plate bands -->
+  <path d="M64 100 C66 124 66 146 64 164 M196 100 C194 124 194 146 196 164 M104 86 L104 176 M156 86 L156 176" fill="none" stroke="#0f1218" stroke-width="2" opacity="0.8"/>
+  <!-- rivets -->
+  <g fill="#c9a227" stroke="#3b2a08" stroke-width="0.8">
+    <circle cx="72" cy="100" r="2.5"/><circle cx="72" cy="164" r="2.5"/><circle cx="188" cy="100" r="2.5"/><circle cx="188" cy="164" r="2.5"/>
+    <circle cx="98" cy="92" r="2.5"/><circle cx="110" cy="92" r="2.5"/><circle cx="150" cy="92" r="2.5"/><circle cx="162" cy="92" r="2.5"/>
+    <circle cx="98" cy="170" r="2.5"/><circle cx="110" cy="170" r="2.5"/><circle cx="150" cy="170" r="2.5"/><circle cx="162" cy="170" r="2.5"/>
+  </g>
+  <!-- vent stacks on back -->
+  <rect x="108" y="82" width="20" height="14" rx="2" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2"/>
+  <rect x="146" y="82" width="20" height="14" rx="2" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2"/>
+  <rect x="82" y="92" width="16" height="10" rx="2" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2"/>
+
+  <!-- furnace grille on flank -->
+  <rect x="106" y="112" width="52" height="48" rx="6" fill="url(#fire-beast-hot)" stroke="#0f1218" stroke-width="2.5"/>
+  <g stroke="#1f2430" stroke-width="4">
+    <path d="M110 122 L154 122 M110 134 L154 134 M110 146 L154 146"/>
+  </g>
+  <g fill="#fff1c9" opacity="0.7">
+    <path d="M116 156 C114 146 118 138 124 128 C124 138 130 142 128 152 Z"/>
+    <path d="M138 156 C136 148 140 140 146 132 C146 142 150 146 148 154 Z"/>
+  </g>
+  <!-- heat seams glowing -->
+  <path d="M64 112 C80 116 90 118 100 116 M64 150 C80 152 92 152 102 150" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
+
+  <!-- near legs (piston style) -->
+  <path d="M74 168 L100 168 L98 216 L70 218 Z" fill="url(#fire-beast-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M158 168 L184 168 L186 216 L158 218 Z" fill="url(#fire-beast-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="80" y="186" width="14" height="10" fill="#ef4444" opacity="0.7"/>
+  <rect x="164" y="186" width="14" height="10" fill="#ef4444" opacity="0.7"/>
+  <path d="M62 214 L104 212 L108 228 L58 230 Z" fill="url(#fire-beast-iron)" stroke="#0f1218" stroke-width="2.5"/>
+  <path d="M154 212 L196 214 L200 230 L150 228 Z" fill="url(#fire-beast-iron)" stroke="#0f1218" stroke-width="2.5"/>
+  <path d="M66 228 L64 236 M80 228 L80 236 M96 228 L98 236 M158 228 L156 236 M174 228 L174 236 M190 228 L192 236" stroke="#0f1218" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- head (facing left) -->
+  <path d="M22 120 C18 104 30 90 52 88 L76 92 C84 100 84 124 78 140 L64 156 C46 158 28 150 22 136 Z"
+        fill="url(#fire-beast-iron)" stroke="#0f1218" stroke-width="3" stroke-linejoin="round"/>
+  <!-- brow plate -->
+  <path d="M24 108 L74 100 L76 112 L26 116 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2"/>
+  <!-- horn vents -->
+  <path d="M50 90 L44 70 L60 84 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M68 92 L70 74 L78 92 Z" fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2" stroke-linejoin="round"/>
+  <!-- lower jaw open -->
+  <path d="M20 140 C14 150 24 166 44 168 L64 164 L62 150 L36 146 Z"
+        fill="url(#fire-beast-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- mouth fire -->
+  <path d="M24 140 C10 138 2 128 4 118 C10 126 16 126 22 128 C26 130 34 136 40 140 L60 148 L40 148 Z" fill="url(#fire-beast-flame)" stroke="#7c2d12" stroke-width="1.2"/>
+  <path d="M28 138 C18 136 12 130 12 124 C18 130 26 132 34 138 Z" fill="#fff1c9" opacity="0.8"/>
+  <!-- teeth -->
+  <g fill="#e5e7eb">
+    <polygon points="30,144 34,152 38,144"/>
+    <polygon points="42,146 46,154 50,146"/>
+    <polygon points="54,148 57,156 60,148"/>
+    <polygon points="34,150 38,144 42,152"/>
+  </g>
+  <!-- eye: coal red -->
+  <circle cx="44" cy="124" r="12" fill="url(#fire-beast-glow)"/>
+  <path d="M34 122 L54 118 L56 128 L36 130 Z" fill="#7c2d12" stroke="#0f1218" stroke-width="1.5"/>
+  <path d="M38 124 L52 121 L52 126 L38 128 Z" fill="#ff6a3d"/>
+  <!-- cheek rivets -->
+  <g fill="#c9a227" stroke="#3b2a08" stroke-width="0.8"><circle cx="30" cy="132" r="2.2"/><circle cx="66" cy="130" r="2.2"/><circle cx="60" cy="98" r="2.2"/></g>
+</svg>

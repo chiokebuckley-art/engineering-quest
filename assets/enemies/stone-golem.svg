@@ -1,0 +1,117 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Stone Golem: a massive stone construct with glowing amber rune cracks, brass joints and a gear in its chest</title>
+  <defs>
+    <linearGradient id="stone-golem-stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c8598"/>
+      <stop offset="0.5" stop-color="#4c566a"/>
+      <stop offset="1" stop-color="#242a36"/>
+    </linearGradient>
+    <linearGradient id="stone-golem-stone2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b7486"/>
+      <stop offset="0.6" stop-color="#3b4252"/>
+      <stop offset="1" stop-color="#1c202a"/>
+    </linearGradient>
+    <linearGradient id="stone-golem-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c04a"/>
+      <stop offset="0.5" stop-color="#c9a227"/>
+      <stop offset="1" stop-color="#6e5514"/>
+    </linearGradient>
+    <radialGradient id="stone-golem-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="stone-golem-core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff1c9"/>
+      <stop offset="0.5" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </radialGradient>
+    <radialGradient id="stone-golem-shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b1020" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="128" cy="232" rx="112" ry="14" fill="url(#stone-golem-shadow)"/>
+
+  <!-- back arm (right side, viewer's right) -->
+  <path d="M188 96 C214 100 232 130 236 168 C238 190 232 210 222 220 L196 216 C204 200 206 180 200 160 C194 138 186 124 176 116 Z"
+        fill="url(#stone-golem-stone2)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- right fist -->
+  <path d="M190 206 L236 202 C246 210 246 226 236 234 L192 236 C184 226 184 214 190 206 Z"
+        fill="url(#stone-golem-stone2)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M204 206 L204 234 M218 204 L218 234" stroke="#12161f" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- legs -->
+  <path d="M74 170 L112 172 L114 226 L70 228 Z" fill="url(#stone-golem-stone2)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M146 172 L184 170 L188 228 L144 226 Z" fill="url(#stone-golem-stone2)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- feet -->
+  <path d="M60 224 L116 222 L120 240 L56 242 Z" fill="url(#stone-golem-stone)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M140 222 L198 224 L202 242 L136 240 Z" fill="url(#stone-golem-stone)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- torso -->
+  <path d="M60 96 C56 84 70 72 92 70 L166 70 C186 72 198 84 194 98 L188 150 C186 168 170 180 148 182 L108 182 C86 180 70 168 68 150 Z"
+        fill="url(#stone-golem-stone)" stroke="#12161f" stroke-width="3" stroke-linejoin="round"/>
+  <!-- stone block seams -->
+  <path d="M66 120 L100 118 M156 118 L190 120 M80 154 L100 152 M158 152 L180 154 M100 118 L98 140 M158 118 L160 140" fill="none" stroke="#12161f" stroke-width="1.6" opacity="0.7"/>
+
+  <!-- glowing rune cracks on torso -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 100 L88 112 L84 126 L96 138 M180 98 L170 110 L176 126 L164 140 M112 176 L118 162 L110 150 M148 176 L142 162 L152 150" stroke="#ffb347" stroke-width="5" opacity="0.35"/>
+    <path d="M76 100 L88 112 L84 126 L96 138 M180 98 L170 110 L176 126 L164 140 M112 176 L118 162 L110 150 M148 176 L142 162 L152 150" stroke="#ffd48a" stroke-width="2"/>
+  </g>
+
+  <!-- chest cavity with gear -->
+  <path d="M104 100 C104 90 152 90 152 100 L156 146 C156 156 100 156 100 146 Z" fill="#0b1020" stroke="#12161f" stroke-width="2.5"/>
+  <circle cx="128" cy="124" r="30" fill="url(#stone-golem-glow)"/>
+  <g transform="translate(128 124)">
+    <g fill="url(#stone-golem-brass)" stroke="#5c4a12" stroke-width="1.5">
+      <rect x="-4" y="-24" width="8" height="48" rx="1.5"/>
+      <rect x="-4" y="-24" width="8" height="48" rx="1.5" transform="rotate(45)"/>
+      <rect x="-4" y="-24" width="8" height="48" rx="1.5" transform="rotate(90)"/>
+      <rect x="-4" y="-24" width="8" height="48" rx="1.5" transform="rotate(135)"/>
+      <circle r="18"/>
+    </g>
+    <circle r="9" fill="url(#stone-golem-core)" stroke="#5c4a12" stroke-width="1.5"/>
+  </g>
+  <!-- cavity rim (front lip) -->
+  <path d="M104 100 C104 90 152 90 152 100" fill="none" stroke="#7c8598" stroke-width="2" opacity="0.6"/>
+
+  <!-- front arm (viewer's left) -->
+  <path d="M68 98 C42 104 24 134 20 170 C18 192 24 212 34 222 L60 218 C52 200 50 180 56 160 C62 138 70 124 80 116 Z"
+        fill="url(#stone-golem-stone)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- brass elbow joint -->
+  <circle cx="44" cy="164" r="12" fill="url(#stone-golem-brass)" stroke="#5c4a12" stroke-width="2"/>
+  <circle cx="44" cy="164" r="5" fill="#3b2a08"/>
+  <!-- left fist -->
+  <path d="M18 206 L64 202 C72 212 72 226 62 236 L20 236 C10 226 10 214 18 206 Z"
+        fill="url(#stone-golem-stone)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M32 204 L32 236 M46 202 L46 236" stroke="#12161f" stroke-width="1.5" opacity="0.8"/>
+  <path d="M26 176 L40 190 L36 200" fill="none" stroke="#ffd48a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M26 176 L40 190 L36 200" fill="none" stroke="#ffb347" stroke-width="5" opacity="0.35" stroke-linecap="round"/>
+
+  <!-- brass shoulder joints -->
+  <circle cx="68" cy="94" r="14" fill="url(#stone-golem-brass)" stroke="#5c4a12" stroke-width="2"/>
+  <circle cx="68" cy="94" r="5" fill="#3b2a08"/>
+  <circle cx="188" cy="94" r="14" fill="url(#stone-golem-brass)" stroke="#5c4a12" stroke-width="2"/>
+  <circle cx="188" cy="94" r="5" fill="#3b2a08"/>
+  <!-- rivets on brass -->
+  <g fill="#fff1c9" opacity="0.6"><circle cx="63" cy="88" r="2"/><circle cx="183" cy="88" r="2"/><circle cx="40" cy="159" r="1.8"/></g>
+
+  <!-- head, sunk between shoulders -->
+  <path d="M100 74 C100 56 110 44 128 44 C146 44 156 56 156 74 L152 84 L104 84 Z"
+        fill="url(#stone-golem-stone)" stroke="#12161f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M100 66 L156 66" stroke="#12161f" stroke-width="1.5" opacity="0.7"/>
+  <!-- eye sockets -->
+  <path d="M106 62 L124 60 L122 74 L108 74 Z" fill="#0b1020"/>
+  <path d="M150 62 L132 60 L134 74 L148 74 Z" fill="#0b1020"/>
+  <circle cx="115" cy="67" r="10" fill="url(#stone-golem-glow)"/>
+  <circle cx="141" cy="67" r="10" fill="url(#stone-golem-glow)"/>
+  <rect x="110" y="64" width="10" height="5" fill="#ffd48a"/>
+  <rect x="136" y="64" width="10" height="5" fill="#ffd48a"/>
+  <!-- head rune crack -->
+  <path d="M128 46 L126 56 L130 60" fill="none" stroke="#ffd48a" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- moss on shoulders -->
+  <path d="M84 72 C92 66 104 68 110 72 Z" fill="#4ade80" opacity="0.45"/>
+  <path d="M150 70 C158 66 168 68 174 74 Z" fill="#4ade80" opacity="0.4"/>
+</svg>

@@ -1,0 +1,112 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Division Titan: a huge dark stone-and-steel titan holding the two halves of a split boulder above its head, with a few glowing seams</title>
+  <defs>
+    <linearGradient id="division-titan-stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b4252"/>
+      <stop offset="0.5" stop-color="#1e2532"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="division-titan-stone2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a3140"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="division-titan-steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b6478"/>
+      <stop offset="0.5" stop-color="#2f3540"/>
+      <stop offset="1" stop-color="#0f1218"/>
+    </linearGradient>
+    <linearGradient id="division-titan-rock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4c566a"/>
+      <stop offset="0.5" stop-color="#2a3140"/>
+      <stop offset="1" stop-color="#0f1218"/>
+    </linearGradient>
+    <radialGradient id="division-titan-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="division-titan-aglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="division-titan-shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b1020" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="128" cy="240" rx="116" ry="12" fill="url(#division-titan-shadow)"/>
+
+  <!-- arms raised overhead (steel-plated so they read against the dark torso) -->
+  <path d="M52 108 C34 96 28 76 32 54 L62 48 C60 68 66 86 82 100 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M204 108 C222 96 228 76 224 54 L194 48 C196 68 190 86 174 100 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M40 76 L64 70 M46 92 L72 88 M216 76 L192 70 M210 92 L184 88" stroke="#06080f" stroke-width="1.6" opacity="0.8"/>
+  <circle cx="40" cy="64" r="5" fill="#4c566a" stroke="#06080f" stroke-width="1"/>
+  <circle cx="216" cy="64" r="5" fill="#4c566a" stroke="#06080f" stroke-width="1"/>
+
+  <!-- split boulder: two halves pulled apart, glowing fracture faces -->
+  <path d="M16 50 C10 30 28 8 60 6 C88 4 110 12 116 26 L114 48 L92 58 L60 54 L34 58 Z"
+        fill="url(#division-titan-rock)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M240 50 C246 30 228 8 196 6 C168 4 146 12 140 26 L142 48 L164 58 L196 54 L222 58 Z"
+        fill="url(#division-titan-rock)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M116 26 L108 38 L114 48" fill="none" stroke="#ffb347" stroke-width="6" opacity="0.4" stroke-linecap="round"/>
+  <path d="M116 26 L108 38 L114 48" fill="none" stroke="#ffd48a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M140 26 L148 38 L142 48" fill="none" stroke="#ffb347" stroke-width="6" opacity="0.4" stroke-linecap="round"/>
+  <path d="M140 26 L148 38 L142 48" fill="none" stroke="#ffd48a" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="128" cy="38" rx="16" ry="22" fill="url(#division-titan-aglow)" opacity="0.6"/>
+  <!-- rock cracks -->
+  <path d="M36 40 L58 28 L76 40 M86 16 L98 30 M170 16 L158 30 M220 40 L198 28 L180 40" fill="none" stroke="#06080f" stroke-width="1.6" opacity="0.8"/>
+  <!-- falling rubble in the gap -->
+  <g fill="#2a3140" stroke="#06080f" stroke-width="1">
+    <polygon points="124,30 128,26 130,32"/><polygon points="126,44 130,40 132,46 128,48"/><polygon points="122,54 126,52 127,58"/>
+  </g>
+  <!-- hands gripping the undersides -->
+  <path d="M30 48 L70 42 L74 64 L36 68 Z" fill="url(#division-titan-stone2)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M226 48 L186 42 L182 64 L220 68 Z" fill="url(#division-titan-stone2)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M42 46 L44 66 M54 44 L56 66 M214 46 L212 66 M202 44 L200 66" stroke="#06080f" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- legs -->
+  <path d="M70 172 L116 172 L112 228 L66 230 Z" fill="url(#division-titan-stone2)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M140 172 L186 172 L190 230 L144 228 Z" fill="url(#division-titan-stone2)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- steel knee plates -->
+  <path d="M74 190 L112 190 L110 204 L76 204 Z M144 190 L182 190 L180 204 L146 204 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2"/>
+  <!-- feet -->
+  <path d="M54 226 L118 224 L122 244 L48 246 Z M138 224 L202 226 L208 246 L134 244 Z" fill="url(#division-titan-stone)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- torso -->
+  <path d="M52 108 C56 92 78 82 104 80 L152 80 C178 82 200 92 204 108 L196 168 C190 182 166 190 128 190 C90 190 66 182 60 168 Z"
+        fill="url(#division-titan-stone)" stroke="#06080f" stroke-width="3" stroke-linejoin="round"/>
+  <!-- steel chest plates -->
+  <path d="M70 110 L124 106 L122 156 L74 152 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M186 110 L132 106 L134 156 L182 152 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2" stroke-linejoin="round"/>
+  <!-- central seam (division line) -->
+  <rect x="124" y="104" width="8" height="56" fill="#0b1020"/>
+  <path d="M128 108 L128 156" stroke="#22d3ee" stroke-width="5" opacity="0.3" stroke-linecap="round"/>
+  <path d="M128 108 L128 156" stroke="#7ee8f6" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- rivets -->
+  <g fill="#4c566a" stroke="#06080f" stroke-width="0.8">
+    <circle cx="76" cy="114" r="2.5"/><circle cx="118" cy="110" r="2.5"/><circle cx="78" cy="148" r="2.5"/><circle cx="118" cy="152" r="2.5"/>
+    <circle cx="180" cy="114" r="2.5"/><circle cx="138" cy="110" r="2.5"/><circle cx="178" cy="148" r="2.5"/><circle cx="138" cy="152" r="2.5"/>
+  </g>
+  <!-- glowing seams -->
+  <path d="M64 130 L58 150 L66 166 M192 130 L198 150 L190 166" fill="none" stroke="#22d3ee" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+  <path d="M64 130 L58 150 L66 166 M192 130 L198 150 L190 166" fill="none" stroke="#7ee8f6" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- waist band -->
+  <path d="M64 166 L192 166 L188 180 L68 180 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2"/>
+
+  <!-- shoulder pauldrons -->
+  <path d="M40 100 C48 80 78 76 92 92 L88 116 C72 108 56 110 44 120 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M216 100 C208 80 178 76 164 92 L168 116 C184 108 200 110 212 120 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="60" cy="98" r="4" fill="#4c566a" stroke="#06080f" stroke-width="1"/>
+  <circle cx="196" cy="98" r="4" fill="#4c566a" stroke="#06080f" stroke-width="1"/>
+
+  <!-- head -->
+  <path d="M104 88 C104 68 112 58 128 58 C144 58 152 68 152 88 L148 98 L108 98 Z" fill="url(#division-titan-stone)" stroke="#06080f" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- steel visor -->
+  <path d="M104 74 L152 74 L150 86 L106 86 Z" fill="url(#division-titan-steel)" stroke="#06080f" stroke-width="1.8"/>
+  <path d="M110 80 L146 80" stroke="#0b1020" stroke-width="4"/>
+  <ellipse cx="128" cy="80" rx="20" ry="6" fill="url(#division-titan-glow)"/>
+  <path d="M112 80 L124 80 M132 80 L144 80" stroke="#7ee8f6" stroke-width="2" stroke-linecap="round"/>
+  <!-- crown ridge -->
+  <path d="M112 62 L118 52 L124 60 M132 60 L138 52 L144 62" fill="none" stroke="#06080f" stroke-width="2" stroke-linejoin="round"/>
+</svg>

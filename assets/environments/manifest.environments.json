@@ -1,0 +1,138 @@
+[
+  {
+    "file": "environments/arithmetic-village.svg",
+    "name": "Arithmetic Village",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/multiplication-mines.svg",
+    "name": "Multiplication Mines",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/mines-deep.svg",
+    "name": "Deep Mines",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/dragon-forge.svg",
+    "name": "Dragon Forge",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/division-dungeon.svg",
+    "name": "Division Dungeon",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/forgotten-dungeon.svg",
+    "name": "Dungeon of Forgotten Knowledge",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/workshop-lab.svg",
+    "name": "Workshop Laboratory",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/world-map.svg",
+    "name": "World Map",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/mathematical-engine.svg",
+    "name": "Mathematical Engine",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/power-core-multiplication.svg",
+    "name": "Multiplication Power Core",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/measurement-bench.svg",
+    "name": "Measurement Bench",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/water-pump.svg",
+    "name": "Water Pump",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/bridge-stage-0.svg",
+    "name": "Bridge Stage 0 (Collapsed)",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/bridge-stage-1.svg",
+    "name": "Bridge Stage 1 (Supports)",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/bridge-stage-2.svg",
+    "name": "Bridge Stage 2 (Deck)",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/bridge-stage-3.svg",
+    "name": "Bridge Stage 3 (Complete)",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "machines/workshop-building.svg",
+    "name": "Workshop Building",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  }
+]

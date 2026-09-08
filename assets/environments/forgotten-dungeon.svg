@@ -1,0 +1,80 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>Dungeon of Forgotten Knowledge: a library crypt of collapsed shelves, floating torn pages and cobwebs in dim violet-grey light, with faint amber runes flickering back to life</title>
+<defs>
+<linearGradient id="forgotten-dungeon-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0b18"/><stop offset="0.6" stop-color="#1f1a2e"/><stop offset="1" stop-color="#15121f"/></linearGradient>
+<radialGradient id="forgotten-dungeon-violet" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.28"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
+<radialGradient id="forgotten-dungeon-amber" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.45"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<linearGradient id="forgotten-dungeon-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1828"/><stop offset="1" stop-color="#332b45"/></linearGradient>
+<linearGradient id="forgotten-dungeon-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2538"/><stop offset="1" stop-color="#120f1a"/></linearGradient>
+<linearGradient id="forgotten-dungeon-wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a1d18"/><stop offset="0.5" stop-color="#4a3428"/><stop offset="1" stop-color="#241812"/></linearGradient>
+<linearGradient id="forgotten-dungeon-page" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e5e7eb"/><stop offset="1" stop-color="#9a94a8"/></linearGradient>
+<linearGradient id="forgotten-dungeon-col" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1c1828"/><stop offset="0.4" stop-color="#4c4460"/><stop offset="1" stop-color="#1c1828"/></linearGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#forgotten-dungeon-bg)"/>
+<!-- back wall with arch alcove -->
+<rect x="300" y="140" width="680" height="340" fill="url(#forgotten-dungeon-wall)"/>
+<g fill="none" stroke="#120f1a" stroke-width="1.5" opacity="0.7"><path d="M300 190 H980 M300 240 H980 M300 290 H980 M300 340 H980 M300 390 H980 M300 440 H980"/><path d="M360 140 V190 M460 140 V190 M560 140 V190 M720 140 V190 M820 140 V190 M920 140 V190 M410 190 V240 M510 190 V240 M770 190 V240 M870 190 V240 M360 240 V290 M920 240 V290 M410 290 V340 M870 290 V340 M360 340 V390 M920 340 V390 M410 390 V440 M870 390 V440"/></g>
+<path d="M540 480 V300 A100 100 0 0 1 740 300 V480 Z" fill="#08070f"/>
+<path d="M540 480 V300 A100 100 0 0 1 740 300 V480" fill="none" stroke="#3b3350" stroke-width="12"/>
+<ellipse cx="640" cy="330" rx="260" ry="200" fill="url(#forgotten-dungeon-violet)"/>
+<!-- runes on back wall (amber, faint) -->
+<g fill="#ffb347">
+<circle cx="440" cy="300" r="60" fill="url(#forgotten-dungeon-amber)" opacity="0.7"/>
+<g opacity="0.75"><rect x="424" y="286" width="32" height="4"/><rect x="438" y="294" width="4" height="26"/><rect x="428" y="322" width="24" height="4"/><rect x="418" y="300" width="4" height="12"/><rect x="458" y="300" width="4" height="12"/></g>
+<circle cx="840" cy="300" r="60" fill="url(#forgotten-dungeon-amber)" opacity="0.5"/>
+<g opacity="0.5"><rect x="824" y="286" width="32" height="4"/><rect x="824" y="294" width="4" height="30"/><rect x="852" y="294" width="4" height="30"/><rect x="838" y="304" width="4" height="12"/><rect x="828" y="322" width="24" height="4"/></g>
+<g opacity="0.25"><rect x="380" y="400" width="20" height="3"/><rect x="388" y="406" width="4" height="16"/><rect x="880" y="400" width="20" height="3"/><rect x="888" y="406" width="4" height="16"/><rect x="500" y="210" width="16" height="3"/><rect x="764" y="210" width="16" height="3"/></g>
+</g>
+<!-- ceiling vaults -->
+<g fill="none" stroke="#2b2538" stroke-width="14"><path d="M0 240 Q 640 -100 1280 240"/><path d="M200 280 Q 640 0 1080 280"/></g>
+<!-- floor -->
+<rect x="0" y="480" width="1280" height="240" fill="url(#forgotten-dungeon-floor)"/>
+<g fill="none" stroke="#0b0b18" stroke-width="2" opacity="0.7"><path d="M0 530 H1280 M0 600 H1280 M0 680 H1280 M640 480 L 300 720 M640 480 L 980 720 M640 480 L 0 620 M640 480 L 1280 620"/></g>
+<!-- columns -->
+<g stroke="#0b0b18" stroke-width="2"><rect x="230" y="150" width="60" height="340" fill="url(#forgotten-dungeon-col)"/><rect x="220" y="140" width="80" height="14" fill="#3b3350"/><rect x="990" y="150" width="60" height="340" fill="url(#forgotten-dungeon-col)"/><rect x="980" y="140" width="80" height="14" fill="#3b3350"/></g>
+<!-- collapsed shelves LEFT -->
+<g stroke="#120f1a" stroke-width="2">
+<rect x="20" y="120" width="190" height="400" fill="url(#forgotten-dungeon-wood)"/>
+<g fill="#2a1d18"><rect x="30" y="180" width="170" height="10"/><rect x="30" y="260" width="170" height="10"/><rect x="30" y="340" width="170" height="10"/><rect x="30" y="420" width="170" height="10"/></g>
+<g stroke="none"><rect x="36" y="140" width="16" height="40" fill="#5b2c3a"/><rect x="54" y="146" width="12" height="34" fill="#2f4858"/><rect x="68" y="136" width="18" height="44" fill="#3d3a2a"/><rect x="90" y="150" width="14" height="30" fill="#4a2a5a"/><rect x="110" y="142" width="16" height="38" fill="#2f4858"/><rect x="130" y="148" width="12" height="32" fill="#5b2c3a"/><rect x="150" y="138" width="20" height="42" fill="#3d3a2a"/>
+<rect x="36" y="228" width="14" height="32" fill="#2f4858"/><rect x="52" y="220" width="18" height="40" fill="#5b2c3a"/><rect x="74" y="232" width="12" height="28" fill="#4a2a5a"/><polygon points="96,260 130,224 142,232 108,260" fill="#3d3a2a"/><rect x="150" y="226" width="16" height="34" fill="#2f4858"/>
+<rect x="40" y="306" width="18" height="34" fill="#4a2a5a"/><polygon points="66,340 100,300 112,308 78,340" fill="#5b2c3a"/><rect x="120" y="300" width="14" height="40" fill="#3d3a2a"/><rect x="138" y="310" width="16" height="30" fill="#2f4858"/>
+<rect x="44" y="392" width="14" height="28" fill="#3d3a2a"/><rect x="62" y="384" width="18" height="36" fill="#2f4858"/></g>
+<polygon points="200,500 380,560 372,590 196,540" fill="url(#forgotten-dungeon-wood)"/>
+<polygon points="210,470 400,420 410,440 216,494" fill="url(#forgotten-dungeon-wood)"/>
+<g stroke="none"><polygon points="240,462 254,458 260,480 246,484" fill="#5b2c3a"/><polygon points="300,446 316,442 322,466 306,470" fill="#2f4858"/><polygon points="350,432 368,428 372,452 354,456" fill="#3d3a2a"/></g>
+<g fill="#4a3428" stroke="none"><rect x="230" y="560" width="60" height="14" transform="rotate(-20 260 567)"/><rect x="300" y="600" width="70" height="14" transform="rotate(12 335 607)"/></g>
+</g>
+<!-- collapsed shelves RIGHT -->
+<g stroke="#120f1a" stroke-width="2">
+<polygon points="1070,140 1260,120 1260,520 1070,520" fill="url(#forgotten-dungeon-wood)"/>
+<g fill="#2a1d18"><polygon points="1080,196 1250,182 1250,192 1080,206"/><polygon points="1080,280 1250,268 1250,278 1080,290"/><polygon points="1080,364 1250,354 1250,364 1080,374"/><polygon points="1080,448 1250,440 1250,450 1080,458"/></g>
+<g stroke="none"><rect x="1090" y="160" width="16" height="38" fill="#2f4858"/><rect x="1110" y="152" width="14" height="46" fill="#5b2c3a"/><rect x="1130" y="162" width="18" height="34" fill="#3d3a2a"/><rect x="1160" y="150" width="14" height="42" fill="#4a2a5a"/><rect x="1180" y="156" width="16" height="34" fill="#2f4858"/><rect x="1210" y="146" width="20" height="40" fill="#5b2c3a"/>
+<rect x="1094" y="244" width="14" height="38" fill="#3d3a2a"/><polygon points="1116,282 1150,246 1162,254 1128,282" fill="#2f4858"/><rect x="1176" y="236" width="18" height="40" fill="#4a2a5a"/><rect x="1200" y="240" width="12" height="32" fill="#5b2c3a"/>
+<rect x="1090" y="328" width="18" height="38" fill="#5b2c3a"/><rect x="1120" y="334" width="14" height="30" fill="#2f4858"/><polygon points="1150,364 1186,322 1198,330 1162,364" fill="#3d3a2a"/><rect x="1214" y="330" width="16" height="28" fill="#4a2a5a"/></g>
+<polygon points="1060,520 900,590 908,616 1064,556" fill="url(#forgotten-dungeon-wood)"/>
+<g fill="#4a3428" stroke="none"><rect x="960" y="580" width="64" height="14" transform="rotate(20 992 587)"/><rect x="880" y="630" width="60" height="14" transform="rotate(-10 910 637)"/></g>
+</g>
+<!-- scattered books on floor -->
+<g stroke="#120f1a" stroke-width="1.5"><rect x="140" y="600" width="50" height="16" fill="#5b2c3a" transform="rotate(-8 165 608)"/><rect x="200" y="640" width="44" height="14" fill="#2f4858" transform="rotate(14 222 647)"/><rect x="1040" y="620" width="50" height="16" fill="#4a2a5a" transform="rotate(10 1065 628)"/><rect x="1100" y="580" width="46" height="14" fill="#3d3a2a" transform="rotate(-16 1123 587)"/><rect x="420" y="660" width="40" height="12" fill="#2f4858" transform="rotate(-4 440 666)"/><rect x="820" y="670" width="44" height="12" fill="#5b2c3a" transform="rotate(6 842 676)"/></g>
+<!-- floating torn pages -->
+<g fill="url(#forgotten-dungeon-page)" stroke="#6b6480" stroke-width="1" opacity="0.8">
+<polygon points="330,300 356,296 360,326 346,334 332,328" transform="rotate(-18 345 315)"/><polygon points="450,190 470,186 474,212 458,218" transform="rotate(20 462 202)"/><polygon points="560,250 582,248 586,280 566,284" transform="rotate(-30 573 266)"/><polygon points="720,220 744,216 748,246 730,252" transform="rotate(14 734 234)"/><polygon points="900,270 920,266 924,296 906,302" transform="rotate(-12 912 284)"/><polygon points="1000,360 1020,358 1022,384 1004,388" transform="rotate(26 1011 373)"/><polygon points="380,420 396,418 398,440 384,444" transform="rotate(8 389 431)"/><polygon points="860,430 878,428 880,452 864,456" transform="rotate(-22 871 442)"/><polygon points="600,150 616,148 618,170 604,174" transform="rotate(34 609 161)"/><polygon points="200,520 220,518 222,544 204,548" transform="rotate(-28 211 533)"/>
+</g>
+<g fill="none" stroke="#6b6480" stroke-width="1" opacity="0.5"><path d="M338 308 H352 M338 314 H350 M338 320 H354"/><path d="M566 258 H578 M566 264 H580 M566 270 H576"/><path d="M906 278 H916 M906 284 H918"/></g>
+<!-- cobwebs -->
+<g fill="none" stroke="#c7c2d6" stroke-width="1" opacity="0.35">
+<path d="M0 0 L120 0 M0 0 L110 40 M0 0 L80 90 M0 0 L30 130 M0 0 L0 150"/><path d="M40 0 Q 42 26 20 44 Q 30 60 12 78 Q 8 90 0 96"/><path d="M80 0 Q 82 40 60 66 Q 56 90 34 108 Q 20 118 0 130"/><path d="M110 0 Q 108 50 84 82 Q 72 110 42 126 Q 20 138 0 148"/>
+<path d="M1280 0 L1160 0 M1280 0 L1170 40 M1280 0 L1200 90 M1280 0 L1250 130 M1280 0 L1280 150"/><path d="M1240 0 Q 1238 26 1260 44 Q 1250 60 1268 78 Q 1272 90 1280 96"/><path d="M1200 0 Q 1198 40 1220 66 Q 1224 90 1246 108 Q 1260 118 1280 130"/><path d="M1170 0 Q 1172 50 1196 82 Q 1208 110 1238 126 Q 1260 138 1280 148"/>
+<path d="M290 150 L 290 240 M290 150 L 360 150 M290 150 L 350 210 M300 154 Q 320 164 328 190 M312 156 Q 336 172 344 200"/>
+<path d="M990 150 L 990 240 M990 150 L 920 150 M990 150 L 930 210 M980 154 Q 960 164 952 190 M968 156 Q 944 172 936 200"/>
+</g>
+<!-- dust motes -->
+<g fill="#a78bfa" opacity="0.5"><circle cx="400" cy="360" r="1.4"/><circle cx="480" cy="400" r="1"/><circle cx="700" cy="380" r="1.2"/><circle cx="800" cy="340" r="1"/><circle cx="640" cy="420" r="1"/><circle cx="560" cy="330" r="1.3"/><circle cx="880" cy="400" r="1"/><circle cx="360" cy="480" r="1"/></g>
+<g fill="#ffb347" opacity="0.6"><circle cx="440" cy="340" r="1.4"/><circle cx="452" cy="360" r="1"/><circle cx="836" cy="344" r="1.2"/></g>
+<!-- vignette -->
+<path d="M0 0 H120 C 60 200 60 500 100 720 H0 Z" fill="#05050d" opacity="0.45"/>
+<path d="M1280 0 H1160 C 1220 200 1220 500 1180 720 H1280 Z" fill="#05050d" opacity="0.45"/>
+<rect width="1280" height="90" fill="#05050d" opacity="0.4"/>
+</svg>

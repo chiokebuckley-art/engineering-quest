@@ -1,0 +1,99 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Apprentice engineer avatar: a young woman with dark skin and long braids, a brass earpiece over one ear, wearing a leather-and-brass apprentice jerkin with glowing calipers on the shoulder</title>
+  <defs>
+    <radialGradient id="avatar-02-bg" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.36"/>
+      <stop offset="0.6" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </radialGradient>
+    <linearGradient id="avatar-02-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a4a2c"/>
+      <stop offset="1" stop-color="#3a2010"/>
+    </linearGradient>
+    <linearGradient id="avatar-02-leather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a5636"/>
+      <stop offset="1" stop-color="#3a2614"/>
+    </linearGradient>
+    <linearGradient id="avatar-02-shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8dcc4"/>
+      <stop offset="1" stop-color="#b8a888"/>
+    </linearGradient>
+    <linearGradient id="avatar-02-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6c552"/>
+      <stop offset="1" stop-color="#8a6d1d"/>
+    </linearGradient>
+    <radialGradient id="avatar-02-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="avatar-02-hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e2226"/>
+      <stop offset="1" stop-color="#0b0810"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="118" r="100" fill="url(#avatar-02-bg)" stroke="#2dd4bf" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="128" cy="118" r="92" fill="none" stroke="#2dd4bf" stroke-opacity="0.18"/>
+  <!-- braids falling behind the shoulders -->
+  <path d="M96 100 Q78 130 78 178 Q80 200 92 196 Q100 150 104 108 Z" fill="url(#avatar-02-hair)" stroke="#0b0810" stroke-width="2"/>
+  <path d="M160 100 Q178 130 178 178 Q176 200 164 196 Q156 150 152 108 Z" fill="url(#avatar-02-hair)" stroke="#0b0810" stroke-width="2"/>
+  <path d="M84 130 L96 128 M82 146 L96 144 M80 162 L94 160 M80 178 L92 176 M172 130 L160 128 M174 146 L160 144 M176 162 L162 160 M176 178 L164 176" fill="none" stroke="#5c4a50" stroke-opacity="0.7" stroke-width="1.4"/>
+  <!-- apprentice leather jerkin with cross strap and brass fittings -->
+  <path d="M28 256 L28 236 Q32 202 72 188 L112 174 L144 174 L184 188 Q224 202 228 236 L228 256 Z" fill="url(#avatar-02-leather)" stroke="#0b1020" stroke-width="2"/>
+  <path d="M112 174 L144 174 L128 214 Z" fill="url(#avatar-02-shirt)" stroke="#5a4a36" stroke-width="1.5"/>
+  <path d="M112 174 L100 196 L118 236 L128 214 Z" fill="#4a331e" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M144 174 L156 196 L138 236 L128 214 Z" fill="#5a3f26" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M128 214 L128 256" fill="none" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M66 194 L150 256" fill="none" stroke="#2a1a0e" stroke-width="10" stroke-linecap="round"/>
+  <path d="M66 194 L150 256" fill="none" stroke="#6b4a2e" stroke-width="6"/>
+  <path d="M68 194 L148 254" fill="none" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5"/>
+  <rect x="98" y="215" width="14" height="10" rx="1.5" fill="#c9a227" stroke="#5a4310" stroke-width="1.2" transform="rotate(37 105 220)"/>
+  <circle cx="48" cy="232" r="2" fill="#c9a227"/><circle cx="58" cy="216" r="2" fill="#c9a227"/><circle cx="72" cy="204" r="2" fill="#c9a227"/>
+  <path d="M164 192 Q190 178 216 200 L220 216 Q196 206 168 214 Z" fill="url(#avatar-02-brass)" stroke="#5a4310" stroke-width="1.8"/>
+  <path d="M172 198 Q190 190 208 202" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.5"/>
+  <circle cx="176" cy="206" r="1.8" fill="#5a4310"/><circle cx="212" cy="210" r="1.8" fill="#5a4310"/>
+  <!-- braid ends over the jerkin -->
+  <path d="M80 188 Q76 206 84 218 Q90 214 92 196 Z M176 188 Q180 206 172 218 Q166 214 164 196 Z" fill="url(#avatar-02-hair)" stroke="#0b0810" stroke-width="1.5"/>
+  <rect x="78" y="200" width="14" height="4" rx="1" fill="#c9a227" stroke="#5a4310" stroke-width="0.8" transform="rotate(-10 85 202)"/>
+  <rect x="164" y="200" width="14" height="4" rx="1" fill="#c9a227" stroke="#5a4310" stroke-width="0.8" transform="rotate(10 171 202)"/>
+  <!-- glowing calipers on the pauldron -->
+  <circle cx="194" cy="200" r="16" fill="url(#avatar-02-glow)"/>
+  <path d="M194 188 L184 212 M194 188 L206 210" fill="none" stroke="#5a4310" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M194 188 L184 212 M194 188 L206 210" fill="none" stroke="#9ff3e6" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="194" cy="189" r="3.2" fill="#e6c552" stroke="#5a4310" stroke-width="1.2"/>
+  <path d="M186 206 Q195 202 204 205" fill="none" stroke="#9ff3e6" stroke-width="1.5"/>
+  <path d="M114 146 L114 180 L142 180 L142 146 Z" fill="url(#avatar-02-skin)" stroke="#1a0d05" stroke-width="1.5"/>
+  <path d="M114 148 Q128 166 142 148 L142 160 Q128 172 114 160 Z" fill="#000" fill-opacity="0.22"/>
+  <path d="M92 104 Q94 60 128 58 Q162 60 164 104 Q164 140 146 156 Q136 164 128 164 Q120 164 110 156 Q92 140 92 104 Z" fill="url(#avatar-02-skin)" stroke="#1a0d05" stroke-width="2"/>
+  <path d="M148 66 Q166 96 162 136 Q154 154 130 164 Q142 150 148 128 Q154 98 148 66 Z" fill="#000" fill-opacity="0.13"/>
+  <ellipse cx="91" cy="114" rx="6" ry="9" fill="url(#avatar-02-skin)" stroke="#1a0d05" stroke-width="1.5"/>
+  <ellipse cx="165" cy="114" rx="6" ry="9" fill="#4a2a16" stroke="#1a0d05" stroke-width="1.5"/>
+  <!-- braided crown -->
+  <path d="M90 106 Q86 52 128 48 Q170 52 166 106 Q164 84 150 76 Q128 68 106 76 Q92 84 90 106 Z" fill="url(#avatar-02-hair)" stroke="#0b0810" stroke-width="2"/>
+  <path d="M96 84 Q100 62 116 54 M108 78 Q112 62 128 52 M148 78 Q144 62 128 52 M160 84 Q156 62 140 54" fill="none" stroke="#5c4a50" stroke-opacity="0.7" stroke-width="1.4"/>
+  <path d="M100 70 Q112 58 126 56" fill="none" stroke="#fff" stroke-opacity="0.2" stroke-width="2"/>
+  <!-- brass earpiece over the ear -->
+  <path d="M96 100 Q92 78 110 66" fill="none" stroke="url(#avatar-02-brass)" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="90" cy="114" rx="9" ry="11" fill="url(#avatar-02-brass)" stroke="#5a4310" stroke-width="1.8"/>
+  <ellipse cx="90" cy="114" rx="4.5" ry="6" fill="#1f2633" stroke="#5a4310" stroke-width="1"/>
+  <circle cx="90" cy="114" r="2" fill="#2dd4bf"/>
+  <circle cx="87" cy="108" r="1.2" fill="#fff" fill-opacity="0.7"/>
+  <!-- brows -->
+  <path d="M104 99 Q113 95 122 98" fill="none" stroke="#0b0810" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M136 98 Q145 95 154 99" fill="none" stroke="#0b0810" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="113" cy="111" rx="7" ry="4.7" fill="#f3f4f6"/>
+  <circle cx="114" cy="111.5" r="3.6" fill="#3a2416"/>
+  <circle cx="114" cy="111.5" r="1.8" fill="#0b1020"/>
+  <circle cx="112.6" cy="110" r="1.1" fill="#fff"/>
+  <path d="M106 110 Q113 105.5 120 110" fill="none" stroke="#1a0d05" stroke-width="1.8"/>
+  <ellipse cx="145" cy="111" rx="7" ry="4.7" fill="#f3f4f6"/>
+  <circle cx="146" cy="111.5" r="3.6" fill="#3a2416"/>
+  <circle cx="146" cy="111.5" r="1.8" fill="#0b1020"/>
+  <circle cx="144.6" cy="110" r="1.1" fill="#fff"/>
+  <path d="M138 110 Q145 105.5 152 110" fill="none" stroke="#1a0d05" stroke-width="1.8"/>
+  <path d="M129 112 Q127 121 125 127 Q129 130 134 127" fill="none" stroke="#1a0d05" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M118 141 Q129 146 140 140" fill="none" stroke="#1a0d05" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M120 144 Q129 147 138 143" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1.2"/>
+  <ellipse cx="106" cy="128" rx="6" ry="3" fill="#c2410c" fill-opacity="0.12"/>
+  <ellipse cx="150" cy="128" rx="6" ry="3" fill="#c2410c" fill-opacity="0.12"/>
+</svg>

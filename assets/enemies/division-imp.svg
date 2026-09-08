@@ -1,0 +1,141 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Division Imp: a small horned red-orange imp with iron cuffs, holding a broken chain and a split gear</title>
+  <defs>
+    <linearGradient id="division-imp-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="0.5" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="division-imp-skin2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#5a1010"/>
+    </linearGradient>
+    <linearGradient id="division-imp-horn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b7280"/>
+      <stop offset="1" stop-color="#1f2430"/>
+    </linearGradient>
+    <linearGradient id="division-imp-iron" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9ca3af"/>
+      <stop offset="0.5" stop-color="#6b7280"/>
+      <stop offset="1" stop-color="#2f3540"/>
+    </linearGradient>
+    <linearGradient id="division-imp-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c04a"/>
+      <stop offset="1" stop-color="#8a6d1d"/>
+    </linearGradient>
+    <radialGradient id="division-imp-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="division-imp-shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b1020" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="128" cy="232" rx="84" ry="12" fill="url(#division-imp-shadow)"/>
+
+  <!-- tail -->
+  <path d="M160 190 C190 196 210 180 206 156 C204 144 192 140 188 148" fill="none" stroke="#5a1010" stroke-width="9" stroke-linecap="round"/>
+  <path d="M160 190 C190 196 210 180 206 156 C204 144 192 140 188 148" fill="none" stroke="url(#division-imp-skin2)" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M182 150 L196 134 L202 154 Z" fill="url(#division-imp-skin2)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- small wings -->
+  <path d="M96 128 C78 112 62 108 52 114 C60 118 64 124 66 132 C58 132 52 138 50 146 C62 142 74 144 88 150 Z"
+        fill="url(#division-imp-skin2)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M160 128 C178 112 194 108 204 114 C196 118 192 124 190 132 C198 132 204 138 206 146 C194 142 182 144 168 150 Z"
+        fill="url(#division-imp-skin2)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M92 132 L64 120 M92 140 L60 136" stroke="#5a1010" stroke-width="1.2" opacity="0.7"/>
+  <path d="M164 132 L192 120 M164 140 L196 136" stroke="#5a1010" stroke-width="1.2" opacity="0.7"/>
+
+  <!-- legs -->
+  <path d="M104 182 L124 184 L120 216 L102 216 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M134 184 L154 182 L156 216 L138 216 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- hoofed feet -->
+  <path d="M94 214 L122 212 L124 226 L92 228 Z M136 212 L164 214 L166 228 L134 226 Z" fill="url(#division-imp-horn)" stroke="#0f1218" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M108 214 L108 227 M150 214 L150 227" stroke="#0f1218" stroke-width="1.5"/>
+
+  <!-- body -->
+  <path d="M100 126 C92 146 92 168 104 188 L154 188 C166 168 166 146 158 126 C144 118 114 118 100 126 Z"
+        fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M112 150 C120 156 136 156 146 150 M114 166 C122 172 136 172 144 166" fill="none" stroke="#7f1d1d" stroke-width="1.5" opacity="0.7"/>
+  <!-- loincloth -->
+  <path d="M100 180 L158 180 L154 200 L136 194 L128 204 L120 194 L102 200 Z" fill="#3b2a1a" stroke="#1a120a" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- arms holding the split gear -->
+  <path d="M100 132 C84 146 74 160 70 176 L88 182 C92 168 100 156 112 148 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M158 132 C174 146 184 160 188 176 L170 182 C166 168 158 156 146 148 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- iron cuffs -->
+  <rect x="66" y="172" width="26" height="14" rx="3" fill="url(#division-imp-iron)" stroke="#0f1218" stroke-width="2"/>
+  <rect x="164" y="172" width="26" height="14" rx="3" fill="url(#division-imp-iron)" stroke="#0f1218" stroke-width="2"/>
+  <circle cx="72" cy="179" r="1.8" fill="#c9a227"/><circle cx="86" cy="179" r="1.8" fill="#c9a227"/>
+  <circle cx="170" cy="179" r="1.8" fill="#c9a227"/><circle cx="184" cy="179" r="1.8" fill="#c9a227"/>
+  <!-- hands -->
+  <path d="M64 184 L92 184 L94 200 L82 206 L66 202 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M192 184 L164 184 L162 200 L174 206 L190 202 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+  <!-- broken chain hanging from cuffs -->
+  <g fill="none" stroke="#2f3540" stroke-width="3">
+    <ellipse cx="60" cy="194" rx="3.5" ry="6"/><ellipse cx="56" cy="206" rx="3.5" ry="6"/><ellipse cx="60" cy="218" rx="3.5" ry="6"/>
+    <ellipse cx="196" cy="194" rx="3.5" ry="6"/><ellipse cx="200" cy="206" rx="3.5" ry="6"/>
+  </g>
+  <g fill="none" stroke="#9ca3af" stroke-width="1.2">
+    <ellipse cx="60" cy="194" rx="3.5" ry="6"/><ellipse cx="56" cy="206" rx="3.5" ry="6"/><ellipse cx="60" cy="218" rx="3.5" ry="6"/>
+    <ellipse cx="196" cy="194" rx="3.5" ry="6"/><ellipse cx="200" cy="206" rx="3.5" ry="6"/>
+  </g>
+  <!-- snapped link -->
+  <path d="M198 214 C202 218 200 224 196 222" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- split gear: two halves pulled apart in the hands -->
+  <g transform="translate(88 196)">
+    <g fill="url(#division-imp-brass)" stroke="#5c4a12" stroke-width="1.5">
+      <path d="M-3 -22 L3 -22 L3 -14 L-3 -14 Z" transform="rotate(-90)"/>
+      <path d="M-3 -22 L3 -22 L3 -14 L-3 -14 Z" transform="rotate(-135)"/>
+      <path d="M-3 -22 L3 -22 L3 -14 L-3 -14 Z" transform="rotate(-45)"/>
+      <path d="M0 -15 A15 15 0 0 0 0 15 L0 -15 Z"/>
+    </g>
+    <path d="M0 -15 L-4 -6 L0 2 L-3 10 L0 15" fill="none" stroke="#5c4a12" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(168 196)">
+    <g fill="url(#division-imp-brass)" stroke="#5c4a12" stroke-width="1.5">
+      <path d="M-3 -22 L3 -22 L3 -14 L-3 -14 Z" transform="rotate(90)"/>
+      <path d="M-3 -22 L3 -22 L3 -14 L-3 -14 Z" transform="rotate(135)"/>
+      <path d="M-3 -22 L3 -22 L3 -14 L-3 -14 Z" transform="rotate(45)"/>
+      <path d="M0 -15 A15 15 0 0 1 0 15 L0 -15 Z"/>
+    </g>
+    <path d="M0 -15 L4 -6 L0 2 L3 10 L0 15" fill="none" stroke="#5c4a12" stroke-width="1.5"/>
+  </g>
+  <!-- glowing gap between halves -->
+  <path d="M100 176 L156 176 M100 216 L156 216" stroke="#ffb347" stroke-width="1" opacity="0"/>
+
+  <!-- head -->
+  <path d="M88 84 C88 56 106 40 128 40 C150 40 168 56 168 84 C168 108 150 122 128 122 C106 122 88 108 88 84 Z"
+        fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2.5"/>
+  <!-- ears -->
+  <path d="M90 84 C74 72 62 74 58 82 C70 84 80 92 90 98 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M166 84 C182 72 194 74 198 82 C186 84 176 92 166 98 Z" fill="url(#division-imp-skin)" stroke="#5a1010" stroke-width="2" stroke-linejoin="round"/>
+  <!-- horns -->
+  <path d="M100 52 C88 40 84 26 92 14 C96 30 106 40 114 46 Z" fill="url(#division-imp-horn)" stroke="#0f1218" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M156 52 C168 40 172 26 164 14 C160 30 150 40 142 46 Z" fill="url(#division-imp-horn)" stroke="#0f1218" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M96 36 L104 40 M92 26 L98 30 M160 36 L152 40 M164 26 L158 30" stroke="#0f1218" stroke-width="1.2" opacity="0.7"/>
+  <!-- brows -->
+  <path d="M100 72 L120 80 M156 72 L136 80" stroke="#5a1010" stroke-width="3" stroke-linecap="round"/>
+  <!-- eyes -->
+  <circle cx="112" cy="86" r="12" fill="url(#division-imp-glow)"/>
+  <circle cx="144" cy="86" r="12" fill="url(#division-imp-glow)"/>
+  <ellipse cx="112" cy="86" rx="7" ry="6" fill="#ffd27a" stroke="#5a1010" stroke-width="1.2"/>
+  <ellipse cx="144" cy="86" rx="7" ry="6" fill="#ffd27a" stroke="#5a1010" stroke-width="1.2"/>
+  <ellipse cx="113" cy="86" rx="2" ry="4.5" fill="#1a0f05"/>
+  <ellipse cx="145" cy="86" rx="2" ry="4.5" fill="#1a0f05"/>
+  <!-- nose -->
+  <path d="M124 94 L128 100 L132 94" fill="none" stroke="#5a1010" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- wide grin -->
+  <path d="M104 102 C114 116 142 116 152 102 C142 108 114 108 104 102 Z" fill="#1a0f05" stroke="#5a1010" stroke-width="1.5"/>
+  <g fill="#e5e7eb">
+    <polygon points="108,104 111,112 114,104"/>
+    <polygon points="118,105 121,113 124,105"/>
+    <polygon points="132,105 135,113 138,105"/>
+    <polygon points="142,104 145,112 148,104"/>
+    <polygon points="126,106 128,110 130,106"/>
+  </g>
+</svg>

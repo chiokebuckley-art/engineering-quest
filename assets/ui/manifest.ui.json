@@ -1,0 +1,4 @@
+[
+  { "file": "ui/icon-192.png", "name": "App icon 192", "source": "Rendered from icons/gear.svg (game-icons.net, Lorc)", "creator": "Lorc / Engineering Quest project", "license": "CC BY 3.0", "url": "https://game-icons.net/1x1/lorc/gears.html" },
+  { "file": "ui/icon-512.png", "name": "App icon 512", "source": "Rendered from icons/gear.svg (game-icons.net, Lorc)", "creator": "Lorc / Engineering Quest project", "license": "CC BY 3.0", "url": "https://game-icons.net/1x1/lorc/gears.html" }
+]

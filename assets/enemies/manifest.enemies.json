@@ -1,0 +1,14 @@
+[
+  { "file": "enemies/ore-slime.svg", "name": "Ore Slime", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/tunnel-goblin.svg", "name": "Tunnel Goblin", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/rust-bat.svg", "name": "Rust Bat", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/stone-golem.svg", "name": "Stone Golem", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/fire-beast.svg", "name": "Fire Beast", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/shadow-knight.svg", "name": "Shadow Knight", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/crystal-wraith.svg", "name": "Crystal Wraith", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/gear-sentinel.svg", "name": "Gear Sentinel", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/multiplication-dragon.svg", "name": "Multiplication Dragon", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/forgotten-specter.svg", "name": "Forgotten Specter", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/division-imp.svg", "name": "Division Imp", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" },
+  { "file": "enemies/division-titan.svg", "name": "Division Titan", "source": "Original artwork for Engineering Quest", "creator": "Engineering Quest project", "license": "CC0 1.0", "url": "" }
+]

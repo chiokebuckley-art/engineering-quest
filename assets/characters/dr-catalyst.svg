@@ -1,0 +1,102 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Dr. Catalyst, chemical engineering teacher: a woman in her mid-thirties with dark curly hair tied back, safety glasses pushed up, a lab coat over a green shirt and a glowing green vial in her pocket</title>
+  <defs>
+    <radialGradient id="dr-catalyst-bg" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#4ade80" stop-opacity="0.36"/>
+      <stop offset="0.6" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </radialGradient>
+    <linearGradient id="dr-catalyst-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ead0aa"/>
+      <stop offset="1" stop-color="#b3855a"/>
+    </linearGradient>
+    <linearGradient id="dr-catalyst-coat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f8fa"/>
+      <stop offset="1" stop-color="#aeb6c4"/>
+    </linearGradient>
+    <linearGradient id="dr-catalyst-shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f9c63"/>
+      <stop offset="1" stop-color="#1c5a3a"/>
+    </linearGradient>
+    <linearGradient id="dr-catalyst-hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4a3328"/>
+      <stop offset="1" stop-color="#1c0f0a"/>
+    </linearGradient>
+    <radialGradient id="dr-catalyst-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4ade80" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#4ade80" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dr-catalyst-liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bbf7d0"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="118" r="100" fill="url(#dr-catalyst-bg)" stroke="#4ade80" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="128" cy="118" r="92" fill="none" stroke="#4ade80" stroke-opacity="0.18"/>
+  <!-- tied-back hair bun behind the head -->
+  <ellipse cx="164" cy="82" rx="18" ry="16" fill="url(#dr-catalyst-hair)" stroke="#0b1020" stroke-width="2"/>
+  <circle cx="158" cy="76" r="4" fill="#5e4234" stroke="#0b1020"/>
+  <circle cx="170" cy="86" r="4" fill="#5e4234" stroke="#0b1020"/>
+  <circle cx="162" cy="92" r="3.5" fill="#5e4234" stroke="#0b1020"/>
+  <!-- lab coat -->
+  <path d="M28 256 L28 236 Q32 202 72 188 L112 174 L144 174 L184 188 Q224 202 228 236 L228 256 Z" fill="url(#dr-catalyst-coat)" stroke="#4c566a" stroke-width="2"/>
+  <path d="M112 174 L144 174 L128 216 Z" fill="url(#dr-catalyst-shirt)" stroke="#0f3d26" stroke-width="1.5"/>
+  <path d="M112 174 L94 200 L116 240 L128 216 Z" fill="#e5e7eb" stroke="#4c566a" stroke-width="1.5"/>
+  <path d="M144 174 L162 200 L140 240 L128 216 Z" fill="#eef0f3" stroke="#4c566a" stroke-width="1.5"/>
+  <path d="M128 216 L128 256" fill="none" stroke="#4c566a" stroke-width="1.5"/>
+  <circle cx="128" cy="228" r="2.5" fill="#c9a227" stroke="#8a6d1d"/>
+  <circle cx="128" cy="246" r="2.5" fill="#c9a227" stroke="#8a6d1d"/>
+  <path d="M60 196 Q52 226 54 256 M196 196 Q204 226 202 256" fill="none" stroke="#4c566a" stroke-opacity="0.6" stroke-width="1.5"/>
+  <!-- chest pocket with glowing vial -->
+  <circle cx="184" cy="222" r="22" fill="url(#dr-catalyst-glow)"/>
+  <rect x="166" y="228" width="30" height="28" rx="2" fill="#dfe3ea" stroke="#4c566a" stroke-width="1.5"/>
+  <rect x="178" y="200" width="10" height="34" rx="4" fill="#ecfdf5" fill-opacity="0.6" stroke="#166534" stroke-width="1.5"/>
+  <path d="M178 216 L188 216 L188 230 Q183 236 178 230 Z" fill="url(#dr-catalyst-liquid)"/>
+  <rect x="176" y="196" width="14" height="5" rx="1.5" fill="#6b7280" stroke="#374151" stroke-width="1"/>
+  <circle cx="182" cy="222" r="1.3" fill="#fff" fill-opacity="0.8"/>
+  <circle cx="185" cy="227" r="0.9" fill="#fff" fill-opacity="0.7"/>
+  <!-- neck -->
+  <path d="M114 146 L114 180 L142 180 L142 146 Z" fill="url(#dr-catalyst-skin)" stroke="#6b4a30" stroke-width="1.5"/>
+  <path d="M114 148 Q128 166 142 148 L142 160 Q128 172 114 160 Z" fill="#000" fill-opacity="0.22"/>
+  <!-- head -->
+  <path d="M92 104 Q94 60 128 58 Q162 60 164 104 Q164 140 146 156 Q136 164 128 164 Q120 164 110 156 Q92 140 92 104 Z" fill="url(#dr-catalyst-skin)" stroke="#6b4a30" stroke-width="2"/>
+  <path d="M148 66 Q166 96 162 136 Q154 154 130 164 Q142 150 148 128 Q154 98 148 66 Z" fill="#000" fill-opacity="0.13"/>
+  <ellipse cx="91" cy="114" rx="6" ry="9" fill="url(#dr-catalyst-skin)" stroke="#6b4a30" stroke-width="1.5"/>
+  <ellipse cx="165" cy="114" rx="6" ry="9" fill="#c4956a" stroke="#6b4a30" stroke-width="1.5"/>
+  <!-- curly hair cap -->
+  <path d="M88 108 Q82 52 128 48 Q174 52 168 108 Q164 88 150 78 Q128 68 106 78 Q92 88 88 108 Z" fill="url(#dr-catalyst-hair)" stroke="#0b1020" stroke-width="2"/>
+  <circle cx="94" cy="76" r="7" fill="#3a2419" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="106" cy="62" r="7" fill="#4a3328" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="122" cy="54" r="7" fill="#4a3328" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="140" cy="54" r="7" fill="#3a2419" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="155" cy="64" r="7" fill="#2e1a12" stroke="#0b1020" stroke-width="1.5"/>
+  <circle cx="163" cy="78" r="6" fill="#2e1a12" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M100 72 Q116 60 134 60" fill="none" stroke="#7a5645" stroke-opacity="0.7" stroke-width="1.5"/>
+  <!-- safety glasses pushed up on the hair -->
+  <path d="M96 84 L160 84" fill="none" stroke="#374151" stroke-width="3"/>
+  <path d="M100 78 Q112 74 124 78 L124 90 Q112 94 100 90 Z" fill="#a7f3d0" fill-opacity="0.45" stroke="#374151" stroke-width="1.8"/>
+  <path d="M132 78 Q144 74 156 78 L156 90 Q144 94 132 90 Z" fill="#a7f3d0" fill-opacity="0.45" stroke="#374151" stroke-width="1.8"/>
+  <path d="M124 82 L132 82" fill="none" stroke="#374151" stroke-width="2"/>
+  <path d="M103 80 L110 78" fill="none" stroke="#fff" stroke-opacity="0.6" stroke-width="1.2"/>
+  <!-- brows -->
+  <path d="M104 100 Q113 95 122 98" fill="none" stroke="#2e1a12" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M136 98 Q145 95 154 100" fill="none" stroke="#2e1a12" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- eyes -->
+  <ellipse cx="113" cy="111" rx="7" ry="4.8" fill="#f3f4f6"/>
+  <circle cx="114" cy="111.5" r="3.7" fill="#4b7a3e"/>
+  <circle cx="114" cy="111.5" r="1.8" fill="#0b1020"/>
+  <circle cx="112.6" cy="110" r="1.1" fill="#fff"/>
+  <path d="M106 110 Q113 105 120 110" fill="none" stroke="#3a2419" stroke-width="1.8"/>
+  <ellipse cx="145" cy="111" rx="7" ry="4.8" fill="#f3f4f6"/>
+  <circle cx="146" cy="111.5" r="3.7" fill="#4b7a3e"/>
+  <circle cx="146" cy="111.5" r="1.8" fill="#0b1020"/>
+  <circle cx="144.6" cy="110" r="1.1" fill="#fff"/>
+  <path d="M138 110 Q145 105 152 110" fill="none" stroke="#3a2419" stroke-width="1.8"/>
+  <!-- nose and mouth -->
+  <path d="M129 112 Q127 121 125 127 Q129 130 133 127" fill="none" stroke="#8a5a3a" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M117 140 Q129 149 141 140" fill="none" stroke="#7a3f3a" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M120 142 Q129 146 138 142" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="1.2"/>
+  <ellipse cx="106" cy="130" rx="6" ry="3" fill="#c2410c" fill-opacity="0.15"/>
+  <ellipse cx="150" cy="130" rx="6" ry="3" fill="#c2410c" fill-opacity="0.15"/>
+</svg>

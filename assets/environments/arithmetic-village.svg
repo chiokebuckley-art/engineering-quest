@@ -1,0 +1,131 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>Arithmetic Village at dusk: hillside stone-and-timber houses with brass pipes and rooftop gears around a plaza with a broken engine obelisk, under a starry sky with a faint teal aurora</title>
+<defs>
+<linearGradient id="arithmetic-village-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="0.5" stop-color="#1a1f3d"/><stop offset="0.82" stop-color="#3a2a4a"/><stop offset="1" stop-color="#6b3f3a"/></linearGradient>
+<radialGradient id="arithmetic-village-aurora" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.28"/><stop offset="0.6" stop-color="#2dd4bf" stop-opacity="0.08"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+<radialGradient id="arithmetic-village-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.75"/><stop offset="0.4" stop-color="#ffb347" stop-opacity="0.25"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<radialGradient id="arithmetic-village-moon" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#e5e7eb"/><stop offset="0.7" stop-color="#cfd3dc"/><stop offset="1" stop-color="#9aa0ad"/></radialGradient>
+<linearGradient id="arithmetic-village-mtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3050"/><stop offset="1" stop-color="#171c30"/></linearGradient>
+<linearGradient id="arithmetic-village-hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e3446"/><stop offset="1" stop-color="#151827"/></linearGradient>
+<linearGradient id="arithmetic-village-plaza" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c566a"/><stop offset="1" stop-color="#2b3040"/></linearGradient>
+<linearGradient id="arithmetic-village-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c566a"/><stop offset="1" stop-color="#2f3543"/></linearGradient>
+<linearGradient id="arithmetic-village-roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3f2e"/><stop offset="1" stop-color="#2e2019"/></linearGradient>
+<linearGradient id="arithmetic-village-obelisk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2b3040"/><stop offset="0.5" stop-color="#4c566a"/><stop offset="1" stop-color="#232838"/></linearGradient>
+<linearGradient id="arithmetic-village-brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6d1d"/><stop offset="0.5" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d1d"/></linearGradient>
+</defs>
+<!-- sky -->
+<rect width="1280" height="720" fill="url(#arithmetic-village-sky)"/>
+<ellipse cx="760" cy="150" rx="620" ry="110" fill="url(#arithmetic-village-aurora)"/>
+<path d="M120 120 Q 500 40 900 110 T 1280 60" fill="none" stroke="#2dd4bf" stroke-width="18" stroke-opacity="0.07" stroke-linecap="round"/>
+<path d="M60 170 Q 520 90 1000 160 T 1280 120" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-opacity="0.09" stroke-linecap="round"/>
+<g fill="#e5e7eb">
+<circle cx="80" cy="60" r="1.5" opacity="0.8"/><circle cx="200" cy="110" r="1" opacity="0.6"/><circle cx="330" cy="40" r="1.4" opacity="0.9"/><circle cx="420" cy="150" r="1" opacity="0.5"/><circle cx="510" cy="70" r="1.8" opacity="0.9"/><circle cx="600" cy="30" r="1" opacity="0.6"/><circle cx="700" cy="90" r="1.3" opacity="0.7"/><circle cx="820" cy="40" r="1" opacity="0.8"/><circle cx="900" cy="130" r="1.6" opacity="0.6"/><circle cx="1000" cy="60" r="1" opacity="0.9"/><circle cx="1100" cy="20" r="1.5" opacity="0.7"/><circle cx="1180" cy="100" r="1" opacity="0.6"/><circle cx="1240" cy="170" r="1.3" opacity="0.8"/><circle cx="150" cy="200" r="1" opacity="0.5"/><circle cx="270" cy="240" r="1.2" opacity="0.6"/><circle cx="960" cy="220" r="1" opacity="0.5"/><circle cx="1060" cy="180" r="1.2" opacity="0.7"/><circle cx="760" cy="210" r="0.9" opacity="0.5"/><circle cx="560" cy="180" r="1.1" opacity="0.7"/><circle cx="40" cy="280" r="1" opacity="0.4"/>
+</g>
+<circle cx="1050" cy="120" r="34" fill="url(#arithmetic-village-moon)" opacity="0.9"/>
+<circle cx="1050" cy="120" r="70" fill="#e5e7eb" opacity="0.05"/>
+<!-- distant mountains -->
+<polygon points="0,420 90,330 170,370 260,290 350,360 430,310 520,380 620,330 700,390 800,320 880,370 980,300 1060,360 1160,320 1280,390 1280,450 0,450" fill="url(#arithmetic-village-mtn)"/>
+<polygon points="0,440 120,400 220,420 340,380 470,430 600,400 720,435 860,390 990,430 1120,395 1280,440 1280,470 0,470" fill="#1c2136"/>
+<!-- hillside -->
+<path d="M0 470 C 200 440 380 460 560 480 C 720 495 900 470 1100 455 C 1180 450 1240 455 1280 462 L1280 720 L0 720 Z" fill="url(#arithmetic-village-hill)"/>
+<path d="M0 560 C 180 530 300 560 420 585 L0 640 Z" fill="#1a1e2c"/>
+<path d="M1280 540 C 1120 520 1000 560 880 590 L1280 640 Z" fill="#1a1e2c"/>
+<!-- plaza -->
+<ellipse cx="640" cy="560" rx="360" ry="80" fill="url(#arithmetic-village-plaza)" stroke="#232838" stroke-width="2"/>
+<ellipse cx="640" cy="560" rx="300" ry="60" fill="none" stroke="#5b6478" stroke-width="1.5" opacity="0.5"/>
+<ellipse cx="640" cy="560" rx="200" ry="38" fill="none" stroke="#5b6478" stroke-width="1.5" opacity="0.4"/>
+<g fill="#5b6478" opacity="0.35"><ellipse cx="420" cy="590" rx="14" ry="5"/><ellipse cx="470" cy="610" rx="12" ry="4"/><ellipse cx="560" cy="620" rx="16" ry="5"/><ellipse cx="720" cy="618" rx="14" ry="5"/><ellipse cx="820" cy="600" rx="12" ry="4"/><ellipse cx="880" cy="580" rx="14" ry="5"/><ellipse cx="380" cy="560" rx="12" ry="4"/><ellipse cx="900" cy="550" rx="12" ry="4"/></g>
+<!-- broken engine obelisk (background, dim) -->
+<g>
+<rect x="580" y="452" width="120" height="26" rx="3" fill="#2b3040" stroke="#1a1d2a" stroke-width="2"/>
+<rect x="596" y="432" width="88" height="22" fill="#3b4252" stroke="#1f2331" stroke-width="2"/>
+<polygon points="606,432 674,432 662,250 618,250" fill="url(#arithmetic-village-obelisk)" stroke="#1a1d2a" stroke-width="2"/>
+<polygon points="618,250 662,250 656,214 646,232 636,206 628,226 620,218" fill="#3b4252" stroke="#1a1d2a" stroke-width="2"/>
+<circle cx="640" cy="330" r="26" fill="#1a1d2a" stroke="#8a6d1d" stroke-width="3"/>
+<circle cx="640" cy="330" r="17" fill="none" stroke="#8a6d1d" stroke-width="5" stroke-dasharray="4 3" opacity="0.8"/>
+<circle cx="640" cy="330" r="6" fill="#2dd4bf" opacity="0.25"/>
+<g fill="#2dd4bf" opacity="0.3"><rect x="628" y="372" width="6" height="14" rx="1"/><rect x="637" y="372" width="6" height="14" rx="1"/><rect x="646" y="372" width="6" height="14" rx="1"/><rect x="630" y="392" width="20" height="4" rx="1"/><rect x="632" y="404" width="6" height="10" rx="1"/><rect x="643" y="404" width="6" height="10" rx="1"/><rect x="633" y="276" width="14" height="4" rx="1"/><rect x="637" y="286" width="6" height="12" rx="1"/></g>
+<path d="M626 300 L634 320 M652 280 L648 300 M612 420 L620 400" fill="none" stroke="#151827" stroke-width="2"/>
+<g fill="#3b4252" stroke="#1a1d2a" stroke-width="1.5"><polygon points="700,470 730,452 750,466 736,480"/><polygon points="540,474 566,456 590,470 576,484"/><polygon points="712,440 726,428 740,436 728,448"/></g>
+</g>
+<!-- LEFT houses -->
+<g>
+<rect x="60" y="440" width="150" height="110" fill="url(#arithmetic-village-wall)" stroke="#1a1d2a" stroke-width="2"/>
+<polygon points="48,442 135,372 222,442" fill="url(#arithmetic-village-roof)" stroke="#1a1d2a" stroke-width="2"/>
+<rect x="70" y="452" width="130" height="4" fill="#2e2019" opacity="0.6"/>
+<g fill="none" stroke="#2e2019" stroke-width="3" opacity="0.6"><path d="M80 470 V545 M135 470 V545 M190 470 V545 M80 508 H190"/></g>
+<rect x="92" y="478" width="22" height="26" fill="#ffb347" opacity="0.85"/><rect x="156" y="478" width="22" height="26" fill="#ffb347" opacity="0.7"/>
+<rect x="120" y="512" width="30" height="38" fill="#2e2019" stroke="#1a1d2a" stroke-width="2"/>
+<rect x="102" y="490" width="2" height="14" fill="#2e2019"/><rect x="92" y="490" width="22" height="2" fill="#2e2019"/>
+<rect x="166" y="490" width="2" height="14" fill="#2e2019"/><rect x="156" y="490" width="22" height="2" fill="#2e2019"/>
+<path d="M200 545 V430 Q200 418 212 418 H236" fill="none" stroke="#8a6d1d" stroke-width="7" stroke-linecap="round"/>
+<path d="M200 545 V430 Q200 418 212 418 H236" fill="none" stroke="#c9a227" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+<circle cx="150" cy="385" r="13" fill="#2b3040" stroke="#c9a227" stroke-width="5" stroke-dasharray="4 3"/><circle cx="150" cy="385" r="4" fill="#c9a227"/>
+<circle cx="120" cy="400" r="8" fill="#2b3040" stroke="#b87333" stroke-width="4" stroke-dasharray="3 2"/><circle cx="120" cy="400" r="2.5" fill="#b87333"/>
+<rect x="176" y="380" width="14" height="40" fill="#3b4252" stroke="#1a1d2a" stroke-width="2"/>
+<ellipse cx="183" cy="372" rx="10" ry="5" fill="#6b7280" opacity="0.4"/><ellipse cx="190" cy="356" rx="14" ry="7" fill="#6b7280" opacity="0.25"/>
+</g>
+<g>
+<rect x="240" y="468" width="120" height="90" fill="url(#arithmetic-village-wall)" stroke="#1a1d2a" stroke-width="2"/>
+<polygon points="230,470 300,412 370,470" fill="url(#arithmetic-village-roof)" stroke="#1a1d2a" stroke-width="2"/>
+<rect x="262" y="490" width="20" height="24" fill="#ffb347" opacity="0.8"/><rect x="316" y="490" width="20" height="24" fill="#ffb347" opacity="0.55"/>
+<rect x="286" y="520" width="26" height="38" fill="#2e2019" stroke="#1a1d2a" stroke-width="2"/>
+<path d="M240 540 H222 V480" fill="none" stroke="#8a6d1d" stroke-width="6" stroke-linecap="round"/>
+<circle cx="222" cy="470" r="9" fill="#2b3040" stroke="#c9a227" stroke-width="4" stroke-dasharray="3 2"/>
+<circle cx="330" cy="428" r="10" fill="#2b3040" stroke="#b87333" stroke-width="4" stroke-dasharray="3 2"/><circle cx="330" cy="428" r="3" fill="#b87333"/>
+</g>
+<!-- RIGHT houses -->
+<g>
+<rect x="1060" y="430" width="160" height="120" fill="url(#arithmetic-village-wall)" stroke="#1a1d2a" stroke-width="2"/>
+<polygon points="1048,432 1140,356 1232,432" fill="url(#arithmetic-village-roof)" stroke="#1a1d2a" stroke-width="2"/>
+<g fill="none" stroke="#2e2019" stroke-width="3" opacity="0.6"><path d="M1080 460 V545 M1140 460 V545 M1200 460 V545 M1080 500 H1200"/></g>
+<rect x="1096" y="468" width="24" height="28" fill="#ffb347" opacity="0.85"/><rect x="1162" y="468" width="24" height="28" fill="#ffb347" opacity="0.65"/>
+<rect x="1107" y="480" width="2" height="16" fill="#2e2019"/><rect x="1096" y="481" width="24" height="2" fill="#2e2019"/>
+<rect x="1126" y="508" width="30" height="42" fill="#2e2019" stroke="#1a1d2a" stroke-width="2"/>
+<path d="M1060 548 V420 Q1060 405 1045 405 H1020" fill="none" stroke="#8a6d1d" stroke-width="7" stroke-linecap="round"/>
+<path d="M1060 548 V420 Q1060 405 1045 405 H1020" fill="none" stroke="#c9a227" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+<circle cx="1010" cy="405" r="11" fill="#2b3040" stroke="#c9a227" stroke-width="5" stroke-dasharray="4 3"/><circle cx="1010" cy="405" r="3.5" fill="#c9a227"/>
+<circle cx="1120" cy="376" r="14" fill="#2b3040" stroke="#c9a227" stroke-width="5" stroke-dasharray="4 3"/><circle cx="1120" cy="376" r="4" fill="#c9a227"/>
+<circle cx="1152" cy="392" r="9" fill="#2b3040" stroke="#b87333" stroke-width="4" stroke-dasharray="3 2"/><circle cx="1152" cy="392" r="3" fill="#b87333"/>
+<rect x="1190" y="366" width="14" height="44" fill="#3b4252" stroke="#1a1d2a" stroke-width="2"/>
+<ellipse cx="1197" cy="358" rx="10" ry="5" fill="#6b7280" opacity="0.4"/><ellipse cx="1206" cy="340" rx="15" ry="7" fill="#6b7280" opacity="0.25"/>
+</g>
+<g>
+<rect x="920" y="470" width="110" height="88" fill="url(#arithmetic-village-wall)" stroke="#1a1d2a" stroke-width="2"/>
+<polygon points="910,472 975,418 1040,472" fill="url(#arithmetic-village-roof)" stroke="#1a1d2a" stroke-width="2"/>
+<rect x="940" y="490" width="20" height="24" fill="#ffb347" opacity="0.75"/><rect x="990" y="490" width="20" height="24" fill="#ffb347" opacity="0.5"/>
+<rect x="962" y="520" width="26" height="38" fill="#2e2019" stroke="#1a1d2a" stroke-width="2"/>
+<circle cx="950" cy="432" r="9" fill="#2b3040" stroke="#b87333" stroke-width="4" stroke-dasharray="3 2"/><circle cx="950" cy="432" r="3" fill="#b87333"/>
+<path d="M1030 540 H1046 V500" fill="none" stroke="#8a6d1d" stroke-width="6" stroke-linecap="round"/>
+</g>
+<!-- lanterns -->
+<g>
+<circle cx="440" cy="500" r="70" fill="url(#arithmetic-village-glow)"/>
+<rect x="437" y="500" width="6" height="90" fill="#2b3040" stroke="#1a1d2a" stroke-width="1"/>
+<rect x="430" y="486" width="20" height="24" rx="2" fill="#8a6d1d" stroke="#1a1d2a" stroke-width="1.5"/><rect x="434" y="490" width="12" height="16" fill="#ffb347"/>
+<polygon points="428,486 440,478 452,486" fill="#c9a227"/>
+<circle cx="840" cy="500" r="70" fill="url(#arithmetic-village-glow)"/>
+<rect x="837" y="500" width="6" height="90" fill="#2b3040" stroke="#1a1d2a" stroke-width="1"/>
+<rect x="830" y="486" width="20" height="24" rx="2" fill="#8a6d1d" stroke="#1a1d2a" stroke-width="1.5"/><rect x="834" y="490" width="12" height="16" fill="#ffb347"/>
+<polygon points="828,486 840,478 852,486" fill="#c9a227"/>
+<circle cx="130" cy="470" r="50" fill="url(#arithmetic-village-glow)" opacity="0.6"/>
+<circle cx="1140" cy="465" r="55" fill="url(#arithmetic-village-glow)" opacity="0.6"/>
+<circle cx="300" cy="500" r="40" fill="url(#arithmetic-village-glow)" opacity="0.5"/>
+<circle cx="975" cy="500" r="40" fill="url(#arithmetic-village-glow)" opacity="0.5"/>
+</g>
+<!-- ground light pools -->
+<ellipse cx="440" cy="596" rx="60" ry="14" fill="#ffb347" opacity="0.12"/>
+<ellipse cx="840" cy="596" rx="60" ry="14" fill="#ffb347" opacity="0.12"/>
+<!-- foreground edges -->
+<g fill="#0e1120">
+<path d="M0 720 V600 C 40 590 60 610 90 600 C 120 590 150 620 200 610 C 230 604 250 640 300 632 L 320 720 Z"/>
+<path d="M1280 720 V590 C 1240 580 1220 610 1180 604 C 1150 598 1120 630 1070 620 C 1040 614 1010 650 960 640 L 940 720 Z"/>
+<ellipse cx="60" cy="600" rx="50" ry="40"/><ellipse cx="1230" cy="590" rx="55" ry="45"/>
+</g>
+<g fill="none" stroke="#0e1120" stroke-width="5" stroke-linecap="round">
+<path d="M330 660 V620 M360 660 V616 M390 660 V622 M320 636 H400"/>
+<path d="M900 660 V618 M930 660 V614 M960 660 V620 M890 634 H970"/>
+</g>
+<g fill="#151827"><ellipse cx="60" cy="610" rx="40" ry="28"/><ellipse cx="1230" cy="600" rx="44" ry="32"/></g>
+</svg>

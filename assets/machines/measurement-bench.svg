@@ -1,0 +1,73 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 384" role="img">
+<title>Measurement bench: a wooden workbench holding brass calipers, marked rulers, a balance scale and a brass pressure gauge</title>
+<defs>
+<linearGradient id="measurement-bench-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a6242"/><stop offset="0.3" stop-color="#6b4a2e"/><stop offset="1" stop-color="#3a2818"/></linearGradient>
+<linearGradient id="measurement-bench-leg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a2818"/><stop offset="0.5" stop-color="#6b4a2e"/><stop offset="1" stop-color="#2e2019"/></linearGradient>
+<linearGradient id="measurement-bench-brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0c25a"/><stop offset="0.5" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d1d"/></linearGradient>
+<linearGradient id="measurement-bench-iron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8f9c"/><stop offset="1" stop-color="#4c566a"/></linearGradient>
+<radialGradient id="measurement-bench-dial" cx="0.5" cy="0.4" r="0.6"><stop offset="0" stop-color="#e5e7eb"/><stop offset="1" stop-color="#a3a8b4"/></radialGradient>
+<radialGradient id="measurement-bench-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.3"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="256" cy="366" rx="210" ry="12" fill="#05070d" opacity="0.5"/>
+<ellipse cx="256" cy="180" rx="230" ry="120" fill="url(#measurement-bench-glow)"/>
+<!-- bench -->
+<g stroke="#1a1d2a" stroke-width="2">
+<rect x="60" y="270" width="16" height="96" fill="url(#measurement-bench-leg)"/><rect x="436" y="270" width="16" height="96" fill="url(#measurement-bench-leg)"/>
+<rect x="100" y="270" width="12" height="90" fill="url(#measurement-bench-leg)"/><rect x="400" y="270" width="12" height="90" fill="url(#measurement-bench-leg)"/>
+<rect x="70" y="310" width="372" height="10" fill="#4a3421"/>
+<rect x="40" y="240" width="432" height="30" rx="3" fill="url(#measurement-bench-wood)"/>
+<path d="M60 262 H 452" fill="none" stroke="#3a2818" stroke-width="2" opacity="0.7"/>
+<rect x="150" y="320" width="212" height="30" fill="#3a2818"/><rect x="170" y="328" width="70" height="14" fill="#2e2019"/><rect x="272" y="328" width="70" height="14" fill="#2e2019"/>
+</g>
+<g fill="#c9a227"><circle cx="205" cy="335" r="3"/><circle cx="307" cy="335" r="3"/></g>
+<g fill="none" stroke="#a37850" stroke-width="1" opacity="0.4"><path d="M60 250 Q 200 246 300 252 T 450 248"/><path d="M80 258 Q 220 262 340 256"/></g>
+<!-- balance scale (left) -->
+<g stroke="#2a1f08" stroke-width="2">
+<path d="M96 240 L 106 214 H 146 L 156 240 Z" fill="url(#measurement-bench-brass)"/>
+<rect x="122" y="90" width="8" height="126" fill="url(#measurement-bench-brass)"/>
+<polygon points="126,80 116,98 136,98" fill="#c9a227"/>
+<rect x="46" y="96" width="160" height="7" rx="3" fill="url(#measurement-bench-brass)"/>
+<circle cx="126" cy="99" r="6" fill="#8a6d1d"/>
+</g>
+<g fill="none" stroke="#a3a8b4" stroke-width="1.5"><path d="M54 103 L 44 150 M54 103 L 64 150 M198 103 L 188 158 M198 103 L 208 158"/></g>
+<path d="M28 150 Q 54 168 80 150 Z" fill="url(#measurement-bench-brass)" stroke="#2a1f08" stroke-width="2"/>
+<path d="M172 158 Q 198 176 224 158 Z" fill="url(#measurement-bench-brass)" stroke="#2a1f08" stroke-width="2"/>
+<g fill="#6b7280" stroke="#232838" stroke-width="1.5"><rect x="44" y="136" width="20" height="14" rx="2"/><rect x="186" y="148" width="12" height="10" rx="1"/><rect x="200" y="152" width="8" height="6" rx="1"/></g>
+<line x1="126" y1="108" x2="126" y2="124" stroke="#ef4444" stroke-width="2"/>
+<!-- rulers -->
+<g stroke="#2a1f08" stroke-width="1.5">
+<rect x="160" y="222" width="180" height="16" rx="2" fill="#e0c25a" transform="rotate(-4 250 230)"/>
+<rect x="280" y="228" width="120" height="12" rx="2" fill="#a3a8b4" transform="rotate(6 340 234)"/>
+</g>
+<g fill="none" stroke="#3a2a10" stroke-width="1.2" transform="rotate(-4 250 230)"><path d="M170 222 V232 M180 222 V228 M190 222 V228 M200 222 V232 M210 222 V228 M220 222 V228 M230 222 V232 M240 222 V228 M250 222 V228 M260 222 V232 M270 222 V228 M280 222 V228 M290 222 V232 M300 222 V228 M310 222 V228 M320 222 V232 M330 222 V228"/></g>
+<g fill="none" stroke="#232838" stroke-width="1" transform="rotate(6 340 234)"><path d="M288 228 V235 M296 228 V232 M304 228 V232 M312 228 V235 M320 228 V232 M328 228 V232 M336 228 V235 M344 228 V232 M352 228 V232 M360 228 V235 M368 228 V232 M376 228 V232 M384 228 V235 M392 228 V232"/></g>
+<!-- calipers (centre) -->
+<g stroke="#232838" stroke-width="2" fill="url(#measurement-bench-iron)">
+<rect x="226" y="150" width="120" height="12" rx="2"/>
+<path d="M226 150 L 226 212 L 240 212 L 240 178 L 236 162 Z"/>
+<path d="M286 150 L 286 212 L 300 212 L 300 178 L 296 162 Z"/>
+<rect x="282" y="140" width="24" height="30" rx="3" fill="#6b7280"/>
+</g>
+<circle cx="294" cy="154" r="5" fill="#c9a227" stroke="#3a2a10" stroke-width="1.5"/>
+<g fill="none" stroke="#e5e7eb" stroke-width="1" opacity="0.7"><path d="M234 152 V158 M244 152 V156 M254 152 V158 M264 152 V156 M274 152 V158 M312 152 V158 M322 152 V156 M332 152 V158"/></g>
+<!-- brass gauge (right) on a stand -->
+<g stroke="#2a1f08" stroke-width="2">
+<rect x="376" y="216" width="70" height="24" rx="3" fill="#4c566a"/>
+<rect x="404" y="180" width="14" height="40" fill="url(#measurement-bench-brass)"/>
+<circle cx="411" cy="150" r="42" fill="url(#measurement-bench-brass)"/>
+<circle cx="411" cy="150" r="33" fill="url(#measurement-bench-dial)" stroke="#8a6d1d" stroke-width="2"/>
+</g>
+<g fill="none" stroke="#232838" stroke-width="1.5"><path d="M411 120 V126 M431 128 L 427 133 M439 150 H 433 M431 172 L 427 167 M391 128 L 395 133 M383 150 H 389 M391 172 L 395 167"/></g>
+<path d="M386 132 A 33 33 0 0 1 436 132" fill="none" stroke="#2dd4bf" stroke-width="3" opacity="0.7"/>
+<path d="M436 132 A 33 33 0 0 1 441 158" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.8"/>
+<line x1="411" y1="150" x2="428" y2="128" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="411" cy="150" r="4" fill="#232838"/>
+<g fill="#e0c25a"><circle cx="411" cy="112" r="2"/><circle cx="449" cy="150" r="2"/><circle cx="373" cy="150" r="2"/></g>
+<path d="M376 232 H 356 V 240" fill="none" stroke="#8a6d1d" stroke-width="5" stroke-linecap="round"/>
+<g fill="#2dd4bf"><circle cx="388" cy="228" r="3"/><circle cx="398" cy="228" r="3" opacity="0.4"/></g>
+<!-- small items -->
+<g stroke="#232838" stroke-width="1.5"><rect x="330" y="200" width="30" height="14" rx="2" fill="#6b7280"/><circle cx="60" cy="230" r="8" fill="#b87333"/><circle cx="76" cy="232" r="6" fill="#c9a227"/></g>
+<g fill="#e5e7eb" stroke="#6b7280" stroke-width="1" opacity="0.9"><polygon points="250,238 300,236 302,260 252,262" transform="rotate(-6 276 249)"/></g>
+<g fill="none" stroke="#6b7280" stroke-width="1" opacity="0.6" transform="rotate(-6 276 249)"><path d="M258 244 H 292 M258 250 H 286 M258 256 H 290"/></g>
+</svg>
