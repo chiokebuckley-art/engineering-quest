@@ -69,6 +69,17 @@ counting up). Mixed mode picks the best move for each pair and every explanation
 number line. Three lessons (Tens First, Make a Ten, Count the Distance) teach the moves and when to use each.
 Generator: `src/engine/questions/mental.ts`; skills `mental`, `mental.tens|next10|split|round|make10|distance`.
 
+**Volume** (Arcade → Volume) teaches how to measure volume, and every question is a picture of the thing being
+measured: an isometric stack of unit cubes (count one layer, multiply by the layers), a labelled tank or crate
+(length × width × height in cm³, or mL since 1 cm³ = 1 mL), a measuring jug with a scale (work out what one small
+mark is worth, then read up from the label below the water line), two jugs before and after an object is dropped in
+(displacement: after − before), and a box with one side hidden (volume ÷ the two known sides). Pictures show before
+the answer in every layout, including the Stud table and Weakest Gear. Three lessons (Fill It With Cubes, Read the
+Jug, Sides and Missing Sides). Available in Practice, Blitz and Conquer, as a Naval Blitz level, and at the Stud and
+Weakest Gear tables; misses go to the notebook with same-kind variations.
+Generator: `src/engine/questions/volume.ts`; visuals `cubes|box|beaker|displace` in `MathVisual.tsx`; skills `volume`,
+`volume.cubes|prism|liquid|displace|missing`.
+
 **Profiles.** Several players share one device, each with their own save slot (`engineering-quest.save.<id>`; the
 first profile keeps the original key so old saves carry over). The main menu asks "Who's playing?"; Settings (or a tap
 on the HUD avatar) lets you switch, rename, reset (wipes progress, keeps the slot) or delete a profile. No passwords.
