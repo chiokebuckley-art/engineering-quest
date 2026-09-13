@@ -95,12 +95,33 @@ Practice, Blitz and Conquer, as a Naval Blitz level, at the Stud and Weakest Gea
 Generator: `src/engine/questions/measure.ts`; visuals `ruler|dial|thermometer|clocks|refbar|units|rect`; skills
 `measure`, `measure.ruler|inches|dial|temp|time|estimate|convert|shape`.
 
-Measurement roadmap (not built yet, in order): angles and protractors; ratios and rates, US ↔ metric, circles
-(diameter, radius, circumference), scale drawings, surface area and cylinders, measurement error; Pythagoras,
-tolerances and fit (tight / correct / loose), calipers and micrometers, density, speed and flow rate, significant
-figures; trigonometry and slope, pipe offsets (nominal vs actual pipe size, centre-to-centre, fitting allowances),
-force, torque, pressure, power, calibration, drawings and inspection sheets; and build projects (a gravity-fed
-water station: measure the container, plan the route, calculate cuts, time the flow).
+**The engineering path** (Arcade → Shapes & angles, Rates & conversions, Precision & fit, Forces & power,
+Plumbing) continues the measurement sequence through grade 12, every question a picture of the tool or the thing,
+registered in `src/engine/questions/games.ts` so each game plugs into Practice/Blitz/Conquer, Naval Blitz levels,
+the Stud and Weakest Gear tables, skills, achievements and the notebook the same way:
+
+- **Shapes & angles** (`geo.ts`): protractor reading, missing angles (line 180, point 360, triangle 180, right
+  angle 90), radius/diameter/circumference and wheel travel, Pythagoras on ramps, braces and ladders, slope as rise ÷
+  run, surface area of boxes (open-top at higher levels), cylinder base and volume, scale drawings 1:n.
+- **Rates & conversions** (`rates.ts`): mix ratios (1 : 2 : 3 concrete), US ↔ metric with the same length drawn twice
+  (1 in = 25.4 mm), speed / distance / time, flow rate, density (g/mL by material), dimensional-analysis chains drawn
+  with the units cancelling, rpm × circumference.
+- **Precision & fit** (`fit.ts`): vernier caliper and micrometer pictures read to 0.1 and 0.01 mm, tolerance bands
+  (limits and how far out), feeler-gauge stacks, thread pitch and TPI, bolt thread size vs wrench size (M8 → 13 mm),
+  tolerance stack-up, absolute and percent error, significant figures and scientific notation, dial-indicator
+  runout, calibration offsets and means.
+- **Forces & power** (`phys.ts`): weight = mass × 10 N/kg, torque = force × arm with wrench-unit conversions
+  (lbf·ft ↔ lbf·in ↔ N·m), levers, pressure = force ÷ area with psi ↔ kPa and water head, work, power and kWh,
+  V = I × R and P = V × I, thermal expansion in µm.
+- **Plumbing** (`pipe.ts`): nominal vs actual (Sch 40 PVC OD/ID table), cut length = centre-to-centre − take-offs,
+  route totals with waste, fall per metre / ¼ in per ft / percent, litres inside a pipe from its ID, bucket flow
+  tests and fill times, head pressure, 45° offsets (travel = offset × 1.414).
+
+Answers that involve π or unit factors are rounded and accepted within a tolerance; the keypad shows a decimal
+point when a question needs one (`Question.allowDecimal`). Twenty-six lessons cover the five games and ten **build
+projects** (picture frame, storage box, scale floor plan, wheel travel, model plumbing route, ramp and brace, fill
+time, pipe offset and bracket, leverage and a low-voltage circuit, and the capstone gravity-fed water station),
+each walking estimate → measure → calculate → build → check → explain. The Learn screen groups lessons by unit.
 
 **Profiles.** Several players share one device, each with their own save slot (`engineering-quest.save.<id>`; the
 first profile keeps the original key so old saves carry over). The main menu asks "Who's playing?"; Settings (or a tap
