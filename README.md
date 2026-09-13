@@ -80,6 +80,28 @@ Weakest Gear tables; misses go to the notebook with same-kind variations.
 Generator: `src/engine/questions/volume.ts`; visuals `cubes|box|beaker|displace` in `MathVisual.tsx`; skills `volume`,
 `volume.cubes|prism|liquid|displace|missing`.
 
+**Measuring** (Arcade → Measuring) teaches measurement as a loop, with every question a picture of the tool or the
+thing: read a metric ruler in mm (numbered marks are cm, small marks are mm; harder levels put the object off zero so
+you must subtract the start), fractions of an inch on a tape (eighths, then sixteenths), a dial (kitchen scale in g,
+tyre gauge in psi: work out one mark, count from the label below the needle), a thermometer (reading, then change in
+temperature), elapsed time between two clock faces (count to the next hour, then on), estimating against a familiar
+reference (a door is about 2 m; answers within ±20 % count, via `Question.tolerance`), unit conversion drawn as a
+line, a tiled square or a gridded cube (1 ft = 12 in, 1 ft² = 144 in², 1 ft³ = 1728 in³; metric prefixes; cups,
+pints, quarts, gallons; time), and perimeter vs area (fence around vs tiles inside). Seven lessons follow the ten
+steps (quantity → unit → tool → mark → estimate → read → convert → accuracy → apply → check) and end with the
+engineer's loop on a real job (a shelf that must fit an alcove: estimate → measure → calculate → build → check →
+explain). The Arcade panel shows the measurement path (K–12 stages) and which stages are in the game. Available in
+Practice, Blitz and Conquer, as a Naval Blitz level, at the Stud and Weakest Gear tables, and in the notebook.
+Generator: `src/engine/questions/measure.ts`; visuals `ruler|dial|thermometer|clocks|refbar|units|rect`; skills
+`measure`, `measure.ruler|inches|dial|temp|time|estimate|convert|shape`.
+
+Measurement roadmap (not built yet, in order): angles and protractors; ratios and rates, US ↔ metric, circles
+(diameter, radius, circumference), scale drawings, surface area and cylinders, measurement error; Pythagoras,
+tolerances and fit (tight / correct / loose), calipers and micrometers, density, speed and flow rate, significant
+figures; trigonometry and slope, pipe offsets (nominal vs actual pipe size, centre-to-centre, fitting allowances),
+force, torque, pressure, power, calibration, drawings and inspection sheets; and build projects (a gravity-fed
+water station: measure the container, plan the route, calculate cuts, time the flow).
+
 **Profiles.** Several players share one device, each with their own save slot (`engineering-quest.save.<id>`; the
 first profile keeps the original key so old saves carry over). The main menu asks "Who's playing?"; Settings (or a tap
 on the HUD avatar) lets you switch, rename, reset (wipes progress, keeps the slot) or delete a profile. No passwords.
