@@ -17,9 +17,10 @@ export function record(p,q,correct,{now=Date.now(),ms=0,mode='campaign',assisted
  r={...r,attempts:r.attempts+1,correct:r.correct+(correct?1:0),history:[...r.history,correct].slice(-12),seen:[...new Set([...r.seen,q.id])],times:correct?[...r.times,Math.max(0,ms)].slice(-8):r.times,lastAt:now};
  r.rung=correct?Math.min(INTERVALS.length-1,r.rung+1):0;r.dueAt=now+INTERVALS[r.rung];p.records[q.skill]=r;
  if(correct){p.xp+=assisted?5:20;p.gears+=assisted?1:5;if(mode==='campaign'&&!p.completed.includes(q.id))p.completed.push(q.id);}
- else{let entry=p.notebook.find(e=>e.qid===q.id&&!e.clearedAt);if(entry){entry.clean=0;entry.lapses++;entry.dueAt=now;}else p.notebook.push({qid:q.id,skill:q.skill,clean:0,lapses:0,dueAt:now,createdAt:now});}
+ else noteMiss(p,q,now);
  return r;
 }
+export function noteMiss(p,q,now=Date.now()){let entry=p.notebook.find(e=>e.qid===q.id&&!e.clearedAt);if(entry){entry.clean=0;entry.lapses++;entry.dueAt=now;}else p.notebook.push({qid:q.id,skill:q.skill,clean:0,lapses:0,dueAt:now,createdAt:now});}
 export function finishAssisted(p,q,mode='campaign'){p.xp+=5;p.gears+=1;if(mode==='campaign'&&!p.completed.includes(q.id))p.completed.push(q.id);}
 export function nextCampaign(p,district){const pool=MISSIONS.filter(q=>!district||q.district===district);return pool.find(q=>!p.completed.includes(q.id))||pool[0];}
 export function choosePractice(p,{district='all',kind='all',random=Math.random,exclude=[]}={}) {
