@@ -123,6 +123,15 @@ projects** (picture frame, storage box, scale floor plan, wheel travel, model pl
 time, pipe offset and bracket, leverage and a low-voltage circuit, and the capstone gravity-fed water station),
 each walking estimate → measure → calculate → build → check → explain. The Learn screen groups lessons by unit.
 
+**Speed practice** (Arcade → Speed) runs a set of 20 questions, each on its own clock (15, 10, 7, 5 or 3 seconds;
+the goal is 3). Each answer's feedback shows its time and whether it beat the clock; a set passes at 90 % right
+and 90 % on time, and a pass offers the next tighter clock. Every first answer in any arcade mode is filed under
+its fact (`fact:mult:6x7`) or, for open-ended games, its skill, in `stats.speed.facts` (tries, correct, average,
+best, last, the ten most recent times), and every speed set is logged in `stats.speed.runs` (clock, on-time,
+correct, average, median, best). The **Speed data** panel under the mode cards shows the current selection's facts
+slowest first, a 12 × 12 heat grid of recent averages for times tables and division, the run history, and copies
+or downloads everything as CSV. Engine: `src/engine/state/speed.ts`.
+
 **Profiles.** Several players share one device, each with their own save slot (`engineering-quest.save.<id>`; the
 first profile keeps the original key so old saves carry over). The main menu asks "Who's playing?"; Settings (or a tap
 on the HUD avatar) lets you switch, rename, reset (wipes progress, keeps the slot) or delete a profile. No passwords.
