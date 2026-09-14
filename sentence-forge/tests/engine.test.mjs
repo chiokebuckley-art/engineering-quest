@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {MISSIONS,DISTRICTS,WORDS} from '../content.js';
-import {newSave,newProfile,validateSave,matches,record,finishAssisted,mastery,repairQueue,completeRepair,rng,shuffle,choosePractice} from '../engine.js';
+import {newSave,newProfile,validateSave,matches,record,noteMiss,finishAssisted,mastery,repairQueue,completeRepair,rng,shuffle,choosePractice} from '../engine.js';
 test('Every production order is answerable and every district has real content',()=>{
  assert.equal(new Set(MISSIONS.map(q=>q.id)).size,MISSIONS.length);
  for(let d of DISTRICTS)assert.ok(MISSIONS.filter(q=>q.district===d.id).length>=7,d.id);
@@ -34,3 +34,5 @@ test('Save round trip preserves separate profiles and rejects damaged or injecte
 test('Seeded duel order is repeatable and practice can be restricted to a district and task type',()=>{
  assert.deepEqual(shuffle(MISSIONS,rng(23)).map(q=>q.id),shuffle(MISSIONS,rng(23)).map(q=>q.id));let p=newProfile();for(let i=0;i<30;i++){let q=choosePractice(p,{district:'relation',kind:'choice'});assert.equal(q.district,'relation');assert.equal(q.type,'choice');}
 });
+
+test("Supported misses enter repair without changing independent mastery",()=>{let p=newProfile(),q=MISSIONS[0];noteMiss(p,q);assert.equal(p.records[q.skill],undefined);assert.equal(p.notebook[0].qid,q.id);});
