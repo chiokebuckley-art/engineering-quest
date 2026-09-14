@@ -55,3 +55,19 @@ Practice wording and illustrations are original. Grammar references:
 - [Reading Rockets: Reading comprehension](https://www.readingrockets.org/reading-101/reading-and-writing-basics/reading-comprehension)
 
 DM Sans and Space Grotesk are locally bundled under the SIL Open Font License. Their notices are in `fonts/OFL-DM-Sans.txt` and `fonts/OFL-Space-Grotesk.txt`. No analytics, advertising, or external runtime scripts are used.
+
+
+## Pawprint Trail and Read & Rescue Rally (2.0)
+
+Open `#adventure` for an original Scout-guided dog adventure: 12 grade-level chapters, two stories per chapter, and five evidence-backed comprehension questions per story. The 24 stories progress from simple connected text to complex arguments. This is a practice path, not a complete K–12 curriculum or standardized grade assessment.
+
+- Word Camp introduces 12 blending, spelling-pattern, and word-part examples with optional whole-word speech synthesis. Individual sounds should be modeled by a grown-up.
+- Four of five correct helps a dog. Two independent passes unlock the next chapter. Listening or reviewing the passage earns supported practice; there is no adventure speed requirement.
+- `#reading` offers every grade for solo or two-player pass-and-play. Both players use the same story. WPM counts the passage's word tokens divided by elapsed reading minutes; questions are untimed. It is self-timed and does not measure oral accuracy. A run needs 80% comprehension, at least one second of reading, and no assistance/interruption to qualify. The faster qualifying player wins; equal rounded WPM ties. Player 2 is a guest; only Player 1 updates the active profile's rally best.
+- Answers stay hidden between players. Review shows selected answers, correct answers, and supporting excerpts after both have finished.
+- Pausing, hiding the tab, or opening Profiles makes a run practice. Paused time is excluded from displayed reading time. Leaving a mode discards the current unfinished attempt.
+- Progress, previous attempts, and per-story bests remain profile-specific, work offline after caching, and round-trip through existing export/import. Rereads are identified by previous-attempt counts. Speech voices depend on the device.
+
+Run `npm test`, `node tests/browser.mjs`, and `node tests/trail-browser.mjs` for engine, existing-game regression, and reading-mode browser coverage. Browser environment overrides documented above apply to both harnesses.
+
+Reading skill references: [IES foundational reading skills](https://ies.ed.gov/ncee/wwc/PracticeGuide/21), [grade 1 literature](https://www.thecorestandards.org/ELA-Literacy/RL/1/), and [grades 11–12 literature](https://www.thecorestandards.org/ELA-Literacy/RL/11-12/).
