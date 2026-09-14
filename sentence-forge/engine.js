@@ -1,3 +1,4 @@
+import {validateTrail} from './trail-engine.js';
 import {MISSIONS,BY_ID,DISTRICTS} from './content.js';
 export const VERSION=1;
 export const INTERVALS=[600000,86400000,3*86400000,7*86400000,14*86400000,30*86400000];
@@ -45,6 +46,6 @@ export function validateSave(data){
   }
   let notebook=p.notebook.map(e=>{if(!e||!BY_ID[e.qid]||!Number.isInteger(e.clean)||e.clean<0||e.clean>3||!Number.isFinite(e.dueAt)||!Number.isFinite(e.lapses)||e.lapses<0)throw Error('A repair card is invalid.');return{qid:e.qid,skill:BY_ID[e.qid].skill,clean:e.clean,lapses:e.lapses,dueAt:e.dueAt,createdAt:Number(e.createdAt)||0,clearedAt:Number(e.clearedAt)||0};});
   let bests={};if(p.bests&&typeof p.bests==='object')for(let[k,v]of Object.entries(p.bests)){if(k.length<120&&Number.isFinite(v)&&v>=0)bests[k]=v;}
-  return{id:p.id,name:p.name.trim(),xp:p.xp,gears:p.gears,completed:[...new Set(p.completed)],lessons:[...new Set(p.lessons)],records,notebook,bests,createdAt:Number(p.createdAt)||Date.now(),settings:{sound:p.settings?.sound!==false,motion:p.settings?.motion!==false,read:p.settings?.read===true}};
+  return{...(p.trail?{trail:validateTrail(p.trail)}:{}),id:p.id,name:p.name.trim(),xp:p.xp,gears:p.gears,completed:[...new Set(p.completed)],lessons:[...new Set(p.lessons)],records,notebook,bests,createdAt:Number(p.createdAt)||Date.now(),settings:{sound:p.settings?.sound!==false,motion:p.settings?.motion!==false,read:p.settings?.read===true}};
  });if(!ids.has(data.active))throw Error('Active profile was not found.');return{version:VERSION,active:data.active,profiles};
 }
