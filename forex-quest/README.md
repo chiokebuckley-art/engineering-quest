@@ -76,3 +76,6 @@ PLAYWRIGHT_MODULE=/path/to/playwright CHROME_PATH=/path/to/chromium node tests/b
 ```
 
 `QA_DIR` overrides `/tmp/forex-qa` for screenshots. Browser tests render icon PNGs from `icon.svg` and verify lesson routes, decision/numeric practice, spaced-repair flow, world challenge outcomes, journals, scenarios, four labs, mobile overflow, offline reload, and no uncaught errors. Engine tests cover all skills and decisions, mastery attainability, exact calculations, repair scheduling, migration, option reference values and parity, backtest cost accounting and holdout isolation, and execution risk. No parent Command Center dependency change is required.
+
+## Named player profiles
+Use Add your name to name the existing expedition. Player profiles lets other people create separate expeditions and switch between them. Profiles are local to the browser, are not authenticated accounts, and do not sync automatically. Existing legacy progress is retained and copied into the original profile on the first save. Export/import operates on the active player's progress; names remain local. No passwords or email addresses are collected.
