@@ -76,7 +76,3 @@ PLAYWRIGHT_MODULE=/path/to/playwright CHROME_PATH=/path/to/chromium node tests/b
 ```
 
 `QA_DIR` overrides `/tmp/forex-qa` for screenshots. Browser tests render icon PNGs from `icon.svg` and verify lesson routes, decision/numeric practice, spaced-repair flow, world challenge outcomes, journals, scenarios, four labs, mobile overflow, offline reload, and no uncaught errors. Engine tests cover all skills and decisions, mastery attainability, exact calculations, repair scheduling, migration, option reference values and parity, backtest cost accounting and holdout isolation, and execution risk. No parent Command Center dependency change is required.
-
-## Install button (2.0.1)
-
-A visible installation card captures the browser’s `beforeinstallprompt` when available and opens it only after a visitor taps Install Forex Quest. Acceptance and actual installation are handled separately; the card disappears on `appinstalled` or standalone launch. Cancellation and unavailable prompts lead to manual browser instructions. iPhone/iPad visitors get Safari Share → Add to Home Screen instructions; automatic installation is not supported there. No game progress is reset when install availability changes. The install module is included in offline caching.
