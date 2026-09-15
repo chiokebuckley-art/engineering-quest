@@ -132,6 +132,17 @@ correct, average, median, best). The **Speed data** panel under the mode cards s
 slowest first, a 12 × 12 heat grid of recent averages for times tables and division, the run history, and copies
 or downloads everything as CSV. Engine: `src/engine/state/speed.ts`.
 
+**Probability lab** (Arcade → Probability lab; `src/engine/questions/prob.ts`) is a nine-stage path from odds to a
+predictive model, sixteen kinds each with its own picture: odds and ratios, counting (nPr, nCr), sample spaces (dice
+grid), event rules (trees), conditional probability (two-way table), Bayes with a 1000-case tree, mean/variance/SD
+(dot plot), sampling error and the law of large numbers, z-tests, binomial and Poisson (bar charts), normal and t
+(bell curves), linear and logistic regression, vectors, matrices and Elo, Markov chains, random walks and Monte
+Carlo, expected value, Kelly and risk of ruin. Ten lessons (one per stage plus a capstone) and the **Model
+Workshop** (More menu, `src/game/screens/WorkshopScreen.tsx`): define an outcome and base rate, add weighted factors
+into a logistic model, blend with an Elo gap, simulate a best-of series (10 000 seeded runs checked against the exact
+binomial), price it (fair odds, implied probability, EV, Kelly, half Kelly) and score past predictions with a Brier
+score. The workshop model persists in localStorage.
+
 **Profiles.** Several players share one device, each with their own save slot (`engineering-quest.save.<id>`; the
 first profile keeps the original key so old saves carry over). The main menu asks "Who's playing?"; Settings (or a tap
 on the HUD avatar) lets you switch, rename, reset (wipes progress, keeps the slot) or delete a profile. No passwords.
