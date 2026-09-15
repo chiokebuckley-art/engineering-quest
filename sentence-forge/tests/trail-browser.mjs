@@ -24,11 +24,11 @@ const nav=async name=>page.locator(`button[data-action="nav"][data-view="${name}
 const saved=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('sentence-forge.save.v1')));
 async function solve({advance=true}={}){let id=await page.locator('.order-panel').getAttribute('data-qid'),q=BY_ID[id];assert.ok(q,id);if(q.type!=='choice'){for(let i=0;i<q.tokens.length;i++)await page.locator(`[data-action="add-token"][data-index="${i}"]`).click();await click('run');}await page.locator(`[data-action="answer"][data-index="${q.answer}"]`).click();if(advance&&await page.locator('[data-action="next"]').count())await click('next');return id;}
 
-const tap=async action=>page.locator(`[data-trail="${action}"]`).first().click();
+const tap=async action=>{if(action==='start'&&await page.locator('.trail-full-map').count())await page.locator('.trail-full-map').evaluate(el=>el.open=true);await page.locator(`[data-trail="${action}"]`).first().click();if(action==='home'&&await page.locator('.trail-full-map').count())await page.locator('.trail-full-map').evaluate(el=>el.open=true);};
 async function quiz(wrong=0){for(let i=0;i<5;i++)await page.locator(`[data-trail="answer"][data-index="${i<wrong?1:0}"]`).click();}
 async function read(ms=60000){await tap('read');await page.clock.fastForward(ms);await tap('finish');assert.equal(await page.locator('.trail-passage').count(),0);}
 try{
- await page.clock.install();await page.goto(base+'#adventure');await page.evaluate(()=>document.fonts.ready);
+ await page.clock.install();await page.goto(base+'#adventure');await page.locator('.trail-full-map>summary').click();await page.evaluate(()=>document.fonts.ready);
  assert.equal(await page.locator('.trail-chapter').count(),12);assert.equal(await page.locator('[data-trail="start"]:not(:disabled)').count(),2);
  await page.screenshot({path:qaDir+'/trail-desktop.png',fullPage:true});
  await tap('camp');await tap('camp-answer');assert.equal(await page.locator('.trail-sounds').innerText(),'d\no\ng');await tap('home');

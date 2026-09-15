@@ -71,3 +71,8 @@ Open `#adventure` for an original Scout-guided dog adventure: 12 grade-level cha
 Run `npm test`, `node tests/browser.mjs`, and `node tests/trail-browser.mjs` for engine, existing-game regression, and reading-mode browser coverage. Browser environment overrides documented above apply to both harnesses.
 
 Reading skill references: [IES foundational reading skills](https://ies.ed.gov/ncee/wwc/PracticeGuide/21), [grade 1 literature](https://www.thecorestandards.org/ELA-Literacy/RL/1/), and [grades 11–12 literature](https://www.thecorestandards.org/ELA-Literacy/RL/11-12/).
+
+
+### Gentle first-grade start (2.1)
+
+Pawprint Trail now opens with two picture-led rescues. Each has six steps, progressing from one word to short phrases and sentences, with two illustrated choices. Spoken instructions begin after tapping a dog; Help repeats the directions and the speaker beside the text reads the target. Wrong answers invite a retry. The workshop navigation is hidden during beginner play and Home brings it back. There are no timers or independent-reading scores in this practice. Completed beginner rescues earn profile-specific stars that survive export/import. The full chapter map and longer stories remain available in the grown-up disclosure. Browser speech availability depends on the device. Run `node tests/little-browser.mjs` for both complete rescues, audio dispatch, retries, persistence, mobile layout, and offline coverage.
