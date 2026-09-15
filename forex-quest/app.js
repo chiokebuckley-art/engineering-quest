@@ -1,3 +1,4 @@
+import {startUpdates} from './updates.js';
 import {profileStore} from './profiles.js';
 import {optionPrice,backtest,series} from './advanced-engine.js';
 import {KEY,fresh,valid,mastery,record,grade,question,chooseSkill,desk,quoteAt,pnl,openTrade,advance,closeTrade,migrate,repairResult,variations,rng,scenarios} from './engine.js';
@@ -82,4 +83,4 @@ function showResearch(){const prices=series(research.seed),config=research.froze
 
 render();
 
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{warning='Offline caching is unavailable in this browser. Online play and progress export still work.';});}
+startUpdates({beforeReload:save});
