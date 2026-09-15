@@ -1,0 +1,1 @@
+{"name":"forex-quest","private":true,"type":"module","scripts":{"test":"node --test tests/*.test.mjs","start":"python3 -m http.server 5196"}}
