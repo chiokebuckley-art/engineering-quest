@@ -79,3 +79,8 @@ PLAYWRIGHT_MODULE=/path/to/playwright CHROME_PATH=/path/to/chromium node tests/b
 
 ## Named player profiles
 Use Add your name to name the existing expedition. Player profiles lets other people create separate expeditions and switch between them. Profiles are local to the browser, are not authenticated accounts, and do not sync automatically. Existing legacy progress is retained and copied into the original profile on the first save. Export/import operates on the active player's progress; names remain local. No passwords or email addresses are collected.
+
+## App updates
+The app checks for updates on launch, return to the foreground, reconnection, and every five minutes while visible. A ready update appears in a top banner outside the game render tree. Update now saves current profile progress, activates the waiting worker, then reloads once. Unsubmitted answers and an open simulation trade are not persisted; the banner asks players to finish them first. Another tab activating an update shows a banner instead of forcing this tab to reload. A waiting worker can also activate naturally after all app tabs/windows close. Offline use stays on the cached release.
+
+RELEASE REQUIREMENT: increment CACHE in sw.js on every deployment, even if only content changes. Publish all assets together. The worker caches the entire asset set using cache:reload before installing; do not call skipWaiting during install. Retain the ACTIVATE_UPDATE message contract. Register with updateViaCache:none. Browser caching/background scheduling means updates require a connection and may not appear instantly.
