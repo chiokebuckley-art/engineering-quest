@@ -12,21 +12,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Engineering Quest" />
     <title>Engineering Quest</title>
-    <script type="module" crossorigin src="/engineering-quest/assets/index-Cl-RnS2V.js"></script>
-    <link rel="stylesheet" crossorigin href="/engineering-quest/assets/index-BU1LS4sx.css">
+    <script type="module" crossorigin src="/engineering-quest/assets/index-CbSr9Ap9.js"></script>
+    <link rel="stylesheet" crossorigin href="/engineering-quest/assets/index-CEVL8Toe.css">
   </head>
   <body>
     <div id="root"></div>
-
-    <a id="forex-quest-entry" href="./forex-quest/" hidden style="position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:40;padding:12px 18px;border-radius:10px;background:#64e8c4;color:#08271e;font:700 14px system-ui;text-decoration:none;box-shadow:0 4px 20px #0008">Play Forex Quest ↗</a>
-    <script>
-      (() => {
-        const root = document.getElementById('root');
-        const link = document.getElementById('forex-quest-entry');
-        const sync = () => { link.hidden = !root.querySelector('.menu .logo') || !!root.querySelector('a[href*="forex-quest"]'); };
-        new MutationObserver(sync).observe(root, {childList:true, subtree:true});
-        sync();
-      })();
-    </script>
   </body>
 </html>
