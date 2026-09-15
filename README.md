@@ -143,6 +143,34 @@ into a logistic model, blend with an Elo gap, simulate a best-of series (10 000 
 binomial), price it (fair odds, implied probability, EV, Kelly, half Kelly) and score past predictions with a Brier
 score. The workshop model persists in localStorage.
 
+**Mental Math Academy** (More → Mental Math Academy; `src/engine/mentalmath/`) teaches mental calculation rather than
+testing it. Ten worlds run from number building through two- and three-digit addition and subtraction to two-digit,
+three-by-one and friendly three-by-two multiplication, ending in strategy mastery and an arena. Forty-five skills each
+carry a target time and a speed ladder.
+
+- **Strategy engine** (`strategies.ts`) derives every valid mental route from the numbers themselves — place-value
+  chunks, left to right, make a ten, round and compensate, near doubles, friendly pairs, count down, count up,
+  constant difference, distribute, round and take back, double and halve, ×11, difference of squares, factor splits —
+  each with the full chain of intermediate values, why it is valid, and an `effort` score that estimates mental cost.
+  That score drives "which way would you solve it?" and the ordering of "show me another way". A strategy whose steps
+  do not reach the true answer is never shown; the test suite checks every strategy over more than 50,000 problems.
+- **Mental Workspace** (`MentalWorkspace.tsx`) animates the chain a learner should run in their head: 347 → +200 →
+  547 → +80 → 627 → +6 → 633, with place-value blocks and decomposition cards for World 1. It respects reduced motion
+  and can be switched off as mastery grows.
+- **Guided practice** walks a seven-level scaffolding ladder, from watching the chain worked through, to typing each
+  intermediate total (with "holding 547" chips), to choosing the route yourself, to a hint button, to nothing, to a
+  per-question clock. Four clean answers remove a level of help; two misses hand it back.
+- **Error analysis** (`errors.ts`) classifies a wrong answer instead of marking it wrong: stopped part-way,
+  compensation ran the wrong way, carry missed, borrow flipped, place-value slip, fact slip, reversed, near miss,
+  working memory. The learner's error profile steers later practice.
+- **Progress** (`progress.ts`) holds scaffolding level, speed-ladder step, error counts, personal records, spaced
+  review dates and the daily-workout streak; core mastery, XP, the notebook and spaced repetition come from the
+  game's existing engines, because every academy answer is recorded as a normal question against a registered skill.
+- **Modes**: Learn, Guided, Practice, Speed, Mastery, a phased **world boss**, a personalised **daily workout**, an
+  adaptive **placement challenge** that unlocks the worlds a learner already owns, a **visualisation trainer**, free
+  practice by operation and size, and **Mental Math Blitz** in the Arcade (also available in Naval Blitz levels and at
+  the Stud and Weakest Gear tables). Problems can be read aloud with the browser's own voice.
+
 **Profiles.** Several players share one device, each with their own save slot (`engineering-quest.save.<id>`; the
 first profile keeps the original key so old saves carry over). The main menu asks "Who's playing?"; Settings (or a tap
 on the HUD avatar) lets you switch, rename, reset (wipes progress, keeps the slot) or delete a profile. No passwords.
