@@ -27,7 +27,7 @@ assert.equal(await page.locator('[data-world]').count(),12);
 await page.getByRole('button',{name:'Continue expedition'}).click();await page.getByRole('button',{name:/Two currencies/}).click();await page.getByRole('button',{name:'Mark explored & try it'}).click();
 await page.locator('#answer').fill('-10');await page.getByRole('button',{name:'Check answer'}).click();
 await page.getByRole('button',{name:/Mistake notebook/}).click();assert.equal(await page.locator('[data-repair]').count(),1);
-await page.locator('[data-repair]').click();const answer=await page.evaluate(()=>Object.values(JSON.parse(localStorage.getItem('forex-quest.v1')).notebook)[0].answer);
+await page.locator('[data-repair]').click();const answer=await page.evaluate(()=>{const p=JSON.parse(localStorage.getItem('forex-quest.profiles.v1'));return Object.values(p.players.find(x=>x.id===p.active).progress.notebook)[0].answer;});
 await page.locator('#answer').fill(String(answer));await page.getByRole('button',{name:'Check answer'}).click();await page.locator('#next').click();assert.ok((await page.locator('main').innerText()).toLowerCase().includes('2 of 5'));
 await page.getByRole('button',{name:/Practice arcade/}).click();assert.equal(await page.locator('[data-skill]').count(),27);
 await page.locator('[data-skill="parityjudgment"]').click();await page.locator('input[type=radio]').first().check();await page.getByRole('button',{name:'Check answer'}).click();await page.locator('#next').waitFor();
@@ -42,7 +42,7 @@ await page.screenshot({path:path.join(qa,'research.png'),fullPage:true});
 await page.getByRole('button',{name:'Order-flow observatory',exact:true}).click();await page.getByRole('button',{name:'Inspect the buckets'}).click();await page.getByText(/Mean absolute bucket imbalance:/).waitFor();
 // Populate only prior mastery to exercise every lesson route and challenge UI without thousands of preliminary repetitions.
 const mastered=fresh();for(const k of Object.keys(skillNames))mastered.records[k]={history:Array(12).fill(true),examples:Array.from({length:6},(_,i)=>`${k}-${i}`),due:Date.now()+86400000};for(const w of worlds)mastered.exams[w.id]={passed:true,best:12};
-await page.evaluate(s=>localStorage.setItem('forex-quest.v1',JSON.stringify(s)),mastered);await page.reload();
+await page.evaluate(s=>{const p=JSON.parse(localStorage.getItem('forex-quest.profiles.v1'));p.players.find(x=>x.id===p.active).progress=s;localStorage.setItem('forex-quest.profiles.v1',JSON.stringify(p));},mastered);await page.reload();
 for(const w of worlds)for(const l of w.lessons){await page.locator(`[data-world="${w.id}"]`).click();assert.equal(await page.locator('[data-lesson]').count(),3);await page.locator(`[data-lesson="${l.id}"]`).click();await page.getByRole('button',{name:'Mark explored & try it'}).waitFor();await page.getByRole('button',{name:/Academy/}).click();}
 // Run a whole challenge with genuinely wrong first answers; previously passed result must not be erased.
 await page.locator('[data-world="funding"]').click();await page.locator('#world-exam').click();
@@ -60,3 +60,4 @@ await page.evaluate(async()=>{await navigator.serviceWorker.ready;if(!navigator.
 await context.setOffline(true);await page.reload();await page.getByRole('heading',{name:/Understand the market/}).waitFor();await page.getByRole('button',{name:/Research labs/}).click();await page.getByRole('button',{name:'Build the hedge',exact:true}).click();await page.getByText(/Contract rate:/).waitFor();await context.setOffline(false);
 assert.deepEqual(errors,[]);console.log('PASS browser: 12 worlds, 36 lesson routes, 27 skills, repair flow, 12-question failure and 54-question capstone success, three-scenario desk, all four labs, save migration, mobile overflow, offline reload, no uncaught errors.');
 }finally{await browser.close();server.close();}
+
