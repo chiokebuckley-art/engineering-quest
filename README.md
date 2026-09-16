@@ -77,8 +77,15 @@ mark is worth, then read up from the label below the water line), two jugs befor
 the answer in every layout, including the Stud table and Weakest Gear. Three lessons (Fill It With Cubes, Read the
 Jug, Sides and Missing Sides). Available in Practice, Blitz and Conquer, as a Naval Blitz level, and at the Stud and
 Weakest Gear tables; misses go to the notebook with same-kind variations.
-Generator: `src/engine/questions/volume.ts`; visuals `cubes|box|beaker|displace` in `MathVisual.tsx`; skills `volume`,
-`volume.cubes|prism|liquid|displace|missing`.
+
+**Breaking apart a figure** extends volume to solids that are not one plain box, the way a fifth-grade sheet does:
+an L-shaped or stepped figure to cut into rectangular prisms and add, a U-shaped block with a notch to fill in and
+subtract, and a staircase to slice into upright slabs. The figure is drawn isometrically with each piece in its own
+colour and a legend of `l × w × h` per piece; the notch is drawn as a dashed ghost so the "fill the gap" move is
+visible. Every explanation gives **both** routes — break it apart and add, or enclose and subtract — shows they agree,
+and closes on the unit: a volume answer is cm³, never cm. Lesson: *Breaking Apart a Figure*.
+Generator: `src/engine/questions/volume.ts`; visuals `cubes|box|beaker|displace|solid` in `MathVisual.tsx`; skills
+`volume`, `volume.cubes|prism|liquid|displace|missing|composite|subtract|stairs`.
 
 **Measuring** (Arcade → Measuring) teaches measurement as a loop, with every question a picture of the tool or the
 thing: read a metric ruler in mm (numbered marks are cm, small marks are mm; harder levels put the object off zero so
@@ -142,6 +149,17 @@ Workshop** (More menu, `src/game/screens/WorkshopScreen.tsx`): define an outcome
 into a logistic model, blend with an Elo gap, simulate a best-of series (10 000 seeded runs checked against the exact
 binomial), price it (fair odds, implied probability, EV, Kelly, half Kelly) and score past predictions with a Brier
 score. The workshop model persists in localStorage.
+
+**Spiral review** (Arcade → Spiral review; `src/engine/questions/spiral.ts`) is the mixed weekly-review sheet, five
+kinds with a picture each. *Powers of ten*: `708 ÷ 10³`, drawn on a place-value chart with an arrow per digit, so the
+rule learned is "the digits slide, the point stays". *Place-value relationships*: what a digit is worth, and "1/10 of
+that value" as one column to the right (`54.293`). *Division area models*: partial quotients drawn as strips, asking
+for a missing product, the quotient, or how much is left to divide (`4,992 ÷ 32`). *Which expression equals it?*:
+four near-identical products, answered by the ones digit and an estimate rather than by multiplying all four, with the
+answer given as an option number. *What the remainder means*: the same division read three ways — round up, round
+down, or the leftover itself. Five lessons, and it plays in Practice, Blitz, Conquer, Speed, Versus, Stud and Weakest
+Gear like any other game. Visuals `pvchart|areamodel|options`; skills `spiral`,
+`spiral.powers|pvalue|areamodel|whichexpr|interpret`.
 
 **Mental Math Academy** (More → Mental Math Academy; `src/engine/mentalmath/`) teaches mental calculation rather than
 testing it. Ten worlds run from number building through two- and three-digit addition and subtraction to two-digit,
