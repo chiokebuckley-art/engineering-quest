@@ -2,6 +2,10 @@
 
 A standalone, dependency-free companion to Engineering Quest. Open `linguistics-quest/` from the existing GitHub Pages game, or `/quest/linguistics-quest/` in Command Center.
 
+## Small Common Word Academy
+
+Open `academy/` or the academy card on the learning path. It adds 3,000 original vector illustrated scenes across 60 selected common-word uses and 50 object contexts, with sequential completion, teaching before checks, a freely browsable picture library, SVG downloads, and shared family profiles. Scene count is distinct from meaning count. See `academy/README.md` for scope, provenance, and validation.
+
 ## Learning experience
 
 - 108 sequential lessons across kindergarten through grade 12, covering all 294 guided meanings once. Choose the current school grade as a finish line; every new course starts at kindergarten.
