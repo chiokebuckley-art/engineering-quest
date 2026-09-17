@@ -4,7 +4,7 @@ Standalone library within Linguistics Quest. The public application contains no 
 
 ## First pack
 
-`visual-dictionary-part-01.study.json` is delivered separately for personal import. It has all 126 scanned PDF pages, OCR search text, and 89 prepared entries: 60 starter meaning cards (20 each for astronomy, Earth, and plants), plus all 29 topic and item entries on PDF page 122. The page-122 entries have extracted pictures, transcribed source definitions, plain-language explanations, and parent links. Grain industry → Grain plants → Buckwheat is directly navigable and searchable. Animals has only its opening page in this upload. Other roadmap topics await later uploads. Page 122 is fully itemized; the other pages are not yet fully itemized. The original book text remains visible in page images; card explanations and examples are paraphrased. OCR is explicitly uncorrected and must not be presented as authoritative definitions. Historical source facts are not represented as a current fact-check.
+The personal study pack is delivered separately. It retains all 126 PDF pages and indexes 2,287 individual entries across 109 content pages. Introduction, contents, and divider pages remain browsable. The 89 previously prepared cards keep their IDs and progress. Additional entries use source-page illustrations, outlined label locations where detected, and 1,632 extracted definition regions. Shared diagrams remain intact to avoid misidentifying the object at a pointer's end. There are 72 labels without a reliable detected location. Automatically extracted definitions and locations require review; this is not a claim that every label has been independently verified. Publication-era geography is retained as source material, not current reference information.
 
 ## Append future uploads
 
@@ -21,3 +21,5 @@ On another device, first restore the parent Linguistics Quest family backup so p
 ## Test
 
 Provide jsdom and fake-indexeddb through `JSDOM_MODULE` and `IDB_MODULE`, then run `node --test tests/*.test.mjs` from the parent directory. Set `STUDY_PACK` to a local personal pack only for full-pack validation. Public test fixtures contain synthetic content only.
+
+Source cards use `sourceMode: "scan"`, optional `labelBox`, `crop`, and `definitionCrop` rectangles in `page.layout` coordinates. Rectangles reference the retained page image without duplicating image bytes. Missing definitions fall back to source inspection and skip the quiz. `needsReview` marks unverified extraction.
