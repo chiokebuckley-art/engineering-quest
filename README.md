@@ -139,6 +139,17 @@ correct, average, median, best). The **Speed data** panel under the mode cards s
 slowest first, a 12 × 12 heat grid of recent averages for times tables and division, the run history, and copies
 or downloads everything as CSV. Engine: `src/engine/state/speed.ts`.
 
+**Progress ledger** (`src/engine/state/ledger.ts`) keeps statistics for every arcade answer and every run. Each first
+attempt in Practice, Blitz, Speed and Conquer is filed by day, by game (the math), by mode and by the number it was
+about (`6 × 7`, `42 ÷ 7`, or the skill for open-ended games), with lifetime totals per number; every run is logged
+with its clock (the Blitz length or the Speed per-question clock), right, wrong, score and how long it took — a run
+stopped early is logged too. Misses go to the wrong-answer notebook as before. The **Progress** panel on the arcade
+(under the mode cards) shows the current selection filtered by mode and range (7 / 30 / 90 days / all): answered,
+right, wrong, accuracy and average time; a right-vs-wrong-by-day chart; a breakdown by table or divisor, then by fact
+or skill weakest first; by mode; the run history with clocks; and CSV export. The Stats screen carries the same view
+across all games, broken down by game, with the numbers that keep going wrong. Days older than 180 days are pruned
+(totals and runs are kept), so the ledger stays small.
+
 **Probability lab** (Arcade → Probability lab; `src/engine/questions/prob.ts`) is a nine-stage path from odds to a
 predictive model, sixteen kinds each with its own picture: odds and ratios, counting (nPr, nCr), sample spaces (dice
 grid), event rules (trees), conditional probability (two-way table), Bayes with a 1000-case tree, mean/variance/SD
