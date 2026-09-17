@@ -3,7 +3,7 @@ import {LESSONS,GRADE_TITLES,gradeName,getCourse,coursePlan,unlocked,workFor,com
 import {recordAnswer} from './engine.js';
 export function createCourseUI(api){
  const {p,persist,shell,esc,button,heading,speak,toast}=api;let active=null;
- const academyLink='<a class="academy-banner" href="./academy/"><span>▧</span><div><b>Small Common Word Academy</b><p>See the meaning. Explore 3,000 original illustrated scenes.</p></div><strong>Start the journey →</strong></a>';
+ const academyLink='<a class="academy-banner" href="./visual-library/"><span>▤</span><div><b>My Visual Library</b><p>Your scanned books, picture pages, and meaning cards.</p></div><strong>Open my library →</strong></a><a class="academy-banner" href="./academy/"><span>▧</span><div><b>Small Common Word Academy</b><p>See the meaning. Explore 3,000 original illustrated scenes.</p></div><strong>Start the journey →</strong></a>';
  const gradeOptions=selected=>Array.from({length:13},(_,g)=>`<option value="${g}" ${String(selected)===String(g)?'selected':''}>${gradeName(g)}</option>`).join('')+`<option value="adult" ${selected==='adult'?'selected':''}>Adult · rebuild all foundations</option>`;
  function fields(profile){let c=getCourse(profile);return `<label>School grade / course goal<select name="targetGrade">${gradeOptions(profile.level===5?'adult':c.target)}</select></label><p class="small">Everyone starts at kindergarten. This sets the finish line, not a shortcut past earlier lessons.</p>`;}
  function configure(profile,value){let c=getCourse(profile);if(value==='adult'){profile.level=5;c.target=12;}else{let g=Number(value);if(!Number.isInteger(g)||g<0||g>12)return false;c.target=g;profile.level=g<=1?1:g<=5?2:g<=8?3:4;}c.configured=true;return true;}
