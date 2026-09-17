@@ -1,6 +1,6 @@
 # Personal Visual Library
 
-Standalone library within Linguistics Quest. The public application contains no uploaded book pages or dictionary extracts. Users import a prepared JSON study pack locally. IndexedDB holds packs and per-learner practice records. The existing family profile IDs are read from the parent game; its save format is not modified.
+Standalone library within Linguistics Quest. An AES-GCM encrypted personal book bundle is prepared but its public deployment awaits owner approval. `book-access.js` keeps the bundled-book entry disabled until then. The current app supports local study-pack import. Its random 128-bit unlock code is delivered separately and must never be committed. PBKDF2-SHA256 derives the decryption key locally; the code is not transmitted. After unlocking, IndexedDB stores the decrypted study pack on the device. Manual JSON import remains available. IndexedDB holds packs and per-learner practice records. The existing family profile IDs are read from the parent game; its save format is not modified.
 
 ## First pack
 
@@ -23,3 +23,7 @@ On another device, first restore the parent Linguistics Quest family backup so p
 Provide jsdom and fake-indexeddb through `JSDOM_MODULE` and `IDB_MODULE`, then run `node --test tests/*.test.mjs` from the parent directory. Set `STUDY_PACK` to a local personal pack only for full-pack validation. Public test fixtures contain synthetic content only.
 
 Source cards use `sourceMode: "scan"`, optional `labelBox`, `crop`, and `definitionCrop` rectangles in `page.layout` coordinates. Rectangles reference the retained page image without duplicating image bytes. Missing definitions fall back to source inspection and skip the quiz. `needsReview` marks unverified extraction.
+
+## In-app entry and learning
+
+Linguistics Quest opens `#visual-library` as an embedded study area in the existing app. A fresh device shows in-app file setup until the bundled book is approved; when enabled, it shows one-time book unlock. Successful unlock saves the pack and starts teaching immediately. Cards show their explanations first; related words and full source diagrams are expandable. Opening a word continues through the other words on that page. Global study/review clears stale page filters. Page images use reusable object URLs to avoid repeating large base64 strings throughout the DOM.

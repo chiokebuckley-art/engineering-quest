@@ -4,3 +4,7 @@
 .entry-thumb{display:block;width:100%;height:150px;object-fit:contain;margin-bottom:15px;background:white}.item-image{max-height:500px;object-fit:contain;width:auto;max-width:100%;border:0}.child-entries{padding:15px;background:#e8eddd;border-radius:15px;margin:20px 0}.child-entries h2{font-size:18px}
 
 .source-clip{display:block;width:100%;height:auto;background:white;border:1px solid #d3d9cc;border-radius:10px}.source-clip.item-detail{max-height:450px;margin:20px auto}.source-clip.definition-clip{max-height:360px;margin:20px auto}.source-clip.entry-thumb{height:160px;max-width:100%}
+
+.embedded header,.embedded footer,.embedded .library-nav>a{display:none}.embedded .library-nav{position:sticky;top:0;z-index:5}.study-controls{margin:12px 0 20px;position:sticky;top:0;background:var(--paper,#fffdf7);padding:8px;border-radius:12px;z-index:2}.source-picture{margin-top:24px}.child-entries{margin:12px 0}.import-box>summary{cursor:pointer;font-weight:700}.import-box li{margin-bottom:14px}.source-clip{max-width:100%}
+
+#unlock-book{display:grid;gap:14px;margin:24px 0}#book-code{width:100%;box-sizing:border-box;font:18px ui-monospace,monospace;padding:16px;border:1px solid #9aad9b;border-radius:12px}#unlock-status{min-height:24px;font-weight:700}
