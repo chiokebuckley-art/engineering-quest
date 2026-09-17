@@ -1,0 +1,23 @@
+{
+  "format": "visual-library-encrypted-book",
+  "version": 1,
+  "title": "Visual Dictionary \u00b7 Part 1",
+  "cards": 2287,
+  "pages": 126,
+  "files": [
+    "part-01-01.bin",
+    "part-01-02.bin",
+    "part-01-03.bin",
+    "part-01-04.bin",
+    "part-01-05.bin",
+    "part-01-06.bin",
+    "part-01-07.bin",
+    "part-01-08.bin",
+    "part-01-09.bin"
+  ],
+  "salt": "/4GPtU5PpC1jzzA4b5J2Pw==",
+  "iv": "hKGryg9ffsrkzuzH",
+  "iterations": 210000,
+  "bytes": 37585924,
+  "sourceSHA256": "7ded4ada1a0997d4445b4a111cf12622eb902e2975ee3d7171e383c1a857fc01"
+}
