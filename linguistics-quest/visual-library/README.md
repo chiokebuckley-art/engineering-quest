@@ -1,6 +1,6 @@
 # Personal Visual Library
 
-Standalone library within Linguistics Quest. An AES-GCM encrypted personal book bundle is prepared but its public deployment awaits owner approval. `book-access.js` keeps the bundled-book entry disabled until then. The current app supports local study-pack import. Its random 128-bit unlock code is delivered separately and must never be committed. PBKDF2-SHA256 derives the decryption key locally; the code is not transmitted. After unlocking, IndexedDB stores the decrypted study pack on the device. Manual JSON import remains available. IndexedDB holds packs and per-learner practice records. The existing family profile IDs are read from the parent game; its save format is not modified.
+Standalone library within Linguistics Quest. The owner approved hosting the encrypted personal book. It loads in nine sections and unlocks locally inside the app. Manual import remains available. The owner selected a short convenience code; it is not strong protection against guessing. PBKDF2-SHA256 derives the decryption key locally; the code is not transmitted. After unlocking, IndexedDB stores the decrypted study pack on the device. Manual JSON import remains available. IndexedDB holds packs and per-learner practice records. The existing family profile IDs are read from the parent game; its save format is not modified.
 
 ## First pack
 
@@ -26,4 +26,4 @@ Source cards use `sourceMode: "scan"`, optional `labelBox`, `crop`, and `definit
 
 ## In-app entry and learning
 
-Linguistics Quest opens `#visual-library` as an embedded study area in the existing app. A fresh device shows in-app file setup until the bundled book is approved; when enabled, it shows one-time book unlock. Successful unlock saves the pack and starts teaching immediately. Cards show their explanations first; related words and full source diagrams are expandable. Opening a word continues through the other words on that page. Global study/review clears stale page filters. Page images use reusable object URLs to avoid repeating large base64 strings throughout the DOM.
+Linguistics Quest opens `#visual-library` as an embedded study area in the existing app. A fresh device shows one-time book unlock. Successful unlock saves the pack and starts teaching immediately. Cards show their explanations first; related words and full source diagrams are expandable. Opening a word continues through the other words on that page. Global study/review clears stale page filters. Page images use reusable object URLs to avoid repeating large base64 strings throughout the DOM.

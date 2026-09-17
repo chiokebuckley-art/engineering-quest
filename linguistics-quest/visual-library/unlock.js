@@ -2,7 +2,7 @@ export function normalizeCode(value){return String(value).replace(/[\s-]/g,'').t
 const bytes=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 export async function decryptBook(cipher,manifest,code,cryptoAPI=globalThis.crypto){
  const normalized=normalizeCode(code);
- if(!/^[A-F0-9]{32}$/.test(normalized))throw Error('Paste the complete unlock code from our conversation.');
+ if(!/^[A-Z0-9]{4,64}$/.test(normalized))throw Error('Paste the complete unlock code from our conversation.');
  if(manifest.format!=='visual-library-encrypted-book'||manifest.version!==1||manifest.iterations!==210000)throw Error('This book version is unsupported. Reload the app.');
  const password=await cryptoAPI.subtle.importKey('raw',new TextEncoder().encode(normalized),'PBKDF2',false,['deriveKey']);
  const key=await cryptoAPI.subtle.deriveKey({name:'PBKDF2',salt:bytes(manifest.salt),iterations:manifest.iterations,hash:'SHA-256'},password,{name:'AES-GCM',length:256},false,['decrypt']);

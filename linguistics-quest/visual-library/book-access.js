@@ -1,2 +1,2 @@
-// Enable only after the owner approves publishing the protected book bundle.
-export const BUNDLED_BOOK=false;
+// Owner approved hosting this encrypted book with a convenience code.
+export const BUNDLED_BOOK=true;
