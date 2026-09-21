@@ -46,7 +46,8 @@ full-screen like an app. Progress is stored per browser; use Settings → Export
 
 The **Arcade** tab holds fast practice for every operation: the 1–12 times-table chart (pick a table,
 several, or one fact), division facts (÷2–÷12), addition and subtraction (to 20 / 100 / 1000), Number Bonds
-(make 5 / 10 / 50 / 100), pre-algebra (evaluate expressions, one-step equations), **word problems** (addition,
+(make 5, 10, then every five to 100 — up to 20 every number is a tracked fact, past 20 the bonds go by fives, with
+"make ten first" and "jump to the next ten" explanations), pre-algebra (evaluate expressions, one-step equations), **word problems** (addition,
 subtraction, multiplication, division, two-step or mixed) and an everything-mixed set.
 Each has Practice, Blitz (30 / 60 / 90 / 120 s, bests kept per length) and Conquer modes.
 
