@@ -72,6 +72,22 @@ Play is built so the first thing a kid does is fight, not read.
 - **Where each visit starts.** The parent dashboard records the first place each visit goes (Play, Arcade,
   Academy or something else), so you can see whether Play is being chosen first.
 
+## Sync across devices
+
+Progress normally lives in each phone's browser. **Settings → Sync across devices → Turn on** gives the
+current profile a secret 12-character sync code such as `EQ4K-9TQ2-MHB7`. On any other phone or tablet, open
+the main menu, tap **Link a player from another device** and enter the code: the profile appears with all
+its progress. From then on every device pulls when the game opens or comes back to the front and pushes a
+little after each change (at most every 15 seconds while playing). The cloud keeps one save per code with
+a revision counter, so a device holding an older copy is handed the newer save rather than overwriting it;
+when both devices changed, the later save wins. Saves travel gzipped, well under the server's 400 KB cap.
+
+The game shares the Word Raiders sync service (a free Cloudflare Worker with a small database, see
+`wordraiders/sync/`). Engineering Quest codes start with `EQ`, and a code from another game is refused.
+To point the game at a different server put its address in `sync.json` next to the build
+(`{"url":"https://..."}`) or in `localStorage["engineering-quest.sync.url"]`; the value `off` hides sync.
+Code: `src/engine/save/sync.ts` (codes, packing, server calls, reconcile), wiring in `src/game/store.tsx`.
+
 ## Arcade and Versus
 
 The **Arcade** tab holds fast practice for every operation: the 1–12 times-table chart (pick a table,
