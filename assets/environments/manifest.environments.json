@@ -134,5 +134,13 @@
     "creator": "Engineering Quest project",
     "license": "CC0 1.0",
     "url": ""
+  },
+  {
+    "file": "environments/fraction-forest.svg",
+    "name": "Fraction Forest",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
   }
 ]

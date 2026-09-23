@@ -42,6 +42,36 @@ full-screen like an app. Progress is stored per browser; use Settings → Export
 
 `npm run build:single` produces `dist-single/engineering-quest.html`, a one-file offline copy.
 
+## Play mode
+
+Play is built so the first thing a kid does is fight, not read.
+
+- **First fight in one tap.** Vector says two lines, the Multiplication Mines open, and the guide's first
+  button starts a battle with the Ore Slime. First Principles is now an optional lesson.
+- **Different kinds of turns.** Battles rotate between typing the answer, picking from choices, building
+  the array on a grid, and choosing the pressure plate with the right product. Early galleries start with
+  arrays. Bosses, scouting fights and review facts are always typed.
+- **A miss is a choice, not a lecture.** After a wrong answer (outside boss fights) you pick one of three:
+  *Retry* (full hit), *Show me* (the picture, then a half hit) or *Train it* (a quick Arcade trip). Five
+  right on that trip earns a shield for the rematch, and "Return to the fight ▸" takes you straight back.
+- **NPC tips mid-fight.** Vector explains what the fact means, Ada gives a shortcut and Brick skip-counts,
+  stopping one count short. No tip ever gives away the answer. **Power Strike** uses energy to end a
+  question, and that fact is queued to come back later.
+- **Routes and side goals.** Each gallery offers a quiet route (shorter fight) or a loud one (longer,
+  ×1.3 XP), plus a side objective (no misses, a streak, a time limit or no hints) worth +40 XP and loot.
+- **Bosses fight in phases.** The Multiplication Dragon has The Waking, Mirror Scales (the factors swap
+  sides) and Split Breath (7 × 8 = 7 × 5 + 7 × 3). Each move is announced one question ahead.
+- **The world changes.** Every cleared gallery lights a mine lantern and fixes something in the village
+  (Pip's stall, the bell, the library, the clock and more). Beating a boss plays a core ceremony. The
+  village board shows the news, today's quest and a training pick, and "Share my Engine" saves a picture card.
+- **Fraction Forest** opens after Into the Mines: three groves (Halving Glade, Bramble Crossing, Mushroom
+  Ring) and the three-headed **Fraction Hydra** (sums, then products, then both).
+- **Road to Calculus and scouting.** The map shows every milestone from multiplication to calculus. Locked
+  regions can be *scouted* with a free preview fight, and there's a button to train their skills in the Arcade.
+- **Lessons lead back into play.** A finished lesson ends with "Continue the quest ▸", which starts the next step.
+- **Where each visit starts.** The parent dashboard records the first place each visit goes (Play, Arcade,
+  Academy or something else), so you can see whether Play is being chosen first.
+
 ## Arcade and Versus
 
 The **Arcade** tab holds fast practice for every operation: the 1–12 times-table chart (pick a table,
