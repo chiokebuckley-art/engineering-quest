@@ -1,10 +1,10 @@
-# Equation Plaza — v0.32.0
+# Equation Plaza — v0.32.1
 
 Entry: **Arcade → Equation Plaza**, also available in the More menu.
 
 ## Modes and selected math
 
-- Solo practice: untimed, unlimited turns; Finish practice saves the session.
+- Solo practice: untimed. Pick a goal (place 5 or 10 equations, reach 60 points, or free play); a progress bar tracks it, reaching it celebrates and offers the summary, and you can keep building. Finish practice opens a summary (equations placed, points, time, best play, goal) and saves the session. **Undo last Place** takes back the most recent play once (until the next Place, swap, or Finish).
 - Computer: Apprentice, Technician, or Engineer searches progressively more legal scoring moves. Same arithmetic, rack, placement, scoring, and turn rules as humans.
 - Pass & play: 2–4 people; hide the next rack behind a named handoff screen.
 - Online friends: 2–4 devices; host creates a four-character room code or copies an invite link. Host selects the rules, validates all moves, and must stay connected. No paid service was added; transport reuses the existing PeerJS integration.
@@ -21,6 +21,14 @@ Entry: **Arcade → Equation Plaza**, also available in the More menu.
 
 The first release uses one operation per equation. Multi-operation expressions, fractions, percentages, roots, parentheses, and quest unlocks are not part of this release.
 
+## First session (v0.32.1)
+
+A player's first Solo practice starts with a **guided first move**: the coach picks a short equation the rack can build, glows the next rack tile to tap, then the Check equation button, then Place, and ends with a card explaining the score. It can be skipped; afterwards the written rules stay as reference (collapsed), and the setup offers "Play the guided first move again". Without the guide, the first move still gets an affordance: the rack pulses, the tray reads "Tap a rack tile to start", Swap stays hidden and the board is dimmed until the first tile is chosen.
+
+Every play shows a four-step bar under the tray: **1 Build · 2 Check equation · 3 Choose position · 4 Place**, with exactly one step active. Passing Check moves focus to Place.
+
+The bonus-square legend sits above the board (shape + label + name), with "What do these mean?" opening a one-line meaning for each square; it opens once, after the guided move, on a player's first session.
+
 ## Board and controls
 
 The original 11×11 board and premium layout are retained. Build an equation by tapping rack tiles in a large tray, or dragging rack tiles into the tray. Adjacent digit tiles form multi-digit numbers. Tap a tray tile to remove it. Tap a board tile to reuse that exact square. A reused tile is clearly marked in the tray.
@@ -36,6 +44,8 @@ Racks have seven tiles for small addition/subtraction and bonds through 20; nine
 Racks are generated from legal moves for the selected math, not from the handoff's fixed 73-tile bag. After a play, usable remaining tiles are retained and refilled. If remaining tiles cannot form a legal move, a playable rack is dealt for free. If no legal connection remains for the selected math, a fresh board opens while scores and turns are preserved. No solver answer or preferred digit is exposed to the player. Voluntary swaps use a competitive turn. There is no finite-bag end condition.
 
 ## Scoring and records
+
+Every Place shows its score in words, before and after placing: face points, tile bonuses and equation multipliers, e.g. `(8 face + 1 tile bonus) × 2 equation bonus = 18`; crossing equations are listed separately, then the whole-rack bonus.
 
 Face points: 0–3 and +/− = 1; 4–6 and × = 2; 7–9 and ÷ = 3; equals = 0. Only newly placed tiles score in each new equation. Premiums apply only when first covered. Multiple equation bonuses multiply. Cross equations score separately. A whole-rack play adds 10 points **once per turn**.
 
