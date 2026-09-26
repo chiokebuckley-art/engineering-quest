@@ -34,3 +34,13 @@ JSDOM_MODULE=/path/to/jsdom node --test tests/*.test.mjs
 Academy tests cover all 3,000 unique sentences/SVGs, all contrasts, distinct accessible descriptions, 60×50 coverage, ordered progression through the entire journey, no duplicate XP, backup validation, wrong-answer reteaching, reload checkpoints, sibling isolation, and free library exploration.
 
 Representative geometry for all 60 uses was rendered and visually reviewed during development. This is not a claim of an independent linguistic audit of every scene. Future edits should review both the correct and contrast drawings and ensure that every meaning question has only one defensible answer.
+
+## Sync across devices
+
+Choose the learner, tap **Sync → Create my sync code** on the device with their progress. On another device open this Academy, choose **Sync**, enter the AC code, and confirm the displayed learner. Each learner has a separate private code; Engineering Quest codes remain separate. Existing local learners are retained. The imported learner is selected automatically.
+
+The same Word Raiders / Engineering Quest Worker stores revision-controlled saves. Academy payloads include only learner identity, Academy completion, checkpoint and Academy review records. Sync runs 15 seconds after changes, on returning to the app or reconnecting, every minute while visible, and with **Sync now**. Offline work stays local. Completed scene IDs are unioned; the latest checkpoint and review records are retained, and completed scenes never regress to unfinished. Review attempts made concurrently on separate devices use the more recent record, rather than adding overlapping totals. Other courses are not synced by this feature.
+
+Before importing cloud changes, the previous complete family save is retained under `linguistics-quest.family.v1.before-academy-sync`. Existing profile IDs, family storage keys and course data are preserved. Disconnect keeps both the local progress and cloud copy. Anyone with a private sync code can access that learner's Academy progress.
+
+Run model/regression checks with `node --test solving-english-problems/linguistics-quest/academy/sync.test.mjs` from the published repository root.
