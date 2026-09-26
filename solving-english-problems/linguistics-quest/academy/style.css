@@ -8,3 +8,4 @@
 .academy-sync button:disabled{opacity:.55;cursor:wait}.academy-sync .sync-close{float:right;background:transparent;color:#143d39;margin:-10px -8px 0 0}
 .academy-sync input{display:block;box-sizing:border-box;width:100%;padding:12px;margin:8px 0;border:1px solid #697f75;border-radius:8px;font:20px monospace;background:#fff;color:#143d39}
 .academy-sync [hidden]{display:none!important}.academy-sync #sync-message{font-weight:600}.academy-sync :focus-visible{outline:3px solid #b56726;outline-offset:3px}
+.profile .sync-button:hover:not(:disabled),.academy-sync button:hover:not(:disabled){background:#2d5b4c;color:#fff}
