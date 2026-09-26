@@ -1,5 +1,9 @@
 # ENGINEERING QUEST
 
+**v0.33.0 — Count Lab:** parent-gated card math and probability in Arcade, Quest Log and Probability Research Station. Nine learning stages, Hi-Lo flashes, running tracks, deck estimation, true-count division, a configurable practice blackjack table and daily Station Analyst certification. See [Count Lab rules and validation](docs/COUNT_LAB.md).
+
+**v0.32.1 — Equation Plaza, easier to start:** a guided first move for new players, a Solo practice goal with a finish summary, a Build → Check → Position → Place step bar, the bonus-square legend above the board, a score breakdown on every Place, and Undo last Place in practice.
+
 **v0.32.0 — Equation Plaza:** a connected-equation board game in Arcade. Choose addition, subtraction, number bonds, multiplication, division, or selected mixed operations. Play untimed practice, a computer opponent, pass-and-play, or a private online room. See [Equation Plaza rules and validation](docs/EQUATION_PLAZA.md).
 
 **v0.31.2 — Percentage learning repair:** guided build-to-100 steps before conversion, clean fraction labels, completed models reserved for worked solutions, and dedicated percentage practice through Academy drills. See [the percentage QA checklist](docs/PERCENT_GRADIENT.md).
