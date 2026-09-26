@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.31.2 — Percentage learning repair:** guided build-to-100 steps before conversion, clean fraction labels, completed models reserved for worked solutions, and dedicated percentage practice through Academy drills. See [the percentage QA checklist](docs/PERCENT_GRADIENT.md).
+
 *An RPG that takes you from multiplication facts to the mathematics of chemical engineering,
 electrical engineering and physics.*
 
@@ -480,3 +482,4 @@ engineering-quest/
 
 See `docs/ARCHITECTURE.md` for the data model, the mastery formula and a step-by-step guide to adding
 World 2 (fractions) without rewriting anything.
+
