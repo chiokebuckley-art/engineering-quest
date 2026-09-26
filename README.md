@@ -38,37 +38,53 @@ The Command Center server serves the game at **`/quest`** (e.g. `https://<your-c
 behind the same login. The root `npm run build` builds the game with `QUEST_BASE=/quest/` and
 `server/server.mjs` mounts `engineering-quest/dist` there, so every Railway deploy of `main` ships the
 latest game. On a phone, open the URL and use "Add to Home Screen" — the web-app manifest makes it launch
-full-screen like an app. Progress is stored per browser; use Settings → Export to move it between devices.
+full-screen like an app. Progress is stored per browser; Settings → Sync across devices keeps profiles in step on every device (or use Export).
 
 `npm run build:single` produces `dist-single/engineering-quest.html`, a one-file offline copy.
 
-## Arithmetic Academy
+## The Academies
 
-Play's campaign: one quest line from counting to roots, then a Mastery Trial and graduation into Algebra
-City. It opens from the village (the **Arithmetic Academy** card), the World Map and More.
+Play's campaign is a ladder of ten academies, from counting to differential equations. Each one is built the same
+way (teach-in-world cards, two quests per chapter answered by *building* with hands-on models, mastery gates, a
+Mastery Trial and a graduation ceremony), and graduating from one seats its power core in the Engine and opens the
+next. Open them from the village card, the World Map, More → **The Academies**, or each region's academy card.
 
-- **Fifteen chapters in six wings.** Village (counting, place value, addition, subtraction, percent), Multiplication
-  Mines (equal groups and arrays; properties), Division Dungeon (sharing and grouping), Fraction Forest, Ratio River
-  (ratios, proportions), the Forge (exponents, roots) and the Engine (fluency and transfer, the Trial). Division,
-  Forest and River are chapters of the Academy, not later products.
-- **Teach-in-world, then play.** Every chapter has two or three teach cards with a live model on the stage (tap-to-count
-  counters, tens-and-ones plates, a number rail, an array grid, fraction planks, a ratio table, a percent dial, a
-  power tower, an area-to-side panel). Then a guided quest and a challenge quest, each three waves. The player answers
-  by *building*: at least one hands-on verb per quest, typing as one weapon among several.
+| # | Academy | Tier | Chapters | Home region | Core |
+|---|---|---|---|---|---|
+| 1 | Arithmetic | Foundational | 15: counting → place value → + − × ÷ → properties → fractions → **decimals** → ratios, proportions, percent → powers, roots → fluency | Arithmetic Village | Arithmetic Power Core |
+| 2 | Pre-Algebra | Foundational | 12: integers, integer + − and × ÷, order of operations, expressions, like terms, one- and two-step equations, inequalities, rates, proportions, the coordinate plane | Algebra City | Variable Core |
+| 3 | Algebra 1 | High School | 11: multi-step equations, formulas, inequalities, slope, graphing lines, functions, systems, exponent rules, polynomials, factoring, quadratics | Algebra City | Linear Core |
+| 4 | Geometry | High School | 12: points and lines, angle pairs, parallel lines, triangles, congruence and proof, similarity, Pythagoras and special triangles, polygons, circles, solids, transformations, coordinate geometry | Geometry Kingdom | Geometry Core |
+| 5 | Algebra 2 | High School | 10: transformations, quadratics, solving quadratics, complex numbers, polynomials, rational functions, radicals, exponentials, logarithms, sequences and series | Algebra City | Function Core |
+| 6 | Trigonometry | High School | 12: SOH-CAH-TOA, solving right triangles, exact values, standard position, radians, the unit circle, graphs, inverse trig, identities, sum and double angle, laws of sines and cosines, trig equations | Trigonometry Mountains | Angle Core |
+| 7 | Pre-Calculus | High School | 11: functions in depth, polynomials, rational functions, exp/log modelling, trig functions, polar, vectors, parametric, sequences and binomial theorem, conics, limits preview | Calculus Frontier | Pre-Calculus Core |
+| 8 | Calculus | Advanced | 12: limits, the derivative, rules, chain rule, transcendental derivatives, motion, related rates and optimisation, curve sketching, antiderivatives, Riemann sums and FTC, area and volume, series | Calculus Frontier | Calculus Core |
+| 9 | Linear Algebra | Advanced | 12: vectors, span, dot product, matrices, transformations, matrix multiplication, systems, elimination, determinants, inverses, basis and rank, eigenvalues | Linear Algebra Grid | Matrix Core |
+| 10 | Differential Equations | Advanced | 12: what an ODE is, slope fields, Euler's method, separable, growth and cooling, integrating factors and mixing tanks, logistic, second order, oscillators, forcing and resonance, systems, Laplace | Differential Equation Reactor | Reactor Core |
+
+- **Hands-on models:** counters, place-value plates, a number rail (with negatives), array grid, fraction planks,
+  ratio table, percent dial, power tower, root panel, a balance scale for equations, a coordinate plane you tap
+  (points, lines, parabolas, vectors), an angle dial, the unit circle, a fill-in table (function tables, matrices,
+  Euler steps), and a slider; plus explorers shown above an answer (Riemann rectangles, a shrinking secant, a
+  slider-driven graph). Diagrams (triangles, circles, matrices, slope fields) are drawn from data.
+- **A calculator** (DEG/RAD, trig and inverses, ln, log, √, π) opens under questions that ask for a rounded
+  answer, as it would in class.
 - **A miss is a hint and a retry**, never the bare answer; every miss also lands in the Wrong-Answer Notebook. The
-  post-quest card shows what changed in the wing, the chapter's four gates, and an Arcade drill that feeds fluency.
+  post-quest card shows what changed, the chapter's four gates, and an Arcade drill that feeds fluency.
 - **Mastery gates per chapter:** both quests cleared (70%), a concept check (2 of 3 model items), fluency (a rolling
   window of recent answers *from anywhere*: Arcade, battles, the Academy; accuracy and median time per family) and a
-  transfer set (80% on new engineering problems). Chapter 8 (Forest) also needs the Division concept pass.
-- **Graduation:** chapters 1–14 mastered, no critical weak facts (Notebook cards missed twice and not yet fixed twice),
-  and the Mastery Trial (five phases, 25 prompts across the stack, one helper, 80%). Then the Arithmetic Power Core is
-  seated in a village ceremony, the title *Arithmetic Graduate* is awarded and **Algebra City** unlocks on the map.
-- **Mastery dashboard** lists every gate and fluency band; the hub shows the Engine gauge and the exact next step.
-- The umbrella skills `num.sense`, `frac`, `ratio`, `percent` and `exponents` now generate questions, so they also
-  work in drills, the skill tree and the Dungeon of Forgotten Knowledge.
+  transfer set (80% on new engineering problems).
+- **Graduation:** every chapter mastered, no critical weak facts (Notebook cards missed twice and not yet fixed twice),
+  and the academy's Mastery Trial (three to five phases, 20–32 prompts spanning every chapter, one helper, 80%). The
+  core is seated in a ceremony, a title is awarded, the next academy opens and its home region unlocks on the map.
+- **Arcade → Academy drills** practise any chapter you have opened; they count toward that chapter's fluency gate.
+- Saves from before the ladder keep their Arithmetic progress; a chapter already started stays open.
 
-Code: `src/engine/academy/` (chapters, question builders, engine and gates), `src/game/screens/AcademyScreen.tsx`,
-`src/game/components/AcademyModels.tsx`.
+Code: `src/engine/academy/` (registry, engine and gates, `content/<academy>.ts`, the authoring kit and judge;
+`CONTENT_GUIDE.md` explains how to write a chapter), `src/game/screens/AcademyScreen.tsx`,
+`src/game/components/AcademyModels.tsx` and `AcademyVisuals.tsx`. Contract tests for every academy:
+`ACADEMY=<id> npx vitest run src/engine/__tests__/academies.test.ts`; a readable sample of any academy:
+`npx vite-node scripts/academy-sample.ts <id> 2`.
 
 ## Play mode
 

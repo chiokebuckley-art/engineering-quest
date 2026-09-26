@@ -142,5 +142,53 @@
     "creator": "Engineering Quest project",
     "license": "CC0 1.0",
     "url": ""
+  },
+  {
+    "file": "environments/algebra-city.svg",
+    "name": "Algebra City",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/geometry-kingdom.svg",
+    "name": "Geometry Kingdom",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/trig-mountains.svg",
+    "name": "Trigonometry Mountains",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/calculus-frontier.svg",
+    "name": "Calculus Frontier",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/linalg-grid.svg",
+    "name": "Linear Algebra Grid",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
+  },
+  {
+    "file": "environments/ode-reactor.svg",
+    "name": "Differential Equation Reactor",
+    "source": "Original artwork for Engineering Quest",
+    "creator": "Engineering Quest project",
+    "license": "CC0 1.0",
+    "url": ""
   }
 ]
