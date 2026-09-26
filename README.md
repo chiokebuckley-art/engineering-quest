@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.32.0 — Equation Plaza:** a connected-equation board game in Arcade. Choose addition, subtraction, number bonds, multiplication, division, or selected mixed operations. Play untimed practice, a computer opponent, pass-and-play, or a private online room. See [Equation Plaza rules and validation](docs/EQUATION_PLAZA.md).
+
 **v0.31.2 — Percentage learning repair:** guided build-to-100 steps before conversion, clean fraction labels, completed models reserved for worked solutions, and dedicated percentage practice through Academy drills. See [the percentage QA checklist](docs/PERCENT_GRADIENT.md).
 
 *An RPG that takes you from multiplication facts to the mathematics of chemical engineering,
