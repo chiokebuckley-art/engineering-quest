@@ -1,7 +1,7 @@
 import {createArcade} from './arcade.js';
 import {SAVE_KEY,loadSave,recordAnswer,DAY} from '../engine.js';
 import {USES,UNITS,OBJECTS,TOTAL,SOURCES,sceneAt,nextIndex,stateFor,checkpoint,canOpen,complete} from './content.js';
-import {createAcademySync} from './sync-ui.js';
+import {createAcademySync} from './sync-ui.js?v=shared-1';
 import {illustration,describe,escape as esc} from './art.js';
 const app=document.querySelector('#app'),initial=loadSave(localStorage);let save=initial.save,blocked=!!initial.error,view='home',current=null,opposite=false,options=[],choiceOrder=null;
 let sync;
