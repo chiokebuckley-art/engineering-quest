@@ -1,3 +1,4 @@
+import {validateArcade,mergeArcade} from './arcade-model.js';
 import {validateSave, newProfile} from '../engine.js';
 export const LINK_KEY='small-common-word-academy.sync.v1';
 export const SERVICE='https://wordraiders-sync.wordraiders.workers.dev';
@@ -11,9 +12,10 @@ export function snapshot(p){
  return validatePayload({app:'small-common-word-academy',version:1,learner:{id:p.id,name:p.name,level:p.level},academy:p.academy||{version:1,completed:{},checkpoint:null},records,updatedAt:Number(p.academySyncUpdatedAt)||0});
 }
 export function validatePayload(x){
- if(!x||x.app!=='small-common-word-academy'||x.version!==1||!x.learner||!x.academy||!x.records||typeof x.records!=='object'||Array.isArray(x.records)||!Number.isFinite(x.updatedAt)||x.updatedAt<0||Object.keys(x.records).some(k=>!/^academy\.[a-z-]+$/.test(k)))throw Error('This code does not contain valid Academy progress.');
+ if(!x||x.app!=='small-common-word-academy'||x.version!==1||!x.learner||!x.academy||!x.records||typeof x.records!=='object'||Array.isArray(x.records)||!Number.isFinite(x.updatedAt)||x.updatedAt<0||Object.keys(x.records).some(k=>!/^academy\.[a-zA-Z-]+$/.test(k)))throw Error('This code does not contain valid Academy progress.');
  const p={...newProfile(),...x.learner,academy:x.academy,records:x.records};
  validateSave({version:1,active:p.id,profiles:[p]});
+ if(x.academy.arcade!==undefined)x.academy.arcade=validateArcade(x.academy.arcade);
  return JSON.parse(JSON.stringify({app:x.app,version:1,learner:{id:p.id,name:p.name,level:p.level},academy:x.academy,records:x.records,updatedAt:x.updatedAt}));
 }
 export function merge(a,b){
@@ -24,6 +26,7 @@ export function merge(a,b){
  const latest=a.updatedAt===b.updatedAt?(rank(a)>=rank(b)?a:b):(a.updatedAt>b.updatedAt?a:b);
  const out=structuredClone(latest);
  out.academy.completed={...a.academy.completed};
+ if(a.academy.arcade||b.academy.arcade)out.academy.arcade=mergeArcade(a.academy.arcade,b.academy.arcade);
  for(const [id,at] of Object.entries(b.academy.completed))out.academy.completed[id]=Math.max(at,out.academy.completed[id]||0);
  // A scene completed on either device must never reopen as unfinished after a merge.
  if(out.academy.checkpoint&&out.academy.completed['a'+out.academy.checkpoint.index])out.academy.checkpoint=null;
