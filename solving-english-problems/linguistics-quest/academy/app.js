@@ -1,4 +1,4 @@
-import {createArcade} from './arcade.js';
+import {createArcade} from './arcade.js?v=learning-2';
 import {SAVE_KEY,loadSave,recordAnswer,DAY} from '../engine.js';
 import {USES,UNITS,OBJECTS,TOTAL,SOURCES,sceneAt,nextIndex,stateFor,checkpoint,canOpen,complete} from './content.js';
 import {createAcademySync} from './sync-ui.js?v=shared-1';
