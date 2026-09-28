@@ -1,4 +1,4 @@
-# Reality Quest: Electronics Lab (v0.33.0)
+# Reality Quest: Electronics Lab (v0.34.0)
 
 Reality Quest turns a real object into a lab. The first lab is the learner's own **ELEGOO UNO R3 starter kit**.
 Everything runs virtually: the bench simulates the parts closely enough that the first real build should feel familiar.
