@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.37.0 — Dice Workshop online:** play with two to four friends, each on their own device. Create a room (the host picks addition, equal groups or both), share the code or invite link, and take turns on one table. Everyone watches the dice live, and each player keeps their own scorecard; the host's device runs the table. Final standings show everyone's points and maths checks.
+
 **v0.36.1 — Dice Workshop scrolls on phones:** the game now sits in the app's scrolling area, so the dice, the maths and the scorecard below the 3D table can all be reached.
 
 **v0.35.0 — Engine City Tycoon:** a property-trading board game in the Arcade where every money move is maths. Buy streets by solving their colour group's questions, work out the rent you owe, and build workshops with harder questions. It has Junior, Explorer and Tycoon levels, quick or classic games, computer players, pass-and-play, and online rooms. See [the Tycoon guide](docs/ENGINE_CITY_TYCOON.md).
