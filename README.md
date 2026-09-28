@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.33.0 — Reality Quest: Electronics Lab.** The **LAB** tab (bottom bar, where Map was) turns the real ELEGOO UNO R3 kit into a lab: tap any of the 35 parts on the kit-lid photo for its card, then work through 10 missions and a boss quest on a simulated bench (breadboard, UNO, USB power, real Arduino C++ with Upload and a Serial Monitor, a test station and a multimeter). Mistakes behave like the real thing: an LED with no resistor burns out. A skill counts as learned only at 100% of its checks. World Map is now under More, and the old More → Lab is called Projects. See [the Reality Lab guide](docs/REALITY_LAB.md).
+
 **v0.32.1 — Equation Plaza, easier to start:** a guided first move for new players, a Solo practice goal with a finish summary, a Build → Check → Position → Place step bar, the bonus-square legend above the board, a score breakdown on every Place, and Undo last Place in practice.
 
 **v0.32.0 — Equation Plaza:** a connected-equation board game in Arcade. Choose addition, subtraction, number bonds, multiplication, division, or selected mixed operations. Play untimed practice, a computer opponent, pass-and-play, or a private online room. See [Equation Plaza rules and validation](docs/EQUATION_PLAZA.md).
