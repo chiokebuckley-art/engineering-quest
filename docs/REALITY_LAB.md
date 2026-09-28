@@ -1,4 +1,4 @@
-# Reality Quest: Electronics Lab (v0.34.0)
+# Reality Quest: Electronics Lab (v0.34.1)
 
 Reality Quest turns a real object into a lab. The first lab is the learner's own **ELEGOO UNO R3 starter kit**.
 Everything runs virtually: the bench simulates the parts closely enough that the first real build should feel familiar.
@@ -34,7 +34,9 @@ Everything runs virtually: the bench simulates the parts closely enough that the
 | M10 | Echo ranger | Distance = speed of sound × time ÷ 2 |
 | ★ | Boss quest: invent from this kit | Choose sensor, output and threshold; predict; test at two conditions; record a failure, a fix and a limitation. A model answer unlocks after you submit. |
 
-Stage types: teach, find it on the kit, quiz, sort by role, breadboard strips, guided build, predict then observe, code (edit, then Upload), debug (watch, diagnose, fix, check), and invent.
+**Teach before test (v0.34.1).** Every mission opens with lessons and a **Meet the parts** tour: one part per screen with its photo, its job (input, controller, output or support), what it does in plain words, an everyday comparison, how to spot it, and where it sits on the kit lid. No question asks about a part before a tour has introduced it (a test enforces this). Technical words in lessons and questions are underlined: tap one for a plain definition. Every question has **Not sure? See the lesson again**, which reopens the mission's lessons without losing the question. A missed find-the-part question names the part and how to spot it.
+
+Stage types: teach, meet the parts, find it on the kit, quiz, sort by role, breadboard strips, guided build, predict then observe, code (edit, then Upload), debug (watch, diagnose, fix, check), and invent.
 Questions draw fresh variants on every retry.
 
 ## Mastery rule
