@@ -27,3 +27,9 @@ Reference relationships were checked on 2026-09-29. Conservation tests inspect e
 - [USGS: radiometric time scale](https://pubs.usgs.gov/gip/geotime/radiometric.html): parent/daughter relationships and dating interpretation. The game is a dimensionless half-life model without a specific isotope.
 - [NASA: solar irradiance science](https://earth.gsfc.nasa.gov/climate/projects/solar-irradiance/science) and [Earth’s energy budget](https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/): solar input and global energy balance. The game holds 1361 W/m² fixed and omits atmospheric greenhouse physics.
 - [OpenStax Astronomy: electromagnetic spectrum](https://openstax.org/books/astronomy/pages/5-2-the-electromagnetic-spectrum): stellar radiation and area/temperature scaling. The 6000 K reference in the game is fictional, not an asserted solar temperature.
+
+### Environmental and inherited influences on growth
+
+[NGSS MS-LS1-5](https://www.nextgenscience.org/pe/ms-ls1-5-molecules-organisms-structures-and-processes) supports investigating both environmental and genetic influences on organism growth. The two new Biodome activities isolate type at fixed light, then compare both types across light levels. This is a partial alignment, not a claim to satisfy the full expectation or its review requirements.
+
+The quadratic light-response curves, optima of 50 and 100, 2 cm starting heights and fixed replicate multipliers are invented teaching assumptions. They are not empirical plant data, gene mechanisms, calibrated light units, heritability estimates or evidence that one real type is superior. The inherited types remain fixed within each trial; environment changes the modeled growth response.
