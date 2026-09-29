@@ -8,7 +8,7 @@ An original science adventure built from the Science Quest developer handoff. Ve
 
 - All 12 Motion Harbor missions, including the specified Rover Rescue model, controlled trials, two transfer checks and a harbor capstone.
 - Three introductory investigations in each of Matter Workshop, Living Valley, Earthwatch Ridge, Signal Coast and Orbital Station.
-- A 13-adapter Free Lab with reusable inventions, plant replicates and daily records, energy ledgers, wave and orbit models, and model assumptions.
+- A 14-adapter Free Lab with reusable inventions, plant replicates and daily records, energy ledgers, wave and orbit models, and model assumptions.
 - Four untimed arcade challenges: Cargo Catch, Signal Sprint, Habitat Balance and Build-Off. Unprepared explorers can use a supported preview without earning scores.
 - Six separate independent-evidence checks; assisted answers do not certify a skill. Mission completion is separate from mastery. Later-session review becomes available after 24 hours.
 - Up to 12 separate local profiles, IndexedDB autosave, append-only evidence events, JSON backup/import, conflict-preserving imported profiles, and a localStorage fallback.
@@ -38,7 +38,7 @@ Open `http://localhost:5187`. No production build, API key or backend is require
 
 ## Deployment
 
-Publish this folder unchanged at `science-quest/` in `chiokebuckley-art/engineering-quest` on its existing GitHub Pages deployment. The game owns only that folder and its service-worker scope. Existing games are not modified. The source, test suite and documentation are included in the public folder for reproducibility.
+Publish this folder unchanged at `science-quest/` in `chiokebuckley-art/engineering-quest` on its existing `gh-pages` GitHub Pages deployment, and retain the same source folder on `main`. The game owns only that folder and its service-worker scope. Existing games are not modified. The source, test suite and documentation are included in the public folder for reproducibility.
 
 ## Release boundaries
 
