@@ -136,3 +136,9 @@ The full future K–12 course sequence, complete chemistry/biology/Earth-science
 See [release checks](docs/RELEASE.md) and [art provenance](docs/ART.md).
 
 The [coverage and review ledger](coverage/) maps the handoff’s seven selected NGSS expectations to current activities, draft criteria and transfer tasks, with explicit remaining work and no claimed expert sign-off.
+
+## Interactive Motion Harbor — 1.40
+
+Motion Harbor now opens a usable district board above its existing guided discoveries. Choose Harbor Lab / Ramp Bay (Rover Rescue and the real ramp Free Lab), Cargo Crane (First Move), or Rover Route (Restore the Route and resume Rover Rescue). Each site derives Needs discovery, In progress, or Restored from the existing profile's mission runs and durable world upgrades. Completed discoveries restore the illustration; independent mastery remains separately recorded in the Journal. No new currency or duplicate progression is introduced.
+
+Mission completion offers a return to the harbor, with a brief restoration highlight and Pip report. Free Lab and the connected route capstone also have direct return buttons. The route can replay an actual saved successful Rover Rescue delivery, without simulating a new trial or awarding evidence. All guided missions remain available. Native buttons, a linear facility list, large-text layout, mobile stacking and reduced-motion handling support different ways of playing. Walking avatars and expansion of district boards to the other five islands remain optional later work.
