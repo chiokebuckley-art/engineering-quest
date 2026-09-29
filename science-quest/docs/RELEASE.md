@@ -1,3 +1,9 @@
+## 1.22.0 — picture choices throughout starter motion missions
+
+First Move and Which Way now use shorter questions and diagrams through prediction, fair testing, comparison, explanation and transfer. Retry contexts keep their item identities and gain matched diagrams. Responsive rules place diagrams above text in narrow answer controls.
+
+Validation: all authored choices, both retry contexts, unknown-answer safeguards and full guided DOM flows. Browser/device and non-reader acceptance remain unverified.
+
 ## 1.21.0 — optional starting-point activity
 
 Four short questions in profile settings suggest a mission without awarding mastery. Explorers can skip, leave and resume, or try again. Selected responses persist per profile; question and choices can be read aloud. All guided missions remain available.

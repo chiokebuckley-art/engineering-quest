@@ -1,3 +1,4 @@
+import {earlyMissionEdits} from './early-years.js';
 import {physicsMissions} from './physics-content.js';
 import {plantTraitMissions} from './plant-traits-content.js';
 import {earthSpaceMissions} from './earth-space-content.js';
@@ -70,6 +71,7 @@ for(const entry of energyMissions)missions.push({...entry,band:'9–12',index:mi
 for(const entry of chemistryMissions)missions.push({...entry,region:'matter',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of [...biologyMissions,...plantTraitMissions])missions.push({...entry,region:'living',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of [...earthSpaceMissions,...physicsMissions])missions.push({...entry,index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
+for(const m of missions)if(earlyMissionEdits[m.id])Object.assign(m,structuredClone(earlyMissionEdits[m.id]));
 export const byId=Object.fromEntries(missions.map(m=>[m.id,m]));
 export const glossary={trial:'One run of an experiment with the settings and results recorded.',variable:'Something that can change in an investigation.',force:'A push or pull from an interaction.',ramp:'A sloping surface that connects two heights.',distance:'How far apart two positions are. Here, stopping distance starts at the ramp exit.',energy:'A quantity we track as systems change. Energy can transfer between objects and their surroundings.',power:'How fast energy is transferred or used. A watt is one joule per second.',frequency:'The number of repeated cycles each second. Its unit is hertz (Hz).',replicate:'Another sample tested under the same conditions.',model:'A simplified representation used to explain or predict. Every model has limits.',conductivity:'A property describing how readily a material transfers heat.',orbit:'A path around another object under gravity.',fair:'A comparison that changes one chosen variable while keeping the relevant others the same.'};
 
