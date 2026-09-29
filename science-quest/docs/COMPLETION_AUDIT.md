@@ -63,3 +63,7 @@ Assessment histories now retain exact scored item/response snapshots, assistance
 ## Version 1.7 advanced energy sequence
 
 Three authored high-school investigations add variable-load energy accounting, reserve planning, delivery power constraints and bounded uncertainty. Interval ledgers conserve energy, report unserved demand and never show negative physical storage. Four model test groups check reference cases and invalid inputs; the DOM suite executes all 38 missions. The sequence includes numerical transfer questions and a linked prerequisite progression. Open-ended model construction, executed advanced transfer designs, authentic research projects and external review remain outstanding.
+
+## Cloud service foundation (not live)
+
+Added an isolated Cloudflare Durable Object service, private-key client protocol, transaction-protected revision updates, retry idempotence, conflict responses, evidence collision rejection and ten-snapshot recovery history. Four protocol/handler test groups and the deployment dry run pass. The available Cloudflare CLI explicitly reports no authentication; sign-in has been requested. No live backend, cross-device sync UI or private-room service is claimed. Independent curriculum/game work remains available, so the overall goal is not blocked.
