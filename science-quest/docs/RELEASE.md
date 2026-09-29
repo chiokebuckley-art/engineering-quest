@@ -1,3 +1,9 @@
+## 1.38.0 — full stopping-lane contexts
+
+Added Museum Return Lane and Harbor Parcel Lane as complete, independently saved Stopping Zone variants. Each has a distinct carrier, fixed entry speed, target bay, controlled comparison and two executed transfers. Transfer briefs vary receiving distance and entry speed; evidence must match the specified speed and be newly collected for the attempt. Both variants are linked from the grade-4 route and the family completion screen. Separate retry question contexts remain available.
+
+Native animated scenes show lane-entry distance, speed and resistance; saved tables retain the time/distance/speed record. Constant-deceleration and energy-transfer tests cover every allowed resistance at all three supplied speeds. Content validation rejects unsupported configurations and unreachable bays. Setup previews now receive configuration separately from a result, fixing premature computed result exposure for authored ramp transfers as well. Tests exercise all 71 guided flows. These are named configurations of ideal rolling-resistance physics, not measured floor properties. Educator review and actual-device acceptance remain outstanding.
+
 ## 1.37.0 — chemistry quantities and change
 
 Added Read the Outer Shell, From Moles to Recovered Product, Follow a Reaction Rate, Faster but the Same Equilibrium, and Balance Acid and Base. The five deterministic models distinguish shell occupancy from literal orbits, recovery from conversion, equal fractions from equal amounts, kinetic speed from equilibrium composition, and logarithmic pH from linear concentration. The acid–base model includes water autoionization with a stable quadratic calculation on both sides of equivalence.

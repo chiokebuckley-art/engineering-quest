@@ -1,5 +1,6 @@
 import {adapters,simulate,round} from './models.js';
 const contexts={
+ 'museum-return-lane':[['Archive return track',.1,.25],['Exhibit service track',.2,.4]],'harbor-parcel-lane':[['East parcel lane',.15,.3],['West sorting lane',.25,.5]],
  'library-return':[['Archive book carrier',.1,.15],['Reading-room delivery',.15,.25]],'greenhouse-crates':[['Pot carrier',.2,.3],['Nursery supplies',.3,.4]],
  'same-force-more-mass':[['Instrument carrier',1,3],['Supply carrier',3,6]],'momentum-through-collisions':[['Soft coupling',.25,.5],['Firmer coupling',.5,.75]],
  'first-move':[['Library cart',1,2],['Greenhouse cart',2,4]],'which-way':[['West loading dock',-1,1],['East sorting dock',1,-1]],
