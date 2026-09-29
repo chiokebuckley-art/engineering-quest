@@ -1,3 +1,9 @@
+# Release checks · 1.13.0
+
+48 investigations and 35 adapters. Six new biology test groups cover atom balance, limited oxygen, synonymous/missense/early-stop sequence outcomes, logistic reference values and bounds, neutral/directional selection, and model-specific scenes. Full DOM mission flows remain in the regression suite. Models are explicit simplifications and await external review.
+
+---
+
 # Release checks · 1.12.0
 
 The harbor capstone now executes a connected design rather than ending with transfer questions alone. Tests cover conservation, invalid settings, shortfall, excessive average force, prediction/comparison/explanation gates, checkpoint serialization and failure of a final design. The full mission DOM flow verifies completion remains false until the capstone passes. Legacy completed discoveries remain preserved.
