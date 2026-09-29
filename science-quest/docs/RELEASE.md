@@ -1,3 +1,9 @@
+## 1.26.0 — plan the mass investigation
+
+Same Force, More Mass now requires a saved plan selecting the changed variable, motion measurement and controlled conditions before the fair-test check can pass. Incomplete or unsuitable plans receive targeted feedback; choices resume after navigation, retry plans start blank, and plan snapshots are retained alongside assessment evidence and in the journal. The lesson uses qualitative middle-school prediction and transfer questions while retaining numerical model data.
+
+Validation: plan guards, retry isolation, save validation and DOM resume checks, plus the full regression suite. Physical-device and educator acceptance remain pending.
+
 ## 1.25.0 — elementary assessment boundaries
 
 Force transfers now ask about direction and balanced pulls instead of calculating net force. Gentle Delivery uses a comparable-cart observation instead of a mass/energy ratio. Retry prompts use qualitative conditions; numeric model measurements remain available. These three missions are content version 2. The coverage ledger retains pending educator and learner review.
