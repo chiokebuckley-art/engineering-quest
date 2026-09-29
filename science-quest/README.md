@@ -2,7 +2,11 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.0 is a playable early-access release, with 27 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.1 is a playable early-access release, with 27 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+
+## Progress toward the full handoff
+
+The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
 
 ## Included
 
@@ -30,6 +34,8 @@ Open `http://localhost:5187`. No production build, API key or backend is require
 
 - `src/models.js`: deterministic science adapters, SI units, versioned outputs.
 - `src/content.js`: region registry, 27 missions, questions, transfers, glossary.
+- `src/controller.js`: durable mission steps, answer checkpoints, evidence selection and additive migration.
+- `src/transfers.js`: executed new-trolley and sorting-ramp transfer contexts.
 - `src/learning.js`: independent evidence and skill states.
 - `src/storage.js`: atomic IndexedDB checkpoints and evidence events, backup primitives.
 - `src/visuals.js`: native SVG experiment diagrams and charts from model results.

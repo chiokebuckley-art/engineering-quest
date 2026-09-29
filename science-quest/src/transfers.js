@@ -1,0 +1,11 @@
+/** Executed transfer contexts for the reference ramp investigation. */
+import {insideBay} from './models.js';
+export function transferPlan(mission,run){
+  if(!['rover-rescue','new-trolley'].includes(mission.id))return null;
+  if(run.stage==='transfer1')return{adapter:'ramp',title:'New trolley delivery',story:'A different supply trolley needs a farther loading bay. Use the same ideal model and surface. Build and test your design, then explain the evidence.',target:[1.95,2.05],initial:.15};
+  if(run.stage==='transfer2')return{adapter:'ramp',title:'Sorting-ramp transfer',story:'Seed packets now travel in a small sorting trolley. The receiving tray is only one metre beyond the ramp exit. Test a new ramp setting for this closer destination.',target:[.95,1.05],initial:.45};
+  return null;
+}
+export function beginTransfer(run,mission){const plan=transferPlan(mission,run);if(!plan)return;run.input=plan.initial;run.transferTrials??={};run.transferTrials[run.stage]??=[];run.transferAttemptStart??={};run.transferAttemptStart[run.stage]=run.transferTrials[run.stage].length;}
+export function transferTrials(run){return run.transferTrials?.[run.stage]||[];}
+export function transferSatisfied(mission,run){const plan=transferPlan(mission,run);if(!plan)return true;const trials=transferTrials(run).slice(run.transferAttemptStart?.[run.stage]||0);return trials.some(t=>t.model===plan.adapter&&insideBay(t.value,...plan.target));}
