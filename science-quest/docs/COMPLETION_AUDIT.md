@@ -91,3 +91,7 @@ Restore the Route now gates new completion on a connected ramp/lane/cushion mode
 ## Version 1.13 biology expansion
 
 Five new investigations model photosynthesis/respiration net atom accounting, coding DNA/mRNA/translation, bounded logistic growth and deterministic changes in heritable-type frequency. Conservation and reference tests cover every allowed supply input, multiple sequence effects and population bounds. The biology pathway links this sequence while retaining cell regulation, body systems, speciation and ecosystem-network gaps. Browser access was rechecked: native access reports a locked Mac and the browser app-server still fails initialization. Unlock was requested; no browser/device acceptance is claimed.
+
+## Version 1.14 Earth and space expansion
+
+Five new investigations cover rainfall measurement, plate-motion rates, radioactive half-lives, reflected/absorbed/emitted radiation and stellar luminosity scaling. Five reference test groups check length-unit conversions, parent/daughter conservation, radiative flux balance and fourth-power scaling. The full DOM flow covers 53 investigations. Actual climate datasets, landform/erosion sequences, water-cycle modeling, stratigraphy and full stellar evolution remain incomplete; these ideal models do not stand in for those requirements.

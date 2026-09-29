@@ -1,3 +1,9 @@
+# Release checks · 1.14.0
+
+53 investigations and 40 adapters. Earth/space reference cases: 100 mL over 100 cm² gives 10 mm; 4 cm/year over two million years gives 80 km; two half-lives leave 25% parent; absorbed and emitted radiation balance at every albedo; doubling equal-radius stellar temperature multiplies luminosity by sixteen. These are model checks, not field or browser observations.
+
+---
+
 # Release checks · 1.13.0
 
 48 investigations and 35 adapters. Six new biology test groups cover atom balance, limited oxygen, synonymous/missense/early-stop sequence outcomes, logistic reference values and bounds, neutral/directional selection, and model-specific scenes. Full DOM mission flows remain in the regression suite. Models are explicit simplifications and await external review.
