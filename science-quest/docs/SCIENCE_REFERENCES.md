@@ -59,3 +59,9 @@ The quadratic light-response curves, optima of 50 and 100, 2 cm starting heights
 - [NASA GISTEMP FAQ](https://data.giss.nasa.gov/gistemp/faq/) for anomalies, the 1951–1980 baseline, input data and revisions.
 
 The original CSV is archived under `data/climate/`; its README documents extraction, checksum and exclusions. The game copies the published annual J-D column, computes simple temporal means of selected annual estimates, and keeps a short-window endpoint subtraction separate from statistical trend estimation. Numerical scoring tolerance is not scientific uncertainty. No uncertainty band, causal attribution or local forecast is generated. The ideal planetary blackbody model predicts an equilibrium emission temperature, not this historical global surface-anomaly series.
+
+## Food-web budgets (v1.36)
+
+Concept references: [OpenStax Biology 2e: energy flow through ecosystems](https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems) and [biogeochemical cycles](https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles). The software equations, fractions, starting pools and diagrams are original teaching constructions rather than copied figures or measured ecosystem data.
+
+Carbon accounting includes photosynthetic uptake, feeding/growth, waste, death/litter and respiration from all four living pools. Carbon is conserved within the stated boundary, while sunlight energy can enter and other materials are untracked. Prescribed decomposition is not a calibrated function of microbial abundance. The separate energy model begins after chemical energy is stored in plants, includes unassimilated food in detritus, and accounts for respiration as thermal transfer. Later decomposition, plant respiration and solar capture are outside that one-pass boundary. Neither carbon amounts nor organism counts can be inferred from the joule account.

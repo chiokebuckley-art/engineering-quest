@@ -1,3 +1,9 @@
+## 1.36.0 — food-web matter and energy accounts
+
+Added Follow Matter Through a Food Web, The Decomposer Return Route and Where Food-Web Energy Goes. The two carbon configurations track air, plants, herbivores, predators, detritus and decomposers across six steps, using start-of-step transfers while preserving 200 carbon units. The energy account separately divides initial plant chemical energy among final chemical stores, detritus and thermal transfer without double-counting intermediate flows.
+
+Native diagrams keep untested starting states distinct from recorded results. Equivalent tables preserve every saved pool and carbon transfer, plus energy destinations and intermediate allocations. Grade 5, 6 and 9 routes link the new work. Tests verify conservation, nonnegative pools, simultaneous-step reference values, controlled comparison direction, energy destinations and all 64 guided mission flows. These are invented teaching budgets, not ecosystem forecasts, universal trophic efficiencies or scientific review sign-off.
+
 ## 1.35.0 — observed global climate record
 
 Added a four-step high-school investigation using NASA GISTEMP v4 annual Land-Ocean Temperature Index values for 1880–2025, archived on 2026-09-29. Learners interpret anomalies and source scope, compute 1980s/2010s means and their difference, evaluate the signed 2016–2018 change alongside the full record, and distinguish reported precision, uncertainty, attribution and ideal-model limits.
