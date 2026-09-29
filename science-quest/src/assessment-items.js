@@ -1,5 +1,6 @@
 import {adapters,simulate,round} from './models.js';
 const contexts={
+ 'same-force-more-mass':[['Instrument carrier',1,3],['Supply carrier',3,6]],'momentum-through-collisions':[['Soft coupling',.25,.5],['Firmer coupling',.5,.75]],
  'first-move':[['Library cart',1,2],['Greenhouse cart',2,4]],'which-way':[['West loading dock',-1,1],['East sorting dock',1,-1]],
  'keep-it-fair':[['Matched supply carts',1,3],['One-cart comparison',2,5]],'tug-together':[['Balanced bridge team',4,6],['Opposite dock team',4,2]],
  'stronger-side':[['Right-side tow crew',5,7],['Left-side tow crew',1,3]],'stopping-zone':[['Short service lane',.15,.3],['Long service lane',.2,.4]],
