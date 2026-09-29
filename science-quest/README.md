@@ -2,7 +2,7 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.32 is a playable early-access release, with 61 guided investigations across six research regions, plus high-school motion-data and energy-model construction activities. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.33 is a playable early-access release, with 61 guided investigations across six research regions, plus high-school motion-data and energy-model construction activities. It is not a complete or validated K–12 curriculum.
 
 ## Version 1.32 additions
 
