@@ -75,3 +75,7 @@ Device-side sync now persists pending operation payloads before network writes, 
 ## Version 1.9 private-room implementation
 
 A separate Durable Object room namespace now runs authoritative 2–4-player investigations using the shared simulation and assessment functions. Private invite and per-player keys, enforced turns/roles, hidden current-round answers, retry idempotence, host closure, 24-hour expiration, bounded rounds/trials and absence of chat/public discovery are implemented. The room client persists pending actions before sending and imports only the current player’s contributions into their local profile, idempotently and without mastery awards. Five protocol/client/DOM groups pass, plus a successful deployment dry run. Deployed auth/isolation, actual cross-device latency and dropout behavior remain unverified because Cloudflare sign-in is pending.
+
+## Version 1.10 chemistry expansion
+
+Five model-backed investigations add phase-change energy, physical separation/purity, atomic and mass numbers, discrete reaction stoichiometry and bond-energy accounting. Native scientific scenes and equivalent tables share results. Six new test groups cover mass/atom conservation, phase-change temperature behavior, recovery versus purity, isotope invariants, energy signs and rendering. Grade routes link these additions and retain missing topics explicitly. This is a chemistry sequence expansion, not proof of complete chemistry/course coverage or educator acceptance.
