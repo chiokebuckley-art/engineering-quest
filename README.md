@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.38.0 — Dice Workshop fractions and ratios:** two new practice choices. Fractions asks what fraction of the dice show the most common value (2/5; equal answers such as 4/10 or 0.4 count). Ratios asks for even dice to odd dice (3:2; equal ratios such as 6:4 count). Both work solo and in online rooms, with hints and worked steps.
+
 **v0.37.0 — Dice Workshop online:** play with two to four friends, each on their own device. Create a room (the host picks addition, equal groups or both), share the code or invite link, and take turns on one table. Everyone watches the dice live, and each player keeps their own scorecard; the host's device runs the table. Final standings show everyone's points and maths checks.
 
 **v0.36.1 — Dice Workshop scrolls on phones:** the game now sits in the app's scrolling area, so the dice, the maths and the scorecard below the 3D table can all be reached.
