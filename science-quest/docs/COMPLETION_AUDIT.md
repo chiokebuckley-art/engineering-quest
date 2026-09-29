@@ -51,3 +51,7 @@ Shared-device co-op now supports 2–4 local explorers, each with separately own
 ## Version 1.4 authoring workflow
 
 The native Content Studio supports local draft save/import/export, editable mission JSON with rubrics and sources, actual-model previews, three review areas and release-packet export. Content changes invalidate previous review approvals; latest revision requests supersede prior approval. Test records are explicitly fictional, not science sign-off. This is a single-device authoring workflow; reviewer authentication, collaborative editing and actual educator review remain unverified.
+
+## Version 1.5 reading adaptation
+
+Per-explorer reading preferences migrate from existing global settings once and persist independently. Solo choices can be read individually without selecting an answer; mission narration includes choices and has a stop control. Four early-years prediction items have matched picture cues for all options, with exact-text matching to avoid applying a cue to a different retry question. Complete K–2 picture coverage, non-reader testing and real assistive-technology review remain outstanding.

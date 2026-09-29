@@ -1,3 +1,9 @@
+# Release checks · 1.5.0
+
+Added per-explorer reading preference migration/isolation tests, picture-cue coverage and unknown-variant guards, and a DOM settings/profile-switch test. Narration uses device voices at the saved speed. Actual voice playback and screen-reader/device behavior remain unverified.
+
+---
+
 # Release checks · 1.4.0
 
 Content Studio: two pure workflow test groups and one DOM editor test cover validation, revision-bound approvals, rejection of malformed content, simulation previews, draft persistence and isolation from player saves. No real reviewer approvals were supplied or invented. The editor exports a packet for source integration; it cannot publish unreviewed runtime changes.
