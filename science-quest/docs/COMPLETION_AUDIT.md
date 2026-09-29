@@ -87,3 +87,7 @@ Each of the twelve Motion Harbor missions now has an original context plus two s
 ## Version 1.12 executed harbor capstone
 
 Restore the Route now gates new completion on a connected ramp/lane/cushion model. Learners predict, compare two controlled trials and explain each of three design decisions; a final saved trial must reach the 1 m delivery point, meet the 0.30 m ramp limit, retain 0.1–1 J arrival energy and stop with average cushion force at most 5 N. Physics tests check energy conservation and a 0.98 J / 4.9 N reference design; the full DOM mission walkthrough executes all six capstone trials. Existing completed saves retain prior earned progress and can revisit the new capstone. Peak forces, real cushion behavior and external review remain outside the verified scope.
+
+## Version 1.13 biology expansion
+
+Five new investigations model photosynthesis/respiration net atom accounting, coding DNA/mRNA/translation, bounded logistic growth and deterministic changes in heritable-type frequency. Conservation and reference tests cover every allowed supply input, multiple sequence effects and population bounds. The biology pathway links this sequence while retaining cell regulation, body systems, speciation and ecosystem-network gaps. Browser access was rechecked: native access reports a locked Mac and the browser app-server still fails initialization. Unlock was requested; no browser/device acceptance is claimed.
