@@ -103,3 +103,7 @@ The Biodome notebook now graphs the two explicitly selected saved conditions acr
 ## Version 1.16 inherited and environmental growth factors
 
 Two connected middle-school investigations now compare fictional inherited types at fixed light and compare both types across light settings. Full group records retain three replicates and means for every trial. Reference tests show equal starting conditions, fixed type identity, differing response curves and a reversal of height ranking across environments; the 55-mission DOM walkthrough exercises the new activities. Numerical parameters are expressly fictional. These close the basic genetic/environmental investigation implementation gap; empirical evidence work, broader uncertainty analysis, educator sign-off and observed learner/device acceptance remain unverified.
+
+## Version 1.17 Build-Off design comparison
+
+Build-Off now retains three successful same-distance designs and asks learners to identify the least starting-energy requirement and explain its relation to height and rolling resistance. The comparison table, selected design and explanation persist in the explorer journal; backup validation rejects altered model measurements. Wrong comparisons cannot complete the challenge, and arcade outcomes never alter mission mastery. The interface explicitly distinguishes task energy requirements from a physical conversion-efficiency percentage. Advanced-tool readiness gates, full arcade accessibility/device testing and external acceptance remain incomplete.
