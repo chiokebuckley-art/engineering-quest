@@ -2,11 +2,15 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.3 is a playable early-access release, with 35 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.4 is a playable early-access release, with 35 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
+
+## Version 1.4 additions
+
+[Content Studio](author/) provides local JSON draft editing, simulation previews, rubric/source checks, revision-bound human review records and reviewed release packet exports. It does not automatically publish drafts or verify reviewer identity.
 
 ## Version 1.3 additions
 
@@ -59,6 +63,6 @@ Publish this folder unchanged at `science-quest/` in `chiokebuckley-art/engineer
 
 Educator review, child usability studies and physical Android/iPad/laptop checks remain pending. Browser visual verification was blocked by the desktop browser tool's unavailable administrator-policy check during this build; automated DOM testing is not a replacement for device and visual testing. No formal standards coverage or efficacy claims are made. These teaching models are simplified and should not be used for real equipment design.
 
-The full future K–12 course sequence, complete chemistry/biology/Earth-science curricula, account sync, private online co-op, live teacher review, and a content-authoring dashboard are not included. This release implements the playable game framework and introductory investigations; the handoff describes those larger systems as later production stages.
+The full future K–12 course sequence, complete chemistry/biology/Earth-science curricula, account sync, private online co-op, live teacher review, are not included. This release implements the playable game framework and introductory investigations; the handoff describes those larger systems as later production stages.
 
 See [release checks](docs/RELEASE.md) and [art provenance](docs/ART.md).
