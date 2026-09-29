@@ -1,3 +1,7 @@
+## 1.33.1 — exact session response guard
+
+The response guard and request credentials now come from the same storage read. This prevents an older uncoordinated tab from changing the record between two separate reads. Targeted sync protocol and interface tests pass.
+
 ## 1.33.0 — coordinate sync tabs
 
 Cloud-session mutations and complete sync-page operations now hold a shared browser lock. A second sync tab gets a retry message before changing the pending upload, connection or cloud copy. Failed requests release the lock while preserving the exact pending payload; stale responses from an older uncoordinated tab cannot overwrite a changed session record. Browsers lacking safe coordination keep read-only key/recovery access.
