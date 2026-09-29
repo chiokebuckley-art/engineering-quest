@@ -205,3 +205,9 @@ Three guided food-web investigations add elementary food-matter pathways, a midd
 This expands the named food-matter/ecosystem topics, bringing the registry to 64 missions and 51 adapter configurations plus four supplemental activities. It does not establish complete ecosystem-course coverage: observed networks, environmental variability, nutrient/energy coupling, empirical rate validation, broader species interactions, educator acceptance and real-device testing remain open. The transfer fractions are original fictional teaching inputs, not measurements or a universal ecological efficiency law.
 
 Browser access was rechecked during v1.36 verification: the tool still reports a locked Mac and browser app-server initialization failure. No actual browser/device acceptance is claimed. Ecosystem lessons now include their own vocabulary and preparation links, and carbon records distinguish display rounding from calculation precision.
+
+### v1.37 chemistry course extension
+
+Five guided investigations implement initial electron-shell patterns, mole ratios/limiting reactants/recovery, first-order rates, catalytic approach to dynamic equilibrium, and ideal strong acid–base neutralization. All expose assumptions and saved accounting tables; the kinetics graphs have equivalent time records. The registry is now 69 missions, 56 adapter configurations and four supplemental activities. Preparation and vocabulary connect the new chemistry sequence.
+
+This fills introductory portions of the named chemistry topics. It does not close orbital bonding, observed yields and experimentally inferred rate laws, equilibrium disturbances, weak acids/buffers, authentic laboratory data, educator sign-off or actual-device acceptance. The first-12 full-context requirement, broader K–12 topic gaps, learner pilots and cloud deployment also remain open. No new browser/device verification is claimed in this release.

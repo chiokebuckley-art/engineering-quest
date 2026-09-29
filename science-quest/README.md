@@ -2,7 +2,11 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.36 is a playable early-access release, with 64 guided investigations across six research regions, plus high-school motion-data, observed-climate, energy-model construction and energy-design capstone activities. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.37 is a playable early-access release, with 69 guided investigations across six research regions, plus high-school motion-data, observed-climate, energy-model construction and energy-design capstone activities. It is not a complete or validated K–12 curriculum.
+
+## Version 1.37 additions
+
+Five chemistry investigations cover first-18-element shell configurations, molar limiting reactants and product recovery, first-order reaction rates, catalysts and reversible equilibrium, and ideal strong acid–base neutralization. Native diagrams and saved calculation tables accompany each lesson. The chemistry route remains partial; orbital bonding, empirical kinetics, equilibrium shifts and weak-acid/buffer calculations remain open.
 
 ## Version 1.36 additions
 
