@@ -1,3 +1,9 @@
+## 1.23.0 — early light, vibration, floating and shadow support
+
+All six early-years missions now have picture-supported assessment choices and plain slider labels. Four more missions receive shorter lessons and transfer questions appropriate to their introductory concepts. Exact measurements and model relationships remain available.
+
+Validation: picture coverage through all guided stages, quantity-specific comparisons, qualitative-control mappings and existing learning/persistence tests. Browser/device and learner acceptance remain pending.
+
 ## 1.22.0 — picture choices throughout starter motion missions
 
 First Move and Which Way now use shorter questions and diagrams through prediction, fair testing, comparison, explanation and transfer. Retry contexts keep their item identities and gain matched diagrams. Responsive rules place diagrams above text in narrow answer controls.
