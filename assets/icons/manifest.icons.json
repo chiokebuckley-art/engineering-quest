@@ -566,5 +566,21 @@
     "creator": "lorc",
     "license": "CC BY 3.0",
     "url": "https://game-icons.net/1x1/lorc/screwdriver.html"
+  },
+  {
+    "file": "icons/fraction.svg",
+    "name": "fraction pie",
+    "source": "Engineering Quest (original)",
+    "creator": "Engineering Quest",
+    "license": "Same as the game",
+    "url": ""
+  },
+  {
+    "file": "icons/ratio.svg",
+    "name": "ratio blocks",
+    "source": "Engineering Quest (original)",
+    "creator": "Engineering Quest",
+    "license": "Same as the game",
+    "url": ""
   }
 ]
