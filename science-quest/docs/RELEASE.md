@@ -1,3 +1,9 @@
+## 1.19.0 — executed advanced energy transfers
+
+Six new transfer briefs require tested designs for revised schedules, reserve needs, power peaks and bounded uncertainty. The scene, controls and ledgers use the transfer configuration; explanations remain unavailable until a design meets that brief. Older completed missions retain progress, while future transfer attempts require fresh execution.
+
+Validation: six reference designs, energy conservation, wrong-context and fresh-attempt guards, plus the full guided DOM walkthrough. These are fictional design exercises, not equipment recommendations.
+
 ## 1.18.0 — readiness-based advanced lab controls
 
 Advanced ramp/surface and storage/conversion controls now require their underlying independent skill checks and link directly to preparation. Standard sandbox experiments and guided investigations remain open. Saved custom inventions remain visible and can be returned to standard settings explicitly.
