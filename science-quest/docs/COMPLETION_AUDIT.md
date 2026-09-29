@@ -161,3 +161,7 @@ Replaced the potentially oversized single save-state value with transaction-prot
 ### v1.28 learner-authored computational energy model
 
 Implemented an arithmetic expression builder for a defined three-component rover–Earth–track system. Learners construct initial gravitational, final kinetic and thermal-remainder equations; the interpreter checks joule dimensions and evaluates multiple parameter combinations. Completion requires saved trials using the current equations in three scenarios, an explicitly negative-remainder diagnostic, and a structured interpretation. Written explanations remain ungraded adult-review material. Worked help excludes independent completion. The HS-PS3-1 row now links the actual model-construction activity and remains partial, Supported and unreviewed. This closes the basic equation-authoring implementation gap; integrated optimization, expert review, full curriculum, cloud deployment and device/learner acceptance remain incomplete.
+
+### v1.29 water-cycle processes
+
+Added Follow the Water to grade 6, bringing the registry to 59 missions and 46 models. The four-reservoir model conserves water across five explicit transfer processes, distinguishes gaseous vapor from liquid cloud droplets, and preserves step-by-step reservoir/flow records. Solar energy may enter although water does not. The teaching model omits ice, plant pathways and real spatial weather; the route retains these observations/extensions as unfinished rather than claiming a complete water-cycle curriculum. Review and device acceptance remain pending.
