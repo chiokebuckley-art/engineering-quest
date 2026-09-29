@@ -47,3 +47,7 @@ Added eight previously missing science domains as real model-backed missions, no
 ## Verified progress in version 1.3
 
 Shared-device co-op now supports 2–4 local explorers, each with separately owned prediction/explanation records and assistance flags. Experiments require all predictions, two different controlled trials, and each explanation; roles rotate on the next round. Group completion does not touch solo mastery. Profile-conflicting backups preserve/remap shared sessions and evidence, and deleting a participant removes their shared sessions. Native map overlays show 18 permanent facilities; six earned workshop decorations support persistent placement. Unit and DOM interaction tests cover these behaviors, bringing the suite to 42 groups. This closes the local co-op and basic visible restoration implementation items; online co-op, full curriculum and external acceptance remain open.
+
+## Version 1.4 authoring workflow
+
+The native Content Studio supports local draft save/import/export, editable mission JSON with rubrics and sources, actual-model previews, three review areas and release-packet export. Content changes invalidate previous review approvals; latest revision requests supersede prior approval. Test records are explicitly fictional, not science sign-off. This is a single-device authoring workflow; reviewer authentication, collaborative editing and actual educator review remain unverified.

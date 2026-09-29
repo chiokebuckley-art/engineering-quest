@@ -1,3 +1,9 @@
+# Release checks · 1.4.0
+
+Content Studio: two pure workflow test groups and one DOM editor test cover validation, revision-bound approvals, rejection of malformed content, simulation previews, draft persistence and isolation from player saves. No real reviewer approvals were supplied or invented. The editor exports a packet for source integration; it cannot publish unreviewed runtime changes.
+
+---
+
 # Release checks · 1.3.0
 
 42 automated test groups pass. Added shared-device co-op guards, distinct assisted/unassisted individual contributions, trial gates, role rotation, conflict-preserving shared-session imports, permanent per-profile world rewards, decoration placement, and an actual DOM walkthrough of the shared investigation. All 35 solo mission flows still pass. The offline cache includes all three new runtime modules.
