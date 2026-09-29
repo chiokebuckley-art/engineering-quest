@@ -15,7 +15,21 @@ export function validateContent({missions,regions,adapters,pathways=[],glossary=
   for(const field of ['predict','explain','t1','t2']){const q=m.questions?.[field];if(!q?.prompt||!Array.isArray(q.options)||q.options.length<2||q.options.some(x=>typeof x!=='string'||!x.trim())||new Set(q.options).size!==q.options.length||!Number.isInteger(q.correct)||q.correct<0||q.correct>=q.options.length)fail(`invalid ${field} question`);}
   for(const pre of m.prerequisites||[])if(!byId.has(pre))fail('unknown prerequisite '+pre);
   for(const term of m.vocabulary||[])if(!glossary[term])fail('undefined vocabulary '+term);
-  if(m.target){if(!Array.isArray(m.target)||m.target.length!==2||!m.target.every(Number.isFinite)||m.target[0]>m.target[1])fail('invalid target interval');else{let solved=false;for(let x=model.min;x<=model.max+1e-7;x+=model.step){x=Number(x.toFixed(6));const value=model.run(x).value;if(value>=m.target[0]&&value<=m.target[1])solved=true;}if(!solved)fail('no allowed setting solves the target');}}
+  const checkDesign=(spec,name,options={})=>{
+   if(spec.maxInput!=null&&(!allowed(spec.maxInput)||!spec.constraint))fail(`${name}: height limit needs an allowed setting and visible constraint`);
+   if(!Array.isArray(spec.target)||spec.target.length!==2||!spec.target.every(Number.isFinite)||spec.target[0]>spec.target[1]){fail(`${name}: invalid target interval`);return;}
+   let solved=false;for(let x=model.min;x<=model.max+1e-7;x+=model.step){x=Number(x.toFixed(6));const result=model.run(x,options);if(result.value>=spec.target[0]&&result.value<=spec.target[1]&&(spec.maxInput==null||x<=spec.maxInput)&&(!spec.requireFeasible||result.feasible===true))solved=true;}
+   if(!solved)fail(`${name}: no allowed setting solves all constraints in the same test`);
+  };
+  if(m.target)checkDesign(m,'mission');
+  if(m.transfers){for(const [stage,t]of Object.entries(m.transfers)){
+   if(!['transfer1','transfer2'].includes(stage))fail('unknown executed transfer stage');
+   if(!t||typeof t!=='object'){fail('invalid executed transfer');continue;}
+   if(!t.title||!t.story||!t.fixed||!allowed(t.initial))fail(`${stage}: missing brief or invalid initial setting`);
+   const q=t.question;if(!q?.prompt||!Array.isArray(q.options)||q.options.length!==3||q.options.some(x=>typeof x!=='string'||!x.trim())||new Set(q.options).size!==3||!Number.isInteger(q.correct)||q.correct<0||q.correct>=3)fail(`${stage}: invalid explanation question`);
+   if(!t.options||Object.keys(t.options).some(k=>k!=='resistance')||![.1,.2,.4].includes(t.options.resistance)){fail(`${stage}: invalid lane configuration`);continue;}
+   checkDesign(t,stage,t.options);
+  }}
  }
  const visiting=new Set(),visited=new Set();function visit(id){if(visiting.has(id)){errors.push('Prerequisite cycle at '+id);return;}if(visited.has(id))return;visiting.add(id);for(const p of byId.get(id)?.prerequisites||[])if(byId.has(p))visit(p);visiting.delete(id);visited.add(id);}ids.forEach(visit);
  const gradeIds=new Set();for(const p of pathways){if(gradeIds.has(p.grade))errors.push('Duplicate grade route '+p.grade);gradeIds.add(p.grade);if(!p.missions.length)errors.push('Empty pathway '+p.grade);for(const id of p.missions)if(!byId.has(id))errors.push(`Pathway ${p.grade}: unknown mission ${id}`);}

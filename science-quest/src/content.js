@@ -1,3 +1,4 @@
+import {rampContextMissions} from './ramp-contexts.js';
 import {earlyMissionEdits} from './early-years.js';
 import {physicsMissions} from './physics-content.js';
 import {plantTraitMissions} from './plant-traits-content.js';
@@ -71,6 +72,8 @@ for(const entry of energyMissions)missions.push({...entry,band:'9–12',index:mi
 for(const entry of chemistryMissions)missions.push({...entry,region:'matter',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of [...biologyMissions,...plantTraitMissions])missions.push({...entry,region:'living',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of [...earthSpaceMissions,...physicsMissions])missions.push({...entry,index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
+for(const entry of rampContextMissions)missions.push({...entry,index:missions.length});
+const cargoBudget=missions.find(m=>m.id==='cargo-budget');cargoBudget.maxInput=.3;cargoBudget.constraint='Parts budget: use height 0.30 m or lower.';
 for(const m of missions)if(earlyMissionEdits[m.id])Object.assign(m,structuredClone(earlyMissionEdits[m.id]));
 for(const m of missions)if(['tug-together','stronger-side','gentle-delivery','same-force-more-mass'].includes(m.id))m.version=2;
 export const byId=Object.fromEntries(missions.map(m=>[m.id,m]));

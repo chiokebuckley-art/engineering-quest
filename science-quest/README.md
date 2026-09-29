@@ -2,13 +2,17 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.31 is a playable early-access release, with 59 guided investigations across six research regions, plus high-school motion-data and energy-model construction activities. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.32 is a playable early-access release, with 61 guided investigations across six research regions, plus high-school motion-data and energy-model construction activities. It is not a complete or validated K–12 curriculum.
+
+## Version 1.32 additions
+
+Library Return Route and Greenhouse Seed Delivery are full Rover Rescue variants with distinct cargo, fixed lane resistance, bay targets, height limits, separate progress and four fresh executed transfer designs. All three routes link to one another after completion. The 48 adapter registrations include these two configurations of the existing ramp law; they are not two new physical models.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
 
-## Version 1.31 additions
+## Version 1.14 additions
 
 Five Earth/space investigations add rainfall conversion, accumulated plate separation, half-life accounting, ideal planetary radiation balance and equal-radius stellar luminosity. The lessons emphasize measurement limits and distinguish ideal-model results from real-world inference.
 
@@ -86,7 +90,7 @@ Open `http://localhost:5187`. No production build, API key or backend is require
 ## Structure
 
 - `src/models.js`: deterministic science adapters, SI units, versioned outputs.
-- `src/content.js`: region registry, 59 missions, questions, transfers, glossary.
+- `src/content.js`: region registry, 61 missions, questions, transfers, glossary.
 - `src/controller.js`: durable mission steps, answer checkpoints, evidence selection and additive migration.
 - `src/transfers.js`: executed new-trolley and sorting-ramp transfer contexts.
 - `src/learning.js`: independent evidence and skill states.

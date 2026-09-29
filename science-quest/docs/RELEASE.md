@@ -1,3 +1,9 @@
+## 1.32.0 — replayable library and greenhouse routes
+
+Added two complete Rover Rescue variants with separately saved six-stage evidence, controlled trial pairs, different lane resistance and cargo scenes, simultaneous bay/height constraints, and two executed transfer briefs each. Fresh transfer trials must use the specified lane and satisfy both constraints. Target feedback now includes the height limit, including Cargo Budget. The grade 4 route and completion screens link the variants.
+
+The content validator now checks joint target/height feasibility and authored transfer questions/configurations. Automated coverage includes all 61 guided flows, the four new transfers, separate run state, constraint rejection and native scene labels. The two adapter registrations are configurations of the existing ramp law. Expert reviews, physical browser/device acceptance and full variants for the other starter missions remain outstanding.
+
 ## 1.31.0 — context-aware retry coaching
 
 Both additional assessment contexts in every starter mission now have targeted coaching across prediction, fair test, comparison, explanation and transfers. Feedback uses the exact context inputs and model outputs, respects signed force and inverse stopping-distance relationships, and uses plain language for early-years direction and distance. Answer-revealing feedback remains permanently assisted.

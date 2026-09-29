@@ -173,3 +173,9 @@ Added specific explanations for every authored wrong choice in the first twelve 
 ### v1.31 retry-context feedback
 
 Both additional item contexts for all twelve starter missions now receive targeted feedback across all six scored stages. The feedback is derived from the context’s model inputs/results or its authored misconception, and early-years responses preserve qualitative language. Tests exhaust every wrong-choice slot in these contexts and check signed force, inverse stopping relationships and assistance provenance. This removes the current starter retry bank’s generic fallback gap. It does not supply the still-required full replayable context variants or expert sign-off.
+
+### v1.32 full Rover Rescue variants
+
+Rover Rescue now has two full companion contexts: Library Return Route and Greenhouse Seed Delivery. They have independent mission/run identities, book/seedling cargo scenes, different default lane resistance, bay/height design briefs, all six evidence checks and four additional executed transfers. Each transfer requires fresh data with exact lane provenance. Content validation checks that target and height constraints can be met together. Grade 4 and completion-screen links make these discoverable.
+
+Registry: 61 missions and 48 adapter registrations, including two configurations of the existing ramp model. This advances the three-context requirement for one of the first twelve missions. Review is still pending for all three; the other eleven starter missions still need full replayable variants. Automated model/DOM checks do not replace browser, touch-device or child acceptance. Cloud deployment and broader K–12 coverage remain unfinished.
