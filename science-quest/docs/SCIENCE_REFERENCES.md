@@ -19,3 +19,11 @@ Reference relationships were checked on 2026-09-29. Conservation tests inspect e
 - [OpenStax Biology 2e: the genetic code](https://openstax.org/books/biology-2e/pages/15-1-the-genetic-code): coding triplets and stop signals. The game uses tiny fictional fragments and does not predict function or organism-level effects.
 - [OpenStax Calculus Volume 2: logistic equation](https://openstax.org/books/calculus-volume-2/pages/4-4-the-logistic-equation): continuous logistic solution. Fixed carrying capacity and a closed population are simplifying assumptions.
 - [OpenStax Biology 2e: adaptive evolution](https://openstax.org/books/biology-2e/pages/19-3-adaptive-evolution): relative reproductive success. The game models two inherited asexual types without drift, mutation or migration; it does not represent every evolutionary process.
+
+## Earth and space principles added in 1.14
+
+- [National Weather Service: precipitation measurements](https://www.weather.gov/abrfc/map): precipitation gauges and measurement representativeness. The game uses an ideal straight-sided collector and exact volume/area conversion.
+- [USGS: understanding plate motions](https://pubs.usgs.gov/gip/dynamic/understanding.html): rates and geologic intervals. The game explicitly uses full relative separation at a constant rate.
+- [USGS: radiometric time scale](https://pubs.usgs.gov/gip/geotime/radiometric.html): parent/daughter relationships and dating interpretation. The game is a dimensionless half-life model without a specific isotope.
+- [NASA: solar irradiance science](https://earth.gsfc.nasa.gov/climate/projects/solar-irradiance/science) and [Earth’s energy budget](https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/): solar input and global energy balance. The game holds 1361 W/m² fixed and omits atmospheric greenhouse physics.
+- [OpenStax Astronomy: electromagnetic spectrum](https://openstax.org/books/astronomy/pages/5-2-the-electromagnetic-spectrum): stellar radiation and area/temperature scaling. The 6000 K reference in the game is fictional, not an asserted solar temperature.

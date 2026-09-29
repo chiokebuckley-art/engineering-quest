@@ -1,3 +1,4 @@
+import {earthSpaceAdapters} from './earth-space-models.js';
 import {biologyAdapters} from './biology-models.js';
 import {chemistryAdapters} from './chemistry-models.js';
 import {planningAdapters} from './energy-planning.js';
@@ -7,7 +8,7 @@ export const MODEL_VERSION = 1;
 export const clamp = (x,a,b)=>Math.max(a,Math.min(b,x));
 export const round = (n,d=2)=>Number(n.toFixed(d));
 export const adapters={
- ...foundationAdapters,...planningAdapters,...chemistryAdapters,...biologyAdapters,
+ ...foundationAdapters,...planningAdapters,...chemistryAdapters,...biologyAdapters,...earthSpaceAdapters,
  ramp:{label:'Rover ramp',input:'Ramp height',unit:'m',min:.1,max:.5,step:.05,initial:.2,output:'Stopping distance',outUnit:'m',control:'height',fixed:'Same 2 kg rover · same surface · 2 m ramp run',limits:'Ideal lossless ramp, starting at rest. Wheels are visual; rotational inertia is omitted. The flat lane has constant rolling resistance of 0.20 × weight. This is rolling resistance, not sliding friction.',law:'v = √(2gh); d = h / c. g = 9.8 m/s², c = 0.20.',run:(h,o={})=>{const c=o.resistance??.2,g=9.8,v=Math.sqrt(2*g*h),d=h/c,run=2,angle=Math.atan(h/run),a=g*Math.sin(angle),tr=Math.sqrt(2*Math.hypot(run,h)/a),ts=v/(c*g); const series=[];for(let t=0;t<=ts+.0001;t+=1/60)series.push({t,x:v*t-.5*c*g*t*t,v:Math.max(0,v-c*g*t)});series.push({t:ts,x:d,v:0});return{value:d,speed:v,duration:tr+ts,rampDuration:tr,series,energy:2*g*h,loss:2*g*h};}},
  push:{label:'Push laboratory',input:'Contact force',unit:'N',min:1,max:5,step:1,initial:2,output:'Distance after 1 second',outUnit:'m',control:'push',fixed:'Same 2 kg cart · force acts for 1 s · starts at rest',limits:'One-dimensional motion on an ideal level lane with no resistance. A constant contact force acts for one second. After release, this ideal cart would keep moving.',law:'a = F / m; x = ½at²; t = 1 s, m = 2 kg.',run:f=>({value:f/4,speed:f/2,duration:1,series:Array.from({length:61},(_,i)=>({t:i/60,x:.25*f*(i/60)**2,v:.5*f*i/60}))})},
  direction:{label:'Direction lane',input:'Push direction',unit:'',min:-1,max:1,step:2,initial:1,output:'Position after 1 second',outUnit:'m',control:'direction',fixed:'Same 2 N push · same 2 kg cart · starts at rest',limits:'Left is negative, right is positive. Ideal horizontal lane, no resistance. Position is measured from the starting marker.',law:'x = ½(F/m)t² with signed force, t = 1 s.',run:d=>({value:d*.5,speed:1,duration:1,series:Array.from({length:61},(_,i)=>({t:i/60,x:d*.5*(i/60)**2,v:d*i/60}))})},
