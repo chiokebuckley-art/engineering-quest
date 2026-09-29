@@ -1,3 +1,9 @@
+# Release checks · 1.6.0
+
+Tests cover separate wrong/assisted/independent attempt records, immutable question snapshots, adult review snapshots, invalid responses, unchanged mastery and the journal feedback form. Existing mission/backup flows remain in the regression suite. Historical attempts are recorded from this version forward.
+
+---
+
 # Release checks · 1.5.0
 
 Added per-explorer reading preference migration/isolation tests, picture-cue coverage and unknown-variant guards, and a DOM settings/profile-switch test. Narration uses device voices at the saved speed. Actual voice playback and screen-reader/device behavior remain unverified.

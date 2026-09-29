@@ -2,11 +2,15 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.5 is a playable early-access release, with 35 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.6 is a playable early-access release, with 35 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
+
+## Version 1.6 additions
+
+The journal now retains each scored attempt, including question text, chosen answer, content version, hint status and linked trials. Optional prediction reasoning and adult discussion notes preserve the evidence seen at review time. Adult notes do not change mastery. Older saves keep their earned evidence without fabricated historical attempts.
 
 ## Version 1.5 additions
 
