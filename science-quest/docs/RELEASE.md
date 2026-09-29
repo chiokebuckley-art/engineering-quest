@@ -1,3 +1,9 @@
+## 1.18.0 — readiness-based advanced lab controls
+
+Advanced ramp/surface and storage/conversion controls now require their underlying independent skill checks and link directly to preparation. Standard sandbox experiments and guided investigations remain open. Saved custom inventions remain visible and can be returned to standard settings explicitly.
+
+Validation: readiness, review-state, profile separation, configuration guards and DOM interaction checks. Reading settings and arcade scores never substitute for evidence.
+
 ## 1.17.0 — Build-Off compares design energy
 
 Three successful deliveries now lead to an energy comparison and explanation before completion. Saved journal records show height, resistance, distance and starting energy. Model-backed import validation protects the records, and practice points remain separate from mastery.
