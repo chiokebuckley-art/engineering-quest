@@ -1,3 +1,9 @@
+## 1.37.0 — chemistry quantities and change
+
+Added Read the Outer Shell, From Moles to Recovered Product, Follow a Reaction Rate, Faster but the Same Equilibrium, and Balance Acid and Base. The five deterministic models distinguish shell occupancy from literal orbits, recovery from conversion, equal fractions from equal amounts, kinetic speed from equilibrium composition, and logarithmic pH from linear concentration. The acid–base model includes water autoionization with a stable quadratic calculation on both sides of equivalence.
+
+Each mission has a native diagram, equivalent saved calculation table, grade-10 route entry, vocabulary and preparation links. Untested previews do not expose computed outcomes. Verification covers all permitted inputs, atom/mass balances, first-order time behavior, equal opposing equilibrium rates, ionic charge balance and water ion product, plus all 69 guided flows. These ideal teaching models do not replace empirical kinetics, real yields, weak-acid/buffer chemistry, educator review or actual-device acceptance.
+
 ## 1.36.0 — food-web matter and energy accounts
 
 Added Follow Matter Through a Food Web, The Decomposer Return Route and Where Food-Web Energy Goes. The two carbon configurations track air, plants, herbivores, predators, detritus and decomposers across six steps, using start-of-step transfers while preserving 200 carbon units. The energy account separately divides initial plant chemical energy among final chemical stores, detritus and thermal transfer without double-counting intermediate flows.

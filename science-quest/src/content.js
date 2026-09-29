@@ -1,3 +1,4 @@
+import {chemistryCourseMissions,chemistryCourseGlossary} from './chemistry-course-content.js';
 import {ecosystemMissions,ecosystemGlossary} from './ecosystem-content.js';
 import {rampContextMissions} from './ramp-contexts.js';
 import {earlyMissionEdits} from './early-years.js';
@@ -70,7 +71,7 @@ cap.questions.t1=Q('The first ramp reaches the handoff bay, but the next lane mu
 cap.questions.t2=Q('The final cart reaches a soft barrier too fast. Which revision reduces energy transferred at arrival while keeping the mass the same?','Reduce its entry speed, then check that it still reaches the destination.','Increase its speed to make the contact shorter.','Remove the barrier and assume energy vanishes.');
 for(const entry of foundationMissions)missions.push({...entry,index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'8–15',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of energyMissions)missions.push({...entry,band:'9–12',index:missions.length,version:1,initial:adapters[entry.adapter].initial,minutes:'15–25',prerequisites:['night-lab'],review:'Early access · educator review pending'});
-for(const entry of chemistryMissions)missions.push({...entry,region:'matter',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
+for(const entry of [...chemistryMissions,...chemistryCourseMissions])missions.push({...entry,region:'matter',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of [...biologyMissions,...plantTraitMissions,...ecosystemMissions])missions.push({...entry,region:'living',index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of [...earthSpaceMissions,...physicsMissions])missions.push({...entry,index:missions.length,version:1,initial:adapters[entry.adapter].initial,target:null,minutes:'10–20',prerequisites:[],review:'Early access · educator review pending'});
 for(const entry of rampContextMissions)missions.push({...entry,index:missions.length});
@@ -80,5 +81,5 @@ for(const m of missions)if(['tug-together','stronger-side','gentle-delivery','sa
 export const byId=Object.fromEntries(missions.map(m=>[m.id,m]));
 export const glossary={trial:'One run of an experiment with the settings and results recorded.',variable:'Something that can change in an investigation.',force:'A push or pull from an interaction.',ramp:'A sloping surface that connects two heights.',distance:'How far apart two positions are. Here, stopping distance starts at the ramp exit.',energy:'A quantity we track as systems change. Energy can transfer between objects and their surroundings.',power:'How fast energy is transferred or used. A watt is one joule per second.',frequency:'The number of repeated cycles each second. Its unit is hertz (Hz).',replicate:'Another sample tested under the same conditions.',model:'A simplified representation used to explain or predict. Every model has limits.',conductivity:'A property describing how readily a material transfers heat.',orbit:'A path around another object under gravity.',fair:'A comparison that changes one chosen variable while keeping the relevant others the same.'};
 
-Object.assign(glossary,foundationGlossary,ecosystemGlossary);
+Object.assign(glossary,foundationGlossary,ecosystemGlossary,chemistryCourseGlossary);
 for(const m of missions)m.prerequisites=preparation[m.id]||m.prerequisites;
