@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.39.0 — Fractions and Ratios in the Arcade:** two new Arcade games, each playable in Practice, Blitz and Conquer. Fractions covers shaded parts, equal fractions, comparing, adding with the same or different bottoms, and fractions of amounts. Ratios covers ratio tables, sharing in a ratio, unit rates, recipes, proportions and scale drawings. Pick one kind or mix them all; answers build the same Fractions and Ratios mastery the Academy and the world map use. Typed practice now asks "what fraction is lit?" instead of a tap-to-shade task, and "how many planks?" for equal fractions.
+
 **v0.38.0 — Dice Workshop fractions and ratios:** two new practice choices. Fractions asks what fraction of the dice show the most common value (2/5; equal answers such as 4/10 or 0.4 count). Ratios asks for even dice to odd dice (3:2; equal ratios such as 6:4 count). Both work solo and in online rooms, with hints and worked steps.
 
 **v0.37.0 — Dice Workshop online:** play with two to four friends, each on their own device. Create a room (the host picks addition, equal groups or both), share the code or invite link, and take turns on one table. Everyone watches the dice live, and each player keeps their own scorecard; the host's device runs the table. Final standings show everyone's points and maths checks.
