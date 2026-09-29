@@ -1,3 +1,9 @@
+## 1.33.0 — coordinate sync tabs
+
+Cloud-session mutations and complete sync-page operations now hold a shared browser lock. A second sync tab gets a retry message before changing the pending upload, connection or cloud copy. Failed requests release the lock while preserving the exact pending payload; stale responses from an older uncoordinated tab cannot overwrite a changed session record. Browsers lacking safe coordination keep read-only key/recovery access.
+
+Tests cover two client instances, delayed and failed responses, lock release, transaction lifetime, unsupported environments and stale storage. These use a lock-manager double, not a real cross-tab browser. The cloud service remains undeployed; gameplay-tab coordination, automatic background syncing and live device tests remain open.
+
 ## 1.32.0 — replayable library and greenhouse routes
 
 Added two complete Rover Rescue variants with separately saved six-stage evidence, controlled trial pairs, different lane resistance and cargo scenes, simultaneous bay/height constraints, and two executed transfer briefs each. Fresh transfer trials must use the specified lane and satisfy both constraints. Target feedback now includes the height limit, including Cargo Budget. The grade 4 route and completion screens link the variants.

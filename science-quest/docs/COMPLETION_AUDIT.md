@@ -179,3 +179,9 @@ Both additional item contexts for all twelve starter missions now receive target
 Rover Rescue now has two full companion contexts: Library Return Route and Greenhouse Seed Delivery. They have independent mission/run identities, book/seedling cargo scenes, different default lane resistance, bay/height design briefs, all six evidence checks and four additional executed transfers. Each transfer requires fresh data with exact lane provenance. Content validation checks that target and height constraints can be met together. Grade 4 and completion-screen links make these discoverable.
 
 Registry: 61 missions and 48 adapter registrations, including two configurations of the existing ramp model. This advances the three-context requirement for one of the first twelve missions. Review is still pending for all three; the other eleven starter missions still need full replayable variants. Automated model/DOM checks do not replace browser, touch-device or child acceptance. Cloud deployment and broader K–12 coverage remain unfinished.
+
+### v1.33 sync-page coordination
+
+Session mutations and whole import/merge/upload UI actions now use one origin-wide Web Lock, with immediate refusal when another sync page holds it. Exact pending payloads survive failures and are retried unchanged. A response checks storage has not changed before writing, protecting against older uncoordinated pages. Unsupported environments reject mutations while leaving key/recovery reads available.
+
+Automated tests use two session instances and a lock-manager double, including delayed requests, failed responses, leaked scoped access, unsupported environments and stale responses. This implements coordination among participating sync pages; gameplay writers do not yet take this lock. Actual browser/device behavior, background sync, deployment and cross-device validation remain pending.
