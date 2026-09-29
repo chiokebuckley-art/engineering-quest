@@ -141,3 +141,7 @@ Direct mission links open/resume existing checkpoints. A service-worker unit tes
 ### v1.25 elementary boundary corrections
 
 Replaced force arithmetic and mass/energy ratio transfers in three elementary missions. Qualitative retry prompts preserve item IDs, reveal history and model-backed outcomes; content versions advance to 2. Numeric models remain available. Coverage remains partial and unreviewed; complete context variants, curriculum development, deployment of cloud services and external acceptance remain outstanding.
+
+### v1.26 middle-school investigation planning
+
+Added a durable variable/measurement/control plan to Same Force, More Mass and qualitative prediction/transfer questions. Plan histories and assessment snapshots are available for adult discussion; read-aloud includes planning choices. The MS-PS2-2 ledger now identifies the remaining physical-equipment and educator review instead of an unimplemented planning task. This is still a structured planning exercise, not validated independent experimental design. All broader completion gaps remain open.

@@ -26,6 +26,7 @@ export function equivalentItem(m,stage,attempt){if(!contexts[m.id]||attempt<1)re
  if(stage==='explain')item.prompt=`${context.title}. Keep the cart and other conditions fixed and ${increase?'increase':'decrease'} ${m.adapter==='force'?'the rightward pull':'the entry speed'}. Which explanation fits this fair test?`;
  }
 
+ if(item&&m.id==='same-force-more-mass'&&['predict','transfer1','transfer2','explain'].includes(stage)){const mass=context.inputs[1]>context.inputs[0]?'greater':'smaller';item.prompt=stage==='explain'?`${context.title}. Under the same net force and time interval, why does the cart with more mass have a smaller change in speed?`:`${context.title}. Both carts start at rest under the same net force for the same time. The second cart has ${mass} mass. Its change in speed is…`;}
  return item?{...item,itemId:context.id+'-'+stage,contextId:context.id,contextInputs:[...context.inputs]}:null;
 }
 export function itemIdentity(m,q){return JSON.stringify([m.id,m.version,q.itemId||null,q.prompt,q.options]);}
