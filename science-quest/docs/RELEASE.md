@@ -1,3 +1,9 @@
+## 1.25.0 — elementary assessment boundaries
+
+Force transfers now ask about direction and balanced pulls instead of calculating net force. Gentle Delivery uses a comparable-cart observation instead of a mass/energy ratio. Retry prompts use qualitative conditions; numeric model measurements remain available. These three missions are content version 2. The coverage ledger retains pending educator and learner review.
+
+Validation: model-backed retry outcomes, assessment boundary checks and full regression suite. No new educator or physical-device review is claimed.
+
 ## 1.24.0 — coverage and review ledger
 
 A source-linked ledger connects the seven handoff NGSS targets to lessons, practice, draft rubrics, transfer tasks and remaining review work. It is available from Settings and Content Studio and exports a versioned coverage packet. All mappings remain partial and unreviewed.
