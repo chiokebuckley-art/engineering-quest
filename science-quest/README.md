@@ -2,7 +2,11 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.33 is a playable early-access release, with 61 guided investigations across six research regions, plus high-school motion-data and energy-model construction activities. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.34 is a playable early-access release, with 61 guided investigations across six research regions, plus high-school motion-data, energy-model construction and energy-design capstone activities. It is not a complete or validated K–12 curriculum.
+
+## Version 1.34 additions
+
+[Power an Island Outpost](https://chiokebuckley-art.github.io/engineering-quest/science-quest/?activity=energy-capstone) adds a two-brief high-school design capstone. Learners test working and failing plans, compare all 80 allowed configurations, minimize fictional cost subject to bounded energy, power, reserve and mass constraints, and defend a revised design for a longer night. The saved ledger, mass/cost plot, full table, explanation and help history remain separate from guided-mission mastery. External review is pending.
 
 ## Version 1.32 additions
 

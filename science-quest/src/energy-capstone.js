@@ -1,0 +1,38 @@
+import {energyLedger} from './energy-planning.js';
+/** Finite, fictional design space. Cost points and component masses are teaching inputs. */
+export const capstoneChoices={storage:[800,1000,1200,1400,1600],power:[80,100,120,140],converter:['standard','efficient'],schedule:['together','staggered']};
+export const capstoneConverters={standard:{low:.7,nominal:.8,cost:40,mass:1},efficient:{low:.85,nominal:.9,cost:100,mass:.5}};
+export const capstoneCases=[{title:'Night research station',middleHours:6,reserve:100,maxMass:8.8},{title:'Long-night island outpost',middleHours:8,reserve:150,maxMass:8}];
+export const designKey=d=>['storage','power','converter','schedule'].map(k=>d[k]).join('/');
+const blank=()=>({storage:1000,power:80,converter:'standard',schedule:'together'});
+export function createEnergyCapstone(){return{version:1,stage:0,draft:blank(),trials:[],searches:[],decisions:[],choice:'',reason:'',limits:'',notes:'',assisted:false,complete:false};}
+export function evaluateCapstone(design,stage){
+ const c=capstoneCases[stage];if(!c||!design||Object.entries(capstoneChoices).some(([k,values])=>!values.includes(design[k])))throw Error('Choose an allowed energy design.');
+ const converter=capstoneConverters[design.converter],stagger=design.schedule==='staggered';
+ // Shift 120 Wh from the two peaks into the middle interval, preserving total work.
+ const schedule=[{hours:2,watts:stagger?80:100},{hours:c.middleHours,watts:40+(stagger?120/c.middleHours:0)},{hours:2,watts:stagger?40:80}];
+ const setup={storage:design.storage,powerLimit:design.power,reserve:c.reserve,schedule};
+ const nominal=energyLedger({...setup,efficiency:converter.nominal});
+ const worst=energyLedger({...setup,efficiency:converter.low,loadFactor:1.1});
+ const mass=design.storage/200+design.power/100+converter.mass,cost=design.storage/10+design.power/2+converter.cost+(stagger?18:0);
+ return{key:designKey(design),design:{...design},cost,mass,feasible:worst.feasible&&mass<=c.maxMass+1e-8,nominal,worst,
+  failures:[...(worst.unserved>1e-8?['Unserved demand']:[]),...(worst.remaining<c.reserve-1e-8?['Reserve shortfall']:[]),...(mass>c.maxMass+1e-8?['Mass limit']:[])]};
+}
+export function searchCapstone(stage){const rows=[];for(const storage of capstoneChoices.storage)for(const power of capstoneChoices.power)for(const converter of capstoneChoices.converter)for(const schedule of capstoneChoices.schedule){const r=evaluateCapstone({storage,power,converter,schedule},stage);rows.push({key:r.key,design:r.design,cost:r.cost,mass:r.mass,feasible:r.feasible,margin:r.worst.value,unserved:r.worst.unserved,failures:r.failures});}return rows;}
+export function bestCapstone(stage){return Math.min(...searchCapstone(stage).filter(r=>r.feasible).map(r=>r.cost));}
+function editable(s){if(s.complete||!capstoneCases[s.stage])throw Error('This capstone is already recorded.');}
+export function editEnergyCapstone(s,key,value){editable(s);if(Object.hasOwn(capstoneChoices,key)){if(['storage','power'].includes(key))value=Number(value);if(!capstoneChoices[key].includes(value))throw Error('Invalid design setting.');s.draft[key]=value;}else if(['choice','reason','limits','notes'].includes(key)&&typeof value==='string'&&value.length<=1500)s[key]=value;else throw Error('Invalid capstone entry.');s.feedback=null;}
+export function testEnergyCapstone(s,now=Date.now()){editable(s);if(s.trials.length>=200)throw Error('This notebook holds 200 tests. Use the saved comparisons.');const result=evaluateCapstone(s.draft,s.stage),trial={stage:s.stage,at:now,assisted:s.assisted,result};s.trials.push(trial);s.feedback=result.feasible?'This design meets all bounded model constraints. Compare its cost with other working designs.':'Revise the design: '+result.failures.join(', ')+'.';return trial;}
+export function capstoneSearchReady(s,stage=s.stage){const trials=s.trials.filter(t=>t.stage===stage),unique=new Map(trials.map(t=>[t.result.key,t.result]));return unique.size>=3&&[...unique.values()].filter(r=>r.feasible).length>=2&&[...unique.values()].some(r=>!r.feasible);}
+export function enumerateEnergyCapstone(s,now=Date.now()){editable(s);if(!capstoneSearchReady(s))throw Error('Test at least three different designs: two that meet every constraint and one that fails.');s.searches=s.searches.filter(x=>x.stage!==s.stage);const record={stage:s.stage,at:now,rows:searchCapstone(s.stage)};s.searches.push(record);s.feedback='All 80 allowed designs were evaluated against the same brief. Select the least-cost feasible design and explain your evidence.';return record;}
+function checkDecision(s,decision){const {stage,choice,reason,limits}=decision;const search=s.searches.find(x=>x.stage===stage);if(!capstoneSearchReady(s,stage)||!search)throw Error('Run your design comparisons and the complete search first.');const chosen=search.rows.find(r=>r.key===choice);if(!chosen?.feasible)throw Error('Select a design that meets energy, power, reserve and mass constraints.');if(chosen.cost!==bestCapstone(stage))throw Error('A lower-cost feasible design exists in the search. Compare cost only after checking all constraints.');if(reason!=='joint')throw Error('Explain how the complete comparison supports both feasibility and the cost objective.');if(limits!=='bounded')throw Error('Explain the limits of the uncertainty bounds and the physical model.');return chosen;}
+export function finishEnergyCapstone(s,now=Date.now()){editable(s);const decision={stage:s.stage,choice:s.choice,reason:s.reason,limits:s.limits,notes:s.notes,assisted:s.assisted,at:now};checkDecision(s,decision);s.decisions.push(decision);s.stage++;s.complete=s.stage===capstoneCases.length;s.draft=blank();s.choice='';s.reason='';s.limits='';s.notes='';s.feedback=null;return decision;}
+export function supportEnergyCapstone(s){editable(s);s.assisted=true;const best=searchCapstone(s.stage).find(r=>r.feasible&&r.cost===bestCapstone(s.stage));s.feedback=`Worked result: ${best.design.storage} Wh, ${best.design.power} W, ${best.design.converter} converter, ${best.design.schedule} schedule. It meets the bounded constraints at ${best.cost} cost points. The complete finite search establishes this minimum only within the allowed designs and stated assumptions.`;}
+export function validateEnergyCapstone(s){
+ if(!s||s.version!==1||!Number.isInteger(s.stage)||s.stage<0||s.stage>2||typeof s.complete!=='boolean'||s.complete!==(s.stage===2)||typeof s.assisted!=='boolean'||!Array.isArray(s.trials)||s.trials.length>200||!Array.isArray(s.searches)||s.searches.length>2||!Array.isArray(s.decisions)||s.decisions.length!==s.stage)throw Error('Invalid energy capstone checkpoint.');
+ evaluateCapstone(s.draft,Math.min(s.stage,1));for(const key of ['choice','reason','limits','notes'])if(typeof s[key]!=='string'||s[key].length>1500)throw Error('Invalid capstone entry.');
+ const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ for(const t of s.trials){if(!capstoneCases[t.stage]||t.stage>s.stage||!Number.isFinite(t.at)||typeof t.assisted!=='boolean'||(t.assisted&&!s.assisted)||!t.result||!same(evaluateCapstone(t.result.design,t.stage),t.result))throw Error('Inconsistent capstone trial.');}
+ const seen=new Set();for(const search of s.searches){if(seen.has(search.stage)||!capstoneCases[search.stage]||search.stage>s.stage||!Number.isFinite(search.at)||!same(searchCapstone(search.stage),search.rows)||!capstoneSearchReady(s,search.stage))throw Error('Inconsistent capstone search.');seen.add(search.stage);}
+ s.decisions.forEach((d,i)=>{if(d.stage!==i||!Number.isFinite(d.at)||typeof d.notes!=='string'||d.notes.length>1500||typeof d.assisted!=='boolean'||(d.assisted&&!s.assisted))throw Error('Invalid capstone decision.');checkDecision(s,d);});return s;
+}
