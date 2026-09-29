@@ -1,3 +1,9 @@
+## 1.21.0 — optional starting-point activity
+
+Four short questions in profile settings suggest a mission without awarding mastery. Explorers can skip, leave and resume, or try again. Selected responses persist per profile; question and choices can be read aloud. All guided missions remain available.
+
+Validation: suggestion branches, malformed-save rejection, resume/skip behavior and DOM profile/evidence separation. The activity is a starting suggestion, not a validated placement assessment.
+
 ## 1.20.0 — force, momentum and electric fields
 
 Three investigations expand the game to 58 missions and 45 models. Learners compare mass at fixed net force, track both momentum and kinetic energy in collisions, and probe a point-charge field. Matching tables show trajectories, conservation ledgers and field units.
