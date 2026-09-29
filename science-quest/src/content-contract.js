@@ -27,7 +27,8 @@ export function validateContent({missions,regions,adapters,pathways=[],glossary=
    if(!t||typeof t!=='object'){fail('invalid executed transfer');continue;}
    if(!t.title||!t.story||!t.fixed||!allowed(t.initial))fail(`${stage}: missing brief or invalid initial setting`);
    const q=t.question;if(!q?.prompt||!Array.isArray(q.options)||q.options.length!==3||q.options.some(x=>typeof x!=='string'||!x.trim())||new Set(q.options).size!==3||!Number.isInteger(q.correct)||q.correct<0||q.correct>=3)fail(`${stage}: invalid explanation question`);
-   if(!t.options||Object.keys(t.options).some(k=>k!=='resistance')||![.1,.2,.4].includes(t.options.resistance)){fail(`${stage}: invalid lane configuration`);continue;}
+   const validOptions=model.stoppingVariant?t.options&&Object.keys(t.options).length===1&&[1.5,2,3].includes(t.options.speed):t.options&&Object.keys(t.options).length===1&&[.1,.2,.4].includes(t.options.resistance);
+   if(!validOptions){fail(`${stage}: invalid lane configuration`);continue;}
    checkDesign(t,stage,t.options);
   }}
  }
