@@ -1,3 +1,9 @@
+# Release checks · 1.9.0
+
+Private room tests cover capacity, host controls, expired rooms, unknown members, role and turn enforcement, answer redaction, assisted evidence, role rotation, action replay, two client identities and a DOM creation/prediction/idempotent journal-import flow. The cloud bundle builds with both save and room bindings. It is not deployed; no live online-play claim is made.
+
+---
+
 # Release checks · 1.8.0
 
 Added durable sync-session tests for lost responses, reload retry, conflict preservation, quota errors, concurrent-action guards and explorer reconciliation, plus a DOM connect/upload/import/disconnect flow using a simulated service. These do not prove the unavailable live backend. Cloudflare deployment remains pending authentication.

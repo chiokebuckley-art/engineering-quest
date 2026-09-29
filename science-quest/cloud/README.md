@@ -29,3 +29,11 @@ Requests are capped at 2 MB, incoming events at 10,000 and retained events at 20
 `node --test tests/cloud.test.mjs` covers retry idempotence, stale revisions, divergent event IDs, snapshot recovery, authorization headers, origin rejection, preflight and durable-handler storage behavior with a test double. It does not prove deployed storage isolation or live concurrency.
 
 Implementation references: [Cloudflare SQLite-backed storage](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) and [Durable Objects storage practices](https://developers.cloudflare.com/durable-objects/best-practices/access-durable-objects-storage/).
+
+## Private rooms
+
+`/v1/room` uses the same invite-key Authorization format but a distinct `ROOMS` namespace. A separate `X-Player-Key` identifies each participant and is hashed before forwarding internally. The server never returns credential hashes. POST actions create/join/start, answer, request hints, configure, run trials, begin explanations and rotate rounds. GET returns a redacted player-specific view. Only the host can DELETE. No generic messages are accepted.
+
+Room state expires after 24 hours with a storage alarm. Limits are four players, ten rounds and 100 trials per round. The most recent 500 action IDs are retained for replay handling. The `rooms/` client saves pending actions and player credentials locally; losing those credentials after start cannot be recovered by merely rejoining. The setup page explains this before leaving a connection. Only an explorer’s own evidence can be imported to their local journal.
+
+Five private-room protocol/client/DOM tests pass locally, and the updated deployment dry run succeeds. Authentication boundary routing and live Durable Object transactions still need deployed verification.
