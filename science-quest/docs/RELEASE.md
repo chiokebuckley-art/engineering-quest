@@ -1,3 +1,9 @@
+## 1.29.0 — water-cycle reservoir investigation
+
+Follow the Water adds a grade-6 investigation of evaporation, condensation, precipitation, infiltration and groundwater discharge. Separate surface, vapor, cloud-liquid and groundwater pools share a conserved 100-unit water budget. Learners compare evaporation settings, inspect saved reservoir and transfer tables, and apply the model to condensation and forecast-limit questions. The untested scene shows starting pools rather than revealing the six-step result.
+
+Validation checks every allowed setting for conservation and nonnegative amounts, explicit first-step transfers, controlled comparisons, saved-record rendering and the full mission walkthrough. Model rates and amounts are illustrative; empirical weather, ice/plant pathways and educator review remain pending.
+
 ## 1.28.0 — learner-built energy equations
 
 Grades 11 and 12 now link to Build an Energy Ledger. Learners write their own arithmetic expressions for gravitational, kinetic and thermal energy in a rover–Earth–track system. A bounded interpreter checks dimensions and evaluates equivalent algebra without executing code. The current equations must pass three scenario tests and a fourth inconsistent-speed diagnostic before the explanation check can complete the activity. Formula snapshots, computed ledgers and worked-help provenance persist in the journal; this activity does not alter guided-mission mastery.

@@ -47,3 +47,7 @@ The quadratic light-response curves, optima of 50 and 100, 2 cm starting heights
 ### Constructed energy ledger
 
 [HS-PS3-1](https://www.nextgenscience.org/pe/hs-ps3-1-energy) emphasizes the meaning of learner-created computational expressions in small component systems. This activity defines rover, Earth and track as three components; gravitational energy is associated with the rover–Earth interaction. It uses near-Earth mgh and translational mv²/2, with the remaining energy assigned to a lumped track thermal increase. It explicitly excludes outside transfers, wheel rotation, sound, air resistance and Earth motion. A negative thermal remainder in the supplied diagnostic is treated as a contradiction requiring revised assumptions or measurements, not negative absolute thermal energy or destroyed energy. The 27 parameter combinations are a numerical content rubric, not a symbolic proof of arbitrary expression equivalence.
+
+### Water-cycle reservoir model
+
+[USGS Water Science School: water cycle](https://www.usgs.gov/water-science-school/water-cycle) describes storage in atmosphere, surface and ground, phase changes, transfer processes, and the roles of solar energy and gravity. The game uses invented initial pools totaling 100 water units, six dimensionless model steps, and fixed transfer fractions. It does not claim real Earth reservoir proportions, climate response, local flood prediction or calibrated time. The closed water budget does not imply an energy-isolated system.
