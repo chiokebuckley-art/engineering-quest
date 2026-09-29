@@ -1,0 +1,2 @@
+import{missions,regions,glossary}from'../src/content.js';import{adapters}from'../src/models.js';import{pathways}from'../src/curriculum.js';import{validateContent}from'../src/content-contract.js';
+const errors=validateContent({missions,regions,adapters,pathways,glossary});if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}else console.log(`Validated ${missions.length} missions, ${Object.keys(adapters).length} models and ${pathways.length} grade routes. Scientific/educator sign-off is separate.`);

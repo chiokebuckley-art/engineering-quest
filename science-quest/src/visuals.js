@@ -1,3 +1,5 @@
+import {foundationScene} from './foundation-visuals.js';
+import {foundationAdapters} from './foundation-models.js';
 import {adapters,round} from './models.js';
 export const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const svg=(body,label)=>`<svg class="experiment-svg" viewBox="0 0 800 410" role="img" aria-label="${esc(label)}"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#c4e8e8"/><stop offset="1" stop-color="#edf5e8"/></linearGradient><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#68c3c5"/><stop offset="1" stop-color="#218a9c"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#e1ffff" stop-opacity=".8"/><stop offset="1" stop-color="#69bdb5" stop-opacity=".25"/></linearGradient></defs><rect width="800" height="410" rx="18" fill="url(#sky)"/><circle cx="660" cy="62" r="35" fill="#ffedb0"/><path d="M0 210Q130 180 270 210T550 202T800 211V410H0Z" fill="url(#sea)"/><path d="M0 218Q130 200 240 227T500 222T800 217" fill="none" stroke="#d1f3e9" stroke-width="3" opacity=".6"/>${body}</svg>`;
@@ -5,7 +7,7 @@ const robot=(x,y)=>`<g transform="translate(${x} ${y})"><ellipse cy="32" rx="24"
 const rover=(x,y,angle=0)=>`<g transform="translate(${x} ${y}) rotate(${angle})"><rect x="-30" y="-27" width="61" height="25" rx="6" fill="#f4bd45" stroke="#926d20" stroke-width="2"/><rect x="-12" y="-46" width="30" height="20" rx="3" fill="#f9f1d5" stroke="#a79463" stroke-width="2"/><path d="M0-46v20" stroke="#c5a555" stroke-width="4"/><circle cx="-20" r="11" fill="#203c46"/><circle cx="21" r="11" fill="#203c46"/><circle cx="-20" r="4" fill="#bdced0"/><circle cx="21" r="4" fill="#bdced0"/></g>`;
 function sample(series,t){if(!series?.length)return 0;let i=series.findIndex(p=>p.t>=t);if(i<=0)return i===0?series[0].x:series.at(-1).x;let a=series[i-1],b=series[i],f=(t-a.t)/(b.t-a.t);return a.x+(b.x-a.x)*f;}
 export function scene(adapter,input,result,progress=0,target=null,previous=null){
- const m=adapters[adapter];let body='';const end=progress>=1;
+ const m=adapters[adapter];if(foundationAdapters[adapter])return svg(foundationScene(adapter,input,result,progress),`${m.label}. ${m.input}: ${input} ${m.unit}. ${result?m.output+': '+round(result.value)+' '+m.outUnit:''}`);let body='';const end=progress>=1;
  if(['ramp','push','direction','force','resistance','collision'].includes(adapter)){
   let laneY=285,x=110,y=laneY-10,angle=0,scale=150;
   body=`<path d="M0 282H800V337H0Z" fill="#e1d4b3"/><path d="M0 337H800V365H0Z" fill="#bcb18f"/><path d="M0 284H800" stroke="#fff7de" stroke-width="5"/>`;
