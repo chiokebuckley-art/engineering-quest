@@ -1,3 +1,9 @@
+## 1.28.0 — learner-built energy equations
+
+Grades 11 and 12 now link to Build an Energy Ledger. Learners write their own arithmetic expressions for gravitational, kinetic and thermal energy in a rover–Earth–track system. A bounded interpreter checks dimensions and evaluates equivalent algebra without executing code. The current equations must pass three scenario tests and a fourth inconsistent-speed diagnostic before the explanation check can complete the activity. Formula snapshots, computed ledgers and worked-help provenance persist in the journal; this activity does not alter guided-mission mastery.
+
+Validation includes algebra equivalence, unit mismatch, code/symbol rejection, invalid arithmetic, transfer guards, stale-equation invalidation, backup consistency, app completion and profile separation. Educator and physical-device acceptance remain pending.
+
 ## 1.27.0 — force from motion records
 
 The grade-11 pathway now opens a separate four-part data investigation. Learners estimate acceleration, net force and a future velocity from three supplied synthetic records, including a heavier cart and negative acceleration. A fourth record requires a claim, supporting evidence and a follow-up investigation to critique constant force. Graphs and equivalent tables show the data; saved estimates, attempts and help provenance appear in the journal. The activity does not award guided-mission mastery.
