@@ -2,11 +2,15 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.2 is a playable early-access release, with 35 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.3 is a playable early-access release, with 35 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
+
+## Version 1.3 additions
+
+Shared-device sessions now require individual predictions and explanations from two to four explorers, preserve each response and hint flag in its owner’s journal, and rotate jobs between rounds. Eighteen permanent island upgrades and six earned decorations make discoveries visible. Shared-session backups preserve conflicting copies and remap player ownership.
 
 ## Version 1.2 additions
 

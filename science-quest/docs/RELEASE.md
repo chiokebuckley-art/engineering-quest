@@ -1,3 +1,13 @@
+# Release checks · 1.3.0
+
+42 automated test groups pass. Added shared-device co-op guards, distinct assisted/unassisted individual contributions, trial gates, role rotation, conflict-preserving shared-session imports, permanent per-profile world rewards, decoration placement, and an actual DOM walkthrough of the shared investigation. All 35 solo mission flows still pass. The offline cache includes all three new runtime modules.
+
+Deleting a profile also removes shared sessions containing it so another explorer cannot reopen its answers there; other explorers retain their own individual journal contributions. Shared-device role names guide device handoff, not identity authentication. Group completion never awards individual mission mastery.
+
+Real browser, device, educator and learner acceptance remains unverified. Private online rooms, account sync and complete course packs remain work in progress.
+
+---
+
 # Version 1.2 progress release
 
 - Eight new domain-specific science models and guided investigations, with independent native diagrams.
