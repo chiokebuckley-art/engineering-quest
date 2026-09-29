@@ -2,7 +2,11 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.35 is a playable early-access release, with 61 guided investigations across six research regions, plus high-school motion-data, observed-climate, energy-model construction and energy-design capstone activities. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.36 is a playable early-access release, with 64 guided investigations across six research regions, plus high-school motion-data, observed-climate, energy-model construction and energy-design capstone activities. It is not a complete or validated K–12 curriculum.
+
+## Version 1.36 additions
+
+Three food-web investigations now trace carbon through six pools, explore the decomposer return route, and keep a separate conserved energy account through feeding, waste and thermal transfer. Native diagrams and saved transfer tables expose every modeled quantity. The rates are fictional teaching inputs, and the lessons explicitly distinguish matter cycling from energy transfer.
 
 ## Version 1.35 additions
 
@@ -98,7 +102,7 @@ Open `http://localhost:5187`. No production build, API key or backend is require
 ## Structure
 
 - `src/models.js`: deterministic science adapters, SI units, versioned outputs.
-- `src/content.js`: region registry, 61 missions, questions, transfers, glossary.
+- `src/content.js`: region registry, 64 missions, questions, transfers, glossary.
 - `src/controller.js`: durable mission steps, answer checkpoints, evidence selection and additive migration.
 - `src/transfers.js`: executed new-trolley and sorting-ramp transfer contexts.
 - `src/learning.js`: independent evidence and skill states.
