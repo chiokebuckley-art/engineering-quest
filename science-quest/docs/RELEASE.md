@@ -1,3 +1,9 @@
+## 1.24.0 — coverage and review ledger
+
+A source-linked ledger connects the seven handoff NGSS targets to lessons, practice, draft rubrics, transfer tasks and remaining review work. It is available from Settings and Content Studio and exports a versioned coverage packet. All mappings remain partial and unreviewed.
+
+Validation: reference/status rejection tests, ledger DOM checks, direct mission-link resume and cached-navigation service-worker tests. Physical-device and browser offline acceptance remain pending.
+
 ## 1.23.0 — early light, vibration, floating and shadow support
 
 All six early-years missions now have picture-supported assessment choices and plain slider labels. Four more missions receive shorter lessons and transfer questions appropriate to their introductory concepts. Exact measurements and model relationships remain available.
