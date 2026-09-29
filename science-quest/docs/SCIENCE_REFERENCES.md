@@ -51,3 +51,11 @@ The quadratic light-response curves, optima of 50 and 100, 2 cm starting heights
 ### Water-cycle reservoir model
 
 [USGS Water Science School: water cycle](https://www.usgs.gov/water-science-school/water-cycle) describes storage in atmosphere, surface and ground, phase changes, transfer processes, and the roles of solar energy and gravity. The game uses invented initial pools totaling 100 water units, six dimensionless model steps, and fixed transfer fractions. It does not claim real Earth reservoir proportions, climate response, local flood prediction or calibrated time. The closed water budget does not imply an energy-isolated system.
+
+## Observed global temperature investigation (v1.35)
+
+- GISTEMP Team (2026), [GISS Surface Temperature Analysis v4](https://data.giss.nasa.gov/gistemp/), accessed 2026-09-29. [Global CSV source](https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts%2BdSST.csv).
+- Lenssen et al. (2024), [A GISTEMPv4 observational uncertainty ensemble](https://www.giss.nasa.gov/pubs/abs/le07900t.html), doi:10.1029/2023JD040179.
+- [NASA GISTEMP FAQ](https://data.giss.nasa.gov/gistemp/faq/) for anomalies, the 1951–1980 baseline, input data and revisions.
+
+The original CSV is archived under `data/climate/`; its README documents extraction, checksum and exclusions. The game copies the published annual J-D column, computes simple temporal means of selected annual estimates, and keeps a short-window endpoint subtraction separate from statistical trend estimation. Numerical scoring tolerance is not scientific uncertainty. No uncertainty band, causal attribution or local forecast is generated. The ideal planetary blackbody model predicts an equilibrium emission temperature, not this historical global surface-anomaly series.

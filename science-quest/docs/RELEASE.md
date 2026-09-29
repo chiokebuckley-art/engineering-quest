@@ -1,3 +1,9 @@
+## 1.35.0 — observed global climate record
+
+Added a four-step high-school investigation using NASA GISTEMP v4 annual Land-Ocean Temperature Index values for 1880–2025, archived on 2026-09-29. Learners interpret anomalies and source scope, compute 1980s/2010s means and their difference, evaluate the signed 2016–2018 change alongside the full record, and distinguish reported precision, uncertainty, attribution and ideal-model limits.
+
+The annual plot has a complete equivalent data table; the original CSV and source/publication links are available in the activity. Records retain source ID/checksum, exact answers, notes and worked-help provenance. Backup validation recomputes scoring and rejects incomplete or altered evidence. Tests compare all 146 annual values to the source CSV and confirm both completion and profile isolation. No confidence interval, causal attribution, local forecast or NASA endorsement is claimed. The incomplete 2026 row remains in the original archive but is excluded from the activity. Educator and actual-device acceptance remain pending.
+
 ## 1.34.0 — integrated outpost energy capstone
 
 Added a two-brief design activity with four decisions: storage, delivery power, converter and work schedule. Both schedules conserve required work. Learners must execute three distinct tests (two feasible and one failed), then evaluate the complete 80-design space, select a least-cost feasible configuration and explain the bounded result. The revised brief changes duration, reserve and mass limit; the original optimum fails it.
