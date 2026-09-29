@@ -1,3 +1,9 @@
+## 1.30.0 — misconception coaching in starter missions
+
+Each authored wrong response in the first twelve Motion Harbor missions now receives a targeted explanation. Fair-test and selected-trial comparisons have dedicated coaching; generated context questions retain a clearly identified general fallback. K–2 feedback uses shorter language. The correct answer is included, so the item is permanently marked revealed and its completion is assisted. A different unrevealed item is required for independent evidence. Coaching text is saved with the attempt and shown in the adult journal.
+
+Validation checks coverage of every authored starter distractor, reveal persistence, unaffected later missions, and actual UI checkpoint/history behavior. Full replay variants and educator review remain pending.
+
 ## 1.29.0 — water-cycle reservoir investigation
 
 Follow the Water adds a grade-6 investigation of evaporation, condensation, precipitation, infiltration and groundwater discharge. Separate surface, vapor, cloud-liquid and groundwater pools share a conserved 100-unit water budget. Learners compare evaporation settings, inspect saved reservoir and transfer tables, and apply the model to condensation and forecast-limit questions. The untested scene shows starting pools rather than revealing the six-step result.
