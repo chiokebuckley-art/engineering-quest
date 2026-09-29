@@ -1,3 +1,9 @@
+## 1.31.0 — context-aware retry coaching
+
+Both additional assessment contexts in every starter mission now have targeted coaching across prediction, fair test, comparison, explanation and transfers. Feedback uses the exact context inputs and model outputs, respects signed force and inverse stopping-distance relationships, and uses plain language for early-years direction and distance. Answer-revealing feedback remains permanently assisted.
+
+Validation checks all starter contexts, stages and wrong-choice slots plus representative direction and inverse-relationship cases. This is assessment coaching coverage; full replayable context redesigns and educator review remain outstanding.
+
 ## 1.30.0 — misconception coaching in starter missions
 
 Each authored wrong response in the first twelve Motion Harbor missions now receives a targeted explanation. Fair-test and selected-trial comparisons have dedicated coaching; generated context questions retain a clearly identified general fallback. K–2 feedback uses shorter language. The correct answer is included, so the item is permanently marked revealed and its completion is assisted. A different unrevealed item is required for independent evidence. Coaching text is saved with the attempt and shown in the adult journal.

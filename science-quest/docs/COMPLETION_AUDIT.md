@@ -169,3 +169,7 @@ Added Follow the Water to grade 6, bringing the registry to 59 missions and 46 m
 ### v1.30 misconception coaching
 
 Added specific explanations for every authored wrong choice in the first twelve starter missions, with shorter early-years language and dedicated fair-test/comparison coaching. Generated context items can still use a general fallback, marked as such in the saved record. Because coaching supplies the correct answer, it records permanent item revelation and assisted provenance before scoring; a later correct answer to that item cannot become independent evidence. Exact coaching is retained in attempt history and event payloads. This closes authored starter-distractor feedback coverage, not all mission/context feedback or external review.
+
+### v1.31 retry-context feedback
+
+Both additional item contexts for all twelve starter missions now receive targeted feedback across all six scored stages. The feedback is derived from the context’s model inputs/results or its authored misconception, and early-years responses preserve qualitative language. Tests exhaust every wrong-choice slot in these contexts and check signed force, inverse stopping relationships and assistance provenance. This removes the current starter retry bank’s generic fallback gap. It does not supply the still-required full replayable context variants or expert sign-off.
