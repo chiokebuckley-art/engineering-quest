@@ -1,3 +1,9 @@
+# Release checks · 1.10.0
+
+43 investigations and 30 models. Chemistry tests inspect mass conservation across melting, separation purity, isotope identity, atom conservation at every allowed input, and positive/zero/negative bond-energy balances. Domain-specific diagrams have corresponding data tables. Source principles and model limits are documented in SCIENCE_REFERENCES.md. Real browser rendering and external science review remain unverified.
+
+---
+
 # Release checks · 1.9.0
 
 Private room tests cover capacity, host controls, expired rooms, unknown members, role and turn enforcement, answer redaction, assisted evidence, role rotation, action replay, two client identities and a DOM creation/prediction/idempotent journal-import flow. The cloud bundle builds with both save and room bindings. It is not deployed; no live online-play claim is made.
