@@ -1,3 +1,20 @@
+# Version 1.1 progress release
+
+This is verified progress toward the full handoff, not a completion claim.
+
+- Durable selected answers, feedback, hints and review checkpoints; validated transitions cannot skip checks.
+- Learner-selected pairs of controlled trials, saved with assessment provenance.
+- Executed trolley and sorting-ramp transfer designs in Rover Rescue and New Trolley; a later review requires a new transfer run.
+- Correct selected-trial replay with reduced animation.
+- Atomic fallback snapshots plus evidence; atomic import; serialized evidence deletion.
+- Corrupt or unsupported saves open recovery without overwriting the original. Archiving preserves raw bytes and supports recovery export.
+- Additive migration preserves version 1.0 evidence and world rewards.
+- New controller, recovery, storage-failure, replay, checkpoint and transfer tests supplement the full 27-mission walkthrough.
+
+The full requirement-by-requirement audit is in [COMPLETION_AUDIT.md](COMPLETION_AUDIT.md). Browser access was rechecked on September 29 and the app-server failed during initialization; visual/device acceptance remains unverified.
+
+---
+
 # Release checks · 1.0.0
 
 ## Automated verification
