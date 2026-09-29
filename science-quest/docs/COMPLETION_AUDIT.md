@@ -149,3 +149,7 @@ Added a durable variable/measurement/control plan to Same Force, More Mass and q
 ### v1.27 independent supplied motion records
 
 Implemented a separate high-school analysis activity, linked from grade 11 and the HS-PS2-1 coverage row. Its authored records do not depend on the track simulator. Learners compute signed acceleration/force, extrapolate under an explicit constant-acceleration assumption, and critique unequal equal-time velocity increments. Data and estimate graph/table, quantitative rubric tolerances, saved histories, help exclusion, profile separation and import validation are present. These are synthetic teaching records: empirical causal investigation, expert review and physical-device acceptance remain required. Other curriculum and full-handoff gaps remain open.
+
+### Cloud retry storage hardening after v1.27
+
+Idempotency records now store SHA-256 fingerprints instead of up to 100 complete save payloads. Identical retries remain idempotent, changed data under the same operation ID is rejected, and older payload records are compacted during the next successful write without mutating the prior state. Targeted protocol/session/UI tests pass. Cloudflare authentication was rechecked and remains unavailable; browser inventory again reports a locked Mac and failed browser initialization. Cloud deployment, storage-limit validation and live cross-device acceptance remain open.
