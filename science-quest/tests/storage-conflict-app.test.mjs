@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';import {Window} from 'happy-dom';import {IDBFactory} from 'fake-indexeddb';
+const win=new Window({url:'http://localhost:5187',settings:{disableCSSFileLoading:true,disableJavaScriptFileLoading:true}});win.document.write(await fs.readFile(new URL('../index.html',import.meta.url),'utf8'));
+let activations=0,downloaded;const sw=new win.EventTarget();sw.controller={};sw.register=async()=>({waiting:{postMessage:()=>activations++},addEventListener:()=>{}});Object.defineProperty(win.navigator,'serviceWorker',{value:sw});
+for(const [k,v]of Object.entries({window:win,document:win.document,localStorage:win.localStorage,navigator:win.navigator,location:win.location,indexedDB:new IDBFactory(),matchMedia:()=>({matches:true}),requestAnimationFrame:()=>0,cancelAnimationFrame:()=>{}}))Object.defineProperty(globalThis,k,{value:v,writable:true,configurable:true});
+const original=URL.createObjectURL;URL.createObjectURL=blob=>{downloaded=blob;return 'blob:test-backup';};URL.revokeObjectURL=()=>{};
+const tick=()=>new Promise(r=>setTimeout(r,15));await import('../src/app.js');await tick();await tick();const $=s=>document.querySelector(s);
+const other=await import('../src/storage.js?other-ui-tab');await other.openStore();const remote=await other.loadSave();remote.profiles[0].name='Newer tab explorer';await other.persist(remote,{profile:remote.active,type:'other-tab'});
+test('A stale game shows persistent recovery guidance, exports memory/evidence and does not activate an update',async()=>{
+ $('[data-action="nav"][data-view="settings"]').click();await tick();assert.match($('#save-status').textContent,/Save failed/);assert.equal($('#save-conflict-warning').style.display,'block');assert.match($('#save-conflict-warning').textContent,/Another tab saved newer progress/);assert.equal((await other.loadSave()).profiles[0].name,'Newer tab explorer');
+ $('[data-action="update"]').click();await tick();assert.equal(activations,0);assert.match(document.body.textContent,/has not been saved/);
+ $('#save-conflict-warning [data-action="export"]').click();await tick();await tick();assert.ok(downloaded);const backup=JSON.parse(await downloaded.text());assert.notEqual(backup.profiles[0].name,'Newer tab explorer');assert.ok(backup.events.some(e=>e.type==='navigation'));assert.ok(backup.events.some(e=>e.type==='export'));assert.equal((await other.loadSave()).profiles[0].name,'Newer tab explorer');
+ const before=new win.Event('beforeunload',{cancelable:true});win.dispatchEvent(before);assert.equal(before.defaultPrevented,true);URL.createObjectURL=original;
+});
