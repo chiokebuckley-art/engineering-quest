@@ -145,3 +145,7 @@ Replaced force arithmetic and mass/energy ratio transfers in three elementary mi
 ### v1.26 middle-school investigation planning
 
 Added a durable variable/measurement/control plan to Same Force, More Mass and qualitative prediction/transfer questions. Plan histories and assessment snapshots are available for adult discussion; read-aloud includes planning choices. The MS-PS2-2 ledger now identifies the remaining physical-equipment and educator review instead of an unimplemented planning task. This is still a structured planning exercise, not validated independent experimental design. All broader completion gaps remain open.
+
+### v1.27 independent supplied motion records
+
+Implemented a separate high-school analysis activity, linked from grade 11 and the HS-PS2-1 coverage row. Its authored records do not depend on the track simulator. Learners compute signed acceleration/force, extrapolate under an explicit constant-acceleration assumption, and critique unequal equal-time velocity increments. Data and estimate graph/table, quantitative rubric tolerances, saved histories, help exclusion, profile separation and import validation are present. These are synthetic teaching records: empirical causal investigation, expert review and physical-device acceptance remain required. Other curriculum and full-handoff gaps remain open.
