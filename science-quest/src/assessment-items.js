@@ -15,6 +15,17 @@ export function equivalentItem(m,stage,attempt){if(!contexts[m.id]||attempt<1)re
  else if(stage==='build')item=q(`${context.title}. How can you test whether ${a.control} caused the change?`,`Use the same setup and change only ${a.control}.`,`Change ${a.control} and the object together.`,`Change all conditions between trials.`);
  else if(stage==='compare')item=q(`${context.title}. The first measurement is ${round(x.value,4)} ${a.outUnit}; the second is ${round(y.value,4)} ${a.outUnit}. Which comparison matches these recorded values?`,`${relation} the first.`,`${opposite} the first.`,relation==='equal to'?'The numbers cannot be compared.':'equal to the first.');
  else if(stage==='explain')item=q(`${context.title}. These controlled trials change ${a.control} from ${context.inputs[0]} to ${context.inputs[1]} ${a.unit}. Which explanation respects the model?`,m.questions.explain.options[m.questions.explain.correct],...m.questions.explain.options.filter((_,i)=>i!==m.questions.explain.correct));
+ if(item&&m.band==='3–5'&&['force','collision'].includes(m.adapter)){
+ const increase=context.inputs[1]>context.inputs[0];
+ if(m.adapter==='force'&&['predict','compare','transfer1','transfer2'].includes(stage)){
+ const f=context.inputs[1],strength=f>4?'stronger than':f<4?'weaker than':'equal to';
+ const outcomes=['It starts moving right.','It starts moving left.','It stays at rest.'],correct=f>4?0:f<4?1:2;
+ item=q(`${context.title}. Reset the cart to rest. In the second setup the rightward pull is ${strength} the leftward pull. What motion does this model predict?`,outcomes[correct],...outcomes.filter((_,i)=>i!==correct));
+ }
+ if(m.adapter==='collision'&&['predict','transfer1','transfer2'].includes(stage))item.prompt=`${context.title}. Use identical carts and barriers. The second cart enters ${increase?'faster':'slower'} than the first. Its energy transfer while stopping will be…`;
+ if(stage==='explain')item.prompt=`${context.title}. Keep the cart and other conditions fixed and ${increase?'increase':'decrease'} ${m.adapter==='force'?'the rightward pull':'the entry speed'}. Which explanation fits this fair test?`;
+ }
+
  return item?{...item,itemId:context.id+'-'+stage,contextId:context.id,contextInputs:[...context.inputs]}:null;
 }
 export function itemIdentity(m,q){return JSON.stringify([m.id,m.version,q.itemId||null,q.prompt,q.options]);}
