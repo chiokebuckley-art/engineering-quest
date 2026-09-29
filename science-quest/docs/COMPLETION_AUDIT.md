@@ -95,3 +95,7 @@ Five new investigations model photosynthesis/respiration net atom accounting, co
 ## Version 1.14 Earth and space expansion
 
 Five new investigations cover rainfall measurement, plate-motion rates, radioactive half-lives, reflected/absorbed/emitted radiation and stellar luminosity scaling. Five reference test groups check length-unit conversions, parent/daughter conservation, radiative flux balance and fourth-power scaling. The full DOM flow covers 53 investigations. Actual climate datasets, landform/erosion sequences, water-cycle modeling, stratigraphy and full stellar evolution remain incomplete; these ideal models do not stand in for those requirements.
+
+## Version 1.15 paired Biodome evidence
+
+The Biodome notebook now graphs the two explicitly selected saved conditions across all recorded days, using solid/circle and dashed/square encodings plus an equivalent daily table. A replicate table includes all three plants, saved means and ranges; missing historical observations remain missing rather than being recomputed. Tests cover selecting older trials, reversed order, confounded pairs, saved historical values and explicit uncertainty limits. This closes the paired growth-graph/table implementation item. Genetic/environment interaction investigations, scientific uncertainty assessment and external learner review remain unfinished.
