@@ -1,3 +1,9 @@
+## 1.27.0 — force from motion records
+
+The grade-11 pathway now opens a separate four-part data investigation. Learners estimate acceleration, net force and a future velocity from three supplied synthetic records, including a heavier cart and negative acceleration. A fourth record requires a claim, supporting evidence and a follow-up investigation to critique constant force. Graphs and equivalent tables show the data; saved estimates, attempts and help provenance appear in the journal. The activity does not award guided-mission mastery.
+
+Validation covers signed values, numerical tolerance, incomplete and changed-draft guards, malformed backups, help provenance, full app completion, profile separation and draft restoration. Synthetic records are clearly distinguished from empirical evidence. Educator and device review remain pending.
+
 ## 1.26.0 — plan the mass investigation
 
 Same Force, More Mass now requires a saved plan selecting the changed variable, motion measurement and controlled conditions before the fair-test check can pass. Incomplete or unsuitable plans receive targeted feedback; choices resume after navigation, retry plans start blank, and plan snapshots are retained alongside assessment evidence and in the journal. The lesson uses qualitative middle-school prediction and transfer questions while retaining numerical model data.
