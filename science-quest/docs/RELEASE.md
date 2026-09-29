@@ -1,3 +1,15 @@
+# Version 1.2 progress release
+
+- Eight new domain-specific science models and guided investigations, with independent native diagrams.
+- Accessible genotype, diffusion and circuit measurement records alongside their visual representations.
+- Thirteen linked grade routes; each declares its current investigation scope and remaining course-development areas.
+- Validated prerequisite links and a content-validation command, with adversarial tests for broken references, cycles, undefined terms and impossible targets.
+- Full mission walkthrough expanded from 27 to 35 investigations. New numerical reference tests cover transmission, vibration, density states, heat capacity, Ohm’s law, genotype probability, diffusion conservation and shadow geometry.
+
+Curriculum expansion is ongoing. Grade routes do not certify complete grade coverage. External science review, learner/device acceptance, complete course content and shared-player systems remain outstanding.
+
+---
+
 # Version 1.1 progress release
 
 This is verified progress toward the full handoff, not a completion claim.
