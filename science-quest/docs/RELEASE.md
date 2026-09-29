@@ -1,3 +1,9 @@
+# Release checks · 1.12.0
+
+The harbor capstone now executes a connected design rather than ending with transfer questions alone. Tests cover conservation, invalid settings, shortfall, excessive average force, prediction/comparison/explanation gates, checkpoint serialization and failure of a final design. The full mission DOM flow verifies completion remains false until the capstone passes. Legacy completed discoveries remain preserved.
+
+---
+
 # Release checks · 1.11.0
 
 Motion Harbor item tests verify all twelve three-context mappings, allowed simulation settings, unique alternatives, model-consistent comparisons and preserved assistance when a bank cycles. Item and context IDs are retained in attempt history. Finite banks do not fabricate a fresh independent assessment after their answers have all been revealed.
