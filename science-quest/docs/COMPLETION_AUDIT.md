@@ -99,3 +99,7 @@ Five new investigations cover rainfall measurement, plate-motion rates, radioact
 ## Version 1.15 paired Biodome evidence
 
 The Biodome notebook now graphs the two explicitly selected saved conditions across all recorded days, using solid/circle and dashed/square encodings plus an equivalent daily table. A replicate table includes all three plants, saved means and ranges; missing historical observations remain missing rather than being recomputed. Tests cover selecting older trials, reversed order, confounded pairs, saved historical values and explicit uncertainty limits. This closes the paired growth-graph/table implementation item. Genetic/environment interaction investigations, scientific uncertainty assessment and external learner review remain unfinished.
+
+## Version 1.16 inherited and environmental growth factors
+
+Two connected middle-school investigations now compare fictional inherited types at fixed light and compare both types across light settings. Full group records retain three replicates and means for every trial. Reference tests show equal starting conditions, fixed type identity, differing response curves and a reversal of height ranking across environments; the 55-mission DOM walkthrough exercises the new activities. Numerical parameters are expressly fictional. These close the basic genetic/environmental investigation implementation gap; empirical evidence work, broader uncertainty analysis, educator sign-off and observed learner/device acceptance remain unverified.

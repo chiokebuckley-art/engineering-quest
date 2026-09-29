@@ -1,3 +1,9 @@
+## 1.16.0 — inherited types and environment
+
+Two Biodome investigations compare inherited plant types under matched conditions, then test both across shared light levels. Scientific scenes and complete group tables expose the assumed response differences and fixed replicate variation. The grade 7 route links both activities with preparation steps.
+
+Validation: model reference tests for controlled conditions, replicate means, curve crossover and recorded outputs; guided DOM flow across 55 missions. Fictional parameters and pending external review remain explicitly labeled.
+
 ## 1.15.0 — paired Biodome evidence
 
 Selected trial pairs now have matching daily growth graphs and tables, all three replicate heights and ranges. Line styles and markers distinguish conditions without relying on color. Historical data is displayed as saved. The notebook explains why fixed model replicates do not estimate real statistical uncertainty.
