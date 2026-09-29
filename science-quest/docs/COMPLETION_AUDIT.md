@@ -71,3 +71,7 @@ Added an isolated Cloudflare Durable Object service, private-key client protocol
 ## Version 1.8 sync client integration
 
 Device-side sync now persists pending operation payloads before network writes, retries an identical operation after lost responses/reloads, prevents overlapping actions, and preserves local/remote conflict snapshots through explicit reconciliation. A dedicated sync page handles connection, transfer, recovery export, disconnection and cloud deletion. Credentials are held separately from gameplay backups. Protocol, storage-double and DOM tests pass locally. The service is still not deployed, and live cross-device concurrency, automatic background sync and private online rooms remain incomplete.
+
+## Version 1.9 private-room implementation
+
+A separate Durable Object room namespace now runs authoritative 2–4-player investigations using the shared simulation and assessment functions. Private invite and per-player keys, enforced turns/roles, hidden current-round answers, retry idempotence, host closure, 24-hour expiration, bounded rounds/trials and absence of chat/public discovery are implemented. The room client persists pending actions before sending and imports only the current player’s contributions into their local profile, idempotently and without mastery awards. Five protocol/client/DOM groups pass, plus a successful deployment dry run. Deployed auth/isolation, actual cross-device latency and dropout behavior remain unverified because Cloudflare sign-in is pending.
