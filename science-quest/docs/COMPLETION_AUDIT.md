@@ -83,3 +83,7 @@ Five model-backed investigations add phase-change energy, physical separation/pu
 ## Version 1.11 equivalent assessment contexts
 
 Each of the twelve Motion Harbor missions now has an original context plus two specified comparison contexts, with valid model parameters and six corresponding retry/review items. The controller selects these on later attempts. Revealed-item identity persists independently of the current attempt’s hint flag; repeated bank cycling cannot award independent credit for that item. Prior assisted assessment snapshots are also recognized. Contexts are assessment variants, not full replayable mission redesigns, and science/educator review remains pending. Full capstone execution and broader item banks remain open.
+
+## Version 1.12 executed harbor capstone
+
+Restore the Route now gates new completion on a connected ramp/lane/cushion model. Learners predict, compare two controlled trials and explain each of three design decisions; a final saved trial must reach the 1 m delivery point, meet the 0.30 m ramp limit, retain 0.1–1 J arrival energy and stop with average cushion force at most 5 N. Physics tests check energy conservation and a 0.98 J / 4.9 N reference design; the full DOM mission walkthrough executes all six capstone trials. Existing completed saves retain prior earned progress and can revisit the new capstone. Peak forces, real cushion behavior and external review remain outside the verified scope.
