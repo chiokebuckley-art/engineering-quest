@@ -1,3 +1,9 @@
+## 1.34.0 — integrated outpost energy capstone
+
+Added a two-brief design activity with four decisions: storage, delivery power, converter and work schedule. Both schedules conserve required work. Learners must execute three distinct tests (two feasible and one failed), then evaluate the complete 80-design space, select a least-cost feasible configuration and explain the bounded result. The revised brief changes duration, reserve and mass limit; the original optimum fails it.
+
+The notebook saves interval energy ledgers, exhaustive comparisons, choices, written explanations and worked-help provenance. A mass/cost plot has a full equivalent table. Import validation recomputes model evidence and rejects fabricated completion. Grade 12, preparation links, the field journal and the direct activity link expose the capstone. Guided mastery is unchanged. Cost, mass and conversion inputs are fictional; real equipment validation and educator/device acceptance remain pending.
+
 ## 1.33.1 — exact session response guard
 
 The response guard and request credentials now come from the same storage read. This prevents an older uncoordinated tab from changing the record between two separate reads. Targeted sync protocol and interface tests pass.
