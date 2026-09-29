@@ -2,11 +2,15 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.10 is a playable early-access release, with 43 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.11 is a playable early-access release, with 43 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
+
+## Version 1.11 additions
+
+The twelve Motion Harbor missions now each have their original context plus two named assessment contexts, with model-consistent retry questions for six checks. Revealed items remain supported when a finite bank cycles; repeated exposure cannot erase the hint flag. Attempt records carry item/context identifiers. These banks are not educator-reviewed yet and do not replace full replayable mission variants.
 
 ## Version 1.10 additions
 

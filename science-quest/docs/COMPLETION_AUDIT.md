@@ -79,3 +79,7 @@ A separate Durable Object room namespace now runs authoritative 2–4-player inv
 ## Version 1.10 chemistry expansion
 
 Five model-backed investigations add phase-change energy, physical separation/purity, atomic and mass numbers, discrete reaction stoichiometry and bond-energy accounting. Native scientific scenes and equivalent tables share results. Six new test groups cover mass/atom conservation, phase-change temperature behavior, recovery versus purity, isotope invariants, energy signs and rendering. Grade routes link these additions and retain missing topics explicitly. This is a chemistry sequence expansion, not proof of complete chemistry/course coverage or educator acceptance.
+
+## Version 1.11 equivalent assessment contexts
+
+Each of the twelve Motion Harbor missions now has an original context plus two specified comparison contexts, with valid model parameters and six corresponding retry/review items. The controller selects these on later attempts. Revealed-item identity persists independently of the current attempt’s hint flag; repeated bank cycling cannot award independent credit for that item. Prior assisted assessment snapshots are also recognized. Contexts are assessment variants, not full replayable mission redesigns, and science/educator review remains pending. Full capstone execution and broader item banks remain open.

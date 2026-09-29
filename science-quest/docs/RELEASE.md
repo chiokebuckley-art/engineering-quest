@@ -1,3 +1,9 @@
+# Release checks · 1.11.0
+
+Motion Harbor item tests verify all twelve three-context mappings, allowed simulation settings, unique alternatives, model-consistent comparisons and preserved assistance when a bank cycles. Item and context IDs are retained in attempt history. Finite banks do not fabricate a fresh independent assessment after their answers have all been revealed.
+
+---
+
 # Release checks · 1.10.0
 
 43 investigations and 30 models. Chemistry tests inspect mass conservation across melting, separation purity, isotope identity, atom conservation at every allowed input, and positive/zero/negative bond-energy balances. Domain-specific diagrams have corresponding data tables. Source principles and model limits are documented in SCIENCE_REFERENCES.md. Real browser rendering and external science review remain unverified.
