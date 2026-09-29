@@ -55,3 +55,7 @@ The native Content Studio supports local draft save/import/export, editable miss
 ## Version 1.5 reading adaptation
 
 Per-explorer reading preferences migrate from existing global settings once and persist independently. Solo choices can be read individually without selecting an answer; mission narration includes choices and has a stop control. Four early-years prediction items have matched picture cues for all options, with exact-text matching to avoid applying a cue to a different retry question. Complete K–2 picture coverage, non-reader testing and real assistive-technology review remain outstanding.
+
+## Version 1.6 evidence and adult discussion
+
+Assessment histories now retain exact scored item/response snapshots, assistance, model/content provenance, selected and transfer trial IDs, and learner notes. Optional prediction reasoning is persisted. Adults can record discussion notes tied to the attempts and written reasoning reviewed; notes are local declarations and never alter mastery. Existing saves preserve earlier evidence without fabricated attempt history. Fresh equivalent item banks and external review remain outstanding.
