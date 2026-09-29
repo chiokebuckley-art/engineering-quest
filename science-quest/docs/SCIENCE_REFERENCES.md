@@ -33,3 +33,9 @@ Reference relationships were checked on 2026-09-29. Conservation tests inspect e
 [NGSS MS-LS1-5](https://www.nextgenscience.org/pe/ms-ls1-5-molecules-organisms-structures-and-processes) supports investigating both environmental and genetic influences on organism growth. The two new Biodome activities isolate type at fixed light, then compare both types across light levels. This is a partial alignment, not a claim to satisfy the full expectation or its review requirements.
 
 The quadratic light-response curves, optima of 50 and 100, 2 cm starting heights and fixed replicate multipliers are invented teaching assumptions. They are not empirical plant data, gene mechanisms, calibrated light units, heritability estimates or evidence that one real type is superior. The inherited types remain fixed within each trial; environment changes the modeled growth response.
+
+### Force, collisions and electric fields
+
+- [OpenStax University Physics: Newton’s second law](https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law) supports net-force, mass and acceleration accounting. The track uses constant 6 N force and a 3 s interval; these are chosen teaching inputs.
+- [OpenStax University Physics: types of collisions](https://openstax.org/books/university-physics-volume-1/pages/9-4-types-of-collisions) distinguishes momentum conservation from kinetic-energy conservation. The equal-mass model additionally specifies restitution; it does not predict contact forces or collision duration. Separation alone does not establish elasticity.
+- [OpenStax University Physics: electric field](https://openstax.org/books/university-physics-volume-2/pages/5-4-electric-field) supports the isolated point-charge model and the distinction between field and test-charge force. Only a fixed positive source in vacuum is modeled; other charges and conductors are omitted.

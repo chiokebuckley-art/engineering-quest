@@ -2,13 +2,13 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.19 is a playable early-access release, with 55 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.20 is a playable early-access release, with 58 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
 
-## Version 1.19 additions
+## Version 1.20 additions
 
 Five Earth/space investigations add rainfall conversion, accumulated plate separation, half-life accounting, ideal planetary radiation balance and equal-radius stellar luminosity. The lessons emphasize measurement limits and distinguish ideal-model results from real-world inference.
 
@@ -64,7 +64,7 @@ Eight new investigations cover light transmission, vibration amplitude, buoyancy
 
 - All 12 Motion Harbor missions, including the specified Rover Rescue model, controlled trials, two transfer checks and a harbor capstone.
 - Three introductory investigations in each of Matter Workshop, Living Valley, Earthwatch Ridge, Signal Coast and Orbital Station.
-- A 42-adapter Free Lab with reusable inventions, plant replicates and daily records, energy ledgers, wave and orbit models, and model assumptions.
+- A 45-adapter Free Lab with reusable inventions, plant replicates and daily records, energy ledgers, wave and orbit models, and model assumptions.
 - Four untimed arcade challenges: Cargo Catch, Signal Sprint, Habitat Balance and Build-Off. Unprepared explorers can use a supported preview without earning scores.
 - Six separate independent-evidence checks; assisted answers do not certify a skill. Mission completion is separate from mastery. Later-session review becomes available after 24 hours.
 - Up to 12 separate local profiles, IndexedDB autosave, append-only evidence events, JSON backup/import, conflict-preserving imported profiles, and a localStorage fallback.
@@ -86,7 +86,7 @@ Open `http://localhost:5187`. No production build, API key or backend is require
 ## Structure
 
 - `src/models.js`: deterministic science adapters, SI units, versioned outputs.
-- `src/content.js`: region registry, 55 missions, questions, transfers, glossary.
+- `src/content.js`: region registry, 58 missions, questions, transfers, glossary.
 - `src/controller.js`: durable mission steps, answer checkpoints, evidence selection and additive migration.
 - `src/transfers.js`: executed new-trolley and sorting-ramp transfer contexts.
 - `src/learning.js`: independent evidence and skill states.

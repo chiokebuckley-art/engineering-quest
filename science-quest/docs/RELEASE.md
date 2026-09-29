@@ -1,3 +1,9 @@
+## 1.20.0 — force, momentum and electric fields
+
+Three investigations expand the game to 58 missions and 45 models. Learners compare mass at fixed net force, track both momentum and kinetic energy in collisions, and probe a point-charge field. Matching tables show trajectories, conservation ledgers and field units.
+
+Validation: model reference cases, conservation checks, retry contexts and the complete guided DOM walkthrough. Idealizations remain explicit; device and educator acceptance is still pending.
+
 ## 1.19.0 — executed advanced energy transfers
 
 Six new transfer briefs require tested designs for revised schedules, reserve needs, power peaks and bounded uncertainty. The scene, controls and ledgers use the transfer configuration; explanations remain unavailable until a design meets that brief. Older completed missions retain progress, while future transfer attempts require fresh execution.
