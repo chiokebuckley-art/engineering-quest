@@ -12,7 +12,7 @@ export const pathways=[
  {grade:'9',title:'Biology pathway',focus:'Introductory cell, inheritance and environment models',missions:['membrane-exchange','pea-trait-patterns','growth-detective'],next:['Cellular energy and matter','DNA and gene expression','Population ecology','Evolution']},
  {grade:'10',title:'Chemistry pathway',focus:'Introductory conservation and energy-transfer models',missions:['nothing-lost','warming-water','shelter-designer'],next:['Atomic structure','Bonding','Reaction stoichiometry','Chemical-energy accounting']},
  {grade:'11',title:'Physics pathway',focus:'Introductory circuits, kinetic energy and storage budgets',missions:['closed-circuit','gentle-delivery','night-lab'],next:['Quantitative Newtonian motion','Momentum and collisions','Fields','Thermal and wave systems']},
- {grade:'12',title:'Integrated research',focus:'Model limits, orbital design and remote-station energy',missions:['ridge-research','outer-outpost','mission-planner'],next:['Climate-system evidence','Stellar models','Uncertainty analysis','Multi-discipline optimization capstone']}
+ {grade:'12',title:'Integrated research',focus:'Model limits, orbital design and remote-station energy',missions:['ridge-research','outer-outpost','mission-planner','night-reserve','power-is-not-energy','uncertain-night'],next:['Climate-system evidence','Stellar models','Uncertainty analysis','Multi-discipline optimization capstone']}
 ];
 export const preparation={
  'rover-rescue':['keep-it-fair'], 'choose-a-brake':['stopping-zone'], 'cargo-budget':['rover-rescue'],
@@ -20,6 +20,7 @@ export const preparation={
  'shelter-designer':['material-scout','warming-water'], 'growth-detective':['biodome-balance'],
  'catch-the-water':['rain-garden'], 'ridge-research':['catch-the-water'],
  'tune-the-link':['signal-sprint'], 'night-lab':['closed-circuit'],
+ 'night-reserve':['night-lab'],'power-is-not-energy':['night-reserve'],'uncertain-night':['power-is-not-energy'],
  'outer-outpost':['orbital-patterns'], 'mission-planner':['night-lab']
 };
 export function pathwayProgress(pathway,profile){const records=pathway.missions.map(id=>profile.runs[id]);return{completed:records.filter(r=>r?.completed).length,total:records.length};}

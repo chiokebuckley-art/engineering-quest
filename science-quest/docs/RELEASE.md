@@ -1,3 +1,9 @@
+# Release checks · 1.7.0
+
+38 investigations and 25 simulation adapters. Advanced energy reference checks: 600 Wh interval demand; 1000 Wh at 80% supplies 800 Wh, leaves 200 Wh and a 100 Wh margin after reserve. A 60 W delivery limit leaves 120 Wh unserved despite adequate capacity. Conservative uncertainty gives −60 Wh margin at 1000 Wh and +80 Wh at 1200 Wh. Physical remaining energy is clamped by actual service, with unmet demand recorded separately. Test coverage includes every mission flow and four new ledger groups.
+
+---
+
 # Release checks · 1.6.0
 
 Tests cover separate wrong/assisted/independent attempt records, immutable question snapshots, adult review snapshots, invalid responses, unchanged mastery and the journal feedback form. Existing mission/backup flows remain in the regression suite. Historical attempts are recorded from this version forward.

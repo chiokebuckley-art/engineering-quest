@@ -59,3 +59,7 @@ Per-explorer reading preferences migrate from existing global settings once and 
 ## Version 1.6 evidence and adult discussion
 
 Assessment histories now retain exact scored item/response snapshots, assistance, model/content provenance, selected and transfer trial IDs, and learner notes. Optional prediction reasoning is persisted. Adults can record discussion notes tied to the attempts and written reasoning reviewed; notes are local declarations and never alter mastery. Existing saves preserve earlier evidence without fabricated attempt history. Fresh equivalent item banks and external review remain outstanding.
+
+## Version 1.7 advanced energy sequence
+
+Three authored high-school investigations add variable-load energy accounting, reserve planning, delivery power constraints and bounded uncertainty. Interval ledgers conserve energy, report unserved demand and never show negative physical storage. Four model test groups check reference cases and invalid inputs; the DOM suite executes all 38 missions. The sequence includes numerical transfer questions and a linked prerequisite progression. Open-ended model construction, executed advanced transfer designs, authentic research projects and external review remain outstanding.
