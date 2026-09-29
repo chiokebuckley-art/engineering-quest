@@ -1,3 +1,9 @@
+## 1.15.0 — paired Biodome evidence
+
+Selected trial pairs now have matching daily growth graphs and tables, all three replicate heights and ranges. Line styles and markers distinguish conditions without relying on color. Historical data is displayed as saved. The notebook explains why fixed model replicates do not estimate real statistical uncertainty.
+
+Validation: four focused evidence-rendering groups and the full guided mission walkthrough, including paired-graph assertions for both plant missions. Browser/device checks remain pending.
+
 # Release checks · 1.14.0
 
 53 investigations and 40 adapters. Earth/space reference cases: 100 mL over 100 cm² gives 10 mm; 4 cm/year over two million years gives 80 km; two half-lives leave 25% parent; absorbed and emitted radiation balance at every albedo; doubling equal-radius stellar temperature multiplies luminosity by sixteen. These are model checks, not field or browser observations.
