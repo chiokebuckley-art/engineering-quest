@@ -2,13 +2,13 @@
 
 **Play:** https://chiokebuckley-art.github.io/engineering-quest/science-quest/
 
-An original science adventure built from the Science Quest developer handoff. Version 1.23 is a playable early-access release, with 58 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
+An original science adventure built from the Science Quest developer handoff. Version 1.24 is a playable early-access release, with 58 guided investigations across six research regions. It is not a complete or validated K–12 curriculum.
 
 ## Progress toward the full handoff
 
 The full objective remains active. [Completion audit](docs/COMPLETION_AUDIT.md) records the original requirements and remaining verification without narrowing them to the existing release. Version 1.1 adds durable answer/review checkpoints, learner-selected evidence pairs, executed reference-mission transfer designs, atomic fallback/import persistence, and non-destructive recovery for unreadable saves.
 
-## Version 1.23 additions
+## Version 1.24 additions
 
 Five Earth/space investigations add rainfall conversion, accumulated plate separation, half-life accounting, ideal planetary radiation balance and equal-radius stellar luminosity. The lessons emphasize measurement limits and distinguish ideal-model results from real-world inference.
 
@@ -106,3 +106,5 @@ Educator review, child usability studies and physical Android/iPad/laptop checks
 The full future K–12 course sequence, complete chemistry/biology/Earth-science curricula, account sync, private online co-op, live teacher review, are not included. This release implements the playable game framework and introductory investigations; the handoff describes those larger systems as later production stages.
 
 See [release checks](docs/RELEASE.md) and [art provenance](docs/ART.md).
+
+The [coverage and review ledger](coverage/) maps the handoff’s seven selected NGSS expectations to current activities, draft criteria and transfer tasks, with explicit remaining work and no claimed expert sign-off.
