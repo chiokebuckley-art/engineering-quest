@@ -1,0 +1,62 @@
+import {adapters,round} from './models.js';
+export const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const svg=(body,label)=>`<svg class="experiment-svg" viewBox="0 0 800 410" role="img" aria-label="${esc(label)}"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#c4e8e8"/><stop offset="1" stop-color="#edf5e8"/></linearGradient><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#68c3c5"/><stop offset="1" stop-color="#218a9c"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#e1ffff" stop-opacity=".8"/><stop offset="1" stop-color="#69bdb5" stop-opacity=".25"/></linearGradient></defs><rect width="800" height="410" rx="18" fill="url(#sky)"/><circle cx="660" cy="62" r="35" fill="#ffedb0"/><path d="M0 210Q130 180 270 210T550 202T800 211V410H0Z" fill="url(#sea)"/><path d="M0 218Q130 200 240 227T500 222T800 217" fill="none" stroke="#d1f3e9" stroke-width="3" opacity=".6"/>${body}</svg>`;
+const robot=(x,y)=>`<g transform="translate(${x} ${y})"><ellipse cy="32" rx="24" ry="7" fill="#143843" opacity=".16"/><path d="M-16 18v12M16 18v12" stroke="#234956" stroke-width="9" stroke-linecap="round"/><rect x="-21" y="-16" width="42" height="39" rx="12" fill="#f8c657" stroke="#ba8627" stroke-width="2"/><rect x="-14" y="-9" width="28" height="15" rx="7" fill="#143b48"/><circle cx="-6" cy="-2" r="3" fill="#baffed"/><circle cx="6" cy="-2" r="3" fill="#baffed"/><path d="M0-17v-10" stroke="#244c54" stroke-width="3"/><circle cy="-28" r="4" fill="#f8c657"/></g>`;
+const rover=(x,y,angle=0)=>`<g transform="translate(${x} ${y}) rotate(${angle})"><rect x="-30" y="-27" width="61" height="25" rx="6" fill="#f4bd45" stroke="#926d20" stroke-width="2"/><rect x="-12" y="-46" width="30" height="20" rx="3" fill="#f9f1d5" stroke="#a79463" stroke-width="2"/><path d="M0-46v20" stroke="#c5a555" stroke-width="4"/><circle cx="-20" r="11" fill="#203c46"/><circle cx="21" r="11" fill="#203c46"/><circle cx="-20" r="4" fill="#bdced0"/><circle cx="21" r="4" fill="#bdced0"/></g>`;
+function sample(series,t){if(!series?.length)return 0;let i=series.findIndex(p=>p.t>=t);if(i<=0)return i===0?series[0].x:series.at(-1).x;let a=series[i-1],b=series[i],f=(t-a.t)/(b.t-a.t);return a.x+(b.x-a.x)*f;}
+export function scene(adapter,input,result,progress=0,target=null,previous=null){
+ const m=adapters[adapter];let body='';const end=progress>=1;
+ if(['ramp','push','direction','force','resistance','collision'].includes(adapter)){
+  let laneY=285,x=110,y=laneY-10,angle=0,scale=150;
+  body=`<path d="M0 282H800V337H0Z" fill="#e1d4b3"/><path d="M0 337H800V365H0Z" fill="#bcb18f"/><path d="M0 284H800" stroke="#fff7de" stroke-width="5"/>`;
+  if(adapter==='ramp'){
+   const rise=input*260,exit=275;scale=Math.min(150,460/Math.max(3,result?.value||3));
+   body+=`<path d="M50 ${laneY-rise}L275 ${laneY}H50Z" fill="#506973" stroke="#344e59" stroke-width="3"/><path d="M48 ${laneY-rise-3}L276 ${laneY-3}" stroke="#d5e2df" stroke-width="7"/><path d="M45 ${laneY-rise}V${laneY}" stroke="#124957" stroke-dasharray="4 5"/><text x="27" y="${laneY-rise-15}" class="svg-label">${round(input)} m</text>`;
+   if(result&&progress>0){const t=result.duration*progress;if(t<result.rampDuration){const f=(t/result.rampDuration)**2;x=50+225*f;y=laneY-rise*(1-f)-11;angle=Math.atan(rise/225)*180/Math.PI;}else{x=exit+sample(result.series,t-result.rampDuration)*scale;y=laneY-11;}}
+   else{x=50;y=laneY-rise-11;angle=Math.atan(rise/225)*180/Math.PI;}
+   for(let i=0;i<=Math.max(3,Math.ceil(result?.value||3));i+=.5)body+=`<path d="M${exit+i*scale} 295v8" stroke="#486168"/><text x="${exit+i*scale}" y="322" text-anchor="middle" class="svg-small">${i} m</text>`;
+   if(target)body+=`<rect x="${exit+target[0]*scale-12}" y="252" width="${Math.max(32,(target[1]-target[0])*scale)}" height="43" rx="5" fill="#75baa4" stroke="#245e55" stroke-width="2" stroke-dasharray="5 4"/><text x="${exit+(target[0]+target[1])/2*scale}" y="237" text-anchor="middle" class="svg-label">DELIVERY BAY</text>`;
+  }else{
+   const centered=['force','direction'].includes(adapter);x=centered?400:100;
+   if(result)x+=sample(result.series,progress*result.duration)*150;
+   body+=`<path d="M${centered?400:100} 290v18" stroke="#234951" stroke-width="3"/><text x="${centered?400:100}" y="330" text-anchor="middle" class="svg-small">START / 0 m</text>`;
+   if(adapter==='force')body+=`<path d="M360 218H${360-4*15}m10-8-10 8 10 8M440 218H${440+input*15}m-10-8 10 8-10 8" stroke="#cc7549" stroke-width="6" fill="none"/><text x="270" y="198" class="svg-label">4 N ←</text><text x="470" y="198" class="svg-label">→ ${input} N</text>`;
+   if(adapter==='collision')body+=`<rect x="${100+input*.5*150+35}" y="247" width="36" height="37" rx="10" fill="#cb8f9f" stroke="#92697a" stroke-width="2"/>`;
+   if(adapter==='resistance')body+=`<path d="M100 285H780" stroke="#737e64" stroke-width="9" stroke-dasharray="3 ${12-input*15}"/>`;
+  }
+  if(result&&end)body+=`<path d="M${x} 277v32" stroke="#a15f3d" stroke-dasharray="3 3"/><text x="${Math.max(70,Math.min(730,x))}" y="359" class="svg-label" text-anchor="middle">${round(result.value)} ${m.outUnit}</text>`;
+  body+=rover(x,y,angle)+robot(740,340);
+ }else if(adapter==='plant'){
+  const values=previous?[previous.value,result?.value??2]:[2,result?.value??2];
+  body+='<path d="M20 290H780V365H20Z" fill="#d9d5ad"/>';
+  values.forEach((v,i)=>{const x=220+i*350,h=2+(v-2)*(i?progress:1);body+=`<path d="M${x-130} 286V140a130 70 0 0 1 260 0v146Z" fill="url(#glass)" stroke="#5e9f99" stroke-width="4"/><path d="M${x} 74v212" stroke="#83b4ac" stroke-width="3"/><text x="${x}" y="52" text-anchor="middle" class="svg-label">${i?'Current chamber':'Previous / starting chamber'}</text>`;for(let j=-1;j<=1;j++){let px=x+j*70,ph=(2+(h-2)*(1+j*.1))*11;body+=`<path d="M${px-21} 286l5 34h32l5-34Z" fill="#c8875c"/><path d="M${px} 285v${-ph}" stroke="#3b8053" stroke-width="5"/><ellipse cx="${px-13}" cy="${281-ph*.6}" rx="20" ry="8" transform="rotate(30 ${px-13} ${281-ph*.6})" fill="#60a762"/><ellipse cx="${px+13}" cy="${281-ph*.85}" rx="20" ry="8" transform="rotate(-30 ${px+13} ${281-ph*.85})" fill="#83b365"/>`;}body+=`<text x="${x}" y="351" text-anchor="middle" class="svg-label">Mean ${round(h)} cm</text>`;});
+ }else if(adapter==='energy'){
+  const energy=result?Math.max(0,result.delivered-result.demand*progress):640,frac=energy/(result?.delivered||640);
+  body=`<rect width="800" height="410" fill="#173a50"/><circle cx="675" cy="65" r="28" fill="#f4ecd1"/><g fill="#c4dedb">${[50,130,245,370,510,740].map((x,i)=>`<circle cx="${x}" cy="${40+i%3*20}" r="2"/>`).join('')}</g><path d="M0 294H800V410H0Z" fill="#476268"/><rect x="128" y="113" width="130" height="180" rx="16" fill="#c3d0c8" stroke="#778f92" stroke-width="5"/><rect x="143" y="130" width="100" height="140" rx="6" fill="#2c4e54"/><rect x="148" y="${265-130*frac}" width="90" height="${130*frac}" fill="#8bc8a4" rx="4"/><path d="M258 270H430V230" stroke="#f8c15b" stroke-width="8" fill="none"/><rect x="410" y="160" width="275" height="132" fill="#cfddce"/><path d="M385 160l155-86 172 86Z" fill="#678c91"/><g fill="${energy>0?'#ffe6a3':'#375161'}"><rect x="435" y="180" width="50" height="62"/><rect x="510" y="180" width="50" height="62"/><rect x="585" y="180" width="50" height="62"/></g><text x="194" y="326" text-anchor="middle" fill="#fff1ca" font-size="19">${round(energy)} Wh available</text><text x="545" y="325" text-anchor="middle" fill="#fff1ca" font-size="19">Night lab · ${input} W</text>`;
+ }else if(adapter==='wave'){
+  body='<rect x="35" y="65" width="730" height="245" rx="20" fill="#143b4a"/><path d="M60 185H740" stroke="#6b8f94" stroke-dasharray="4 7"/>';
+  let points=Array.from({length:201},(_,i)=>`${60+i*3.4},${185-65*Math.sin(2*Math.PI*input*(i/200-progress))}`).join(' ');
+  body+=`<polyline points="${points}" fill="none" stroke="#8fd9bc" stroke-width="4"/><text x="65" y="100" fill="#eef5e7" font-size="18">${input} cycles per second</text><text x="400" y="353" text-anchor="middle" class="svg-label">Wave speed fixed at 10 m/s · wavelength ${round(10/input)} m</text>`;
+ }else if(adapter==='orbit'){
+  body='<rect width="800" height="410" fill="#193a50"/>';
+  [1,2,3,4].forEach(r=>{body+=`<ellipse cx="400" cy="205" rx="${r*76}" ry="${r*39}" fill="none" stroke="#698390" stroke-width="${r===input?2.5:1}" stroke-dasharray="${r===input?'none':'4 7'}"/>`;});
+  body+=`<circle cx="400" cy="205" r="27" fill="#f9ca69"/><circle cx="${400+input*76*Math.cos(progress*2*Math.PI)}" cy="${205+input*39*Math.sin(progress*2*Math.PI)}" r="14" fill="#8dd1c3" stroke="#d1f8df" stroke-width="3"/><text x="400" y="35" fill="#e5efe7" text-anchor="middle" font-size="20">${input} AU · ${round(Math.sqrt(input**3))} Earth years per orbit</text><text x="400" y="385" fill="#b6d2d1" text-anchor="middle" font-size="15">Orbit path schematic · planet and star sizes not to scale</text>`;
+ }else if(adapter==='runoff'){
+  body=`<path d="M40 165L630 285H40Z" fill="#bda27c"/><path d="M40 165L630 285" stroke="#759779" stroke-width="8"/><rect x="580" y="290" width="165" height="70" rx="8" fill="#d4e7dd" stroke="#718b8d" stroke-width="3"/><rect x="588" y="${350-(result?.value||0)*progress*.55}" width="149" height="${(result?.value||0)*progress*.55}" fill="#5ebcc7"/>`;
+  for(let i=0;i<input/5;i++){let x=60+i*25;body+=`<path d="M${x} ${169+(x-40)*.203}v-24m0 16-10-12m10 6 10-12" stroke="#45845b" stroke-width="4"/>`;}
+  for(let i=0;i<16;i++)body+=`<path d="M${80+i*40} ${40+(i%3)*20}l-5 17" stroke="#6babbd" stroke-width="3"/>`;
+  body+=`<text x="660" y="387" text-anchor="middle" class="svg-label">Runoff ${round((result?.value||0)*progress)} L</text>`;
+ }else if(adapter==='habitat'){
+  body='<path d="M0 257Q200 210 400 260T800 246V410H0Z" fill="#8eb789"/><path d="M320 320q120-55 240 0t-240 0" fill="#7fc6c5"/>';
+  for(let i=0;i<Math.floor(input/5);i++){const x=90+(i%5)*140,y=240+Math.floor(i/5)*100;body+=`<g transform="translate(${x} ${y})"><ellipse rx="27" ry="17" fill="#f2e4c8"/><circle cx="22" cy="-14" r="13" fill="#f2e4c8"/><path d="M16-21v-20M28-22l5-20" stroke="#f2e4c8" stroke-width="8" stroke-linecap="round"/><circle cx="26" cy="-15" r="2" fill="#25464b"/></g>`;}
+  body+=`<text x="400" y="65" text-anchor="middle" class="svg-label">Food budget: ${input} units per day ÷ 5 per animal</text>`;
+ }else if(adapter==='thermal'){
+  body=`<rect x="70" y="85" width="260" height="240" rx="20" fill="#efb781"/><rect x="470" y="85" width="260" height="240" rx="20" fill="#8ecbd0"/><rect x="350" y="70" width="100" height="270" rx="8" fill="#bebbad" stroke="#7b817a" stroke-width="4"/><text x="200" y="125" text-anchor="middle" class="svg-label">WARMER</text><text x="600" y="125" text-anchor="middle" class="svg-label">COOLER</text><text x="400" y="370" text-anchor="middle" class="svg-label">${round(input*100)} W transferred through the wall</text>`;
+  for(let i=0;i<5;i++)body+=`<path d="M220 ${160+i*30}H580m-13-8 13 8-13 8" stroke="#b9743b" stroke-width="${2+input*7}" fill="none" opacity="${.4+progress*.6}"/>`;
+ }else{
+  body=`<path d="M70 285H730V320H70Z" fill="#bfa77d"/><rect x="180" y="80" width="430" height="205" rx="25" fill="url(#glass)" stroke="#688e90" stroke-width="5"/><rect x="177" y="72" width="436" height="18" rx="8" fill="#476a72"/><text x="395" y="52" text-anchor="middle" class="svg-label">SEALED SYSTEM · no matter leaves</text><circle cx="305" cy="223" r="38" fill="#f3c15e"/><circle cx="465" cy="223" r="${25+input}" fill="#ad9acb"/><text x="305" y="229" text-anchor="middle" class="svg-label">10 g</text><text x="465" y="229" text-anchor="middle" class="svg-label">${input} g</text><text x="400" y="365" text-anchor="middle" class="svg-label">Total contents: ${10+input} g</text>`;
+ }
+ return svg(body,`${m.label}. ${m.input}: ${input} ${m.unit}.${result&&end?` ${m.output}: ${round(result.value)} ${m.outUnit}.`:''}`);
+}
+export function chart(trials){if(!trials.length)return '';const max=Math.max(1,...trials.map(t=>Math.abs(t.value)));return `<p class="muted">Bar height shows the size of each result; signed values are labeled.</p><div class="trial-chart" role="img" aria-label="Trial result magnitudes; signed exact values are in the following table">${trials.map((t,i)=>`<div class="bar-item"><b>${round(t.value)}</b><div class="bar" style="height:${Math.max(3,Math.abs(t.value)/max*88)}px"></div><span>T${i+1}</span></div>`).join('')}</div>`;}
+export {robot};
