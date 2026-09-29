@@ -1,3 +1,9 @@
+## 1.17.0 — Build-Off compares design energy
+
+Three successful deliveries now lead to an energy comparison and explanation before completion. Saved journal records show height, resistance, distance and starting energy. Model-backed import validation protects the records, and practice points remain separate from mastery.
+
+Validation: reference energy comparisons, rejected invalid designs/imports and DOM interaction through wrong and correct comparisons. Browser/device acceptance remains pending.
+
 ## 1.16.0 — inherited types and environment
 
 Two Biodome investigations compare inherited plant types under matched conditions, then test both across shared light levels. Scientific scenes and complete group tables expose the assumed response differences and fixed replicate variation. The grade 7 route links both activities with preparation steps.
