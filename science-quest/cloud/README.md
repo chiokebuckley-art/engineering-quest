@@ -1,6 +1,6 @@
 # Science Quest cloud service
 
-Status: implemented and locally tested; **not deployed**. The player UI is not connected yet. This service owns a separate namespace from Word Raiders and Engineering Quest.
+Status: implemented and locally tested; **not deployed**. The sync UI is implemented at `sync/`, but requires a deployed service address. This service owns a separate namespace from Word Raiders and Engineering Quest.
 
 ## Deployment
 
@@ -22,7 +22,7 @@ The configuration creates a SQLite-backed Durable Object namespace automatically
 
 Requests are capped at 2 MB, incoming events at 10,000 and retained events at 20,000. The last 100 upload operation identities are retained. Older retries are safely rejected by revision mismatch. Event capacity exhaustion requires archival; it never silently discards evidence. Current operations retain full payloads for exact retry comparison; before broad-scale release, replace this with collision-resistant content digests to reduce storage growth.
 
-`src/cloud-client.js` prepares stable retry payloads and returns conflicts to callers. A player UI must retain pending operation payloads through retries, reconcile explicitly using conflict-preserving imports, and only update local revision after successful response. That integration is still pending.
+`src/cloud-client.js` prepares stable retry payloads and returns conflicts to callers. A player UI must retain pending operation payloads through retries, reconcile explicitly using conflict-preserving imports, and only update local revision after successful response. `src/sync-session.js` implements durable pending uploads, explicit conflict recovery and separate credentials; `sync/` exposes the controls. Live cross-device verification remains pending.
 
 ## Verification
 

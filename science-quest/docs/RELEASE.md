@@ -1,3 +1,9 @@
+# Release checks · 1.8.0
+
+Added durable sync-session tests for lost responses, reload retry, conflict preservation, quota errors, concurrent-action guards and explorer reconciliation, plus a DOM connect/upload/import/disconnect flow using a simulated service. These do not prove the unavailable live backend. Cloudflare deployment remains pending authentication.
+
+---
+
 # Release checks · 1.7.0
 
 38 investigations and 25 simulation adapters. Advanced energy reference checks: 600 Wh interval demand; 1000 Wh at 80% supplies 800 Wh, leaves 200 Wh and a 100 Wh margin after reserve. A 60 W delivery limit leaves 120 Wh unserved despite adequate capacity. Conservative uncertainty gives −60 Wh margin at 1000 Wh and +80 Wh at 1200 Wh. Physical remaining energy is clamped by actual service, with unmet demand recorded separately. Test coverage includes every mission flow and four new ledger groups.

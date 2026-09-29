@@ -67,3 +67,7 @@ Three authored high-school investigations add variable-load energy accounting, r
 ## Cloud service foundation (not live)
 
 Added an isolated Cloudflare Durable Object service, private-key client protocol, transaction-protected revision updates, retry idempotence, conflict responses, evidence collision rejection and ten-snapshot recovery history. Four protocol/handler test groups and the deployment dry run pass. The available Cloudflare CLI explicitly reports no authentication; sign-in has been requested. No live backend, cross-device sync UI or private-room service is claimed. Independent curriculum/game work remains available, so the overall goal is not blocked.
+
+## Version 1.8 sync client integration
+
+Device-side sync now persists pending operation payloads before network writes, retries an identical operation after lost responses/reloads, prevents overlapping actions, and preserves local/remote conflict snapshots through explicit reconciliation. A dedicated sync page handles connection, transfer, recovery export, disconnection and cloud deletion. Credentials are held separately from gameplay backups. Protocol, storage-double and DOM tests pass locally. The service is still not deployed, and live cross-device concurrency, automatic background sync and private online rooms remain incomplete.
