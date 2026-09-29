@@ -37,3 +37,11 @@ Implementation references: [Cloudflare SQLite-backed storage](https://developers
 Room state expires after 24 hours with a storage alarm. Limits are four players, ten rounds and 100 trials per round. The most recent 500 action IDs are retained for replay handling. The `rooms/` client saves pending actions and player credentials locally; losing those credentials after start cannot be recovered by merely rejoining. The setup page explains this before leaving a connection. Only an explorer’s own evidence can be imported to their local journal.
 
 Five private-room protocol/client/DOM tests pass locally, and the updated deployment dry run succeeds. Authentication boundary routing and live Durable Object transactions still need deployed verification.
+
+## Storage layout
+
+Save state uses a versioned manifest and 64 KiB UTF-8 byte chunks inside one storage transaction. Reads use a transaction too. Legacy single-key state is read until the next successful write migrates it; failed writes leave the prior revision intact. Shrinking state removes unused chunks. A 32 MiB combined-state ceiling fails before any write rather than silently dropping recovery history.
+
+The configured SQLite backend has a 2 MB combined key/value limit: [Cloudflare limits](https://developers.cloudflare.com/durable-objects/platform/limits/). Atomic operations follow the [SQLite transaction API](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/#transaction). The original single-key design could exceed the limit when recovery snapshots accumulated.
+
+Local verification on 2026-09-29 used Wrangler 4.143.0 and the configured compatibility date: four uploaded revisions, three recovery snapshots, 2,801,217 combined UTF-8 bytes, Unicode round-trip, identical retry, changed-payload rejection and removal of the temporary test save passed against a local SQLite Durable Object. The server was stopped afterward. This is not deployed-cloud or physical cross-device acceptance.

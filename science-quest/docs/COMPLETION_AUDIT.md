@@ -153,3 +153,7 @@ Implemented a separate high-school analysis activity, linked from grade 11 and t
 ### Cloud retry storage hardening after v1.27
 
 Idempotency records now store SHA-256 fingerprints instead of up to 100 complete save payloads. Identical retries remain idempotent, changed data under the same operation ID is rejected, and older payload records are compacted during the next successful write without mutating the prior state. Targeted protocol/session/UI tests pass. Cloudflare authentication was rechecked and remains unavailable; browser inventory again reports a locked Mac and failed browser initialization. Cloud deployment, storage-limit validation and live cross-device acceptance remain open.
+
+### Transactional cloud state chunks
+
+Replaced the potentially oversized single save-state value with transaction-protected 64 KiB UTF-8 chunks and a checked manifest. Added legacy migration, removal of stale tail chunks, missing-chunk rejection and a pre-write total-size guard. Four new test groups cover large multilingual data, failure rollback, migration/corruption and the actual service handler. All 149 test groups pass. A separate Wrangler 4.143.0 local SQLite runtime check successfully retained four revisions / three recovery snapshots totaling 2,801,217 bytes, preserved Unicode, replayed requests and rejected changed retries. The disposable local save was removed and server stopped. Live cloud deployment remains blocked by authentication; real cross-device acceptance and the broader handoff are still incomplete.
