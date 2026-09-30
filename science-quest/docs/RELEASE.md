@@ -293,3 +293,10 @@ All mission packs: original early-access content, educator/science-review sign-o
 All twelve starter families have three full guided investigations. Twenty new companions add distinct cargo/design briefs, forty executed transfers, two context-specific connected-route capstones, separate checkpoints and equivalent retry banks. Completed family work never copies mastery into another mission. The district groups companion links under their starter rather than requiring a long flat mission list.
 
 The 216-group suite passes, including all 91 guided flows. Additional final UI verification is recorded in QA_1_41.md. Fallback state/evidence writers detect stale-tab changes, serialize with Web Locks where supported, and preserve rejected evidence for export. Science/educator review, complete K–12 course development, live cloud authentication and hardware/learner acceptance remain pending.
+
+
+## 1.42.0 — optional math practice and checkpoint return
+
+Four math bridges provide sixteen checked examples with worked support, read-aloud, accessible trial tables, varied answer positions and saved per-explorer progress. Guided missions suggest a bridge; pathways expose the whole library. Return restores the original science step without adding science credit. Help/rechecks and repeat practice preserve assistance provenance, and imports reject inconsistent checkpoints.
+
+The full 222-group suite passes, including all 91 guided mission flows and the new math flows. Chrome desktop verification covers wrong/correct feedback, saved resumption after reload, native table headers, help requested after a correct response and return to the original book-cart mission. See QA_1_42.md. The registry remains 91 guided missions, 58 model configurations, thirteen partial grade routes and four supplemental science activities. Live cloud service deployment, broader K–12 course development, external reviews and device/learner acceptance remain outstanding.

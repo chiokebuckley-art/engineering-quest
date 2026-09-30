@@ -18,3 +18,7 @@
 .harbor-board{max-width:1000px;margin-inline:auto}.harbor-detail:focus{outline:3px solid #327574;outline-offset:4px}
 
 .context-links{margin:12px 0;border-block:1px solid #c8d5c6;padding:10px 0}.context-links summary{cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:600}.context-links p{padding:8px 0}.context-links button{margin-top:8px;min-height:44px}
+
+.math-practice{max-width:780px;margin:24px auto}.math-practice button{min-height:48px;margin:6px 8px 6px 0}.math-practice .choice{display:block;width:100%;text-align:left}.math-library{margin-top:32px}.math-library button{margin:8px 8px 8px 0}
+
+.math-trial-table{width:100%;margin:18px 0;border-collapse:collapse}.math-trial-table caption{text-align:left;font-weight:600;padding:8px 0}.math-trial-table th,.math-trial-table td{padding:12px;border:1px solid var(--border);text-align:left}.math-trial-table thead{background:#e7eee1}

@@ -148,3 +148,10 @@ Mission completion offers a return to the harbor, with a brief restoration highl
 Each of the first twelve Motion Harbor missions now links two full companion investigations. The game has 91 guided investigations, 58 model configurations, thirteen partial grade routes and four supplemental activities. The companions preserve independent evidence and checkpoints, require newly executed transfer designs, and include museum/nursery versions of the connected route capstone with different engineering constraints. The original models and earned discoveries remain compatible.
 
 Fallback saves now detect stale-tab changes and protect each tab's rejected evidence for backup; modern browsers serialize writes with Web Locks. Older browsers without that API have optimistic detection only. The game remains in early access: complete course development, external review and device/learner acceptance are tracked in the completion audit. Online sync/co-op service deployment awaits Cloudflare authentication.
+
+
+## Optional math bridges — 1.42
+
+Four short practice packs cover reading trial tables, distance/time and average speed, proportional and squared quantities, and percentage/energy/design budgets. Each has four checked examples, worked support, read-aloud and an independently saved checkpoint per explorer. A suggested bridge is available from every guided mission; all four are available in Learning pathways. Returning restores the same science checkpoint. Math practice does not award science evidence, mastery or world restoration.
+
+Trial-table examples show native tables with captions, column/row headers and units. Correct-choice positions vary. Revealed help remains recorded across repeat practice and backups; a wrong response or help requested after a correct answer keeps that example assisted. The full suite passes 222 test groups. This is an initial bridge library, not a complete mathematics curriculum or demonstrated learning efficacy.
