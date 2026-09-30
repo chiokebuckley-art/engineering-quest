@@ -1,7 +1,7 @@
 /** Atomic snapshots and evidence. The fallback uses one envelope, never two partial writes. */
 const KEY='science-quest.v1';
 let db,queue=Promise.resolve(),observed=null,conflicted=false;
-const unsavedEvents=new Map();let knownEvents=new Map();
+const unsavedEvents=new Map();let knownEvents=new Map(),fallbackObserved=null;
 const fingerprint=value=>JSON.stringify(value??null);
 function conflictError(){const error=Error('Another tab changed this device’s save. Export this tab’s backup, then reload and import it to preserve both versions.');error.code='SAVE_CONFLICT';return error;}
 async function readIndexed(){
@@ -34,6 +34,14 @@ function fallbackEnvelope(){
   // Version 1.0 used a separate event key. Read it before atomically migrating on the next write.
   return{storageFormat:1,snapshot:value,events:JSON.parse(localStorage.getItem(KEY+'.events')||'[]')};
 }
+const fallbackToken=()=>JSON.stringify([localStorage.getItem(KEY),localStorage.getItem(KEY+'.events')]);
+function observeFallback(){fallbackObserved=fallbackToken();try{knownEvents=new Map(fallbackEnvelope().events.map(e=>[e.id,e]));}catch{}}
+async function guardedFallback(mutate){
+ const write=()=>{if(conflicted||fallbackObserved!==fallbackToken()){conflicted=true;throw conflictError();}const result=mutate();observeFallback();return result;};
+ const locks=globalThis.navigator?.locks;
+ // The callback is synchronous; modern tabs additionally serialize it with a Web Lock.
+ return locks?.request?locks.request('science-quest.local-save.v1',{mode:'exclusive'},write):write();
+}
 export async function openStore(){
   try{
     if(db)db.close();db=null;
@@ -41,37 +49,37 @@ export async function openStore(){
       r.onupgradeneeded=()=>{for(const store of ['snapshots','recoveries'])if(!r.result.objectStoreNames.contains(store))r.result.createObjectStore(store);if(!r.result.objectStoreNames.contains('events'))r.result.createObjectStore('events',{keyPath:'id'});};
       r.onsuccess=()=>{r.result.onversionchange=()=>r.result.close();resolve(r.result);};r.onerror=()=>reject(r.error);r.onblocked=()=>{const error=Error('Another tab is holding an older save connection. Close it and reload.');error.code='SAVE_BLOCKED';reject(error);};
     });const current=await readIndexed();observe(current);conflicted=false;return 'IndexedDB';
-  }catch(error){if(db||error.code==='SAVE_BLOCKED')throw error;return 'localStorage';}
+  }catch(error){if(db||error.code==='SAVE_BLOCKED')throw error;conflicted=false;observeFallback();return 'localStorage';}
 }
 export async function loadSave(){
   await queue.catch(()=>{});
   if(db){const current=await readIndexed();if(!conflicted)observe(current);if(current.snapshot)return current.snapshot;}
-  return fallbackEnvelope().snapshot;
+  if(!conflicted)observeFallback();return fallbackEnvelope().snapshot;
 }
 export function persist(state,event){
   const copy=structuredClone(state),evt=event?{id:crypto.randomUUID(),at:Date.now(),contentVersion:1,modelVersion:1,...structuredClone(event)}:null;
   return enqueue(async()=>{
     if(db){await guardedWrite(tx=>{tx.objectStore('snapshots').put(copy,'current');if(evt)tx.objectStore('events').add(evt);},copy);if(evt)remember([evt]);}
-    else{const old=fallbackEnvelope();localStorage.setItem(KEY,JSON.stringify({storageFormat:1,snapshot:copy,events:evt?[...old.events,evt]:old.events}));}
+    else await guardedFallback(()=>{const old=fallbackEnvelope();localStorage.setItem(KEY,JSON.stringify({storageFormat:1,snapshot:copy,events:evt?[...old.events,evt]:old.events}));});
   }).then(()=>{if(evt)unsavedEvents.delete(evt.id);},error=>{if(evt)unsavedEvents.set(evt.id,evt);throw error;});
 }
 export async function getEvents(){await queue.catch(()=>{});if(!db)return fallbackEnvelope().events;return requestResult(db.transaction('events').objectStore('events').getAll());}
-export async function getBackupEvents(){await queue.catch(()=>{});const saved=db?[...knownEvents.values()]:await getEvents(),map=new Map(saved.map(e=>[e.id,e]));for(const [id,event]of unsavedEvents)map.set(id,event);return [...map.values()];}
+export async function getBackupEvents(){await queue.catch(()=>{});const saved=[...knownEvents.values()],map=new Map(saved.map(e=>[e.id,e]));for(const [id,event]of unsavedEvents)map.set(id,event);return [...map.values()];}
 function validateEvents(events){if(!Array.isArray(events)||events.some(e=>!e||typeof e.id!=='string'||typeof e.profile!=='string'))throw Error('Invalid evidence events');}
 export function importEvents(events=[]){
   validateEvents(events);const incoming=structuredClone(events);
   return enqueue(async()=>{if(db){await guardedWrite(tx=>{for(const e of incoming)tx.objectStore('events').put(e);});remember(incoming);}
-    else{const old=fallbackEnvelope(),map=new Map(old.events.map(e=>[e.id,e]));incoming.forEach(e=>map.set(e.id,e));localStorage.setItem(KEY,JSON.stringify({...old,events:[...map.values()]}));}});
+    else await guardedFallback(()=>{const old=fallbackEnvelope(),map=new Map(old.events.map(e=>[e.id,e]));incoming.forEach(e=>map.set(e.id,e));localStorage.setItem(KEY,JSON.stringify({...old,events:[...map.values()]}));});});
 }
 export function replaceSaveWithEvents(state,events=[],removedProfile=null){
   if(removedProfile!==null&&(typeof removedProfile!=='string'||!removedProfile||state.profiles?.some(p=>p.id===removedProfile)||events.some(e=>e.profile===removedProfile)))throw Error('Invalid profile removal');
   validateEvents(events);const snapshot=structuredClone(state),incoming=structuredClone(events);
   return enqueue(async()=>{if(db){await guardedWrite(tx=>{tx.objectStore('snapshots').put(snapshot,'current');for(const e of incoming)tx.objectStore('events').put(e);if(removedProfile){const request=tx.objectStore('events').openCursor();request.onsuccess=()=>{const c=request.result;if(c){if(c.value.profile===removedProfile)c.delete();c.continue();}};}},snapshot);if(removedProfile)for(const [key,e]of knownEvents)if(e.profile===removedProfile)knownEvents.delete(key);remember(incoming);}
-    else{const old=fallbackEnvelope(),map=new Map(old.events.filter(e=>e.profile!==removedProfile).map(e=>[e.id,e]));incoming.forEach(e=>map.set(e.id,e));localStorage.setItem(KEY,JSON.stringify({storageFormat:1,snapshot,events:[...map.values()]}));}});
+    else await guardedFallback(()=>{const old=fallbackEnvelope(),map=new Map(old.events.filter(e=>e.profile!==removedProfile).map(e=>[e.id,e]));incoming.forEach(e=>map.set(e.id,e));localStorage.setItem(KEY,JSON.stringify({storageFormat:1,snapshot,events:[...map.values()]}));});});
 }
 export function deleteProfileEvents(id){return enqueue(async()=>{
   if(db){await guardedWrite(tx=>{const r=tx.objectStore('events').openCursor();r.onsuccess=()=>{const c=r.result;if(c){if(c.value.profile===id)c.delete();c.continue();}};});for(const [key,e]of knownEvents)if(e.profile===id)knownEvents.delete(key);}
-  else{const old=fallbackEnvelope();localStorage.setItem(KEY,JSON.stringify({...old,events:old.events.filter(e=>e.profile!==id)}));}
+  else await guardedFallback(()=>{const old=fallbackEnvelope();localStorage.setItem(KEY,JSON.stringify({...old,events:old.events.filter(e=>e.profile!==id)}));});
 });}
 export async function recoveryExport(includeArchives=true){
   await queue.catch(()=>{});
@@ -84,6 +92,6 @@ export async function archiveUnreadableSave(){
   const archive=await recoveryExport(false),id='recovery-'+Date.now();
   if(db)await enqueue(()=>guardedWrite(tx=>{tx.objectStore('recoveries').put(archive,id);tx.objectStore('snapshots').delete('current');},null,['recoveries','snapshots']));
   // Preserve the original bytes before a fresh envelope can be written.
-  if(!db)localStorage.setItem(KEY+'.'+id,JSON.stringify(archive));
-  localStorage.removeItem(KEY);localStorage.removeItem(KEY+'.events');return id;
+  if(!db)await enqueue(()=>guardedFallback(()=>{localStorage.setItem(KEY+'.'+id,JSON.stringify(archive));localStorage.removeItem(KEY);localStorage.removeItem(KEY+'.events');}));
+  else{localStorage.removeItem(KEY);localStorage.removeItem(KEY+'.events');}return id;
 }
