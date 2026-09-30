@@ -287,3 +287,9 @@ All mission packs: original early-access content, educator/science-review sign-o
 2. Device/keyboard/screen-reader walkthrough and offline/update verification in supported browsers.
 3. Supervised learner trials with consent and no public rankings.
 4. Expansion of each region into complete, reviewed course sequences before marketing broad K–12 coverage.
+
+## 1.41.0 — complete starter companion families and fallback save protection
+
+All twelve starter families have three full guided investigations. Twenty new companions add distinct cargo/design briefs, forty executed transfers, two context-specific connected-route capstones, separate checkpoints and equivalent retry banks. Completed family work never copies mastery into another mission. The district groups companion links under their starter rather than requiring a long flat mission list.
+
+The 216-group suite passes, including all 91 guided flows. Additional final UI verification is recorded in QA_1_41.md. Fallback state/evidence writers detect stale-tab changes, serialize with Web Locks where supported, and preserve rejected evidence for export. Science/educator review, complete K–12 course development, live cloud authentication and hardware/learner acceptance remain pending.
