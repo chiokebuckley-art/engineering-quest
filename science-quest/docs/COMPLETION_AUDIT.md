@@ -2,29 +2,29 @@
 
 Objective: finish Science Quest described by the 24-page developer handoff and the user’s request to finish all of it. The existing 27-investigation release is a starting point, not a redefinition of that objective.
 
-Audit date: 2026-09-29. Previous build changed authoritative state and deployed a playable first release (progress). This goal remains active. No requirement below is proved by this checklist alone.
+Audit date: 2026-09-29. Current release: **1.42.0**. Science Quest is live in early access with 91 guided investigations, 58 model configurations, 13 partial grade routes, four supplemental science activities and four optional math bridges. The full handoff is **not complete**. The matrix below summarizes the current implementation; the chronological evidence record follows.
 
-| Handoff requirement | Evidence currently available | Remaining work / proof required |
+| Handoff requirement | Current implementation and verification | Remaining work / proof required |
 | --- | --- | --- |
-| 1–4: adventure, world restoration, six connected regions | Existing map, regional counters, missions | Replace counter-only restoration with persistent visible world upgrades and workshop decoration placement; review capstone outcomes |
-| 3, 6, 14: Rover Rescue notice/predict/build/test/explain/apply | Reference equations and basic full-flow test | Independently chosen evidence pairs; two executed transfer designs; prediction rationale capture; no replay mismatch; checkpoint recovery at every step |
-| 5, 18: home and navigation | Map, recommended mission, mode tabs | Verify unfinished mission recommendation on profile changes; all preparation links; measured phone and keyboard walkthrough |
-| 7: Biodome Balance | Replicate model and daily record | Select both conditions, generated growth graph with equivalent table, environmental and genetic-factor investigations, valid uncertainty interpretation |
-| 8: Night Lab | Ledger and operator construction | Variable loads, reserve, power constraints, uncertainty, model revision and transfer evidence in high-school sequence |
-| 9–11: K–12 learning progression | 27 introductory investigations with broad band labels | Complete grade/pathway routes, prerequisites, vocabulary order, bridges, scientific/mathematical representations; all named disciplines in the handoff |
-| 12: six independent checks, fresh equivalent retries, retained/review | Six boolean categories; partial review action | Durable scored attempts, item isolation, equivalent variants, provenance and criterion evidence; review without erasing world rewards |
-| 13: Adventure, Free Lab, four arcade games | Implemented basic forms | Readiness-driven advanced tool gates; sound/visual equivalents; meaningful Build-Off efficiency comparison |
-| 13, 19 E: 2–4 player co-op, later online ecosystem | Display-only local role rotation | Individual predictions/explanations, rotating ownership, shared simulation; private online rooms, no public chat; optional sync, idempotence and conflict recovery |
-| 15: first 12 Motion Harbor missions, three context variants each | 12 titled missions; shared questions/adapters | Mission-specific reviewed variants, multi-stage restore-route capstone; separate evidence for design choices |
-| 16: mission content format and publishing pipeline | Registry exists | Complete schema with versions, prerequisites, standards, rubrics, accessible forms, misconception feedback, units, variants; reject broken references and cycles; authoring/review/preview workflow |
-| 17: modular model/controller/learning/save | Separate models and learning modules, monolithic UI/controller | Move durable mission transitions into controller; auditable event provenance; model-consistent rendering and tests |
-| 17: persistence, migration, offline, update safety | IndexedDB and localStorage fallback; basic service worker | Recover corrupt/unsupported saves without overwriting; atomic fallback evidence; import transactions; migrate older content; interrupted animation checkpoint; offline/update browser checks |
-| 18: profiles, readiness, accessibility, adult view | Settings, profiles, evidence journal | Separate reading settings, K–2 pictorial response path, adult review workflow, pause/replay control verification, screen-reader/zoom/touch QA |
-| 19: all delivery gates | Early-access release deployed | Gates A–E are not complete; track actual implementation and validation separately |
-| 20: accuracy, functional branches, persistence, access, performance | 17 test groups; reference model checks | Expand adversarial/branch tests; reference Android/iPad/laptop runs, 30 fps and input-latency measurement; external science/education review and observed child pilot |
-| 21–22: standards crosswalk, source boundaries | Partial mappings in supplied handoff | Per-expectation lesson/practice/rubric/transfer/review ledger and linked primary sources; no false certification or efficacy claims |
-| 23–24: reusable native controls separate from art | Generated background and native SVG lab diagrams | Visual browser/device review still unverified |
-| User: live game like other GitHub games | GitHub Pages deployments successful | Keep source and hosted branches synchronized; verify each shipped update; do not mark full completion merely because a deployment is green |
+| 1–4: adventure, restoration, six regions | Six-region map; durable visible facilities, workshop placement and three interactive Motion Harbor sites | External review of learning/restoration outcomes; additional district boards are optional later scope |
+| 3, 6, 14: Rover Rescue guided loop | Authored full flow, selected evidence pairs, two executed transfers, retained checkpoints and native replay | Physical-device and learner walkthroughs |
+| 5, 18: home and navigation | Recommendations, preparation links, profiles and native mode controls; isolated Chrome smoke checks | Measured phone/touch/keyboard and assistive-technology acceptance |
+| 7: Biodome Balance | Controlled replicate comparisons, time records, graph/table, environmental/genetic configurations and evidence gates | Observed data/model validation and external science/education review |
+| 8: Night Lab | Load/reserve/power/uncertainty sequence, model construction and integrated constrained energy capstone | Empirical validation of assumptions, scheduling and uncertainty bounds |
+| 9–11: K–12 progression | Thirteen partial routes with prerequisites, vocabulary, representations and initial math bridges | Complete remaining course topics listed in src/curriculum.js; reviewed sequence/readiness design |
+| 12: six independent checks, retries/review | Durable item/response/provenance records, finite equivalent banks, permanent revelation tracking and separate retained/review state | Larger reviewed banks and actual acceptance of learning criteria |
+| 13: Free Lab and four arcades | Guided/Free Lab/arcade flows, model-linked tools and readiness handling | Observed accessibility/readiness/performance validation |
+| 13, 19 E: co-op and optional sync | Local 2–4 explorer contributions; separately implemented/tested private-room and sync protocol/client/service | Cloudflare sign-in/deployment; live cross-device acceptance; automatic background sync |
+| 15: first twelve Motion families | Original plus two full companions for each (36 investigations), distinct objects/constraints, executed transfers and three connected-route briefs | Required real science/educator review of all contexts |
+| 16: content contract and workflow | Validated registry/references/grids/prerequisites; local Content Studio draft/review/release workflow | Actual reviewer sign-off and collaborative reviewer authentication |
+| 17: modular model/learning/save | Model/controller/learning/storage modules, events and shared native rendering | UI remains consolidated; further extraction is a maintainability task |
+| 17: persistence and updates | Atomic IndexedDB checks, guarded fallback writes, backup/import/recovery, version migration and update protection; actual Chrome conflict/recovery check | Physical-device offline/update matrix; old clients without Web Locks retain fallback race limitations |
+| 18: profiles, access and adult view | Per-explorer preferences, pictorial starter cues, narration, adult discussion records and evidence Journal | Non-reader, screen-reader, zoom and touch acceptance with real users/devices |
+| 19: delivery gates A–E | Many software components implemented and deployed; scope/evidence tracked separately | Full curriculum and external/live-service acceptance gates remain open |
+| 20: accuracy, function, access and performance | 222 passing automated groups, including all guided flows; native Chrome desktop smoke workflows | Named science/education review, consented learner pilot, Android/iPad/laptop performance and interaction measurements |
+| 21–22: standards/source boundaries | Coverage/review ledger and linked primary references; observed NASA temperature activity with archived dataset | Completed reviewed crosswalk; no complete standards or efficacy certification |
+| 23–24: native controls and artwork | Native scenes/control/data views; Chrome district, companion and math-table visual inspection | Full device/accessibility review |
+| User: live game like other GitHub games | GitHub Pages publication and source mirror, preserving other games; exact release file verification | Keep future updates verified; green deployment alone does not complete the full handoff |
 
 ## External acceptance that cannot be fabricated
 
@@ -32,7 +32,7 @@ The handoff requires named science/educator review and observed learner/device t
 
 ## Current verification access
 
-The prior build could not use the browser because its administrator-policy check was unavailable. On this resumed goal turn, revalidation reports that the browser app-server exits before initialization. No alternate browser automation or raw browser-control bypass is being used. DOM/model/storage tests remain available and are not described as browser or device verification.
+Native Chrome controls are available on this Mac. Isolated local origins were used for the documented desktop workflows, including actual competing-tab recovery and the current harbor/math smoke checks. Browser-provider initialization previously failed; that history is retained in older release notes. No physical Android/iPad, screen-reader or learner acceptance is claimed.
 
 ## Verified progress in version 1.1
 
@@ -235,3 +235,10 @@ All twelve original Motion Harbor missions now have two full companion investiga
 Every companion has a finite equivalent-item bank and permanent hint/coaching provenance. Executed-transfer retries now use unrevealed equivalent explanations while requiring new trial data. Repeated revealed questions cannot award independent evidence. Native cargo diagrams and target markers read the same recorded physics state. Fallback saves also detect stale snapshots/events, serialize modern writes with a Web Lock and retain rejected local evidence for backup. Browsers lacking Web Locks have optimistic stale-state detection only; older uncoordinated writers cannot be fully protected.
 
 Registry: 91 guided investigations, 58 model configurations, 13 partial grade routes and four supplemental activities. The full automated suite has 216 passing groups, including every guided mission and both new capstones. A final focused UI rerun follows the companion-list layout change. This closes the starter-family companion software gap, not the required external review of those contexts. Complete course sequences, math-bridge coverage, live cloud deployment, physical-device acceptance and consented learner pilots remain outstanding. Cloudflare authentication was checked and is still absent; sign-in is pending.
+
+
+### v1.42 optional math preparation
+
+Four independently saved practice packs cover trial-table reading, distance/time/speed, proportional/squared relationships and percentage/energy/design budgets. Their sixteen examples provide checked responses, worked support and narration; native tables expose labels/units and scoped headers. Every guided mission offers a suggested bridge and pathways expose all packs. Returning restores the same science checkpoint, and practice awards no science evidence or restoration. Correct-choice positions vary. Help, wrong rechecks and restart preserve assistance; imported math checkpoints must agree with recorded correct responses and revelation history.
+
+The full suite passes 222 groups, including complete math flows and unchanged science records. Chrome desktop smoke covers wrong/correct feedback, reload/resumption, visible table headers, help after a correct response and return to the original science mission. This implements the initial math-bridge library, not a complete mathematics course, complete K–12 coverage, demonstrated outcomes or the required external reviews. Cloud service deployment is still pending authentication.
