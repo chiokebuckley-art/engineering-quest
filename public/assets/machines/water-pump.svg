@@ -1,0 +1,80 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 384" role="img">
+<title>Water pump: a slightly rusted hand-operated iron pump with a long lever handle, curved spout, feed pipes and a brass pressure gauge, with a bucket beneath the spout</title>
+<defs>
+<linearGradient id="water-pump-iron" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2b3040"/><stop offset="0.35" stop-color="#6b7280"/><stop offset="0.7" stop-color="#4c566a"/><stop offset="1" stop-color="#232838"/></linearGradient>
+<linearGradient id="water-pump-ironV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b7280"/><stop offset="1" stop-color="#2b3040"/></linearGradient>
+<linearGradient id="water-pump-brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0c25a"/><stop offset="0.5" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d1d"/></linearGradient>
+<linearGradient id="water-pump-stone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c566a"/><stop offset="1" stop-color="#232838"/></linearGradient>
+<linearGradient id="water-pump-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+<radialGradient id="water-pump-dial" cx="0.5" cy="0.4" r="0.6"><stop offset="0" stop-color="#e5e7eb"/><stop offset="1" stop-color="#a3a8b4"/></radialGradient>
+<linearGradient id="water-pump-wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a2818"/><stop offset="0.5" stop-color="#6b4a2e"/><stop offset="1" stop-color="#3a2818"/></linearGradient>
+</defs>
+<ellipse cx="256" cy="366" rx="190" ry="12" fill="#05070d" opacity="0.5"/>
+<!-- stone base -->
+<g stroke="#151827" stroke-width="2">
+<path d="M150 360 L 166 318 H 346 L 362 360 Z" fill="url(#water-pump-stone)"/>
+<rect x="176" y="304" width="160" height="16" fill="#3b4252"/>
+</g>
+<g fill="none" stroke="#151827" stroke-width="1.5" opacity="0.7"><path d="M200 340 H 240 M270 328 H 320 M180 350 H 210"/></g>
+<!-- ground pipes -->
+<g fill="none" stroke="#4c566a" stroke-width="12" stroke-linecap="round"><path d="M226 300 V 360"/><path d="M300 300 L 300 340 L 400 340"/></g>
+<g fill="none" stroke="#8a8f9c" stroke-width="3" stroke-linecap="round" opacity="0.5"><path d="M222 300 V 358"/><path d="M296 300 L 296 336"/></g>
+<g fill="#6b7280" stroke="#232838" stroke-width="1.5"><rect x="216" y="326" width="20" height="10" rx="2"/><rect x="340" y="332" width="12" height="16" rx="2"/><rect x="386" y="332" width="14" height="16" rx="2"/></g>
+<!-- pump body -->
+<g stroke="#151827" stroke-width="2.5">
+<rect x="208" y="120" width="96" height="190" rx="10" fill="url(#water-pump-iron)"/>
+<rect x="200" y="104" width="112" height="24" rx="6" fill="url(#water-pump-ironV)"/>
+<path d="M216 104 Q 256 60 296 104 Z" fill="url(#water-pump-ironV)"/>
+<rect x="200" y="200" width="112" height="14" rx="3" fill="#4c566a"/>
+<rect x="200" y="284" width="112" height="14" rx="3" fill="#4c566a"/>
+</g>
+<g fill="#8a8f9c"><circle cx="212" cy="116" r="3"/><circle cx="300" cy="116" r="3"/><circle cx="212" cy="207" r="3"/><circle cx="300" cy="207" r="3"/><circle cx="212" cy="291" r="3"/><circle cx="300" cy="291" r="3"/></g>
+<path d="M226 130 V 280" fill="none" stroke="#8a8f9c" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+<!-- rust patches -->
+<g fill="#b87333" opacity="0.55"><path d="M212 236 Q 224 226 236 240 Q 244 258 230 266 Q 214 268 212 250 Z"/><path d="M280 150 Q 296 146 300 160 Q 302 176 288 178 Q 276 172 280 150 Z"/><path d="M262 292 Q 280 286 292 296 Q 286 306 268 304 Z"/><path d="M244 108 Q 256 104 262 112 Q 254 118 244 108 Z"/></g>
+<g fill="none" stroke="#b87333" stroke-width="2" opacity="0.6" stroke-linecap="round"><path d="M226 266 V 284 M232 264 V 276 M292 178 V 194"/></g>
+<!-- spout -->
+<g stroke="#151827" stroke-width="2.5">
+<path d="M208 150 H 150 Q 120 150 118 180 L 118 200 L 146 200 L 146 184 Q 148 172 160 172 H 208 Z" fill="url(#water-pump-ironV)"/>
+<rect x="110" y="196" width="44" height="12" rx="3" fill="#4c566a"/>
+</g>
+<!-- water -->
+<path d="M126 208 Q 130 250 128 300" fill="none" stroke="url(#water-pump-water)" stroke-width="7" stroke-linecap="round" opacity="0.9"/>
+<path d="M124 208 Q 127 250 125 296" fill="none" stroke="#e0f2fe" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+<g fill="#7dd3fc" opacity="0.8"><circle cx="140" cy="230" r="2.5"/><circle cx="114" cy="256" r="2"/><circle cx="142" cy="286" r="2"/></g>
+<!-- bucket -->
+<g stroke="#151827" stroke-width="2">
+<path d="M92 300 L 100 362 H 160 L 168 300 Z" fill="url(#water-pump-wood)"/>
+<ellipse cx="130" cy="300" rx="38" ry="8" fill="#22d3ee"/>
+<path d="M92 300 A 38 8 0 0 0 168 300" fill="none" stroke="#6b7280" stroke-width="4"/>
+<rect x="94" y="328" width="72" height="5" fill="#6b7280"/>
+<path d="M98 300 Q 130 250 162 300" fill="none" stroke="#6b7280" stroke-width="4"/>
+</g>
+<ellipse cx="130" cy="299" rx="30" ry="5" fill="#7dd3fc" opacity="0.6"/>
+<!-- lever handle -->
+<g stroke="#151827" stroke-width="2.5">
+<rect x="288" y="136" width="30" height="20" rx="4" fill="#4c566a"/>
+<path d="M300 146 L 420 62" fill="none" stroke="#4c566a" stroke-width="12" stroke-linecap="round"/>
+<path d="M300 146 L 420 62" fill="none" stroke="#8a8f9c" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+<path d="M410 68 L 446 44" fill="none" stroke="url(#water-pump-wood)" stroke-width="16" stroke-linecap="round"/>
+<circle cx="304" cy="146" r="8" fill="#c9a227"/>
+</g>
+<circle cx="304" cy="146" r="3" fill="#5a4713"/>
+<path d="M262 96 L 262 80 L 292 80 L 300 140" fill="none" stroke="#4c566a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="262" cy="80" r="6" fill="#6b7280" stroke="#151827" stroke-width="2"/>
+<!-- pressure gauge -->
+<g stroke="#2a1f08" stroke-width="2">
+<rect x="336" y="180" width="30" height="12" fill="#8a6d1d"/>
+<circle cx="380" cy="186" r="34" fill="url(#water-pump-brass)"/>
+<circle cx="380" cy="186" r="26" fill="url(#water-pump-dial)" stroke="#8a6d1d" stroke-width="2"/>
+</g>
+<g fill="none" stroke="#232838" stroke-width="1.5"><path d="M380 162 V168 M362 172 L 366 175 M398 172 L 394 175 M356 186 H 362 M404 186 H 398 M364 204 L 368 201 M396 204 L 392 201"/></g>
+<path d="M362 172 A 26 26 0 0 1 398 172" fill="none" stroke="#2dd4bf" stroke-width="3" opacity="0.7"/>
+<path d="M398 172 A 26 26 0 0 1 404 194" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.8"/>
+<line x1="380" y1="186" x2="368" y2="170" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="380" cy="186" r="3.5" fill="#232838"/>
+<g fill="#e0c25a"><circle cx="380" cy="156" r="2"/><circle cx="410" cy="186" r="2"/><circle cx="380" cy="216" r="2"/></g>
+<!-- drip marks -->
+<g fill="none" stroke="#151827" stroke-width="1.5" opacity="0.5"><path d="M150 206 V 220 M156 206 V 214"/></g>
+</svg>

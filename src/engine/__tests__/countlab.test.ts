@@ -1,0 +1,52 @@
+import { describe, it, expect } from 'vitest';
+import { RANKS, makeShoe, runningCount, trueCount, halfCount, hiLo, newTable, DEFAULT_RULES, dealTable, moveTable, insureTable, legalMoves, shoeFinished, total, baseline, initialCountRecord, recordResult, unlockedDecks, calcQuestions, dailySeed, chicagoDay, examScore, type Card, type Table, type Rules } from '../countlab/engine';
+import { initialState } from '../state/initialState';
+import { gameReducer } from '../state/reducer';
+const c = (rank: string, i = 0): Card => ({ rank: rank as Card['rank'], suit: '♠', id: `${rank}-${i}` });
+function rig(ranks: string[], rules: Partial<Rules> = {}): Table { const t = newTable({...DEFAULT_RULES,...rules}, 1); t.shoe = [...ranks.map((r,i) => c(r,i)), ...t.shoe.slice(ranks.length)]; return t; }
+describe('Count Lab shoe and arithmetic', () => {
+  it.each([1,2,3,4,5,6,7,8,9])('builds %i exact decks with balanced Hi-Lo and valid cuts', n => {
+    const s = makeShoe(n, 41); expect(s).toHaveLength(52*n); expect(new Set(s.map(c => c.id)).size).toBe(52*n); expect(runningCount(s)).toBe(0);
+    for (const rank of RANKS) expect(s.filter(c => c.rank === rank)).toHaveLength(4*n);
+    for (const pen of [.5,.65,.75,.85]) expect(newTable({...DEFAULT_RULES,decks:n,penetration:pen},41).cut).toBe(Math.floor(52*n*pen));
+    expect(s).toEqual(makeShoe(n,41)); expect(s).not.toEqual(makeShoe(n,42));
+  });
+  it('matches handoff examples, negative counts, rounding and denominator floor', () => {
+    expect(runningCount(['5','5','K','2','9'].map(c))).toBe(2); expect(trueCount(2,47)).toBeCloseTo(2.2128,3); expect(halfCount(trueCount(2,47))).toBe(2);
+    expect(trueCount(2,286)).toBeCloseTo(.3636,3); expect(trueCount(12,156)).toBe(4); expect(trueCount(-3,0)).toBe(-6); expect(halfCount(-1.25)).toBe(-1.5);
+  });
+  it('matches an independent oracle over 50 shuffled streams', () => { for (let i=0;i<50;i++) { const cards=makeShoe(9,i).slice(0,30+i); const expected=cards.filter(c=>['2','3','4','5','6'].includes(c.rank)).length-cards.filter(c=>['10','J','Q','K','A'].includes(c.rank)).length; expect(runningCount(cards)).toBe(expected); } });
+  it('handles soft and hard Aces', () => { expect(total(['A','6'].map(c))).toEqual({value:17,soft:true}); expect(total(['A','A','9'].map(c))).toEqual({value:21,soft:true}); expect(total(['A','6','10'].map(c))).toEqual({value:17,soft:false}); });
+  it('covers all calculator deck sizes and Chicago date rollover', () => { expect(calcQuestions(3).map(q=>q.decks)).toEqual([1,2,3,4,5,6,7,8,9]); for(const q of calcQuestions(3)) expect(q.answer).toBe(trueCount(q.running,q.left)); expect(chicagoDay(new Date('2026-09-27T01:00:00Z'))).toBe('2026-09-26'); expect(dailySeed('2026-09-26')).toBe(dailySeed('2026-09-26')); });
+});
+describe('Count Lab blackjack golden hands', () => {
+  it('counts visible cards only and reveals hole once', () => { let t=dealTable(rig(['10','6','7','K','5']),2); expect(t.phase).toBe('player'); expect(t.seen.map(c=>c.rank)).toEqual(['10','6','7']); expect(runningCount(t.seen)).toBe(0); t=moveTable(t,'stand'); expect(t.phase).toBe('resolved'); expect(t.seen).toHaveLength(t.pos); expect(new Set(t.seen.map(c=>c.id)).size).toBe(t.pos); });
+  it('pays natural blackjack 3:2', () => { const t=dealTable(rig(['A','9','K','7']),2); expect(t.phase).toBe('resolved'); expect(t.chips).toBe(253); expect(t.hands[0].result).toContain('3:2'); });
+  it('peeks on ten and prevents surrender against dealer blackjack', () => { const t=dealTable(rig(['9','K','7','A']),2); expect(t.phase).toBe('resolved'); expect(t.chips).toBe(248); expect(legalMoves(t)).toEqual([]); });
+  it('pushes two natural blackjacks', () => { let t=dealTable(rig(['K','A','A','Q']),2); expect(t.phase).toBe('insurance'); t=insureTable(t,false); expect(t.chips).toBe(250); });
+  it('resolves insurance before action and pays 2:1 net', () => { let t=dealTable(rig(['9','A','7','K']),2); expect(t.seen).toHaveLength(3); t=insureTable(t,true); expect(t.chips).toBe(250); expect(t.insurance).toBe(1); expect(t.phase).toBe('resolved'); });
+  it('loses insurance against nonblackjack and allows late surrender', () => { let t=dealTable(rig(['10','A','6','7']),2); t=insureTable(t,true); expect(t.chips).toBe(247); t=moveTable(t,'surrender'); expect(t.chips).toBe(248); });
+  it('bust loses without dealer drawing needlessly', () => { let t=dealTable(rig(['10','6','9','10','K']),2); t=moveTable(t,'hit'); expect(t.chips).toBe(248); expect(t.pos).toBe(5); expect(t.phase).toBe('resolved'); });
+  it('double takes one card and settles double stake', () => { let t=dealTable(rig(['5','10','6','7','K']),2); t=moveTable(t,'double'); expect(t.chips).toBe(254); expect(t.hands[0].bet).toBe(4); expect(t.hands[0].cards).toHaveLength(3); });
+  it('S17 stands while H17 draws on soft 17', () => { let s=moveTable(dealTable(rig(['10','A','8','6','2']),2),'stand'); expect(s.phase).toBe('insurance'); s=moveTable(insureTable(s,false),'stand'); let h=moveTable(insureTable(dealTable(rig(['10','A','8','6','2'],{h17:true}),2),false),'stand'); expect(s.dealer).toHaveLength(2); expect(h.dealer).toHaveLength(3); expect(s.chips).toBe(252); expect(h.chips).toBe(248); });
+  it('splits once, supports DAS, and pays split 21 at 1:1', () => { let t=dealTable(rig(['A','10','A','7','K','Q']),2); t=moveTable(t,'split'); expect(t.hands).toHaveLength(2); expect(t.phase).toBe('resolved'); expect(t.chips).toBe(254); expect(t.hands.every(h=>h.cards.length===2)).toBe(true);
+    let d=moveTable(dealTable(rig(['8','10','8','7','3','2','K','9']),2),'split'); expect(legalMoves(d)).toContain('double'); d=moveTable(d,'double'); expect(d.active).toBe(1); expect(legalMoves(d)).not.toContain('split'); d=moveTable(d,'stand'); expect(d.phase).toBe('resolved');
+  });
+  it('respects DAS off, bankroll and re-split Ace rules', () => { let t=moveTable(dealTable(rig(['8','10','8','7','3','2'],{das:false}),2),'split'); expect(legalMoves(t)).not.toContain('double');
+    t=moveTable(dealTable(rig(['A','10','A','7','A','9','K','8'],{rsa:true}),2),'split'); expect(legalMoves(t)).toEqual(['stand','split']); t=moveTable(t,'split'); expect(t.hands).toHaveLength(3); expect(t.phase).toBe('resolved');
+    const broke={...dealTable(rig(['8','10','8','7']),2),chips:0}; expect(legalMoves(broke)).not.toContain('split'); expect(legalMoves(broke)).not.toContain('double');
+  });
+  it('voids a rare exhausted-shoe round and refunds all stakes without inventing cards', () => { let t=rig(['5','10','6','7']); t.shoe=t.shoe.slice(0,4); t=dealTable(t,2); expect(t.chips).toBe(248); t=moveTable(t,'double'); expect(t.exhausted).toBe(true); expect(t.phase).toBe('resolved'); expect(t.chips).toBe(250); expect(t.pos).toBe(4); expect(t.seen).toHaveLength(4); expect(shoeFinished(t)).toBe(true); });
+  it('rejects invalid/out-of-phase bets and moves', () => { const t=newTable(DEFAULT_RULES,1); expect(dealTable(t,100)).toBe(t); expect(moveTable(t,'hit')).toBe(t); const p=dealTable(rig(['2','6','3','10']),2); expect(dealTable(p,2)).toBe(p); expect(moveTable(p,'split')).toBe(p); });
+  it('preserves count between hands and finishes seeded shoes without negative chips', () => { for(let seed=0;seed<80;seed++) { let t=newTable({...DEFAULT_RULES,decks:seed%9+1,h17:seed%2===0},seed); let loops=0; while(!shoeFinished(t)) { t=dealTable(t,1); if(t.phase==='insurance')t=insureTable(t,false); while(t.phase==='player') { const h=t.hands[t.active]; t=moveTable(t,baseline(h.cards,t.dealer[0],legalMoves(t),t.rules.h17)); if(++loops>2000)throw Error('loop'); } expect(t.seen).toHaveLength(t.pos); expect(t.chips).toBeGreaterThanOrEqual(0); } expect(t.rounds).toBeGreaterThan(0); expect(runningCount(t.seen)).toBe(t.seen.reduce((s,c)=>s+hiLo(c),0)); } });
+});
+describe('Count Lab gate, progression, migration and exam', () => {
+  it('requires PIN and resets unlocked state on load', () => { let s=initialState(); const result={id:'r',kind:'warmup' as const,attempts:10,correct:10}; expect(gameReducer(s,{type:'COUNT_RESULT',result})).toBe(s); s=gameReducer(s,{type:'COUNT_AUTH',digest:'a'.repeat(64),salt:'b'.repeat(32)}); expect(s.countUnlocked).toBe(true); s=gameReducer(s,{type:'COUNT_LOCK'}); s=gameReducer(s,{type:'COUNT_AUTH',digest:'c'.repeat(64)}); expect(s.countUnlocked).toBe(false); s=gameReducer(s,{type:'COUNT_AUTH',digest:'a'.repeat(64)}); expect(s.countUnlocked).toBe(true); const loaded=gameReducer(initialState(),{type:'LOAD',state:s}); expect(loaded.countUnlocked).toBe(false); expect(loaded.countLab.pinHash).toBe(s.countLab.pinHash); });
+  it('old saves retain existing math progress and initialize Count Lab', () => { const old=initialState(); delete (old as Partial<typeof old>).countLab; const next=gameReducer(initialState(),{type:'LOAD',state:old}); expect(next.countLab).toEqual(initialCountRecord()); expect(next.stats.plaza).toEqual(old.stats.plaza); expect(next.mastery).toEqual(old.mastery); });
+  it('cannot skip stages, requires clean rounds, awards badge at 85', () => { let r=initialCountRecord(); r=recordResult(r,{id:'x',kind:'exam',attempts:100,correct:100,examScore:100,day:'day'}); expect(r.stage).toBe(0); expect(r.badge).toBe(false);
+    const run=(kind: Parameters<typeof recordResult>[1]['kind'],n:number,extra={})=>r=recordResult(r,{id:'r',kind,attempts:n,correct:n,...extra});
+    run('warmup',10); expect(r.stage).toBe(1); run('flash',20); expect(r.stage).toBe(2); run('running',15,{length:15,perCard:true}); run('running',15,{length:15,perCard:true}); expect(r.stage).toBe(2); run('running',15,{length:15,perCard:true}); expect(r.stage).toBe(3); run('estimate',5); run('true',9); run('ev',4); expect(r.stage).toBe(6); expect(unlockedDecks(r)).toBe(2); run('open',3); expect(unlockedDecks(r)).toBe(6); run('hidden',3); expect(r.stage).toBe(8); expect(unlockedDecks(r)).toBe(9);
+    run('exam',84,{day:'day',examScore:84}); expect(r.badge).toBe(false); run('exam',85,{day:'day',examScore:85}); expect(r.badge).toBe(true); run('exam',75,{day:'day',examScore:75}); expect(r.dailyBests.day).toBe(85); expect(examScore(1,1,1,.4)).toBe(85);
+  });
+  it('deduplicates report submission and enforces parent deck cap', () => { let s=initialState(); s={...s,countUnlocked:true}; const a={type:'COUNT_RESULT' as const,result:{id:'one',kind:'warmup' as const,correct:10,attempts:10}}; s=gameReducer(s,a); expect(gameReducer(s,a)).toBe(s); s=gameReducer(s,{type:'COUNT_CONTROLS',maxDecks:3,timers:false,coach:true}); expect(unlockedDecks({...s.countLab,stage:8})).toBe(3); });
+});

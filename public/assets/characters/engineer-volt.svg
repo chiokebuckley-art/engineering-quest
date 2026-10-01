@@ -1,0 +1,79 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Engineer Volt, electrical engineering teacher: a dark-skinned engineer with a shaved head, cyan-lit goggles and an insulated jacket bearing a lightning-bolt shoulder badge</title>
+  <defs>
+    <radialGradient id="engineer-volt-bg" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.38"/>
+      <stop offset="0.6" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </radialGradient>
+    <linearGradient id="engineer-volt-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a4a2c"/>
+      <stop offset="1" stop-color="#3a2010"/>
+    </linearGradient>
+    <linearGradient id="engineer-volt-jacket" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4c566a"/>
+      <stop offset="1" stop-color="#232a38"/>
+    </linearGradient>
+    <linearGradient id="engineer-volt-collar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8b422"/>
+      <stop offset="1" stop-color="#8a6d1d"/>
+    </linearGradient>
+    <radialGradient id="engineer-volt-lens" cx="0.4" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#d9fbff"/>
+      <stop offset="0.35" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#0e6f80"/>
+    </radialGradient>
+    <radialGradient id="engineer-volt-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <polygon points="128,18 214.6,68 214.6,168 128,218 41.4,168 41.4,68" fill="url(#engineer-volt-bg)" stroke="#22d3ee" stroke-opacity="0.55" stroke-width="2" stroke-linejoin="round"/>
+  <polygon points="128,28 206,73 206,163 128,208 50,163 50,73" fill="none" stroke="#22d3ee" stroke-opacity="0.18" stroke-linejoin="round"/>
+  <!-- insulated jacket -->
+  <path d="M28 256 L28 236 Q32 202 72 188 L112 174 L144 174 L184 188 Q224 202 228 236 L228 256 Z" fill="url(#engineer-volt-jacket)" stroke="#0b1020" stroke-width="2"/>
+  <path d="M40 232 Q80 214 128 214 Q176 214 216 232 M34 250 Q80 232 128 232 Q176 232 222 250" fill="none" stroke="#0b1020" stroke-opacity="0.45" stroke-width="1.5"/>
+  <path d="M74 190 Q68 220 66 256 M182 190 Q188 220 190 256" fill="none" stroke="#0b1020" stroke-opacity="0.45" stroke-width="1.5"/>
+  <!-- high collar -->
+  <path d="M104 172 L112 164 L144 164 L152 172 L150 196 L128 206 L106 196 Z" fill="#2c3444" stroke="#0b1020" stroke-width="2"/>
+  <path d="M112 176 L128 200 L144 176" fill="none" stroke="#22d3ee" stroke-opacity="0.8" stroke-width="1.5"/>
+  <!-- zip -->
+  <path d="M128 206 L128 256" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  <path d="M128 210 L128 256" fill="none" stroke="#0b1020" stroke-dasharray="2 2" stroke-width="1"/>
+  <!-- lightning-bolt shoulder badge -->
+  <circle cx="66" cy="214" r="17" fill="url(#engineer-volt-glow)"/>
+  <circle cx="66" cy="214" r="12" fill="#1f2633" stroke="url(#engineer-volt-collar)" stroke-width="2"/>
+  <polygon points="68,204 60,216 66,216 63,224 73,211 67,211 70,204" fill="#facc15" stroke="#8a6d1d" stroke-width="0.8"/>
+  <!-- neck -->
+  <path d="M112 146 L112 180 L144 180 L144 146 Z" fill="url(#engineer-volt-skin)" stroke="#1a0d05" stroke-width="1.5"/>
+  <path d="M112 148 Q128 166 144 148 L144 160 Q128 172 112 160 Z" fill="#000" fill-opacity="0.25"/>
+  <!-- head, shaved -->
+  <path d="M90 104 Q92 56 128 54 Q164 56 166 104 Q166 140 148 156 Q138 164 128 164 Q118 164 108 156 Q90 140 90 104 Z" fill="url(#engineer-volt-skin)" stroke="#1a0d05" stroke-width="2"/>
+  <path d="M150 62 Q168 96 164 136 Q156 154 130 164 Q144 150 150 128 Q156 98 150 62 Z" fill="#000" fill-opacity="0.16"/>
+  <path d="M104 66 Q118 56 136 58" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="89" cy="114" rx="6" ry="9" fill="url(#engineer-volt-skin)" stroke="#1a0d05" stroke-width="1.5"/>
+  <ellipse cx="167" cy="114" rx="6" ry="9" fill="#4a2a16" stroke="#1a0d05" stroke-width="1.5"/>
+  <!-- brows -->
+  <path d="M102 98 Q113 94 123 97" fill="none" stroke="#1a0d05" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M135 97 Q145 94 156 98" fill="none" stroke="#1a0d05" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- goggles: strap, frames, lit lenses -->
+  <path d="M92 112 L86 108 M164 112 L170 108" fill="none" stroke="#2c3444" stroke-width="4"/>
+  <path d="M98 104 L128 104 L158 104" fill="none" stroke="#2c3444" stroke-width="3"/>
+  <circle cx="113" cy="112" r="13" fill="url(#engineer-volt-glow)"/>
+  <circle cx="145" cy="112" r="13" fill="url(#engineer-volt-glow)"/>
+  <circle cx="113" cy="112" r="11" fill="#1f2633" stroke="#0b1020" stroke-width="2"/>
+  <circle cx="145" cy="112" r="11" fill="#1f2633" stroke="#0b1020" stroke-width="2"/>
+  <circle cx="113" cy="112" r="8" fill="url(#engineer-volt-lens)" stroke="#e8b422" stroke-width="1.5"/>
+  <circle cx="145" cy="112" r="8" fill="url(#engineer-volt-lens)" stroke="#e8b422" stroke-width="1.5"/>
+  <circle cx="113.5" cy="112.5" r="2.4" fill="#0b1020" fill-opacity="0.7"/>
+  <circle cx="145.5" cy="112.5" r="2.4" fill="#0b1020" fill-opacity="0.7"/>
+  <path d="M108 107 Q111 104.5 115 105" fill="none" stroke="#fff" stroke-opacity="0.8" stroke-width="1.4"/>
+  <path d="M140 107 Q143 104.5 147 105" fill="none" stroke="#fff" stroke-opacity="0.8" stroke-width="1.4"/>
+  <path d="M124 111 L134 111" fill="none" stroke="#6b7280" stroke-width="3"/>
+  <!-- nose and mouth -->
+  <path d="M129 116 Q127 123 125 128 Q129 131 134 128" fill="none" stroke="#1a0d05" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M117 141 Q129 148 141 141" fill="none" stroke="#1a0d05" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M120 144 Q129 147 138 144" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="1.2"/>
+  <path d="M104 150 Q118 160 128 160 Q138 160 152 150" fill="none" stroke="#1a0d05" stroke-opacity="0.4" stroke-width="1.2"/>
+</svg>

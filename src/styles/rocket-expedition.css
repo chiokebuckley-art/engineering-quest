@@ -1,0 +1,113 @@
+/* Rocket-only presentation. Existing 2D craft remains the no-WebGL fallback. */
+.rocket-sky.expedition-menu {
+  background: radial-gradient(ellipse at 80% 5%, #153959 0, transparent 45%), #060e1d;
+  color: #edf5ff;
+}
+.expedition-menu .brass { color: #b7d8ee; }
+.expedition-briefing {
+  display: grid; grid-template-columns: 1.1fr 1fr; min-height: 330px;
+  border: 1px solid #3e5d7880; border-radius: 18px; overflow: hidden;
+  background: linear-gradient(125deg, #0b1c30, #061020 65%); margin: 8px 0 18px;
+}
+.expedition-intro { padding: 28px; z-index: 1; }
+.flight-eyebrow { display: block; font-size: 0.75rem; letter-spacing: 0.11em; color: #9cc5df; font-weight: 600; }
+.expedition-intro h1 { font-size: clamp(1.8rem, 4.2vw, 2.7rem); line-height: 1.2; margin: 14px 0; letter-spacing: 0; }
+.expedition-intro h1 span { color: #f5b860; }
+.expedition-intro p { font-size: 1rem; }
+.expedition-intro .flight-instructions { color: #b6cbdc; margin: 12px 0; line-height: 1.5; }
+.expedition-route { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 22px; padding-top: 12px; border-top: 1px solid #57718a80; color: #bfdff2; font-size: 0.875rem; }
+.expedition-preview { position: relative; min-height: 300px; background: radial-gradient(ellipse at 50% 50%, #183c5640, transparent 65%); }
+.rocket-world { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.rocket-world canvas { display: block; width: 100%; height: 100%; }
+.preview-caption { position: absolute; bottom: 14px; left: 16px; right: 16px; text-align: center; color: #aac7dc; font-size: 0.75rem; letter-spacing: 0.08em; }
+.briefing-rocket { position: absolute; inset: 0; display: grid; place-items: center; }
+.briefing-rocket svg { width: 110px; height: 172px; }
+.mission-list-heading { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.mission-list-heading h2 { font-size: 1rem; }
+.mission-list-heading > span { color: #a7bfd2; font-size: 0.875rem; }
+.expedition-menu .missions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.expedition-menu .mission { padding: 18px 14px; background: linear-gradient(115deg, #11263a, #0a1627); border-color: #405b7280; }
+.expedition-menu .mission.done { border-color: #42cfaf90; }
+.expedition-menu .mission.locked { opacity: 0.65; }
+.expedition-menu .m-num { font-size: 1.35rem; color: #f6bc67; }
+.expedition-menu .m-name { font-size: 0.9rem; line-height: 1.5; }
+.expedition-menu .m-sub { font-size: 1rem; margin: 4px 0; }
+.expedition-menu .m-meta, .expedition-menu .m-stat { font-size: 0.875rem; }
+.expedition-menu .m-meta { color: #adc4d6; }
+.expedition-menu .m-rocket { color: #f6bc67; font-size: 1.5rem; }
+.rocket-scene.expedition-run { background: radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--sky1) 48%, #071525), #040b17 80%); overflow-y: auto; }
+.expedition-run .rocket-top { flex: 0 0 auto; padding: 10px 16px; background: #060f1eed; border-bottom: 1px solid #34516a80; gap: 8px; }
+.expedition-run .rocket-top .chip { border-color: #40566f; background: #102137; font-size: 0.875rem; }
+.expedition-run .rocket-top .btn { min-height: 40px; font-size: 0.875rem; }
+.flight-telemetry { flex: 0 0 auto; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 16px; padding: 8px 16px; background: #0a1626d9; font-size: 0.875rem; color: #d8e6f3; }
+.flight-telemetry > span:first-child { display: flex; align-items: center; gap: 8px; }
+.flight-telemetry > span:nth-child(2) { margin-left: auto; }
+.flight-telemetry .flight-eyebrow { font-size: 0.75rem; }
+.flight-progress { width: 100%; height: 4px; border-radius: 4px; background: #24354b; overflow: hidden; }
+.flight-progress i { display: block; height: 100%; background: linear-gradient(90deg, #30a9c4, #85e7d5); transition: width 0.5s ease; }
+.expedition-run .rocket-q { flex: 0 0 auto; padding: 10px 16px 8px; background: linear-gradient(#061120ee, #06112030); }
+.expedition-run .rq-expr { font-size: clamp(1.6rem, 6.8vw, 3rem); letter-spacing: 0.02em; line-height: 1.3; margin-top: 6px; overflow-wrap: anywhere; text-shadow: 0 2px 4px #0009; }
+.expedition-run .rq-timer { height: 7px; margin-top: 9px; }
+.flight-deck { position: relative; flex: 1 0 300px; min-height: 300px; isolation: isolate; width: min(100%, 900px); margin: 0 auto; }
+.flight-deck > .rocket-world { z-index: 0; }
+.expedition-run .lanes { position: absolute; inset: 5% 0 auto; max-width: none; padding: 0; gap: 0; z-index: 2; }
+.expedition-run .lane { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: calc(100% - 18px); margin: 0 9px; height: clamp(80px, 13vh, 112px); border-radius: 12px; border-color: #7caccb90; background: #071426e8; box-shadow: inset 0 1px 0 #d9efff15, 0 8px 24px #0004; font-size: clamp(1.8rem, 6vw, 2.6rem); }
+.expedition-run .lane-label { font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.1em; color: #bdd5e5; }
+.expedition-run .lane.target { background: #2e2518f2; border-color: #ffd28a; box-shadow: 0 0 0 2px #f3bb5840, 0 0 24px #efa23324; }
+.expedition-run .lane.target .lane-label { color: #ffd28a; }
+.expedition-run .lane.right { border-color: #83f0be; background: #0c352df2; }
+.expedition-run .lane.wrong { border-color: #ffa188; background: #472522f2; }
+.expedition-run .lane:disabled { opacity: 1; cursor: default; }
+.expedition-run .lane .bomb { z-index: 3; }
+.expedition-run .pad { position: absolute; top: 52%; height: 95px; z-index: 1; max-width: none; }
+.flight-deck.world-ready .pad { visibility: hidden; }
+.flight-radio { position: absolute; bottom: 5px; left: 12px; right: 12px; z-index: 3; display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; column-gap: 10px; text-align: center; background: #071425d9; border: 1px solid #36536b70; border-radius: 8px; padding: 7px 10px; font-size: 0.875rem; color: #deedf8; }
+.expedition-run .controls { position: relative; flex: 0 0 auto; z-index: 4; max-width: 760px; padding: 10px 14px calc(12px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, #060e1f 20%); }
+.expedition-run .ctl { min-height: 60px; border-radius: 12px; border-color: #42617e; background: #102438; touch-action: manipulation; }
+.expedition-run .ctl.boost { color: #231b0e; background: linear-gradient(#ffd387, #efab4a); border-color: #ffe1a8; animation: none; font-weight: 700; font-size: clamp(1rem, 4vw, 1.3rem); letter-spacing: 0.05em; }
+.expedition-run .ctl.boost:not(:disabled):hover { background: #ffe0a5; }
+.expedition-run .ctl:disabled { opacity: 0.55; }
+.expedition-run button:focus-visible, .expedition-menu button:focus-visible { outline: 3px solid #83e4ff; outline-offset: 3px; }
+.expedition-finish { position: relative; flex: 1 0 420px; min-height: 420px; }
+.expedition-finish > .rocket-world { z-index: 0; }
+.expedition-finish .scene-body { position: relative; z-index: 1; min-height: 420px; height: 100%; padding: 30px 12px; }
+.expedition-finish .panel { background: #081627e8; border-color: #779ab980; }
+.expedition-finish h1 { font-size: clamp(1.1rem, 4vw, 1.6rem); overflow-wrap: anywhere; }
+.flight-reduced-motion *, .flight-reduced-motion *::before, .flight-reduced-motion *::after { animation: none !important; transition: none !important; }
+@media (max-width: 680px) {
+  .rocket-sky.expedition-menu { padding: 12px; }
+  .expedition-briefing { grid-template-columns: 1fr; }
+  .expedition-intro { padding: 22px 20px 8px; }
+  .expedition-intro h1 br { display: none; }
+  .expedition-intro h1 span::before { content: ' '; }
+  .expedition-preview { min-height: 210px; }
+  .expedition-menu .missions { grid-template-columns: 1fr; }
+  .expedition-run .rocket-top { padding: 6px 10px; gap: 5px; }
+  .expedition-run .rocket-top .spacer { display: none; }
+  .expedition-run .rocket-top .chip:first-child { flex: 1 0 55%; }
+  .expedition-run .rocket-top .view-switch { margin-left: auto; }
+  .flight-telemetry { padding: 6px 10px; gap: 3px 8px; }
+  .flight-telemetry > span:nth-child(2) { margin-left: 0; }
+  .expedition-run .lane { width: calc(100% - 12px); margin: 0 6px; }
+  .flight-radio .flight-eyebrow { display: none; }
+}
+@media (max-height: 650px) {
+  .expedition-run .rocket-q { padding-top: 4px; }
+  .expedition-run .rocket-q > .flight-eyebrow { display: none; }
+  .flight-deck { flex-basis: 250px; min-height: 250px; }
+  .expedition-run .ctl { min-height: 52px; }
+  .expedition-run .controls { padding-top: 6px; padding-bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .expedition-run *, .expedition-menu * { animation: none !important; transition: none !important; }
+}
+
+.expedition-intro .launch-mission { margin-top: 10px; min-height: 48px; font-size: 1rem; color: #231b0e; background: #f5ba62; border-color: #ffdda0; }
+.expedition-finish .finish-viewport { position: relative; height: 270px; }
+.expedition-finish .scene-body { min-height: 0; height: auto; padding-top: 0; }
+@media (max-width: 680px) {
+  .expedition-preview { min-height: 160px; }
+  .expedition-briefing { min-height: 0; }
+  .expedition-intro { padding-bottom: 20px; }
+  .expedition-route { margin-top: 14px; }
+}

@@ -1,0 +1,55 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 384" role="img">
+<title>Multiplication power core: a glowing amber crystal engraved with a subtle cross-shaped facet pattern, clamped in a riveted brass housing</title>
+<defs>
+<radialGradient id="power-core-multiplication-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.7"/><stop offset="0.5" stop-color="#ffb347" stop-opacity="0.2"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<linearGradient id="power-core-multiplication-crys" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c7"/><stop offset="0.35" stop-color="#ffb347"/><stop offset="0.75" stop-color="#e07a1f"/><stop offset="1" stop-color="#9a3d12"/></linearGradient>
+<linearGradient id="power-core-multiplication-facet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c7" stop-opacity="0.7"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></linearGradient>
+<linearGradient id="power-core-multiplication-brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5a4713"/><stop offset="0.3" stop-color="#c9a227"/><stop offset="0.6" stop-color="#8a6d1d"/><stop offset="1" stop-color="#4a3a10"/></linearGradient>
+<linearGradient id="power-core-multiplication-brassV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9a227"/><stop offset="1" stop-color="#5a4713"/></linearGradient>
+<linearGradient id="power-core-multiplication-iron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c566a"/><stop offset="1" stop-color="#232838"/></linearGradient>
+</defs>
+<ellipse cx="256" cy="364" rx="120" ry="12" fill="#05070d" opacity="0.5"/>
+<!-- glow -->
+<ellipse cx="256" cy="180" rx="150" ry="170" fill="url(#power-core-multiplication-glow)"/>
+<!-- base -->
+<g stroke="#2a1f08" stroke-width="2">
+<path d="M170 356 L 190 316 H 322 L 342 356 Z" fill="url(#power-core-multiplication-iron)"/>
+<rect x="186" y="300" width="140" height="20" rx="4" fill="url(#power-core-multiplication-brass)"/>
+<rect x="206" y="284" width="100" height="18" rx="3" fill="#8a6d1d"/>
+</g>
+<g fill="#e0c25a"><circle cx="198" cy="310" r="3"/><circle cx="256" cy="310" r="3"/><circle cx="314" cy="310" r="3"/></g>
+<g fill="#2dd4bf"><circle cx="220" cy="336" r="4"/><circle cx="292" cy="336" r="4"/></g>
+<circle cx="256" cy="336" r="6" fill="#0b1020" stroke="#c9a227" stroke-width="2"/><circle cx="256" cy="336" r="2" fill="#ffb347"/>
+<!-- crystal -->
+<polygon points="256,40 300,96 306,240 256,296 206,240 212,96" fill="url(#power-core-multiplication-crys)" stroke="#9a3d12" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="256,40 300,96 256,110 212,96" fill="#fff1c7" opacity="0.45"/>
+<polygon points="256,110 300,96 306,240 256,250" fill="#e07a1f" opacity="0.35"/>
+<polygon points="256,250 306,240 256,296" fill="#9a3d12" opacity="0.4"/>
+<polygon points="212,96 256,110 256,250 206,240" fill="url(#power-core-multiplication-facet)"/>
+<!-- cross facet pattern -->
+<g fill="none" stroke="#fff1c7" stroke-width="2" stroke-linecap="round" opacity="0.55">
+<path d="M230 150 L 282 210 M282 150 L 230 210"/>
+<path d="M238 110 L 274 140 M274 110 L 238 140" stroke-width="1.5" opacity="0.5"/>
+<path d="M238 220 L 274 252 M274 220 L 238 252" stroke-width="1.5" opacity="0.5"/>
+</g>
+<g fill="none" stroke="#9a3d12" stroke-width="1" opacity="0.5"><path d="M256 40 L 256 110 M256 250 L 256 296 M212 96 L 256 110 L 300 96 M206 240 L 256 250 L 306 240"/></g>
+<circle cx="256" cy="180" r="14" fill="#fff1c7" opacity="0.55"/>
+<circle cx="256" cy="180" r="5" fill="#fff"/>
+<!-- brass clamps -->
+<g stroke="#2a1f08" stroke-width="2">
+<path d="M196 84 Q 170 100 178 130 L 200 128 Q 196 110 214 100 Z" fill="url(#power-core-multiplication-brassV)"/>
+<path d="M316 84 Q 342 100 334 130 L 312 128 Q 316 110 298 100 Z" fill="url(#power-core-multiplication-brassV)"/>
+<path d="M196 262 Q 170 250 178 220 L 200 222 Q 196 240 214 250 Z" fill="url(#power-core-multiplication-brassV)"/>
+<path d="M316 262 Q 342 250 334 220 L 312 222 Q 316 240 298 250 Z" fill="url(#power-core-multiplication-brassV)"/>
+<rect x="236" y="26" width="40" height="22" rx="4" fill="url(#power-core-multiplication-brass)"/>
+<rect x="248" y="12" width="16" height="16" rx="2" fill="#8a6d1d"/>
+<rect x="232" y="286" width="48" height="16" rx="3" fill="url(#power-core-multiplication-brass)"/>
+</g>
+<g fill="#e0c25a"><circle cx="188" cy="116" r="2.5"/><circle cx="324" cy="116" r="2.5"/><circle cx="188" cy="234" r="2.5"/><circle cx="324" cy="234" r="2.5"/><circle cx="244" cy="37" r="2.5"/><circle cx="268" cy="37" r="2.5"/></g>
+<!-- side pipes -->
+<g stroke="#8a6d1d" stroke-width="8" stroke-linecap="round" fill="none"><path d="M178 130 L 164 150 L 164 290 L 190 300"/><path d="M334 130 L 348 150 L 348 290 L 322 300"/></g>
+<g stroke="#e0c25a" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"><path d="M176 132 L 162 150 L 162 290"/><path d="M332 132 L 346 150 L 346 290"/></g>
+<!-- motes -->
+<g fill="#fff1c7" opacity="0.7"><circle cx="150" cy="120" r="1.6"/><circle cx="370" cy="200" r="1.4"/><circle cx="140" cy="220" r="1.2"/><circle cx="360" cy="90" r="1.5"/><circle cx="200" cy="60" r="1"/><circle cx="330" cy="290" r="1"/></g>
+</svg>

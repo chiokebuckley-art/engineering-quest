@@ -1,0 +1,132 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Rust Bat: a mechanical bat with rusted riveted iron wings, glowing amber eyes and a hanging chain</title>
+  <defs>
+    <linearGradient id="rust-bat-wing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8643a"/>
+      <stop offset="0.5" stop-color="#7a3d20"/>
+      <stop offset="1" stop-color="#3f1c0c"/>
+    </linearGradient>
+    <linearGradient id="rust-bat-wing-r" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a0552f"/>
+      <stop offset="0.5" stop-color="#6e351b"/>
+      <stop offset="1" stop-color="#3a190a"/>
+    </linearGradient>
+    <linearGradient id="rust-bat-iron" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9ca3af"/>
+      <stop offset="0.5" stop-color="#6b7280"/>
+      <stop offset="1" stop-color="#2f3540"/>
+    </linearGradient>
+    <linearGradient id="rust-bat-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b8494"/>
+      <stop offset="0.5" stop-color="#4c566a"/>
+      <stop offset="1" stop-color="#20242e"/>
+    </linearGradient>
+    <linearGradient id="rust-bat-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c04a"/>
+      <stop offset="1" stop-color="#8a6d1d"/>
+    </linearGradient>
+    <radialGradient id="rust-bat-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rust-bat-eye" cx="0.4" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#fff7d6"/>
+      <stop offset="0.5" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#b45309"/>
+    </radialGradient>
+  </defs>
+
+  <!-- LEFT WING -->
+  <g>
+    <path d="M110 108 C90 84 60 70 18 70 C30 82 34 96 32 110 C22 120 12 136 10 156 C26 146 40 146 52 152 C46 168 46 184 50 200 C62 182 78 172 96 168 C104 150 108 128 110 108 Z"
+          fill="url(#rust-bat-wing)" stroke="#2a1208" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- plate seams -->
+    <path d="M104 116 C82 100 60 86 30 76 M100 140 C78 128 52 124 20 136 M98 164 C82 160 66 168 54 190" fill="none" stroke="#2a1208" stroke-width="1.5" opacity="0.8"/>
+    <!-- iron rib rods -->
+    <path d="M110 108 C86 88 58 78 24 72" fill="none" stroke="url(#rust-bat-iron)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M108 122 C86 110 58 112 16 150" fill="none" stroke="url(#rust-bat-iron)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M104 150 C90 152 68 164 52 194" fill="none" stroke="url(#rust-bat-iron)" stroke-width="4" stroke-linecap="round"/>
+    <!-- rivets -->
+    <g fill="#c9a227" stroke="#3b2a08" stroke-width="0.8">
+      <circle cx="80" cy="96" r="2.5"/><circle cx="56" cy="82" r="2.5"/><circle cx="40" cy="120" r="2.5"/>
+      <circle cx="62" cy="136" r="2.5"/><circle cx="72" cy="172" r="2.5"/><circle cx="58" cy="182" r="2.5"/>
+      <circle cx="90" cy="130" r="2.5"/><circle cx="92" cy="156" r="2.5"/>
+    </g>
+    <!-- rust patches / corrosion holes -->
+    <path d="M70 110 C78 106 84 114 78 120 C72 122 66 116 70 110 Z" fill="#c9782f" opacity="0.5"/>
+    <path d="M44 100 C50 96 56 102 52 106 C48 110 42 106 44 100 Z" fill="#1a0e06" opacity="0.7"/>
+    <path d="M66 160 C70 156 76 160 74 166 C70 170 62 166 66 160 Z" fill="#1a0e06" opacity="0.7"/>
+  </g>
+
+  <!-- RIGHT WING (mirrored design) -->
+  <g transform="translate(256 0) scale(-1 1)">
+    <path d="M110 108 C90 84 60 70 18 70 C30 82 34 96 32 110 C22 120 12 136 10 156 C26 146 40 146 52 152 C46 168 46 184 50 200 C62 182 78 172 96 168 C104 150 108 128 110 108 Z"
+          fill="url(#rust-bat-wing-r)" stroke="#2a1208" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M104 116 C82 100 60 86 30 76 M100 140 C78 128 52 124 20 136 M98 164 C82 160 66 168 54 190" fill="none" stroke="#2a1208" stroke-width="1.5" opacity="0.8"/>
+    <path d="M110 108 C86 88 58 78 24 72" fill="none" stroke="url(#rust-bat-iron)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M108 122 C86 110 58 112 16 150" fill="none" stroke="url(#rust-bat-iron)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M104 150 C90 152 68 164 52 194" fill="none" stroke="url(#rust-bat-iron)" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#c9a227" stroke="#3b2a08" stroke-width="0.8">
+      <circle cx="80" cy="96" r="2.5"/><circle cx="56" cy="82" r="2.5"/><circle cx="40" cy="120" r="2.5"/>
+      <circle cx="62" cy="136" r="2.5"/><circle cx="72" cy="172" r="2.5"/><circle cx="58" cy="182" r="2.5"/>
+      <circle cx="90" cy="130" r="2.5"/><circle cx="92" cy="156" r="2.5"/>
+    </g>
+    <path d="M44 100 C50 96 56 102 52 106 C48 110 42 106 44 100 Z" fill="#1a0e06" opacity="0.7"/>
+    <path d="M70 148 C76 144 82 150 78 156 C72 158 66 152 70 148 Z" fill="#c9782f" opacity="0.5"/>
+  </g>
+
+  <!-- hanging chain from the feet -->
+  <g fill="none" stroke="#2f3540" stroke-width="3.5" stroke-linecap="round">
+    <ellipse cx="128" cy="184" rx="4" ry="7"/>
+    <ellipse cx="130" cy="197" rx="4" ry="7"/>
+    <ellipse cx="128" cy="210" rx="4" ry="7"/>
+    <ellipse cx="126" cy="223" rx="4" ry="7"/>
+    <ellipse cx="124" cy="236" rx="4" ry="7"/>
+  </g>
+  <g fill="none" stroke="#8b9099" stroke-width="1.5" opacity="0.9">
+    <ellipse cx="128" cy="184" rx="4" ry="7"/>
+    <ellipse cx="130" cy="197" rx="4" ry="7"/>
+    <ellipse cx="128" cy="210" rx="4" ry="7"/>
+    <ellipse cx="126" cy="223" rx="4" ry="7"/>
+    <ellipse cx="124" cy="236" rx="4" ry="7"/>
+  </g>
+  <!-- feet claws -->
+  <path d="M118 170 L112 182 M124 172 L122 184 M132 172 L134 184 M138 170 L144 182" stroke="#2f3540" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- body -->
+  <path d="M104 100 C100 124 104 156 118 176 L138 176 C152 156 156 124 152 100 Z"
+        fill="url(#rust-bat-body)" stroke="#161a22" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- body plates -->
+  <path d="M106 118 L150 118 M108 134 L148 134 M112 150 L144 150" stroke="#161a22" stroke-width="1.5" fill="none"/>
+  <g fill="#c9a227" stroke="#3b2a08" stroke-width="0.8">
+    <circle cx="114" cy="126" r="2"/><circle cx="142" cy="126" r="2"/>
+    <circle cx="116" cy="142" r="2"/><circle cx="140" cy="142" r="2"/>
+  </g>
+  <!-- chest vent glow -->
+  <rect x="120" y="122" width="16" height="10" rx="2" fill="#ffb347" opacity="0.8"/>
+  <path d="M122 124 L134 124 M122 127 L134 127 M122 130 L134 130" stroke="#3a190a" stroke-width="1.2"/>
+
+  <!-- head -->
+  <path d="M100 100 C96 80 106 64 128 64 C150 64 160 80 156 100 C150 108 138 112 128 112 C118 112 106 108 100 100 Z"
+        fill="url(#rust-bat-body)" stroke="#161a22" stroke-width="2.5"/>
+  <!-- ears -->
+  <path d="M104 78 L92 40 L118 66 Z" fill="url(#rust-bat-body)" stroke="#161a22" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M152 78 L164 40 L138 66 Z" fill="url(#rust-bat-body)" stroke="#161a22" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M106 74 L98 50 L114 68 Z" fill="#7a3d20" opacity="0.8"/>
+  <path d="M150 74 L158 50 L142 68 Z" fill="#7a3d20" opacity="0.8"/>
+  <!-- brow plate -->
+  <path d="M102 84 L154 84 L150 94 L106 94 Z" fill="url(#rust-bat-iron)" stroke="#161a22" stroke-width="1.5"/>
+  <!-- eyes -->
+  <circle cx="116" cy="90" r="14" fill="url(#rust-bat-glow)"/>
+  <circle cx="140" cy="90" r="14" fill="url(#rust-bat-glow)"/>
+  <circle cx="116" cy="90" r="6" fill="url(#rust-bat-eye)" stroke="#161a22" stroke-width="1.2"/>
+  <circle cx="140" cy="90" r="6" fill="url(#rust-bat-eye)" stroke="#161a22" stroke-width="1.2"/>
+  <circle cx="116" cy="90" r="2" fill="#3b1a05"/>
+  <circle cx="140" cy="90" r="2" fill="#3b1a05"/>
+  <!-- nose / jaw -->
+  <path d="M118 100 L138 100 L134 108 L122 108 Z" fill="#20242e" stroke="#161a22" stroke-width="1.2"/>
+  <path d="M120 102 L123 110 L126 102 Z M136 102 L133 110 L130 102 Z" fill="#e5e7eb"/>
+  <!-- brass bolt on head -->
+  <circle cx="128" cy="74" r="4" fill="url(#rust-bat-brass)" stroke="#3b2a08" stroke-width="1"/>
+</svg>

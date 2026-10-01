@@ -1,0 +1,148 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Gear Sentinel: an ancient automaton guardian with large brass gear shoulders, a single cyan eye lens and plated arms</title>
+  <defs>
+    <linearGradient id="gear-sentinel-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d060"/>
+      <stop offset="0.5" stop-color="#c9a227"/>
+      <stop offset="1" stop-color="#6e5514"/>
+    </linearGradient>
+    <linearGradient id="gear-sentinel-iron" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b93a3"/>
+      <stop offset="0.5" stop-color="#4b5261"/>
+      <stop offset="1" stop-color="#1f2430"/>
+    </linearGradient>
+    <linearGradient id="gear-sentinel-iron2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b7280"/>
+      <stop offset="1" stop-color="#171b24"/>
+    </linearGradient>
+    <linearGradient id="gear-sentinel-copper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d98c4a"/>
+      <stop offset="1" stop-color="#6e3f1a"/>
+    </linearGradient>
+    <radialGradient id="gear-sentinel-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gear-sentinel-lens" cx="0.4" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#e0fcff"/>
+      <stop offset="0.4" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#0e4a5e"/>
+    </radialGradient>
+    <radialGradient id="gear-sentinel-shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b1020" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="128" cy="236" rx="100" ry="12" fill="url(#gear-sentinel-shadow)"/>
+
+  <!-- legs -->
+  <path d="M84 170 L118 170 L116 220 L84 222 Z" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M138 170 L172 170 L172 222 L140 220 Z" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- knee brass -->
+  <rect x="88" y="186" width="26" height="10" rx="2" fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="1.5"/>
+  <rect x="142" y="186" width="26" height="10" rx="2" fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="1.5"/>
+  <!-- feet -->
+  <path d="M70 218 L120 216 L124 238 L66 240 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M136 216 L186 218 L190 240 L132 238 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M82 218 L80 238 M98 217 L98 238 M158 217 L158 238 M174 218 L176 238" stroke="#0f1218" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- arms (behind torso) -->
+  <g>
+    <!-- left arm -->
+    <path d="M56 112 L36 118 L30 172 L54 176 L62 124 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M30 172 L54 176 L52 204 L26 200 Z" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M32 182 L52 185 M31 192 L51 195" stroke="#0f1218" stroke-width="1.5"/>
+    <!-- fist -->
+    <path d="M18 200 L56 202 C62 210 62 224 54 232 L20 230 C12 222 12 208 18 200 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M30 202 L30 230 M42 202 L42 230" stroke="#0f1218" stroke-width="1.5" opacity="0.8"/>
+    <!-- right arm -->
+    <path d="M200 112 L220 118 L226 172 L202 176 L194 124 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M226 172 L202 176 L204 204 L230 200 Z" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M224 182 L204 185 M225 192 L205 195" stroke="#0f1218" stroke-width="1.5"/>
+    <path d="M238 200 L200 202 C194 210 194 224 202 232 L236 230 C244 222 244 208 238 200 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M226 202 L226 230 M214 202 L214 230" stroke="#0f1218" stroke-width="1.5" opacity="0.8"/>
+    <!-- elbow copper rings -->
+    <circle cx="42" cy="174" r="8" fill="url(#gear-sentinel-copper)" stroke="#3b1f0a" stroke-width="1.5"/>
+    <circle cx="214" cy="174" r="8" fill="url(#gear-sentinel-copper)" stroke="#3b1f0a" stroke-width="1.5"/>
+  </g>
+
+  <!-- torso -->
+  <path d="M80 92 L176 92 L184 110 L178 168 L78 168 L72 110 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="3" stroke-linejoin="round"/>
+  <!-- chest plate -->
+  <path d="M92 104 L164 104 L160 146 L96 146 Z" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2"/>
+  <!-- cyan energy channels -->
+  <path d="M100 110 L100 140 L156 140 L156 110 M128 106 L128 146" fill="none" stroke="#22d3ee" stroke-width="5" opacity="0.25"/>
+  <path d="M100 110 L100 140 L156 140 L156 110 M128 106 L128 146" fill="none" stroke="#7ee8f6" stroke-width="1.6"/>
+  <!-- chest brass emblem -->
+  <circle cx="128" cy="126" r="14" fill="url(#gear-sentinel-glow)"/>
+  <g transform="translate(128 126)">
+    <g fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="1.2">
+      <rect x="-2.5" y="-13" width="5" height="26" rx="1"/>
+      <rect x="-2.5" y="-13" width="5" height="26" rx="1" transform="rotate(45)"/>
+      <rect x="-2.5" y="-13" width="5" height="26" rx="1" transform="rotate(90)"/>
+      <rect x="-2.5" y="-13" width="5" height="26" rx="1" transform="rotate(135)"/>
+      <circle r="9"/>
+    </g>
+    <circle r="4" fill="#22d3ee"/>
+  </g>
+  <!-- waist -->
+  <rect x="86" y="150" width="84" height="12" fill="url(#gear-sentinel-copper)" stroke="#3b1f0a" stroke-width="1.8"/>
+  <g fill="#c9a227" stroke="#3b2a08" stroke-width="0.8">
+    <circle cx="84" cy="100" r="2.5"/><circle cx="172" cy="100" r="2.5"/><circle cx="84" cy="160" r="2.5"/><circle cx="172" cy="160" r="2.5"/>
+    <circle cx="96" cy="156" r="2"/><circle cx="160" cy="156" r="2"/>
+  </g>
+
+  <!-- shoulder gears -->
+  <g transform="translate(62 92)">
+    <g fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="2">
+      <rect x="-6" y="-38" width="12" height="76" rx="2"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(30)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(60)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(90)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(120)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(150)"/>
+      <circle r="30"/>
+    </g>
+    <circle r="20" fill="none" stroke="#6e5514" stroke-width="2"/>
+    <circle r="8" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2"/>
+    <circle cx="-11" cy="-11" r="6" fill="#fff6c8" opacity="0.35"/>
+  </g>
+  <g transform="translate(194 92) rotate(15)">
+    <g fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="2">
+      <rect x="-6" y="-38" width="12" height="76" rx="2"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(30)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(60)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(90)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(120)"/>
+      <rect x="-6" y="-38" width="12" height="76" rx="2" transform="rotate(150)"/>
+      <circle r="30"/>
+    </g>
+    <circle r="20" fill="none" stroke="#6e5514" stroke-width="2"/>
+    <circle r="8" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2"/>
+    <circle cx="-11" cy="-11" r="6" fill="#fff6c8" opacity="0.3"/>
+  </g>
+
+  <!-- neck -->
+  <rect x="116" y="76" width="24" height="18" fill="url(#gear-sentinel-iron2)" stroke="#0f1218" stroke-width="2"/>
+  <path d="M118 82 L138 82 M118 88 L138 88" stroke="#0f1218" stroke-width="1.5"/>
+
+  <!-- head -->
+  <path d="M96 78 C96 46 112 32 128 32 C144 32 160 46 160 78 L156 84 L100 84 Z" fill="url(#gear-sentinel-iron)" stroke="#0f1218" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M100 66 L156 66" stroke="#0f1218" stroke-width="1.6" opacity="0.8"/>
+  <!-- brass brow band -->
+  <path d="M98 48 C108 40 148 40 158 48 L158 56 C148 50 108 50 98 56 Z" fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="1.5"/>
+  <!-- single lens -->
+  <circle cx="128" cy="66" r="24" fill="url(#gear-sentinel-glow)"/>
+  <circle cx="128" cy="66" r="14" fill="#0b1020" stroke="#c9a227" stroke-width="3"/>
+  <circle cx="128" cy="66" r="10" fill="url(#gear-sentinel-lens)"/>
+  <circle cx="128" cy="66" r="3.5" fill="#0b1020"/>
+  <circle cx="124" cy="62" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <!-- head side bolts -->
+  <circle cx="100" cy="72" r="3" fill="url(#gear-sentinel-copper)" stroke="#3b1f0a" stroke-width="1"/>
+  <circle cx="156" cy="72" r="3" fill="url(#gear-sentinel-copper)" stroke="#3b1f0a" stroke-width="1"/>
+  <!-- top antenna pin -->
+  <rect x="125" y="22" width="6" height="12" rx="1" fill="url(#gear-sentinel-brass)" stroke="#5c4a12" stroke-width="1.2"/>
+  <circle cx="128" cy="21" r="3" fill="#22d3ee"/>
+</svg>

@@ -1,0 +1,32 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>Fraction Forest: a moonlit forest where every tree trunk is banded into equal parts, mushrooms glow in rings and mist hangs over a path</title>
+<defs>
+<linearGradient id="ff-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1a12"/><stop offset="0.6" stop-color="#12301f"/><stop offset="1" stop-color="#0a1a10"/></linearGradient>
+<radialGradient id="ff-moon" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fef9c3"/><stop offset="0.6" stop-color="#fde68a" stop-opacity="0.6"/><stop offset="1" stop-color="#fde68a" stop-opacity="0"/></radialGradient>
+<linearGradient id="ff-trunk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a1a0e"/><stop offset="0.5" stop-color="#4a3018"/><stop offset="1" stop-color="#2a1a0e"/></linearGradient>
+<linearGradient id="ff-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14361f"/><stop offset="1" stop-color="#07140c"/></linearGradient>
+<radialGradient id="ff-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#bef264" stop-opacity="0.8"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></radialGradient>
+<linearGradient id="ff-mist" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d1fae5" stop-opacity="0"/><stop offset="0.5" stop-color="#d1fae5" stop-opacity="0.12"/><stop offset="1" stop-color="#d1fae5" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#ff-sky)"/>
+<circle cx="1010" cy="130" r="160" fill="url(#ff-moon)"/>
+<circle cx="1010" cy="130" r="54" fill="#fef9c3" opacity="0.9"/>
+<g fill="#0d2416" opacity="0.9">
+<path d="M0 420 C 120 330 220 360 320 300 C 420 250 520 330 640 280 C 760 230 880 320 1000 270 C 1120 230 1200 300 1280 280 L 1280 720 L 0 720 Z"/>
+</g>
+<rect y="520" width="1280" height="200" fill="url(#ff-ground)"/>
+<path d="M560 720 C 600 620 640 580 700 540 C 720 560 700 640 760 720 Z" fill="#1f4a2c" opacity="0.7"/>
+<g stroke="#0f172a" stroke-width="4">
+<g><rect x="110" y="140" width="70" height="420" fill="url(#ff-trunk)"/><path d="M110 245 H180 M110 350 H180 M110 455 H180" stroke="#fde68a" stroke-opacity="0.45" stroke-width="3"/><ellipse cx="145" cy="130" rx="130" ry="90" fill="#14532d"/><ellipse cx="100" cy="150" rx="70" ry="50" fill="#166534"/></g>
+<g><rect x="330" y="220" width="54" height="330" fill="url(#ff-trunk)"/><path d="M330 330 H384 M330 440 H384" stroke="#fde68a" stroke-opacity="0.45" stroke-width="3"/><ellipse cx="357" cy="210" rx="100" ry="72" fill="#166534"/></g>
+<g><rect x="900" y="200" width="62" height="360" fill="url(#ff-trunk)"/><path d="M900 290 H962 M900 380 H962 M900 470 H962" stroke="#fde68a" stroke-opacity="0.45" stroke-width="3"/><ellipse cx="931" cy="190" rx="115" ry="80" fill="#14532d"/></g>
+<g><rect x="1120" y="160" width="76" height="400" fill="url(#ff-trunk)"/><path d="M1120 293 H1196 M1120 426 H1196" stroke="#fde68a" stroke-opacity="0.45" stroke-width="3"/><ellipse cx="1158" cy="150" rx="140" ry="92" fill="#166534"/></g>
+</g>
+<g>
+<circle cx="250" cy="560" r="60" fill="url(#ff-glow)"/><circle cx="1040" cy="580" r="70" fill="url(#ff-glow)"/><circle cx="470" cy="600" r="46" fill="url(#ff-glow)"/>
+<g fill="#d9f99d" stroke="#14532d" stroke-width="2"><path d="M232 566 a18 12 0 0 1 36 0 z"/><rect x="246" y="566" width="8" height="14"/><path d="M1020 584 a22 14 0 0 1 44 0 z"/><rect x="1037" y="584" width="10" height="16"/><path d="M458 606 a14 9 0 0 1 28 0 z"/><rect x="468" y="606" width="7" height="10"/></g>
+</g>
+<rect y="440" width="1280" height="160" fill="url(#ff-mist)"/>
+<g fill="#fef08a"><circle cx="420" cy="360" r="3"/><circle cx="760" cy="300" r="2.5"/><circle cx="820" cy="420" r="3"/><circle cx="560" cy="250" r="2"/><circle cx="240" cy="330" r="2.5"/><circle cx="1060" cy="380" r="3"/></g>
+</svg>

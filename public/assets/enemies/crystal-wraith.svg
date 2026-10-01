@@ -1,0 +1,113 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Crystal Wraith: a floating spectral figure made of cyan and violet crystals in a tattered robe, with a hovering ring of crystal shards</title>
+  <defs>
+    <linearGradient id="crystal-wraith-robe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4c3d80" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#2e1065" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#1e1440" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="crystal-wraith-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9fbff"/>
+      <stop offset="0.4" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#0e5b6e"/>
+    </linearGradient>
+    <linearGradient id="crystal-wraith-violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ede9fe"/>
+      <stop offset="0.4" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+    <radialGradient id="crystal-wraith-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="crystal-wraith-vglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="crystal-wraith-ring" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- floor glow -->
+  <ellipse cx="128" cy="226" rx="70" ry="12" fill="url(#crystal-wraith-glow)" opacity="0.6"/>
+  <ellipse cx="128" cy="130" rx="90" ry="90" fill="url(#crystal-wraith-vglow)" opacity="0.5"/>
+
+  <!-- hovering ring: back half -->
+  <path d="M40 150 C40 134 80 126 128 126 C176 126 216 134 216 150" fill="none" stroke="url(#crystal-wraith-ring)" stroke-width="4" opacity="0.7"/>
+  <g stroke="#0e5b6e" stroke-width="1.2" stroke-linejoin="round">
+    <polygon points="72,128 78,116 84,130" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="126,124 128,110 134,126" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="176,128 184,118 186,132" fill="url(#crystal-wraith-cyan)"/>
+  </g>
+
+  <!-- robe body -->
+  <path d="M88 96 C76 120 72 150 70 180 C74 172 80 184 84 196 C88 180 94 190 96 206 C100 190 106 196 110 214 C114 198 120 202 124 220 C130 200 136 208 140 222 C144 202 150 206 156 218 C158 198 164 192 170 200 C172 182 178 176 184 190 C186 154 178 120 168 96 Z"
+        fill="url(#crystal-wraith-robe)" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.5" stroke-linejoin="round"/>
+  <!-- robe folds -->
+  <path d="M104 110 C100 140 100 170 104 196 M128 106 C126 140 126 176 128 212 M152 110 C156 140 156 170 152 196" fill="none" stroke="#1e1440" stroke-width="2" opacity="0.6"/>
+  <!-- embedded crystals in robe -->
+  <g stroke="#1e1440" stroke-width="1.2" stroke-linejoin="round">
+    <polygon points="106,132 114,120 122,134 114,146" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="138,140 146,126 154,142 146,156" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="118,166 128,154 138,168 128,182" fill="url(#crystal-wraith-cyan)"/>
+  </g>
+
+  <!-- arms: crystal claws -->
+  <g stroke="#0e5b6e" stroke-width="1.5" stroke-linejoin="round">
+    <polygon points="90,106 48,128 30,166 44,160 58,136" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="44,160 22,178 34,178 40,168" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="44,160 30,184 42,180" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="46,158 44,186 52,176" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="166,106 208,124 228,160 214,156 200,132" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="214,156 236,172 226,174 218,164" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="214,156 230,180 218,176" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="212,154 214,182 206,172" fill="url(#crystal-wraith-cyan)"/>
+  </g>
+
+  <!-- shoulders / hood crystals -->
+  <g stroke="#1e1440" stroke-width="1.5" stroke-linejoin="round">
+    <polygon points="84,98 96,80 108,96 104,112 90,112" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="172,98 160,80 148,96 152,112 166,112" fill="url(#crystal-wraith-violet)"/>
+  </g>
+
+  <!-- head: crystalline hooded skull -->
+  <circle cx="128" cy="74" r="40" fill="url(#crystal-wraith-glow)"/>
+  <path d="M100 96 L96 60 L112 36 L128 30 L144 36 L160 60 L156 96 L144 104 L112 104 Z"
+        fill="url(#crystal-wraith-cyan)" stroke="#0e5b6e" stroke-width="2" stroke-linejoin="round"/>
+  <!-- facets -->
+  <path d="M96 60 L128 68 L160 60 M112 36 L128 68 L144 36 M100 96 L128 68 L156 96 M128 68 L128 104" fill="none" stroke="#0e5b6e" stroke-width="1.2" opacity="0.7"/>
+  <polygon points="112,36 128,30 128,68" fill="#ffffff" opacity="0.35"/>
+  <polygon points="96,60 112,36 128,68" fill="#ffffff" opacity="0.15"/>
+  <!-- face cavity -->
+  <path d="M108 66 L148 66 L146 98 L128 104 L110 98 Z" fill="#0b1020" opacity="0.9"/>
+  <!-- eyes -->
+  <ellipse cx="119" cy="78" rx="12" ry="9" fill="url(#crystal-wraith-vglow)"/>
+  <ellipse cx="137" cy="78" rx="12" ry="9" fill="url(#crystal-wraith-vglow)"/>
+  <path d="M112 76 L124 74 L124 82 L114 82 Z" fill="#c4b5fd"/>
+  <path d="M144 76 L132 74 L132 82 L142 82 Z" fill="#c4b5fd"/>
+  <path d="M118 78 L120 79 M136 78 L134 79" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <!-- jaw shards -->
+  <g fill="#22d3ee" opacity="0.8">
+    <polygon points="116,92 120,98 122,90"/><polygon points="126,94 128,102 132,94"/><polygon points="136,92 138,98 140,90"/>
+  </g>
+
+  <!-- hovering ring: front half -->
+  <path d="M40 150 C40 166 80 174 128 174 C176 174 216 166 216 150" fill="none" stroke="url(#crystal-wraith-ring)" stroke-width="4"/>
+  <path d="M40 150 C40 166 80 174 128 174 C176 174 216 166 216 150" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  <g stroke="#0e5b6e" stroke-width="1.2" stroke-linejoin="round">
+    <polygon points="44,152 34,148 42,164" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="86,170 92,186 98,170" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="122,174 128,190 134,174" fill="url(#crystal-wraith-cyan)"/>
+    <polygon points="158,170 166,184 170,168" fill="url(#crystal-wraith-violet)"/>
+    <polygon points="212,152 222,148 214,164" fill="url(#crystal-wraith-cyan)"/>
+  </g>
+
+  <!-- floating motes -->
+  <g fill="#22d3ee" opacity="0.7">
+    <circle cx="60" cy="90" r="2"/><circle cx="200" cy="80" r="1.6"/><circle cx="76" cy="210" r="1.8"/><circle cx="190" cy="214" r="2"/><circle cx="30" cy="130" r="1.4"/>
+  </g>
+</svg>

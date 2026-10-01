@@ -1,0 +1,95 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Apprentice engineer avatar: an older East Asian man with grey-streaked swept-back hair and a brass monocle, wearing a leather-and-brass apprentice jerkin with glowing dividers on the shoulder</title>
+  <defs>
+    <radialGradient id="avatar-04-bg" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#b87333" stop-opacity="0.36"/>
+      <stop offset="0.6" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </radialGradient>
+    <linearGradient id="avatar-04-skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2d6ae"/>
+      <stop offset="1" stop-color="#c49c6e"/>
+    </linearGradient>
+    <linearGradient id="avatar-04-leather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a5636"/>
+      <stop offset="1" stop-color="#3a2614"/>
+    </linearGradient>
+    <linearGradient id="avatar-04-shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8dcc4"/>
+      <stop offset="1" stop-color="#b8a888"/>
+    </linearGradient>
+    <linearGradient id="avatar-04-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6c552"/>
+      <stop offset="1" stop-color="#8a6d1d"/>
+    </linearGradient>
+    <radialGradient id="avatar-04-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#b87333" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#b87333" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="avatar-04-hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a3a44"/>
+      <stop offset="1" stop-color="#0d0d12"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="118" r="100" fill="url(#avatar-04-bg)" stroke="#b87333" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="128" cy="118" r="92" fill="none" stroke="#b87333" stroke-opacity="0.18"/>
+  <!-- apprentice leather jerkin with cross strap and brass fittings -->
+  <path d="M28 256 L28 236 Q32 202 72 188 L112 174 L144 174 L184 188 Q224 202 228 236 L228 256 Z" fill="url(#avatar-04-leather)" stroke="#0b1020" stroke-width="2"/>
+  <path d="M112 174 L144 174 L128 214 Z" fill="url(#avatar-04-shirt)" stroke="#5a4a36" stroke-width="1.5"/>
+  <path d="M112 174 L100 196 L118 236 L128 214 Z" fill="#4a331e" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M144 174 L156 196 L138 236 L128 214 Z" fill="#5a3f26" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M128 214 L128 256" fill="none" stroke="#0b1020" stroke-width="1.5"/>
+  <path d="M66 194 L150 256" fill="none" stroke="#2a1a0e" stroke-width="10" stroke-linecap="round"/>
+  <path d="M66 194 L150 256" fill="none" stroke="#6b4a2e" stroke-width="6"/>
+  <path d="M68 194 L148 254" fill="none" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5"/>
+  <rect x="98" y="215" width="14" height="10" rx="1.5" fill="#c9a227" stroke="#5a4310" stroke-width="1.2" transform="rotate(37 105 220)"/>
+  <circle cx="48" cy="232" r="2" fill="#c9a227"/><circle cx="58" cy="216" r="2" fill="#c9a227"/><circle cx="72" cy="204" r="2" fill="#c9a227"/>
+  <path d="M164 192 Q190 178 216 200 L220 216 Q196 206 168 214 Z" fill="url(#avatar-04-brass)" stroke="#5a4310" stroke-width="1.8"/>
+  <path d="M172 198 Q190 190 208 202" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1.5"/>
+  <circle cx="176" cy="206" r="1.8" fill="#5a4310"/><circle cx="212" cy="210" r="1.8" fill="#5a4310"/>
+  <!-- glowing dividers on the pauldron -->
+  <circle cx="194" cy="200" r="16" fill="url(#avatar-04-glow)"/>
+  <path d="M194 186 L186 212 M194 186 L204 212" fill="none" stroke="#5a4310" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M194 186 L186 212 M194 186 L204 212" fill="none" stroke="#f3b27a" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="194" cy="187" r="3.4" fill="#e6c552" stroke="#5a4310" stroke-width="1.2"/>
+  <path d="M188 200 Q194 197 200 200" fill="none" stroke="#f3b27a" stroke-width="1.4"/>
+  <path d="M114 146 L114 180 L142 180 L142 146 Z" fill="url(#avatar-04-skin)" stroke="#7a5a3a" stroke-width="1.5"/>
+  <path d="M114 148 Q128 166 142 148 L142 160 Q128 172 114 160 Z" fill="#000" fill-opacity="0.22"/>
+  <path d="M92 104 Q94 60 128 58 Q162 60 164 104 Q164 140 146 156 Q136 164 128 164 Q120 164 110 156 Q92 140 92 104 Z" fill="url(#avatar-04-skin)" stroke="#7a5a3a" stroke-width="2"/>
+  <path d="M148 66 Q166 96 162 136 Q154 154 130 164 Q142 150 148 128 Q154 98 148 66 Z" fill="#000" fill-opacity="0.13"/>
+  <ellipse cx="91" cy="114" rx="6" ry="9" fill="url(#avatar-04-skin)" stroke="#7a5a3a" stroke-width="1.5"/>
+  <ellipse cx="165" cy="114" rx="6" ry="9" fill="#d9b58a" stroke="#7a5a3a" stroke-width="1.5"/>
+  <!-- swept-back hair with grey streaks -->
+  <path d="M90 104 Q86 54 128 50 Q170 54 166 104 Q164 80 150 70 Q128 62 106 70 Q92 80 90 104 Z" fill="url(#avatar-04-hair)" stroke="#0b0b12" stroke-width="2"/>
+  <path d="M90 104 Q86 120 92 130 L98 122 Q94 112 92 104 Z M166 104 Q170 120 164 130 L158 122 Q162 112 164 104 Z" fill="url(#avatar-04-hair)" stroke="#0b0b12" stroke-width="1.2"/>
+  <path d="M118 70 Q112 60 96 66 Q100 78 92 100" fill="none" stroke="#0b0b12" stroke-opacity="0.6" stroke-width="1.5"/>
+  <path d="M120 70 Q128 58 146 56 M124 74 Q136 62 156 66 M120 70 Q104 66 96 78 M118 74 Q106 74 98 90" fill="none" stroke="#0b0b12" stroke-opacity="0.5" stroke-width="1.2"/>
+  <path d="M126 68 Q136 58 150 58 M128 72 Q142 64 158 70" fill="none" stroke="#d1d5db" stroke-opacity="0.8" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M116 72 Q106 66 98 76 M114 76 Q104 76 96 86" fill="none" stroke="#d1d5db" stroke-opacity="0.75" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M94 114 L98 126 M162 114 L158 126" fill="none" stroke="#d1d5db" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- brows -->
+  <path d="M103 100 Q113 97 123 99" fill="none" stroke="#2a2a30" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M135 99 Q145 97 155 100" fill="none" stroke="#2a2a30" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- eyes with smooth lids -->
+  <path d="M105 112 Q113 106 121 112 Q113 116 105 112 Z" fill="#f3f4f6"/>
+  <circle cx="114" cy="111.5" r="3.4" fill="#3a2416"/>
+  <circle cx="114" cy="111.5" r="1.7" fill="#0b1020"/>
+  <circle cx="112.6" cy="110.2" r="1" fill="#fff"/>
+  <path d="M104 112 Q113 105 122 111" fill="none" stroke="#3a2412" stroke-width="2"/>
+  <path d="M137 112 Q145 106 153 112 Q145 116 137 112 Z" fill="#f3f4f6"/>
+  <circle cx="146" cy="111.5" r="3.4" fill="#3a2416"/>
+  <circle cx="146" cy="111.5" r="1.7" fill="#0b1020"/>
+  <circle cx="144.6" cy="110.2" r="1" fill="#fff"/>
+  <path d="M136 111 Q145 105 154 112" fill="none" stroke="#3a2412" stroke-width="2"/>
+  <path d="M104 119 Q113 122 121 119 M138 119 Q146 122 154 119" fill="none" stroke="#7a5a3a" stroke-opacity="0.45" stroke-width="1.2"/>
+  <!-- brass monocle with chain -->
+  <circle cx="145" cy="112" r="11.5" fill="#ffb347" fill-opacity="0.1" stroke="url(#avatar-04-brass)" stroke-width="2.4"/>
+  <circle cx="145" cy="112" r="8.5" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="1"/>
+  <path d="M154 119 Q166 150 156 178" fill="none" stroke="#c9a227" stroke-width="1.3" stroke-dasharray="2 1.5"/>
+  <!-- nose and mouth -->
+  <path d="M129 112 Q127 121 125 127 Q129 130 133 127" fill="none" stroke="#8a6a4a" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M100 128 Q104 136 111 141 M158 128 Q154 136 147 141" fill="none" stroke="#8a6a4a" stroke-opacity="0.35" stroke-width="1.3"/>
+  <path d="M119 141 Q129 146 139 140" fill="none" stroke="#7a4a3a" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M112 156 Q128 160 144 156" fill="none" stroke="#7a5a3a" stroke-opacity="0.35" stroke-width="1.2"/>
+</svg>

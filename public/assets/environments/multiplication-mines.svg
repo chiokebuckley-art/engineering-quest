@@ -1,0 +1,106 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" role="img">
+<title>Multiplication Mines: a timber-braced mine tunnel with rail track running into darkness, glowing amber ore veins, teal crystals, hanging lanterns and a minecart</title>
+<defs>
+<linearGradient id="multiplication-mines-rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2f3f"/><stop offset="1" stop-color="#171a26"/></linearGradient>
+<linearGradient id="multiplication-mines-rockL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b4252"/><stop offset="1" stop-color="#1c202c"/></linearGradient>
+<linearGradient id="multiplication-mines-rockR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#3b4252"/><stop offset="1" stop-color="#1c202c"/></linearGradient>
+<radialGradient id="multiplication-mines-tunnel" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#05070d"/><stop offset="0.55" stop-color="#0b0e18"/><stop offset="1" stop-color="#1c202c"/></radialGradient>
+<linearGradient id="multiplication-mines-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#20242f"/><stop offset="1" stop-color="#3a3428"/></linearGradient>
+<radialGradient id="multiplication-mines-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.7"/><stop offset="0.4" stop-color="#ffb347" stop-opacity="0.22"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<radialGradient id="multiplication-mines-tglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.5"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+<linearGradient id="multiplication-mines-wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4a3421"/><stop offset="0.5" stop-color="#6b4a2e"/><stop offset="1" stop-color="#3a2818"/></linearGradient>
+<linearGradient id="multiplication-mines-crys" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8f5ea"/><stop offset="0.5" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0f766e"/></linearGradient>
+<linearGradient id="multiplication-mines-cart" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b7280"/><stop offset="1" stop-color="#3b4252"/></linearGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#multiplication-mines-rock)"/>
+<!-- far tunnel -->
+<ellipse cx="640" cy="400" rx="240" ry="230" fill="url(#multiplication-mines-tunnel)"/>
+<!-- ceiling rock -->
+<path d="M0 0 H1280 V150 C 1180 120 1100 200 1000 170 C 900 140 860 230 760 200 C 700 180 660 240 640 250 C 600 220 560 200 500 210 C 420 225 380 160 300 180 C 200 205 120 130 0 170 Z" fill="#1a1e2a"/>
+<path d="M0 0 H1280 V90 C 1150 60 1080 130 960 110 C 860 95 780 140 700 150 C 620 160 560 120 480 130 C 400 140 320 100 220 110 C 130 120 60 80 0 100 Z" fill="#141722"/>
+<!-- side walls -->
+<path d="M0 140 C 120 160 180 250 200 330 C 220 400 240 440 260 470 L 0 470 Z" fill="url(#multiplication-mines-rockL)"/>
+<path d="M0 100 C 60 130 110 200 130 280 C 150 360 170 420 190 470 L 0 470 Z" fill="#3b4252"/>
+<path d="M1280 140 C 1160 160 1100 250 1080 330 C 1060 400 1040 440 1020 470 L 1280 470 Z" fill="url(#multiplication-mines-rockR)"/>
+<path d="M1280 100 C 1220 130 1170 200 1150 280 C 1130 360 1110 420 1090 470 L 1280 470 Z" fill="#3b4252"/>
+<g fill="none" stroke="#151827" stroke-width="2" opacity="0.7"><path d="M40 180 L90 260 L70 330 L120 400"/><path d="M1240 190 L1190 270 L1210 330 L1160 410"/><path d="M20 300 L60 330 L50 420"/><path d="M1260 300 L1220 340 L1230 430"/></g>
+<!-- floor -->
+<path d="M0 470 H1280 V720 H0 Z" fill="url(#multiplication-mines-floor)"/>
+<path d="M260 470 L1020 470 L1280 720 L0 720 Z" fill="#2a2620" opacity="0.5"/>
+<ellipse cx="640" cy="470" rx="240" ry="30" fill="#0b0e18"/>
+<!-- rails -->
+<g fill="none" stroke="#1a1d2a" stroke-width="4" stroke-linecap="round"><path d="M560 490 L470 560 M720 490 L810 560 M540 520 L740 520 M500 560 L780 560 M440 610 L840 610 M360 680 L920 680"/></g>
+<g fill="none" stroke="#5a4a32" stroke-width="10" stroke-linecap="round"><path d="M520 500 L 760 500 M480 540 L 800 540 M420 590 L 860 590 M340 660 L 940 660 M250 720 L 1030 720"/></g>
+<path d="M615 470 L 340 720" fill="none" stroke="#6b7280" stroke-width="6"/>
+<path d="M665 470 L 940 720" fill="none" stroke="#6b7280" stroke-width="6"/>
+<path d="M615 470 L 340 720" fill="none" stroke="#a3a8b4" stroke-width="2"/>
+<path d="M665 470 L 940 720" fill="none" stroke="#a3a8b4" stroke-width="2"/>
+<!-- ore veins -->
+<g fill="none" stroke="#ffb347" stroke-linecap="round" stroke-linejoin="round">
+<path d="M60 220 L110 250 L130 300 L180 320 L200 380" stroke-width="10" opacity="0.15"/>
+<path d="M60 220 L110 250 L130 300 L180 320 L200 380" stroke-width="3" opacity="0.9"/>
+<path d="M110 250 L100 290 M180 320 L210 300" stroke-width="2" opacity="0.7"/>
+<path d="M1230 200 L1190 240 L1170 290 L1130 330 L1120 400" stroke-width="10" opacity="0.15"/>
+<path d="M1230 200 L1190 240 L1170 290 L1130 330 L1120 400" stroke-width="3" opacity="0.9"/>
+<path d="M1190 240 L1210 280 M1130 330 L1100 320" stroke-width="2" opacity="0.7"/>
+<path d="M300 120 L340 150 L400 160" stroke-width="2.5" opacity="0.6"/>
+<path d="M980 130 L930 160 L880 165" stroke-width="2.5" opacity="0.6"/>
+</g>
+<!-- crystals -->
+<g stroke="#0f766e" stroke-width="1.5" stroke-linejoin="round">
+<circle cx="150" cy="440" r="60" fill="url(#multiplication-mines-tglow)"/>
+<polygon points="120,470 130,400 142,470" fill="url(#multiplication-mines-crys)"/><polygon points="140,470 158,380 176,470" fill="url(#multiplication-mines-crys)"/><polygon points="172,470 186,420 200,470" fill="url(#multiplication-mines-crys)"/>
+<polygon points="96,470 108,432 124,470" fill="url(#multiplication-mines-crys)"/>
+<circle cx="1130" cy="440" r="60" fill="url(#multiplication-mines-tglow)"/>
+<polygon points="1100,470 1114,390 1130,470" fill="url(#multiplication-mines-crys)"/><polygon points="1128,470 1150,410 1166,470" fill="url(#multiplication-mines-crys)"/><polygon points="1160,470 1176,430 1190,470" fill="url(#multiplication-mines-crys)"/>
+<polygon points="1080,470 1088,440 1100,470" fill="url(#multiplication-mines-crys)"/>
+<polygon points="40,200 52,150 66,200" fill="url(#multiplication-mines-crys)" opacity="0.8"/><polygon points="1220,220 1240,170 1252,220" fill="url(#multiplication-mines-crys)" opacity="0.8"/>
+</g>
+<g fill="#a8f5ea" opacity="0.7"><polygon points="130,400 133,404 134,440 131,440"/><polygon points="158,380 161,385 162,440 159,440"/><polygon points="1114,390 1117,395 1118,440 1115,440"/></g>
+<!-- timber supports -->
+<g stroke="#2a1d10" stroke-width="2">
+<rect x="220" y="150" width="36" height="330" fill="url(#multiplication-mines-wood)"/>
+<rect x="1024" y="150" width="36" height="330" fill="url(#multiplication-mines-wood)"/>
+<rect x="200" y="140" width="880" height="34" fill="url(#multiplication-mines-wood)"/>
+<rect x="400" y="200" width="24" height="270" fill="url(#multiplication-mines-wood)" opacity="0.85"/>
+<rect x="856" y="200" width="24" height="270" fill="url(#multiplication-mines-wood)" opacity="0.85"/>
+<rect x="390" y="196" width="500" height="22" fill="url(#multiplication-mines-wood)" opacity="0.85"/>
+<rect x="520" y="250" width="16" height="220" fill="#3a2818" opacity="0.8"/><rect x="744" y="250" width="16" height="220" fill="#3a2818" opacity="0.8"/><rect x="512" y="246" width="256" height="14" fill="#3a2818" opacity="0.8"/>
+<polygon points="256,174 300,174 256,214" fill="#4a3421"/><polygon points="1024,174 980,174 1024,214" fill="#4a3421"/>
+</g>
+<g fill="#6b7280"><circle cx="230" cy="160" r="3"/><circle cx="246" cy="160" r="3"/><circle cx="1034" cy="160" r="3"/><circle cx="1050" cy="160" r="3"/><circle cx="230" cy="465" r="3"/><circle cx="1050" cy="465" r="3"/></g>
+<!-- hanging lanterns -->
+<g>
+<line x1="330" y1="174" x2="330" y2="230" stroke="#6b7280" stroke-width="2"/>
+<circle cx="330" cy="250" r="90" fill="url(#multiplication-mines-glow)"/>
+<rect x="318" y="230" width="24" height="30" rx="3" fill="#8a6d1d" stroke="#3a2a10" stroke-width="1.5"/><rect x="323" y="235" width="14" height="20" fill="#ffb347"/><rect x="322" y="226" width="16" height="5" fill="#c9a227"/>
+<line x1="950" y1="174" x2="950" y2="230" stroke="#6b7280" stroke-width="2"/>
+<circle cx="950" cy="250" r="90" fill="url(#multiplication-mines-glow)"/>
+<rect x="938" y="230" width="24" height="30" rx="3" fill="#8a6d1d" stroke="#3a2a10" stroke-width="1.5"/><rect x="943" y="235" width="14" height="20" fill="#ffb347"/><rect x="942" y="226" width="16" height="5" fill="#c9a227"/>
+<line x1="640" y1="218" x2="640" y2="262" stroke="#6b7280" stroke-width="1.5"/>
+<circle cx="640" cy="276" r="60" fill="url(#multiplication-mines-glow)" opacity="0.7"/>
+<rect x="632" y="262" width="16" height="22" rx="2" fill="#8a6d1d" stroke="#3a2a10" stroke-width="1"/><rect x="635" y="266" width="10" height="14" fill="#ffb347"/>
+</g>
+<!-- minecart (left foreground) -->
+<g stroke="#151827" stroke-width="2">
+<ellipse cx="200" cy="700" rx="130" ry="14" fill="#0b0e18" opacity="0.6"/>
+<polygon points="80,560 300,560 280,680 100,680" fill="url(#multiplication-mines-cart)"/>
+<rect x="72" y="550" width="236" height="16" rx="2" fill="#4c566a"/>
+<path d="M104 580 L280 580 M100 620 L284 620 M100 660 L282 660" fill="none" stroke="#2b3040" stroke-width="3"/>
+<rect x="130" y="566" width="10" height="112" fill="#6b7280"/><rect x="240" y="566" width="10" height="112" fill="#6b7280"/>
+<g fill="#b87333"><polygon points="120,560 150,520 180,540 210,516 250,548 270,560" stroke="#5a3a18"/><polygon points="150,560 175,538 200,560"/></g>
+<g fill="#ffb347" opacity="0.9"><polygon points="160,548 170,528 182,546"/><polygon points="212,538 226,520 236,542"/></g>
+<circle cx="130" cy="686" r="20" fill="#3b4252"/><circle cx="130" cy="686" r="9" fill="#6b7280"/><circle cx="250" cy="686" r="20" fill="#3b4252"/><circle cx="250" cy="686" r="9" fill="#6b7280"/>
+</g>
+<!-- right foreground: rubble and pick -->
+<g fill="#2b3040" stroke="#151827" stroke-width="2">
+<polygon points="1000,720 1030,650 1090,640 1140,680 1120,720"/><polygon points="1120,720 1150,670 1210,660 1280,700 1280,720"/><polygon points="1180,660 1210,620 1250,630 1240,665"/>
+</g>
+<g><line x1="1060" y1="720" x2="1120" y2="600" stroke="#5a4a32" stroke-width="7" stroke-linecap="round"/><path d="M1096 598 Q1130 580 1160 600 Q1140 610 1122 606 Q1108 616 1096 598 Z" fill="#6b7280" stroke="#151827" stroke-width="2"/></g>
+<!-- dust motes -->
+<g fill="#ffb347" opacity="0.45"><circle cx="300" cy="300" r="1.5"/><circle cx="380" cy="350" r="1"/><circle cx="440" cy="280" r="1.2"/><circle cx="560" cy="330" r="1"/><circle cx="700" cy="310" r="1.3"/><circle cx="820" cy="360" r="1"/><circle cx="900" cy="300" r="1.5"/><circle cx="980" cy="340" r="1"/><circle cx="360" cy="420" r="1"/><circle cx="880" cy="430" r="1.2"/><circle cx="640" cy="390" r="1"/><circle cx="500" cy="440" r="1"/></g>
+<!-- edge vignette -->
+<path d="M0 0 H130 C 80 200 60 400 90 720 H0 Z" fill="#0b0e18" opacity="0.55"/>
+<path d="M1280 0 H1150 C 1200 200 1220 400 1190 720 H1280 Z" fill="#0b0e18" opacity="0.55"/>
+</svg>

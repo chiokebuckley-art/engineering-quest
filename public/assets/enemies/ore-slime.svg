@@ -1,0 +1,127 @@
+<!-- Original artwork created for ENGINEERING QUEST. License: CC0 1.0 (public domain). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Ore Slime: a translucent teal slime with glowing ore chunks and small gears suspended inside</title>
+  <defs>
+    <radialGradient id="ore-slime-body" cx="0.32" cy="0.28" r="0.85">
+      <stop offset="0" stop-color="#a7fbe8" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#2dd4bf" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#0b5f57" stop-opacity="0.95"/>
+    </radialGradient>
+    <linearGradient id="ore-slime-ore" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="0.5" stop-color="#b87333"/>
+      <stop offset="1" stop-color="#6b3a12"/>
+    </linearGradient>
+    <linearGradient id="ore-slime-gear" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c04a"/>
+      <stop offset="1" stop-color="#8a6d1d"/>
+    </linearGradient>
+    <radialGradient id="ore-slime-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ore-slime-eye" cx="0.4" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#fff7d6"/>
+      <stop offset="0.5" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#b45309"/>
+    </radialGradient>
+    <radialGradient id="ore-slime-shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0b1020" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0b1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="128" cy="216" rx="98" ry="14" fill="url(#ore-slime-shadow)"/>
+
+  <!-- side puddles -->
+  <path d="M22 212 C26 200 44 200 50 210 C46 216 28 217 22 212 Z" fill="#2dd4bf" opacity="0.75" stroke="#0b5f57" stroke-width="1.5"/>
+  <path d="M206 214 C210 202 230 202 236 212 C232 218 212 219 206 214 Z" fill="#2dd4bf" opacity="0.75" stroke="#0b5f57" stroke-width="1.5"/>
+
+  <!-- back glow of ore behind body -->
+  <circle cx="128" cy="150" r="70" fill="url(#ore-slime-glow)" opacity="0.5"/>
+
+  <!-- main body -->
+  <path d="M38 200 C26 150 58 74 128 58 C198 74 230 150 218 200 C222 212 200 214 186 208 C174 218 154 214 142 206 C126 216 104 214 92 204 C76 214 42 214 38 200 Z"
+        fill="url(#ore-slime-body)" stroke="#0b5f57" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- suspended ore chunks -->
+  <g stroke="#3b2a08" stroke-width="1.5" stroke-linejoin="round">
+    <polygon points="76,150 92,132 112,142 108,168 84,172" fill="url(#ore-slime-ore)"/>
+    <polygon points="150,120 174,112 186,134 172,150 152,142" fill="url(#ore-slime-ore)"/>
+    <polygon points="112,178 128,172 138,186 124,198 108,192" fill="url(#ore-slime-ore)"/>
+    <polygon points="176,168 192,164 200,180 188,190 176,184" fill="url(#ore-slime-ore)"/>
+  </g>
+  <!-- ore glows -->
+  <circle cx="94" cy="152" r="22" fill="url(#ore-slime-glow)"/>
+  <circle cx="168" cy="130" r="22" fill="url(#ore-slime-glow)"/>
+  <circle cx="124" cy="185" r="16" fill="url(#ore-slime-glow)"/>
+  <!-- ore facet highlights -->
+  <g fill="#fff3c4" opacity="0.7">
+    <polygon points="80,150 92,136 100,142 90,154"/>
+    <polygon points="154,122 172,114 176,124 160,130"/>
+    <polygon points="114,178 128,174 124,182"/>
+  </g>
+
+  <!-- small gears -->
+  <g transform="translate(150 178)">
+    <g fill="url(#ore-slime-gear)" stroke="#5c4a12" stroke-width="1.2">
+      <rect x="-2.5" y="-14" width="5" height="28" rx="1"/>
+      <rect x="-2.5" y="-14" width="5" height="28" rx="1" transform="rotate(45)"/>
+      <rect x="-2.5" y="-14" width="5" height="28" rx="1" transform="rotate(90)"/>
+      <rect x="-2.5" y="-14" width="5" height="28" rx="1" transform="rotate(135)"/>
+      <circle r="10.5"/>
+    </g>
+    <circle r="3.5" fill="#3b2a08"/>
+  </g>
+  <g transform="translate(68 184) rotate(20)">
+    <g fill="url(#ore-slime-gear)" stroke="#5c4a12" stroke-width="1.2">
+      <rect x="-2" y="-10" width="4" height="20" rx="1"/>
+      <rect x="-2" y="-10" width="4" height="20" rx="1" transform="rotate(45)"/>
+      <rect x="-2" y="-10" width="4" height="20" rx="1" transform="rotate(90)"/>
+      <rect x="-2" y="-10" width="4" height="20" rx="1" transform="rotate(135)"/>
+      <circle r="7.5"/>
+    </g>
+    <circle r="2.5" fill="#3b2a08"/>
+  </g>
+  <g transform="translate(196 118) rotate(-15)">
+    <g fill="url(#ore-slime-gear)" stroke="#5c4a12" stroke-width="1.2">
+      <rect x="-2" y="-9" width="4" height="18" rx="1"/>
+      <rect x="-2" y="-9" width="4" height="18" rx="1" transform="rotate(45)"/>
+      <rect x="-2" y="-9" width="4" height="18" rx="1" transform="rotate(90)"/>
+      <rect x="-2" y="-9" width="4" height="18" rx="1" transform="rotate(135)"/>
+      <circle r="6.5"/>
+    </g>
+    <circle r="2.2" fill="#3b2a08"/>
+  </g>
+
+  <!-- bubbles -->
+  <g fill="none" stroke="#d7fff6" stroke-width="1.2" opacity="0.6">
+    <circle cx="60" cy="130" r="4"/>
+    <circle cx="140" cy="96" r="3"/>
+    <circle cx="188" cy="196" r="3.5"/>
+    <circle cx="102" cy="112" r="2.5"/>
+  </g>
+
+  <!-- eyes -->
+  <ellipse cx="104" cy="114" rx="17" ry="14" fill="#052e2b" opacity="0.9"/>
+  <ellipse cx="154" cy="110" rx="17" ry="14" fill="#052e2b" opacity="0.9"/>
+  <circle cx="104" cy="114" r="20" fill="url(#ore-slime-glow)"/>
+  <circle cx="154" cy="110" r="20" fill="url(#ore-slime-glow)"/>
+  <ellipse cx="104" cy="114" rx="12" ry="10" fill="url(#ore-slime-eye)"/>
+  <ellipse cx="154" cy="110" rx="12" ry="10" fill="url(#ore-slime-eye)"/>
+  <ellipse cx="105" cy="115" rx="4" ry="7" fill="#3b1a05"/>
+  <ellipse cx="155" cy="111" rx="4" ry="7" fill="#3b1a05"/>
+  <!-- narrowed upper lids -->
+  <path d="M88 108 C96 100 112 100 120 106 L118 100 C108 94 96 96 88 104 Z" fill="#052e2b" opacity="0.9"/>
+  <path d="M138 104 C146 96 162 96 170 102 L170 96 C160 90 146 92 138 98 Z" fill="#052e2b" opacity="0.9"/>
+  <circle cx="99" cy="109" r="2.5" fill="#fff"/>
+  <circle cx="149" cy="105" r="2.5" fill="#fff"/>
+
+  <!-- gloss highlight -->
+  <path d="M70 100 C80 76 104 66 126 66 C112 74 92 88 84 112 Z" fill="#ffffff" opacity="0.45"/>
+  <ellipse cx="66" cy="132" rx="6" ry="12" fill="#ffffff" opacity="0.25" transform="rotate(-20 66 132)"/>
+
+  <!-- rim light bottom -->
+  <path d="M60 202 C90 212 160 212 200 200" fill="none" stroke="#a7fbe8" stroke-width="2" opacity="0.5"/>
+</svg>

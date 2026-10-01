@@ -1,0 +1,110 @@
+/* Engine City Tycoon */
+.ty-root { --ty-card: rgba(19, 28, 48, 0.94); --ty-edge: rgba(148, 163, 184, 0.22); --ty-ok: #4ade80; --ty-bad: #f87171; }
+.ty-root, .ty-root * { min-width: 0; }
+.ty-setup, .ty-ledger { max-width: 860px; padding-bottom: 28px; }
+.ty-hero h1 { font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.3rem); margin: 4px 0 8px; letter-spacing: .02em; }
+.ty-hero p { margin: 0 0 6px; max-width: 62ch; }
+.ty-hero.center { text-align: center; } .ty-hero.center p { margin-inline: auto; }
+.ty-eyebrow { font-size: .72rem; letter-spacing: .14em; color: var(--brass); font-weight: 600; }
+.ty-card { background: var(--ty-card); border: 1px solid var(--ty-edge); border-radius: 14px; padding: 14px; display: grid; gap: 10px; align-content: start; }
+.ty-card h3 { margin: 0; font-size: 1rem; color: var(--amber); }
+.ty-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ty-options.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 620px) { .ty-options, .ty-options.two { grid-template-columns: 1fr; } }
+.ty-option { display: grid; gap: 4px; text-align: left; padding: 12px; border-radius: 12px; border: 1px solid var(--ty-edge); background: rgba(0,0,0,.25); color: var(--text); font: inherit; cursor: pointer; }
+.ty-option small { font-size: .8rem; line-height: 1.35; }
+.ty-option.on { border-color: var(--amber); background: rgba(255,179,71,.12); box-shadow: 0 0 0 1px var(--amber); }
+.ty-seat { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ty-seat select, .ty-seat input { background: #0d1526; color: var(--text); border: 1px solid var(--ty-edge); border-radius: 8px; padding: 7px 8px; font: inherit; font-size: .9rem; }
+.ty-seat input { width: 140px; }
+.ty-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #1d2433; flex: 0 0 auto; }
+.ty-dot.sm { width: 10px; height: 10px; border-width: 1.5px; margin-right: 5px; vertical-align: -1px; }
+.ty-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.ty-rules ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: .9rem; }
+.ty-rules summary { cursor: pointer; }
+
+/* table */
+.ty-table { max-width: 1180px; margin: 0 auto; display: grid; gap: 10px; }
+.ty-top { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ty-players { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+.ty-pl { display: flex; gap: 6px; align-items: center; padding: 5px 9px; border-radius: 999px; border: 1px solid var(--ty-edge); background: rgba(0,0,0,.3); font-size: .82rem; }
+.ty-pl.turn { border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
+.ty-pl.out { opacity: .45; text-decoration: line-through; }
+.ty-gears { font-variant-numeric: tabular-nums; color: #fde68a; }
+.ty-sharp { color: var(--teal); font-weight: 700; }
+.ty-leave { border-color: var(--amber); }
+.ty-leave p { margin: 0; }
+.ty-main { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+
+.ty-board-wrap { border-radius: 14px; padding: 8px; background: linear-gradient(145deg, #3a2f18, #1f1a0f); border: 1px solid var(--line); }
+@media (min-width: 901px) { .ty-board-wrap { position: sticky; top: 8px; } }
+.ty-board { display: block; width: 100%; height: auto; border-radius: 6px; user-select: none; }
+.ty-cell { cursor: pointer; }
+.ty-cell:focus { outline: none; }
+.ty-cell.sel .bg, .ty-cell:focus-visible .bg { stroke: #d97706; stroke-width: 6; }
+.ty-cell.here .bg { fill: #fff3c4; }
+.ty-title1 { font-family: var(--font-display); font-weight: 800; font-size: 46px; fill: #1d2433; letter-spacing: 3px; }
+.ty-title2 { font-family: var(--font-display); font-weight: 600; font-size: 30px; fill: #8a6d1d; letter-spacing: 12px; }
+.ty-sub { font-family: var(--font-body); font-size: 20px; fill: #4b5363; }
+.ty-name { font-family: var(--font-body); font-weight: 600; font-size: 14px; fill: #1d2433; }
+.ty-name.corner { font-size: 17px; font-weight: 700; }
+.ty-price { font-family: var(--font-body); font-size: 13px; fill: #4b5363; }
+.ty-icon { font-family: var(--font-body); font-size: 26px; font-weight: 700; fill: #8a6d1d; }
+.ty-icon.big { font-size: 34px; }
+.ty-mort { font-family: var(--font-body); font-size: 11px; font-weight: 800; fill: #7c2d12; letter-spacing: 1px; }
+.ty-piece-t { font-family: var(--font-body); font-weight: 800; font-size: 17px; fill: #0b1020; }
+.ty-piece.turn circle { stroke: #d97706; stroke-width: 5; }
+@media (prefers-reduced-motion: no-preference) { .ty-piece.turn circle { animation: ty-bob 1.2s ease-in-out infinite; } }
+@keyframes ty-bob { 50% { stroke-width: 7; } }
+.ty-side { display: grid; gap: 10px; }
+.ty-turn-head { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding-left: 8px; border-left: 4px solid; }
+.ty-ask { font-size: 1.05rem; }
+.ty-roll { font-size: 1.1rem; padding: 12px 18px; }
+.ty-warn { color: #fca5a5; margin: 0; }
+.ty-review { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--ty-edge); }
+.ty-review.ok { border-color: rgba(74,222,128,.5); background: rgba(74,222,128,.1); }
+.ty-review.bad { border-color: rgba(248,113,113,.5); background: rgba(248,113,113,.1); }
+.ty-steps { margin: 0; padding-left: 20px; font-size: .9rem; display: grid; gap: 2px; }
+.ty-choices { display: flex; gap: 8px; flex-wrap: wrap; }
+.ty-choices.col { flex-direction: column; align-items: stretch; }
+.ty-cardface { border-radius: 12px; padding: 12px; display: grid; gap: 4px; }
+.ty-cardface p { margin: 0; }
+.ty-cardface small { font-size: .68rem; letter-spacing: .14em; font-weight: 700; }
+.ty-cardface.puzzle { background: #fff1d6; color: #3a2400; border: 2px solid #c47a00; }
+.ty-deed { background: #fbf6e8; color: #1d2433; border-radius: 10px; padding: 10px; border: 2px solid #1d2433; font-size: .84rem; display: grid; gap: 6px; }
+.ty-deed p { margin: 0; }
+.ty-deed-top { text-align: center; padding: 6px; border: 2px solid #1d2433; border-radius: 4px; color: #1d2433; display: grid; }
+.ty-deed-top small { font-size: .62rem; letter-spacing: .12em; font-weight: 700; }
+.ty-deed table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ty-deed td { padding: 2px; border-bottom: 1px dotted #b8ab8a; }
+.ty-deed td:last-child { text-align: right; font-weight: 700; }
+.ty-streets summary { cursor: pointer; font-size: .88rem; color: var(--muted); }
+.ty-street { display: flex; gap: 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--ty-edge); flex-wrap: wrap; }
+.ty-street small { display: block; color: var(--muted); font-size: .75rem; }
+.ty-street .grow { flex: 1; min-width: 120px; }
+.ty-swatch { width: 14px; height: 22px; border-radius: 3px; border: 1px solid #1d2433; flex: 0 0 auto; }
+.ty-info-h { display: flex; gap: 8px; align-items: center; }
+.ty-info-h b { flex: 1; }
+.ty-info p { margin: 0; }
+.ty-log ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .84rem; }
+.ty-log summary { cursor: pointer; }
+.ty-odds { margin: 0; display: grid; gap: 4px; }
+.ty-odds svg { width: 100%; max-width: 320px; height: auto; }
+.ty-odds rect { fill: rgba(45,212,191,.55); }
+.ty-odds rect.last { fill: var(--amber); }
+.ty-odds text { fill: var(--muted); font-size: 10px; font-family: var(--font-body); }
+.ty-stand { width: 100%; border-collapse: collapse; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.ty-stand th, .ty-stand td { padding: 7px 6px; border-bottom: 1px solid var(--ty-edge); text-align: right; }
+.ty-stand th[scope='row'], .ty-stand thead th:first-child { text-align: left; }
+.ty-stand thead th { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ty-card:has(.ty-stand) { overflow-x: auto; }
+.ty-chart svg { width: 100%; height: auto; }
+.ty-chart text { fill: var(--muted); font-size: 11px; font-family: var(--font-body); }
+.ty-chart text.end { fill: var(--text); font-weight: 600; }
+.ty-chart .grid { stroke: rgba(148,163,184,.18); }
+.ty-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: .82rem; }
+.ty-join { display: flex; gap: 6px; align-items: center; }
+.ty-join input { width: 90px; text-transform: uppercase; letter-spacing: .2em; background: #0d1526; color: var(--text); border: 1px solid var(--ty-edge); border-radius: 8px; padding: 8px; font: inherit; }
+
+/* phones: the turn panel comes first, then the board (declared last so it wins over .ty-side above) */
+@media (max-width: 900px) { .ty-main { grid-template-columns: 1fr; } .ty-side { display: contents; } .ty-side > .ty-turn { order: -1; } }

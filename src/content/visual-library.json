@@ -1,0 +1,5256 @@
+[
+  {
+    "id": "t1_k12_circle",
+    "name": "Circle",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A perfectly round shape; every edge point is the same distance from the center.",
+    "features": [
+      "One continuous curved boundary.",
+      "Every boundary point is equally far from the center."
+    ],
+    "aliases": [
+      "round circle",
+      "Circle"
+    ],
+    "lessonArt": "assets/visual-library/000-learn.webp",
+    "quizArt": "assets/visual-library/000-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t1_k12_square",
+    "name": "Square",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "Four equal sides and four right angles.",
+    "features": [
+      "Four equal sides.",
+      "Four square corners (right angles)."
+    ],
+    "aliases": [
+      "Square"
+    ],
+    "lessonArt": "assets/visual-library/001-learn.webp",
+    "quizArt": "assets/visual-library/001-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_rectangle",
+    "name": "Rectangle",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "Four right angles; opposite sides equal.",
+    "features": [
+      "Four right angles.",
+      "opposite sides equal."
+    ],
+    "aliases": [
+      "Rectangle"
+    ],
+    "lessonArt": "assets/visual-library/002-learn.webp",
+    "quizArt": "assets/visual-library/002-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_triangle",
+    "name": "Triangle",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A shape with three straight sides.",
+    "features": [
+      "A shape with three straight sides."
+    ],
+    "aliases": [
+      "Triangle"
+    ],
+    "lessonArt": "assets/visual-library/003-learn.webp",
+    "quizArt": "assets/visual-library/003-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t1_k12_equilateral_triangle",
+    "name": "Equilateral triangle",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "All three sides the same length.",
+    "features": [
+      "All three sides the same length."
+    ],
+    "aliases": [
+      "Equilateral triangle"
+    ],
+    "lessonArt": "assets/visual-library/004-learn.webp",
+    "quizArt": "assets/visual-library/004-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t1_k12_isosceles_triangle",
+    "name": "Isosceles triangle",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "At least two sides equal.",
+    "features": [
+      "At least two sides equal."
+    ],
+    "aliases": [
+      "Isosceles triangle"
+    ],
+    "lessonArt": "assets/visual-library/005-learn.webp",
+    "quizArt": "assets/visual-library/005-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t1_k12_right_triangle",
+    "name": "Right triangle",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "One corner is a square corner (90\u00b0).",
+    "features": [
+      "One corner is a square corner (90\u00b0)."
+    ],
+    "aliases": [
+      "Right triangle"
+    ],
+    "lessonArt": "assets/visual-library/006-learn.webp",
+    "quizArt": "assets/visual-library/006-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t1_k12_pentagon",
+    "name": "Pentagon",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A five-sided polygon.",
+    "features": [
+      "A five-sided polygon."
+    ],
+    "aliases": [
+      "Pentagon"
+    ],
+    "lessonArt": "assets/visual-library/007-learn.webp",
+    "quizArt": "assets/visual-library/007-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_hexagon",
+    "name": "Hexagon",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A six-sided polygon.",
+    "features": [
+      "A six-sided polygon."
+    ],
+    "aliases": [
+      "Hexagon"
+    ],
+    "lessonArt": "assets/visual-library/008-learn.webp",
+    "quizArt": "assets/visual-library/008-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_octagon",
+    "name": "Octagon",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "An eight-sided polygon (stop-sign family).",
+    "features": [
+      "An eight-sided polygon (stop-sign family)."
+    ],
+    "aliases": [
+      "Octagon"
+    ],
+    "lessonArt": "assets/visual-library/009-learn.webp",
+    "quizArt": "assets/visual-library/009-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_oval",
+    "name": "Oval / Ellipse (kid)",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A stretched circle; still smooth and closed.",
+    "features": [
+      "A stretched circle.",
+      "still smooth and closed."
+    ],
+    "aliases": [
+      "oval",
+      "ellipse",
+      "Oval / Ellipse"
+    ],
+    "lessonArt": "assets/visual-library/010-learn.webp",
+    "quizArt": "assets/visual-library/010-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t1_k12_rhombus_kid",
+    "name": "Rhombus (kid diamond)",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "Four equal sides; may tilt like a diamond.",
+    "features": [
+      "Four equal sides.",
+      "may tilt like a diamond."
+    ],
+    "aliases": [
+      "Rhombus"
+    ],
+    "lessonArt": "assets/visual-library/011-learn.webp",
+    "quizArt": "assets/visual-library/011-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_trapezoid_kid",
+    "name": "Trapezoid (kid)",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A four-sided shape with one pair of parallel sides.",
+    "features": [
+      "A four-sided shape with one pair of parallel sides."
+    ],
+    "aliases": [
+      "Trapezoid"
+    ],
+    "lessonArt": "assets/visual-library/012-learn.webp",
+    "quizArt": "assets/visual-library/012-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_star_5",
+    "name": "Star (5-point)",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A pointed star made from a pentagram outline.",
+    "features": [
+      "A pointed star made from a pentagram outline."
+    ],
+    "aliases": [
+      "star",
+      "five point star",
+      "Star"
+    ],
+    "lessonArt": "assets/visual-library/013-learn.webp",
+    "quizArt": "assets/visual-library/013-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_heart",
+    "name": "Heart (curve intro)",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "A friendly curved shape (not a polygon).",
+    "features": [
+      "A friendly curved shape (not a polygon)."
+    ],
+    "aliases": [
+      "Heart"
+    ],
+    "lessonArt": "assets/visual-library/014-learn.webp",
+    "quizArt": "assets/visual-library/014-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_crescent",
+    "name": "Crescent",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 2D basics",
+    "definition": "What remains when one circle overlaps another.",
+    "features": [
+      "What remains when one circle overlaps another."
+    ],
+    "aliases": [
+      "Crescent"
+    ],
+    "lessonArt": "assets/visual-library/015-learn.webp",
+    "quizArt": "assets/visual-library/015-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t1_k12_cube",
+    "name": "Cube",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "A box with six square faces, all the same.",
+    "features": [
+      "A box with six square faces, all the same."
+    ],
+    "aliases": [
+      "Cube"
+    ],
+    "lessonArt": "assets/visual-library/016-learn.webp",
+    "quizArt": "assets/visual-library/016-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_rect_prism",
+    "name": "Rectangular prism",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "A box; faces are rectangles.",
+    "features": [
+      "Six rectangular faces.",
+      "Matching opposite faces and twelve straight edges."
+    ],
+    "aliases": [
+      "rectangular prism",
+      "cuboid",
+      "Rectangular prism"
+    ],
+    "lessonArt": "assets/visual-library/017-learn.webp",
+    "quizArt": "assets/visual-library/017-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_sphere",
+    "name": "Sphere",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "A perfectly round ball in 3D.",
+    "features": [
+      "One curved surface with no edges or corners.",
+      "A round cross-section through the center."
+    ],
+    "aliases": [
+      "Sphere"
+    ],
+    "lessonArt": "assets/visual-library/018-learn.webp",
+    "quizArt": "assets/visual-library/018-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_cylinder",
+    "name": "Cylinder",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "Two circular bases joined by a curved side.",
+    "features": [
+      "Two matching circular bases.",
+      "A curved side joins the bases."
+    ],
+    "aliases": [
+      "Cylinder"
+    ],
+    "lessonArt": "assets/visual-library/019-learn.webp",
+    "quizArt": "assets/visual-library/019-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_cone",
+    "name": "Cone",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "A circle base that rises to a point.",
+    "features": [
+      "One circular base.",
+      "The curved side narrows to a single apex."
+    ],
+    "aliases": [
+      "Cone"
+    ],
+    "lessonArt": "assets/visual-library/020-learn.webp",
+    "quizArt": "assets/visual-library/020-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_square_pyramid",
+    "name": "Pyramid (square)",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "A square base and four triangles meeting at a tip.",
+    "features": [
+      "One square base.",
+      "Four triangular sides meet at a single apex."
+    ],
+    "aliases": [
+      "square based pyramid",
+      "square pyramid",
+      "Pyramid"
+    ],
+    "lessonArt": "assets/visual-library/021-learn.webp",
+    "quizArt": "assets/visual-library/021-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_tri_prism",
+    "name": "Triangular prism",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "Two triangle ends with rectangular sides.",
+    "features": [
+      "Two matching triangular ends.",
+      "Three rectangular side faces.",
+      "The cross-section stays the same along the length."
+    ],
+    "aliases": [
+      "triangle prism",
+      "Triangular prism"
+    ],
+    "lessonArt": "assets/visual-library/022-learn.webp",
+    "quizArt": "assets/visual-library/022-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t1_k12_hemisphere",
+    "name": "Hemisphere",
+    "domain": "k12",
+    "tier": "T1",
+    "family": "Elementary 3D basics",
+    "definition": "Half of a sphere.",
+    "features": [
+      "Half of a sphere."
+    ],
+    "aliases": [
+      "Hemisphere"
+    ],
+    "lessonArt": "assets/visual-library/023-learn.webp",
+    "quizArt": "assets/visual-library/023-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t2_k12_parallelogram",
+    "name": "Parallelogram",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Quadrilateral with two pairs of parallel sides.",
+    "features": [
+      "Quadrilateral with two pairs of parallel sides."
+    ],
+    "aliases": [
+      "Parallelogram"
+    ],
+    "lessonArt": "assets/visual-library/024-learn.webp",
+    "quizArt": "assets/visual-library/024-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_trapezoid",
+    "name": "Trapezoid / trapezium",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Exactly one pair of parallel sides (US convention).",
+    "features": [
+      "Exactly one pair of parallel sides (US convention)."
+    ],
+    "aliases": [
+      "trapezium",
+      "trapezoid",
+      "Trapezoid / trapezium"
+    ],
+    "lessonArt": "assets/visual-library/025-learn.webp",
+    "quizArt": "assets/visual-library/025-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_isos_trapezoid",
+    "name": "Isosceles trapezoid",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Trapezoid with equal non-parallel legs.",
+    "features": [
+      "Trapezoid with equal non-parallel legs."
+    ],
+    "aliases": [
+      "Isosceles trapezoid"
+    ],
+    "lessonArt": "assets/visual-library/026-learn.webp",
+    "quizArt": "assets/visual-library/026-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_rhombus",
+    "name": "Rhombus",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Equilateral quadrilateral; diagonals perpendicular.",
+    "features": [
+      "Equilateral quadrilateral.",
+      "diagonals perpendicular."
+    ],
+    "aliases": [
+      "Rhombus"
+    ],
+    "lessonArt": "assets/visual-library/027-learn.webp",
+    "quizArt": "assets/visual-library/027-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_kite",
+    "name": "Kite",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Two pairs of adjacent equal sides; \u22a5 diagonals.",
+    "features": [
+      "Two pairs of adjacent equal sides.",
+      "\u22a5 diagonals."
+    ],
+    "aliases": [
+      "Kite"
+    ],
+    "lessonArt": "assets/visual-library/028-learn.webp",
+    "quizArt": "assets/visual-library/028-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_heptagon",
+    "name": "Regular heptagon",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Seven equal sides and angles.",
+    "features": [
+      "Seven equal sides and angles."
+    ],
+    "aliases": [
+      "heptagon",
+      "Regular heptagon"
+    ],
+    "lessonArt": "assets/visual-library/029-learn.webp",
+    "quizArt": "assets/visual-library/029-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_nonagon",
+    "name": "Regular nonagon",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Nine equal sides and angles.",
+    "features": [
+      "Nine equal sides and angles."
+    ],
+    "aliases": [
+      "nonagon",
+      "Regular nonagon"
+    ],
+    "lessonArt": "assets/visual-library/030-learn.webp",
+    "quizArt": "assets/visual-library/030-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_decagon",
+    "name": "Regular decagon",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Ten equal sides and angles.",
+    "features": [
+      "Ten equal sides and angles."
+    ],
+    "aliases": [
+      "decagon",
+      "Regular decagon"
+    ],
+    "lessonArt": "assets/visual-library/031-learn.webp",
+    "quizArt": "assets/visual-library/031-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_hendecagon",
+    "name": "Regular hendecagon",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Eleven equal sides and angles.",
+    "features": [
+      "Eleven equal sides and angles."
+    ],
+    "aliases": [
+      "hendecagon",
+      "undecagon",
+      "Regular hendecagon"
+    ],
+    "lessonArt": "assets/visual-library/032-learn.webp",
+    "quizArt": "assets/visual-library/032-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_dodecagon",
+    "name": "Regular dodecagon",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Twelve equal sides and angles.",
+    "features": [
+      "Twelve equal sides and angles."
+    ],
+    "aliases": [
+      "dodecagon",
+      "Regular dodecagon"
+    ],
+    "lessonArt": "assets/visual-library/033-learn.webp",
+    "quizArt": "assets/visual-library/033-quiz.webp",
+    "chapter": "polygons"
+  },
+  {
+    "id": "t2_k12_ellipse",
+    "name": "Ellipse",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Sum of distances to two foci is constant.",
+    "features": [
+      "Sum of distances to two foci is constant."
+    ],
+    "aliases": [
+      "Ellipse"
+    ],
+    "lessonArt": "assets/visual-library/034-learn.webp",
+    "quizArt": "assets/visual-library/034-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t2_k12_parabola",
+    "name": "Parabola",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Set of points equidistant from focus and directrix.",
+    "features": [
+      "Set of points equidistant from focus and directrix."
+    ],
+    "aliases": [
+      "Parabola"
+    ],
+    "lessonArt": "assets/visual-library/035-learn.webp",
+    "quizArt": "assets/visual-library/035-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t2_k12_hyperbola",
+    "name": "Hyperbola",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "|Difference| of distances to two foci is constant.",
+    "features": [
+      "|Difference| of distances to two foci is constant."
+    ],
+    "aliases": [
+      "Hyperbola"
+    ],
+    "lessonArt": "assets/visual-library/036-learn.webp",
+    "quizArt": "assets/visual-library/036-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t2_k12_scalene",
+    "name": "Scalene triangle",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "All sides different lengths.",
+    "features": [
+      "All sides different lengths."
+    ],
+    "aliases": [
+      "Scalene triangle"
+    ],
+    "lessonArt": "assets/visual-library/037-learn.webp",
+    "quizArt": "assets/visual-library/037-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t2_k12_obtuse",
+    "name": "Obtuse triangle",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "One angle greater than 90\u00b0.",
+    "features": [
+      "One angle greater than 90\u00b0."
+    ],
+    "aliases": [
+      "Obtuse triangle"
+    ],
+    "lessonArt": "assets/visual-library/038-learn.webp",
+    "quizArt": "assets/visual-library/038-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t2_k12_acute",
+    "name": "Acute triangle",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "All angles less than 90\u00b0.",
+    "features": [
+      "All angles less than 90\u00b0."
+    ],
+    "aliases": [
+      "Acute triangle"
+    ],
+    "lessonArt": "assets/visual-library/039-learn.webp",
+    "quizArt": "assets/visual-library/039-quiz.webp",
+    "chapter": "triangles"
+  },
+  {
+    "id": "t2_k12_annulus",
+    "name": "Annulus (ring)",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Region between two concentric circles.",
+    "features": [
+      "Region between two concentric circles."
+    ],
+    "aliases": [
+      "annulus",
+      "ring",
+      "Annulus"
+    ],
+    "lessonArt": "assets/visual-library/040-learn.webp",
+    "quizArt": "assets/visual-library/040-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t2_k12_sector",
+    "name": "Sector",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "\u201cPizza slice\u201d of a circle between two radii.",
+    "features": [
+      "\u201cPizza slice\u201d of a circle between two radii."
+    ],
+    "aliases": [
+      "Sector"
+    ],
+    "lessonArt": "assets/visual-library/041-learn.webp",
+    "quizArt": "assets/visual-library/041-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t2_k12_segment",
+    "name": "Segment (circle)",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Region between a chord and its arc.",
+    "features": [
+      "Region between a chord and its arc."
+    ],
+    "aliases": [
+      "circular segment",
+      "Segment"
+    ],
+    "lessonArt": "assets/visual-library/042-learn.webp",
+    "quizArt": "assets/visual-library/042-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t2_k12_tetrahedron",
+    "name": "Regular tetrahedron (geo)",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Four equilateral triangular faces.",
+    "features": [
+      "Four equilateral triangular faces."
+    ],
+    "aliases": [
+      "tetrahedron",
+      "Regular tetrahedron"
+    ],
+    "lessonArt": "assets/visual-library/043-learn.webp",
+    "quizArt": "assets/visual-library/043-quiz.webp",
+    "chapter": "solids"
+  },
+  {
+    "id": "t2_k12_cross_section_ellipse",
+    "name": "Cross-section circle\u2192ellipse",
+    "domain": "k12",
+    "tier": "T2",
+    "family": "Middle and high school geometry",
+    "definition": "Cutting a cylinder at an angle yields an ellipse.",
+    "features": [
+      "Cutting a cylinder at an angle yields an ellipse."
+    ],
+    "aliases": [
+      "elliptical cross section",
+      "Cross-section circle\u2192ellipse"
+    ],
+    "lessonArt": "assets/visual-library/044-learn.webp",
+    "quizArt": "assets/visual-library/044-quiz.webp",
+    "chapter": "circles"
+  },
+  {
+    "id": "t3_phys_boundary_layer",
+    "name": "Boundary layer profile",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Velocity rises from zero at the wall to free-stream; thickness \u03b4.",
+    "features": [
+      "Velocity rises from zero at the wall to free-stream.",
+      "thickness \u03b4."
+    ],
+    "aliases": [
+      "Boundary layer profile"
+    ],
+    "lessonArt": "assets/visual-library/045-learn.webp",
+    "quizArt": "assets/visual-library/045-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_bl_laminar",
+    "name": "Laminar boundary layer",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Smooth layered shear near a surface.",
+    "features": [
+      "Smooth layered shear near a surface."
+    ],
+    "aliases": [
+      "Laminar boundary layer"
+    ],
+    "lessonArt": "assets/visual-library/046-learn.webp",
+    "quizArt": "assets/visual-library/046-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_bl_turbulent",
+    "name": "Turbulent boundary layer",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Thicker, fuller velocity profile with mixing.",
+    "features": [
+      "Thicker, fuller velocity profile with mixing."
+    ],
+    "aliases": [
+      "Turbulent boundary layer"
+    ],
+    "lessonArt": "assets/visual-library/047-learn.webp",
+    "quizArt": "assets/visual-library/047-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_meniscus_concave",
+    "name": "Meniscus (concave)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Liquid curve up at wetting walls (e.g., water glass).",
+    "features": [
+      "Liquid curve up at wetting walls (e.g., water glass)."
+    ],
+    "aliases": [
+      "Meniscus"
+    ],
+    "lessonArt": "assets/visual-library/048-learn.webp",
+    "quizArt": "assets/visual-library/048-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_meniscus_convex",
+    "name": "Meniscus (convex)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Liquid curve down at non-wetting walls (e.g., mercury).",
+    "features": [
+      "Liquid curve down at non-wetting walls (e.g., mercury)."
+    ],
+    "aliases": [
+      "Meniscus"
+    ],
+    "lessonArt": "assets/visual-library/049-learn.webp",
+    "quizArt": "assets/visual-library/049-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_streamlines",
+    "name": "Streamline bundle",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Curves tangent to velocity; never cross in steady flow.",
+    "features": [
+      "Curves tangent to velocity.",
+      "never cross in steady flow."
+    ],
+    "aliases": [
+      "Streamline bundle"
+    ],
+    "lessonArt": "assets/visual-library/050-learn.webp",
+    "quizArt": "assets/visual-library/050-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_pathline",
+    "name": "Pathline",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Trajectory a single particle follows over time.",
+    "features": [
+      "Trajectory a single particle follows over time."
+    ],
+    "aliases": [
+      "Pathline"
+    ],
+    "lessonArt": "assets/visual-library/051-learn.webp",
+    "quizArt": "assets/visual-library/051-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_streakline",
+    "name": "Streakline",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Locus of particles that passed a fixed injector.",
+    "features": [
+      "Locus of particles that passed a fixed injector."
+    ],
+    "aliases": [
+      "Streakline"
+    ],
+    "lessonArt": "assets/visual-library/052-learn.webp",
+    "quizArt": "assets/visual-library/052-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_teardrop_aero",
+    "name": "Teardrop aero (airfoil-like)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Low-drag body: blunt nose, tapered trailing edge.",
+    "features": [
+      "Low-drag body: blunt nose, tapered trailing edge."
+    ],
+    "aliases": [
+      "Teardrop aero"
+    ],
+    "lessonArt": "assets/visual-library/053-learn.webp",
+    "quizArt": "assets/visual-library/053-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_airfoil_camber",
+    "name": "Airfoil section (cambered)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Cross-section generating lift via camber and AoA.",
+    "features": [
+      "Cross-section generating lift via camber and AoA."
+    ],
+    "aliases": [
+      "Airfoil section"
+    ],
+    "lessonArt": "assets/visual-library/054-learn.webp",
+    "quizArt": "assets/visual-library/054-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_airfoil_sym",
+    "name": "Airfoil (symmetric)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Zero camber; lift mainly from angle of attack.",
+    "features": [
+      "Zero camber.",
+      "lift mainly from angle of attack."
+    ],
+    "aliases": [
+      "Airfoil"
+    ],
+    "lessonArt": "assets/visual-library/055-learn.webp",
+    "quizArt": "assets/visual-library/055-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_annulus_pipe",
+    "name": "Annulus (pipe)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Flow region between concentric cylinders.",
+    "features": [
+      "Flow region between concentric cylinders."
+    ],
+    "aliases": [
+      "pipe annulus",
+      "Annulus"
+    ],
+    "lessonArt": "assets/visual-library/056-learn.webp",
+    "quizArt": "assets/visual-library/056-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_poiseuille",
+    "name": "Pipe Poiseuille parabola",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Laminar pipe velocity: parabolic profile.",
+    "features": [
+      "Laminar pipe velocity: parabolic profile."
+    ],
+    "aliases": [
+      "Pipe Poiseuille parabola"
+    ],
+    "lessonArt": "assets/visual-library/057-learn.webp",
+    "quizArt": "assets/visual-library/057-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_couette",
+    "name": "Couette linear profile",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Linear velocity between moving parallel plates.",
+    "features": [
+      "Linear velocity between moving parallel plates."
+    ],
+    "aliases": [
+      "Couette linear profile"
+    ],
+    "lessonArt": "assets/visual-library/058-learn.webp",
+    "quizArt": "assets/visual-library/058-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_vortex_free",
+    "name": "Vortex free (irrotational)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Circumferential speed ~ 1/r outside core.",
+    "features": [
+      "Circumferential speed ~ 1/r outside core."
+    ],
+    "aliases": [
+      "Vortex free"
+    ],
+    "lessonArt": "assets/visual-library/059-learn.webp",
+    "quizArt": "assets/visual-library/059-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_vortex_forced",
+    "name": "Vortex forced (solid-body)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Core rotates like a rigid body; v ~ r.",
+    "features": [
+      "Core rotates like a rigid body.",
+      "v ~ r."
+    ],
+    "aliases": [
+      "Vortex forced"
+    ],
+    "lessonArt": "assets/visual-library/060-learn.webp",
+    "quizArt": "assets/visual-library/060-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_vortex_rankine",
+    "name": "Rankine vortex hybrid",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Forced core + free outer swirl.",
+    "features": [
+      "Forced core + free outer swirl."
+    ],
+    "aliases": [
+      "Rankine vortex hybrid"
+    ],
+    "lessonArt": "assets/visual-library/061-learn.webp",
+    "quizArt": "assets/visual-library/061-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_hydraulic_jump",
+    "name": "Hydraulic jump",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Sudden depth rise from supercritical to subcritical.",
+    "features": [
+      "Sudden depth rise from supercritical to subcritical."
+    ],
+    "aliases": [
+      "Hydraulic jump"
+    ],
+    "lessonArt": "assets/visual-library/062-learn.webp",
+    "quizArt": "assets/visual-library/062-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_shock_normal",
+    "name": "Shock wave normal",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Discontinuous jump in pressure/density across a front.",
+    "features": [
+      "Discontinuous jump in pressure/density across a front."
+    ],
+    "aliases": [
+      "Shock wave normal"
+    ],
+    "lessonArt": "assets/visual-library/063-learn.webp",
+    "quizArt": "assets/visual-library/063-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_shock_oblique",
+    "name": "Oblique shock",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Inclined discontinuity turning the flow.",
+    "features": [
+      "Inclined discontinuity turning the flow."
+    ],
+    "aliases": [
+      "Oblique shock"
+    ],
+    "lessonArt": "assets/visual-library/064-learn.webp",
+    "quizArt": "assets/visual-library/064-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_expansion_fan",
+    "name": "Expansion fan (Prandtl\u2013Meyer)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Smooth isentropic turn through Mach waves.",
+    "features": [
+      "Smooth isentropic turn through Mach waves."
+    ],
+    "aliases": [
+      "Expansion fan"
+    ],
+    "lessonArt": "assets/visual-library/065-learn.webp",
+    "quizArt": "assets/visual-library/065-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_droplet",
+    "name": "Droplet sphere (surface tension)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Surface tension favors a sphere when external forces are negligible.",
+    "features": [
+      "Surface tension favors a sphere when external forces are negligible."
+    ],
+    "aliases": [
+      "Droplet sphere"
+    ],
+    "lessonArt": "assets/visual-library/066-learn.webp",
+    "quizArt": "assets/visual-library/066-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_contact_angle",
+    "name": "Wetting contact angle",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Angle at three-phase line defines wettability.",
+    "features": [
+      "Angle at three-phase line defines wettability."
+    ],
+    "aliases": [
+      "Wetting contact angle"
+    ],
+    "lessonArt": "assets/visual-library/067-learn.webp",
+    "quizArt": "assets/visual-library/067-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_capillary_rise",
+    "name": "Capillary meniscus tube",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Rise (or depression) height set by radius & \u03b8.",
+    "features": [
+      "Rise (or depression) height set by radius & \u03b8."
+    ],
+    "aliases": [
+      "Capillary meniscus tube"
+    ],
+    "lessonArt": "assets/visual-library/068-learn.webp",
+    "quizArt": "assets/visual-library/068-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_jet_breakup",
+    "name": "Jet breakup (Plateau\u2013 Rayleigh)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Cylindrical jet pinches into droplets.",
+    "features": [
+      "Cylindrical jet pinches into droplets."
+    ],
+    "aliases": [
+      "Jet breakup"
+    ],
+    "lessonArt": "assets/visual-library/069-learn.webp",
+    "quizArt": "assets/visual-library/069-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_karman_street",
+    "name": "Wake Karman street",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Alternating vortices behind a bluff body.",
+    "features": [
+      "Alternating vortices behind a bluff body."
+    ],
+    "aliases": [
+      "von karman vortex street",
+      "karman vortex street",
+      "Wake Karman street"
+    ],
+    "lessonArt": "assets/visual-library/070-learn.webp",
+    "quizArt": "assets/visual-library/070-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_stagnation",
+    "name": "Stagnation point flow",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Streamlines split; velocity \u2192 0 at wall point.",
+    "features": [
+      "Streamlines split.",
+      "velocity \u2192 0 at wall point."
+    ],
+    "aliases": [
+      "Stagnation point flow"
+    ],
+    "lessonArt": "assets/visual-library/071-learn.webp",
+    "quizArt": "assets/visual-library/071-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_cd_nozzle",
+    "name": "Nozzle convergent-divergent",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Hourglass duct shape for choked / supersonic flow.",
+    "features": [
+      "Hourglass duct shape for choked / supersonic flow."
+    ],
+    "aliases": [
+      "Nozzle convergent-divergent"
+    ],
+    "lessonArt": "assets/visual-library/072-learn.webp",
+    "quizArt": "assets/visual-library/072-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_venturi",
+    "name": "Venturi constriction",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Throat speeds flow; pressure drops (Bernoulli).",
+    "features": [
+      "Throat speeds flow.",
+      "pressure drops (Bernoulli)."
+    ],
+    "aliases": [
+      "Venturi constriction"
+    ],
+    "lessonArt": "assets/visual-library/073-learn.webp",
+    "quizArt": "assets/visual-library/073-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_vena_contracta",
+    "name": "Orifice jet vena contracta",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Fluids and continuum",
+    "definition": "Jet contracts to minimum area just downstream.",
+    "features": [
+      "Jet contracts to minimum area just downstream."
+    ],
+    "aliases": [
+      "Orifice jet vena contracta"
+    ],
+    "lessonArt": "assets/visual-library/074-learn.webp",
+    "quizArt": "assets/visual-library/074-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "rates"
+    }
+  },
+  {
+    "id": "t3_phys_fcc",
+    "name": "FCC lattice unit cell",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Face-centered cubic: atoms at corners + face centers.",
+    "features": [
+      "Face-centered cubic: atoms at corners + face centers."
+    ],
+    "aliases": [
+      "FCC lattice unit cell"
+    ],
+    "lessonArt": "assets/visual-library/075-learn.webp",
+    "quizArt": "assets/visual-library/075-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_bcc",
+    "name": "BCC lattice unit cell",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Body-centered cubic: corners + body center.",
+    "features": [
+      "Body-centered cubic: corners + body center."
+    ],
+    "aliases": [
+      "BCC lattice unit cell"
+    ],
+    "lessonArt": "assets/visual-library/076-learn.webp",
+    "quizArt": "assets/visual-library/076-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_hcp",
+    "name": "HCP lattice",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Hexagonal close-packed ABA stacking.",
+    "features": [
+      "Hexagonal close-packed ABA stacking."
+    ],
+    "aliases": [
+      "HCP lattice"
+    ],
+    "lessonArt": "assets/visual-library/077-learn.webp",
+    "quizArt": "assets/visual-library/077-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_simple_cubic",
+    "name": "Simple cubic",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Atoms only at cube corners.",
+    "features": [
+      "Atoms only at cube corners."
+    ],
+    "aliases": [
+      "Simple cubic"
+    ],
+    "lessonArt": "assets/visual-library/078-learn.webp",
+    "quizArt": "assets/visual-library/078-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_diamond_cubic",
+    "name": "Diamond cubic",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Two interpenetrating FCC; tetrahedral bonding.",
+    "features": [
+      "Two interpenetrating FCC.",
+      "tetrahedral bonding."
+    ],
+    "aliases": [
+      "Diamond cubic"
+    ],
+    "lessonArt": "assets/visual-library/079-learn.webp",
+    "quizArt": "assets/visual-library/079-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_nacl",
+    "name": "NaCl rock-salt lattice",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Interpenetrating FCC of Na\u207a and Cl\u207b.",
+    "features": [
+      "Interpenetrating FCC of Na\u207a and Cl\u207b."
+    ],
+    "aliases": [
+      "NaCl rock-salt lattice"
+    ],
+    "lessonArt": "assets/visual-library/080-learn.webp",
+    "quizArt": "assets/visual-library/080-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_zincblende",
+    "name": "Zincblende lattice",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "FCC with half tetrahedral sites occupied (e.g., ZnS).",
+    "features": [
+      "FCC with half tetrahedral sites occupied (e.g., ZnS)."
+    ],
+    "aliases": [
+      "Zincblende lattice"
+    ],
+    "lessonArt": "assets/visual-library/081-learn.webp",
+    "quizArt": "assets/visual-library/081-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_perovskite",
+    "name": "Perovskite ABO\u2083",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Corner-sharing octahedra with A-site cage cation.",
+    "features": [
+      "Corner-sharing octahedra with A-site cage cation."
+    ],
+    "aliases": [
+      "Perovskite ABO\u2083"
+    ],
+    "lessonArt": "assets/visual-library/082-learn.webp",
+    "quizArt": "assets/visual-library/082-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_tetrahedral",
+    "name": "Tetrahedral molecular",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2084; central atom, 4 bonds, ~109.5\u00b0 (e.g., CH\u2084).",
+    "features": [
+      "AX\u2084.",
+      "central atom, 4 bonds, ~109.5\u00b0 (e.g., CH\u2084)."
+    ],
+    "aliases": [
+      "Tetrahedral molecular"
+    ],
+    "lessonArt": "assets/visual-library/083-learn.webp",
+    "quizArt": "assets/visual-library/083-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_octahedral",
+    "name": "Octahedral molecular",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2086; 90\u00b0/180\u00b0 angles (e.g., SF\u2086).",
+    "features": [
+      "AX\u2086.",
+      "90\u00b0/180\u00b0 angles (e.g., SF\u2086)."
+    ],
+    "aliases": [
+      "Octahedral molecular"
+    ],
+    "lessonArt": "assets/visual-library/084-learn.webp",
+    "quizArt": "assets/visual-library/084-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_trigonal_bipyramidal",
+    "name": "Trigonal bipyramidal",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2085; equatorial 120\u00b0, axial 90\u00b0 (e.g., PCl\u2085).",
+    "features": [
+      "AX\u2085.",
+      "equatorial 120\u00b0, axial 90\u00b0 (e.g., PCl\u2085)."
+    ],
+    "aliases": [
+      "Trigonal bipyramidal"
+    ],
+    "lessonArt": "assets/visual-library/085-learn.webp",
+    "quizArt": "assets/visual-library/085-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_trigonal_planar",
+    "name": "Trigonal planar",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2083; 120\u00b0 planar (e.g., BF\u2083).",
+    "features": [
+      "AX\u2083.",
+      "120\u00b0 planar (e.g., BF\u2083)."
+    ],
+    "aliases": [
+      "Trigonal planar"
+    ],
+    "lessonArt": "assets/visual-library/086-learn.webp",
+    "quizArt": "assets/visual-library/086-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_trigonal_pyramidal",
+    "name": "Trigonal pyramidal",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2083E; lone pair tips the pyramid (e.g., NH\u2083).",
+    "features": [
+      "AX\u2083E.",
+      "lone pair tips the pyramid (e.g., NH\u2083)."
+    ],
+    "aliases": [
+      "Trigonal pyramidal"
+    ],
+    "lessonArt": "assets/visual-library/087-learn.webp",
+    "quizArt": "assets/visual-library/087-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_bent_water",
+    "name": "Bent / angular (AX\u2082E\u2082)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Water-like bend from two lone pairs.",
+    "features": [
+      "Water-like bend from two lone pairs."
+    ],
+    "aliases": [
+      "bent molecular geometry",
+      "bent",
+      "Bent / angular"
+    ],
+    "lessonArt": "assets/visual-library/088-learn.webp",
+    "quizArt": "assets/visual-library/088-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_linear_co2",
+    "name": "Linear molecular (AX\u2082)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "180\u00b0 (e.g., CO\u2082).",
+    "features": [
+      "180\u00b0 (e.g., CO\u2082)."
+    ],
+    "aliases": [
+      "linear molecular geometry",
+      "linear",
+      "Linear molecular"
+    ],
+    "lessonArt": "assets/visual-library/089-learn.webp",
+    "quizArt": "assets/visual-library/089-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_square_planar",
+    "name": "Square planar",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2084E\u2082; 90\u00b0 planar (e.g., XeF\u2084).",
+    "features": [
+      "AX\u2084E\u2082.",
+      "90\u00b0 planar (e.g., XeF\u2084)."
+    ],
+    "aliases": [
+      "Square planar"
+    ],
+    "lessonArt": "assets/visual-library/090-learn.webp",
+    "quizArt": "assets/visual-library/090-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_square_pyramidal",
+    "name": "Square pyramidal",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2085E; base square + apex (e.g., BrF\u2085).",
+    "features": [
+      "AX\u2085E.",
+      "base square + apex (e.g., BrF\u2085)."
+    ],
+    "aliases": [
+      "Square pyramidal"
+    ],
+    "lessonArt": "assets/visual-library/091-learn.webp",
+    "quizArt": "assets/visual-library/091-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_seesaw",
+    "name": "See-saw (AX\u2084E)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Trigonal bipyramid minus one equator (e.g., SF\u2084).",
+    "features": [
+      "Trigonal bipyramid minus one equator (e.g., SF\u2084)."
+    ],
+    "aliases": [
+      "See-saw"
+    ],
+    "lessonArt": "assets/visual-library/092-learn.webp",
+    "quizArt": "assets/visual-library/092-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_tshaped",
+    "name": "T-shaped (AX\u2083E\u2082)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Three bonds form a T (e.g., ClF\u2083).",
+    "features": [
+      "Three bonds form a T (e.g., ClF\u2083)."
+    ],
+    "aliases": [
+      "T-shaped"
+    ],
+    "lessonArt": "assets/visual-library/093-learn.webp",
+    "quizArt": "assets/visual-library/093-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_pent_bipyramid",
+    "name": "Pentagonal bipyramidal",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "AX\u2087 geometry family.",
+    "features": [
+      "AX\u2087 geometry family."
+    ],
+    "aliases": [
+      "Pentagonal bipyramidal"
+    ],
+    "lessonArt": "assets/visual-library/094-learn.webp",
+    "quizArt": "assets/visual-library/094-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_icosahedron_cage",
+    "name": "icosahedral cage (hint)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "12-vertex Platonic used in boron cages / viruses.",
+    "features": [
+      "12-vertex Platonic used in boron cages / viruses."
+    ],
+    "aliases": [
+      "icosahedral cage"
+    ],
+    "lessonArt": "assets/visual-library/095-learn.webp",
+    "quizArt": "assets/visual-library/095-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_c60",
+    "name": "Buckminsterfullerene C\u2086\u2080",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Soccer-ball truncated icosahedron of carbon.",
+    "features": [
+      "Soccer-ball truncated icosahedron of carbon."
+    ],
+    "aliases": [
+      "buckminsterfullerene",
+      "c60",
+      "Buckminsterfullerene C\u2086\u2080"
+    ],
+    "lessonArt": "assets/visual-library/096-learn.webp",
+    "quizArt": "assets/visual-library/096-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_benzene",
+    "name": "Benzene hexagon",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Planar aromatic C\u2086 ring.",
+    "features": [
+      "Planar aromatic C\u2086 ring."
+    ],
+    "aliases": [
+      "Benzene hexagon"
+    ],
+    "lessonArt": "assets/visual-library/097-learn.webp",
+    "quizArt": "assets/visual-library/097-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_graphene",
+    "name": "Graphene honeycomb",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "2D hexagonal carbon lattice.",
+    "features": [
+      "2D hexagonal carbon lattice."
+    ],
+    "aliases": [
+      "graphene",
+      "Graphene honeycomb"
+    ],
+    "lessonArt": "assets/visual-library/098-learn.webp",
+    "quizArt": "assets/visual-library/098-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_cnt",
+    "name": "CNT cylinder lattice",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Rolled graphene tube (chirality silhouette).",
+    "features": [
+      "Rolled graphene tube (chirality silhouette)."
+    ],
+    "aliases": [
+      "carbon nanotube",
+      "cnt",
+      "CNT cylinder lattice"
+    ],
+    "lessonArt": "assets/visual-library/099-learn.webp",
+    "quizArt": "assets/visual-library/099-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_coord_polyhedron",
+    "name": "Coordination polyhedron",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Ligands as vertices around a metal center.",
+    "features": [
+      "Ligands as vertices around a metal center."
+    ],
+    "aliases": [
+      "Coordination polyhedron"
+    ],
+    "lessonArt": "assets/visual-library/100-learn.webp",
+    "quizArt": "assets/visual-library/100-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_ccp_spheres",
+    "name": "Unit cell packing spheres",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Close-packed spheres showing packing fraction cue.",
+    "features": [
+      "Close-packed spheres showing packing fraction cue."
+    ],
+    "aliases": [
+      "Unit cell packing spheres"
+    ],
+    "lessonArt": "assets/visual-library/101-learn.webp",
+    "quizArt": "assets/visual-library/101-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_miller_100",
+    "name": "Miller plane (100)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Crystal plane family silhouette with (100) label.",
+    "features": [
+      "Crystal plane family silhouette with (100) label."
+    ],
+    "aliases": [
+      "Miller plane"
+    ],
+    "lessonArt": "assets/visual-library/102-learn.webp",
+    "quizArt": "assets/visual-library/102-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_miller_111",
+    "name": "Miller plane (111)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Close-packed plane in FCC.",
+    "features": [
+      "Close-packed plane in FCC."
+    ],
+    "aliases": [
+      "Miller plane"
+    ],
+    "lessonArt": "assets/visual-library/103-learn.webp",
+    "quizArt": "assets/visual-library/103-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_grain_boundary",
+    "name": "Grain boundary schematic",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Molecules and lattices",
+    "definition": "Interface curve between misoriented crystals.",
+    "features": [
+      "Interface curve between misoriented crystals."
+    ],
+    "aliases": [
+      "Grain boundary schematic"
+    ],
+    "lessonArt": "assets/visual-library/104-learn.webp",
+    "quizArt": "assets/visual-library/104-quiz.webp",
+    "related": {
+      "academy": "geometry",
+      "chapter": "solids"
+    }
+  },
+  {
+    "id": "t3_phys_phase_unary",
+    "name": "Unary phase diagram",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "P\u2013T regions: solid / liquid / gas + triple & critical points.",
+    "features": [
+      "P\u2013T regions: solid / liquid / gas + triple & critical points."
+    ],
+    "aliases": [
+      "Unary phase diagram"
+    ],
+    "lessonArt": "assets/visual-library/105-learn.webp",
+    "quizArt": "assets/visual-library/105-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_phase_lens",
+    "name": "Binary lens (isomorphous)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Lens-shaped L+S region between liquidus & solidus.",
+    "features": [
+      "Lens-shaped L+S region between liquidus & solidus."
+    ],
+    "aliases": [
+      "Binary lens"
+    ],
+    "lessonArt": "assets/visual-library/106-learn.webp",
+    "quizArt": "assets/visual-library/106-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_phase_eutectic",
+    "name": "Eutectic phase diagram",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "V-shaped liquidus meeting at eutectic point.",
+    "features": [
+      "V-shaped liquidus meeting at eutectic point."
+    ],
+    "aliases": [
+      "Eutectic phase diagram"
+    ],
+    "lessonArt": "assets/visual-library/107-learn.webp",
+    "quizArt": "assets/visual-library/107-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_phase_peritectic",
+    "name": "Peritectic schematic",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Liquid + solid \u2192 new solid on cooling.",
+    "features": [
+      "Liquid + solid \u2192 new solid on cooling."
+    ],
+    "aliases": [
+      "Peritectic schematic"
+    ],
+    "lessonArt": "assets/visual-library/108-learn.webp",
+    "quizArt": "assets/visual-library/108-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_phase_ternary",
+    "name": "Ternary triangle",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Composition triangle with isotherm tie lines.",
+    "features": [
+      "Composition triangle with isotherm tie lines."
+    ],
+    "aliases": [
+      "Ternary triangle"
+    ],
+    "lessonArt": "assets/visual-library/109-learn.webp",
+    "quizArt": "assets/visual-library/109-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_gibbs_rule",
+    "name": "Gibbs phase rule cue",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Labeled F = C \u2212 P + 2 mnemonic card.",
+    "features": [
+      "Labeled F = C \u2212 P + 2 mnemonic card."
+    ],
+    "aliases": [
+      "Gibbs phase rule cue"
+    ],
+    "lessonArt": "assets/visual-library/110-learn.webp",
+    "quizArt": "assets/visual-library/110-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_cooling_curve",
+    "name": "Cooling curve step",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Temperature plateau during phase change.",
+    "features": [
+      "Temperature plateau during phase change."
+    ],
+    "aliases": [
+      "Cooling curve step"
+    ],
+    "lessonArt": "assets/visual-library/111-learn.webp",
+    "quizArt": "assets/visual-library/111-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_pv_isotherm",
+    "name": "P-V isotherms (van der Waals)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Loops / critical isotherm shape family.",
+    "features": [
+      "Loops / critical isotherm shape family."
+    ],
+    "aliases": [
+      "P-V isotherms"
+    ],
+    "lessonArt": "assets/visual-library/112-learn.webp",
+    "quizArt": "assets/visual-library/112-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_ts_diagram",
+    "name": "T-S diagram (Rankine-ish)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Closed process shape on temperature\u2013entropy axes.",
+    "features": [
+      "Closed process shape on temperature\u2013entropy axes."
+    ],
+    "aliases": [
+      "T-S diagram"
+    ],
+    "lessonArt": "assets/visual-library/113-learn.webp",
+    "quizArt": "assets/visual-library/113-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_psychrometric",
+    "name": "Psychrometric wedge",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Humidity chart region shapes (schematic).",
+    "features": [
+      "Humidity chart region shapes (schematic)."
+    ],
+    "aliases": [
+      "Psychrometric wedge"
+    ],
+    "lessonArt": "assets/visual-library/114-learn.webp",
+    "quizArt": "assets/visual-library/114-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_bubble_dew",
+    "name": "Bubble / dew point curves",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "VLE envelope for a binary mixture.",
+    "features": [
+      "VLE envelope for a binary mixture."
+    ],
+    "aliases": [
+      "Bubble / dew point curves"
+    ],
+    "lessonArt": "assets/visual-library/115-learn.webp",
+    "quizArt": "assets/visual-library/115-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_azeotrope",
+    "name": "Azeotrope pinch",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Min/max boiling where curves touch.",
+    "features": [
+      "Min/max boiling where curves touch."
+    ],
+    "aliases": [
+      "Azeotrope pinch"
+    ],
+    "lessonArt": "assets/visual-library/116-learn.webp",
+    "quizArt": "assets/visual-library/116-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_flash_drum",
+    "name": "Flash drum schematic shapes",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Vessel silhouette + V/L split arrows (shape focus).",
+    "features": [
+      "Vessel silhouette + V/L split arrows (shape focus)."
+    ],
+    "aliases": [
+      "Flash drum schematic shapes"
+    ],
+    "lessonArt": "assets/visual-library/117-learn.webp",
+    "quizArt": "assets/visual-library/117-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_packed_column",
+    "name": "Packed column section",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Cylindrical packing bed cross-shape.",
+    "features": [
+      "Cylindrical packing bed cross-shape."
+    ],
+    "aliases": [
+      "Packed column section"
+    ],
+    "lessonArt": "assets/visual-library/118-learn.webp",
+    "quizArt": "assets/visual-library/118-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_catalyst_pellet",
+    "name": "Catalyst pellet sphere/cylinder",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Phase diagrams and thermodynamics",
+    "definition": "Common pellet silhouettes for diffusion length.",
+    "features": [
+      "Common pellet silhouettes for diffusion length."
+    ],
+    "aliases": [
+      "Catalyst pellet sphere/cylinder"
+    ],
+    "lessonArt": "assets/visual-library/119-learn.webp",
+    "quizArt": "assets/visual-library/119-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "area"
+    }
+  },
+  {
+    "id": "t3_phys_spacetime_well",
+    "name": "Spacetime rubber-sheet well",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Mass as a dent; geodesics curve toward the well.",
+    "features": [
+      "Mass as a dent.",
+      "geodesics curve toward the well."
+    ],
+    "aliases": [
+      "Spacetime rubber-sheet well"
+    ],
+    "lessonArt": "assets/visual-library/120-learn.webp",
+    "quizArt": "assets/visual-library/120-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_event_horizon",
+    "name": "Event horizon circle",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Black-hole boundary: r = 2GM/c\u00b2 (schematic).",
+    "features": [
+      "Black-hole boundary: r = 2GM/c\u00b2 (schematic)."
+    ],
+    "aliases": [
+      "Event horizon circle"
+    ],
+    "lessonArt": "assets/visual-library/121-learn.webp",
+    "quizArt": "assets/visual-library/121-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_photon_sphere",
+    "name": "Photon sphere",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Unstable circular light orbit outside horizon.",
+    "features": [
+      "Unstable circular light orbit outside horizon."
+    ],
+    "aliases": [
+      "Photon sphere"
+    ],
+    "lessonArt": "assets/visual-library/122-learn.webp",
+    "quizArt": "assets/visual-library/122-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_geodesic",
+    "name": "Geodesic bend",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Straightest path on curved spacetime (bent ray).",
+    "features": [
+      "Straightest path on curved spacetime (bent ray)."
+    ],
+    "aliases": [
+      "Geodesic bend"
+    ],
+    "lessonArt": "assets/visual-library/123-learn.webp",
+    "quizArt": "assets/visual-library/123-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_orbit_ellipse",
+    "name": "Orbital ellipse (Kepler)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Bound orbit with sun at one focus.",
+    "features": [
+      "Bound orbit with sun at one focus."
+    ],
+    "aliases": [
+      "Orbital ellipse"
+    ],
+    "lessonArt": "assets/visual-library/124-learn.webp",
+    "quizArt": "assets/visual-library/124-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_orbit_hyperbola",
+    "name": "Orbital hyperbola (flyby)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Unbound gravity assist / escape trajectory.",
+    "features": [
+      "Unbound gravity assist / escape trajectory."
+    ],
+    "aliases": [
+      "Orbital hyperbola"
+    ],
+    "lessonArt": "assets/visual-library/125-learn.webp",
+    "quizArt": "assets/visual-library/125-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_orbit_parabola",
+    "name": "Orbital parabola (escape)",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Exactly escape-energy path.",
+    "features": [
+      "Exactly escape-energy path."
+    ],
+    "aliases": [
+      "Orbital parabola"
+    ],
+    "lessonArt": "assets/visual-library/126-learn.webp",
+    "quizArt": "assets/visual-library/126-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_roche_lobe",
+    "name": "Roche lobe figure-8",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Teardrop equipotentials meeting at L1.",
+    "features": [
+      "Teardrop equipotentials meeting at L1."
+    ],
+    "aliases": [
+      "Roche lobe figure-8"
+    ],
+    "lessonArt": "assets/visual-library/127-learn.webp",
+    "quizArt": "assets/visual-library/127-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_accretion_disk",
+    "name": "Accretion disk annulus",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Flattened rotating disk feeding a compact object.",
+    "features": [
+      "Flattened rotating disk feeding a compact object."
+    ],
+    "aliases": [
+      "Accretion disk annulus"
+    ],
+    "lessonArt": "assets/visual-library/128-learn.webp",
+    "quizArt": "assets/visual-library/128-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_bipolar_jet",
+    "name": "Jet bipolar lobes",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Collimated outflows along spin axis.",
+    "features": [
+      "Collimated outflows along spin axis."
+    ],
+    "aliases": [
+      "Jet bipolar lobes"
+    ],
+    "lessonArt": "assets/visual-library/129-learn.webp",
+    "quizArt": "assets/visual-library/129-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_light_cone",
+    "name": "Light cone",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Light cones separate causally reachable events from spacelike-separated events.",
+    "features": [
+      "Light cones separate causally reachable events from spacelike-separated events."
+    ],
+    "aliases": [
+      "Light cone"
+    ],
+    "lessonArt": "assets/visual-library/130-learn.webp",
+    "quizArt": "assets/visual-library/130-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_worldline",
+    "name": "Worldline",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Path of an object through spacetime diagram.",
+    "features": [
+      "Path of an object through spacetime diagram."
+    ],
+    "aliases": [
+      "Worldline"
+    ],
+    "lessonArt": "assets/visual-library/131-learn.webp",
+    "quizArt": "assets/visual-library/131-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_lens_arcs",
+    "name": "Gravitational lens arcs",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Background sources stretched into arcs.",
+    "features": [
+      "Background sources stretched into arcs."
+    ],
+    "aliases": [
+      "Gravitational lens arcs"
+    ],
+    "lessonArt": "assets/visual-library/132-learn.webp",
+    "quizArt": "assets/visual-library/132-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_einstein_ring",
+    "name": "Einstein ring",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Aligned lens forms a full ring image.",
+    "features": [
+      "Aligned lens forms a full ring image."
+    ],
+    "aliases": [
+      "Einstein ring"
+    ],
+    "lessonArt": "assets/visual-library/133-learn.webp",
+    "quizArt": "assets/visual-library/133-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_schwarzschild_flare",
+    "name": "Schwarzschild embedding",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Flared funnel embedding diagram (schematic).",
+    "features": [
+      "Flared funnel embedding diagram (schematic)."
+    ],
+    "aliases": [
+      "Schwarzschild embedding"
+    ],
+    "lessonArt": "assets/visual-library/134-learn.webp",
+    "quizArt": "assets/visual-library/134-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_pulsar_beam",
+    "name": "Pulsar lighthouse beam",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Conical beam sweep silhouette.",
+    "features": [
+      "Conical beam sweep silhouette."
+    ],
+    "aliases": [
+      "Pulsar lighthouse beam"
+    ],
+    "lessonArt": "assets/visual-library/135-learn.webp",
+    "quizArt": "assets/visual-library/135-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_planetary_rings",
+    "name": "Planetary ring system",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Concentric annular rings in plane.",
+    "features": [
+      "Concentric annular rings in plane."
+    ],
+    "aliases": [
+      "Planetary ring system"
+    ],
+    "lessonArt": "assets/visual-library/136-learn.webp",
+    "quizArt": "assets/visual-library/136-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_spiral_galaxy",
+    "name": "Galaxy spiral arms",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Logarithmic spiral arm shape.",
+    "features": [
+      "Logarithmic spiral arm shape."
+    ],
+    "aliases": [
+      "Galaxy spiral arms"
+    ],
+    "lessonArt": "assets/visual-library/137-learn.webp",
+    "quizArt": "assets/visual-library/137-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_elliptical_galaxy",
+    "name": "Galaxy elliptical",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Smooth ellipsoidal isophote shape.",
+    "features": [
+      "Smooth ellipsoidal isophote shape."
+    ],
+    "aliases": [
+      "Galaxy elliptical"
+    ],
+    "lessonArt": "assets/visual-library/138-learn.webp",
+    "quizArt": "assets/visual-library/138-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_hr_diagram",
+    "name": "HR diagram regions",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Astrophysics and spacetime",
+    "definition": "Main sequence band + giant / dwarf loci shapes.",
+    "features": [
+      "Main sequence band + giant / dwarf loci shapes."
+    ],
+    "aliases": [
+      "HR diagram regions"
+    ],
+    "lessonArt": "assets/visual-library/139-learn.webp",
+    "quizArt": "assets/visual-library/139-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "conics"
+    }
+  },
+  {
+    "id": "t3_phys_pendulum_arc",
+    "name": "Simple pendulum arc",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Circular arc path of a bob.",
+    "features": [
+      "Circular arc path of a bob."
+    ],
+    "aliases": [
+      "Simple pendulum arc"
+    ],
+    "lessonArt": "assets/visual-library/140-learn.webp",
+    "quizArt": "assets/visual-library/140-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_projectile",
+    "name": "Projectile parabola",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Trajectory under constant g (no drag).",
+    "features": [
+      "Trajectory under constant g (no drag)."
+    ],
+    "aliases": [
+      "Projectile parabola"
+    ],
+    "lessonArt": "assets/visual-library/141-learn.webp",
+    "quizArt": "assets/visual-library/141-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_standing_wave",
+    "name": "Standing wave nodes",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Envelope with fixed nodes and antinodes.",
+    "features": [
+      "Envelope with fixed nodes and antinodes."
+    ],
+    "aliases": [
+      "Standing wave nodes"
+    ],
+    "lessonArt": "assets/visual-library/142-learn.webp",
+    "quizArt": "assets/visual-library/142-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_beats",
+    "name": "Beats envelope",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Slow amplitude envelope from close frequencies.",
+    "features": [
+      "Slow amplitude envelope from close frequencies."
+    ],
+    "aliases": [
+      "Beats envelope"
+    ],
+    "lessonArt": "assets/visual-library/143-learn.webp",
+    "quizArt": "assets/visual-library/143-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_doubleslit",
+    "name": "Interference double-slit",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Fringe intensity pattern shape.",
+    "features": [
+      "Fringe intensity pattern shape."
+    ],
+    "aliases": [
+      "Interference double-slit"
+    ],
+    "lessonArt": "assets/visual-library/144-learn.webp",
+    "quizArt": "assets/visual-library/144-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_airy_disk",
+    "name": "Diffraction Airy disk",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Central bright disk + rings from circular aperture.",
+    "features": [
+      "Central bright disk + rings from circular aperture."
+    ],
+    "aliases": [
+      "Diffraction Airy disk"
+    ],
+    "lessonArt": "assets/visual-library/145-learn.webp",
+    "quizArt": "assets/visual-library/145-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_gaussian_beam",
+    "name": "Gaussian beam waist",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Hourglass intensity envelope of a laser mode.",
+    "features": [
+      "Hourglass intensity envelope of a laser mode."
+    ],
+    "aliases": [
+      "Gaussian beam waist"
+    ],
+    "lessonArt": "assets/visual-library/146-learn.webp",
+    "quizArt": "assets/visual-library/146-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_dipole_B",
+    "name": "Magnetic dipole field lines",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Classic looped field-line shape.",
+    "features": [
+      "Classic looped field-line shape."
+    ],
+    "aliases": [
+      "Magnetic dipole field lines"
+    ],
+    "lessonArt": "assets/visual-library/147-learn.webp",
+    "quizArt": "assets/visual-library/147-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_dipole_E",
+    "name": "Electric dipole field lines",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Source\u2192sink curves between \u00b1q.",
+    "features": [
+      "Source\u2192sink curves between \u00b1q."
+    ],
+    "aliases": [
+      "Electric dipole field lines"
+    ],
+    "lessonArt": "assets/visual-library/148-learn.webp",
+    "quizArt": "assets/visual-library/148-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_toroid",
+    "name": "Toroidal solenoid",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Doughnut winding; B confined inside.",
+    "features": [
+      "Doughnut winding.",
+      "B confined inside."
+    ],
+    "aliases": [
+      "Toroidal solenoid"
+    ],
+    "lessonArt": "assets/visual-library/149-learn.webp",
+    "quizArt": "assets/visual-library/149-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_helmholtz",
+    "name": "Helmholtz coil pair",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Two loops; uniform midplane field region.",
+    "features": [
+      "Two loops.",
+      "uniform midplane field region."
+    ],
+    "aliases": [
+      "Helmholtz coil pair"
+    ],
+    "lessonArt": "assets/visual-library/150-learn.webp",
+    "quizArt": "assets/visual-library/150-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_potential_well",
+    "name": "Potential well 1D",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "U(x) bowl shape with bound levels cue.",
+    "features": [
+      "U(x) bowl shape with bound levels cue."
+    ],
+    "aliases": [
+      "Potential well 1D"
+    ],
+    "lessonArt": "assets/visual-library/151-learn.webp",
+    "quizArt": "assets/visual-library/151-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_coulomb_barrier",
+    "name": "Coulomb barrier",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Repulsive peak then nuclear well.",
+    "features": [
+      "Repulsive peak then nuclear well."
+    ],
+    "aliases": [
+      "Coulomb barrier"
+    ],
+    "lessonArt": "assets/visual-library/152-learn.webp",
+    "quizArt": "assets/visual-library/152-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_maxwell_boltzmann",
+    "name": "Maxwell\u2013Boltzmann curve",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Speed distribution skewed peak shape.",
+    "features": [
+      "Speed distribution skewed peak shape."
+    ],
+    "aliases": [
+      "Maxwell\u2013Boltzmann curve"
+    ],
+    "lessonArt": "assets/visual-library/153-learn.webp",
+    "quizArt": "assets/visual-library/153-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t3_phys_planck_curve",
+    "name": "Blackbody Planck curve",
+    "domain": "phys",
+    "tier": "T3",
+    "family": "Core physical shapes",
+    "definition": "Spectral radiance hump shifting with T.",
+    "features": [
+      "Spectral radiance hump shifting with T."
+    ],
+    "aliases": [
+      "Blackbody Planck curve"
+    ],
+    "lessonArt": "assets/visual-library/154-learn.webp",
+    "quizArt": "assets/visual-library/154-quiz.webp",
+    "related": {
+      "academy": "calculus",
+      "chapter": "motion"
+    }
+  },
+  {
+    "id": "t4_ee_sine",
+    "name": "Sine wave",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Pure tone: v(t) = A sin(\u03c9t + \u03c6).",
+    "features": [
+      "Pure tone: v(t) = A sin(\u03c9t + \u03c6)."
+    ],
+    "aliases": [
+      "sinusoid",
+      "sine wave",
+      "Sine wave"
+    ],
+    "lessonArt": "assets/visual-library/155-learn.webp",
+    "quizArt": "assets/visual-library/155-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_cosine",
+    "name": "Cosine wave",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Sine phase-shifted by 90\u00b0.",
+    "features": [
+      "Sine phase-shifted by 90\u00b0."
+    ],
+    "aliases": [
+      "cosine wave",
+      "Cosine wave"
+    ],
+    "lessonArt": "assets/visual-library/156-learn.webp",
+    "quizArt": "assets/visual-library/156-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_square",
+    "name": "Square wave",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Two-level periodic; odd harmonics.",
+    "features": [
+      "Two-level periodic.",
+      "odd harmonics."
+    ],
+    "aliases": [
+      "Square wave"
+    ],
+    "lessonArt": "assets/visual-library/157-learn.webp",
+    "quizArt": "assets/visual-library/157-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_sawtooth",
+    "name": "Sawtooth wave",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Linear ramp + abrupt reset.",
+    "features": [
+      "Linear ramp + abrupt reset."
+    ],
+    "aliases": [
+      "Sawtooth wave"
+    ],
+    "lessonArt": "assets/visual-library/158-learn.webp",
+    "quizArt": "assets/visual-library/158-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_triangle",
+    "name": "Triangle wave",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Linear up/down; odd harmonics ~ 1/n\u00b2.",
+    "features": [
+      "Linear up/down.",
+      "odd harmonics ~ 1/n\u00b2."
+    ],
+    "aliases": [
+      "Triangle wave"
+    ],
+    "lessonArt": "assets/visual-library/159-learn.webp",
+    "quizArt": "assets/visual-library/159-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_full_rectified",
+    "name": "Rectified sine (full)",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "|sin| \u2014 all lobes positive.",
+    "features": [
+      "|sin| \u2014 all lobes positive."
+    ],
+    "aliases": [
+      "Rectified sine"
+    ],
+    "lessonArt": "assets/visual-library/160-learn.webp",
+    "quizArt": "assets/visual-library/160-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_half_rectified",
+    "name": "Half-wave rectified",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Negative halves clipped to zero.",
+    "features": [
+      "Negative halves clipped to zero."
+    ],
+    "aliases": [
+      "Half-wave rectified"
+    ],
+    "lessonArt": "assets/visual-library/161-learn.webp",
+    "quizArt": "assets/visual-library/161-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_pulse_train",
+    "name": "Pulse train",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Periodic rectangular pulses; duty cycle D.",
+    "features": [
+      "Periodic rectangular pulses.",
+      "duty cycle D."
+    ],
+    "aliases": [
+      "Pulse train"
+    ],
+    "lessonArt": "assets/visual-library/162-learn.webp",
+    "quizArt": "assets/visual-library/162-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_dirac_comb",
+    "name": "Impulse / Dirac comb visual",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Periodic impulses (arrows) sampling cue.",
+    "features": [
+      "Periodic impulses (arrows) sampling cue."
+    ],
+    "aliases": [
+      "dirac comb",
+      "impulse train",
+      "Impulse / Dirac comb visual"
+    ],
+    "lessonArt": "assets/visual-library/163-learn.webp",
+    "quizArt": "assets/visual-library/163-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_delta",
+    "name": "Unit impulse (delta)",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Unit-area spike at t=0 (schematic arrow).",
+    "features": [
+      "Unit-area spike at t=0 (schematic arrow)."
+    ],
+    "aliases": [
+      "dirac delta",
+      "unit impulse",
+      "delta function",
+      "Unit impulse"
+    ],
+    "lessonArt": "assets/visual-library/164-learn.webp",
+    "quizArt": "assets/visual-library/164-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_step",
+    "name": "Unit step",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "u(t): 0 for t<0, 1 for t\u22650.",
+    "features": [
+      "u(t): 0 for t<0, 1 for t\u22650."
+    ],
+    "aliases": [
+      "Unit step"
+    ],
+    "lessonArt": "assets/visual-library/165-learn.webp",
+    "quizArt": "assets/visual-library/165-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_ramp",
+    "name": "Ramp",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "r(t) = t\u00b7u(t).",
+    "features": [
+      "r(t) = t\u00b7u(t)."
+    ],
+    "aliases": [
+      "Ramp"
+    ],
+    "lessonArt": "assets/visual-library/166-learn.webp",
+    "quizArt": "assets/visual-library/166-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_exp_decay",
+    "name": "Exponential decay",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Ae^(\u2212t/\u03c4) for t\u22650.",
+    "features": [
+      "Ae^(\u2212t/\u03c4) for t\u22650."
+    ],
+    "aliases": [
+      "Exponential decay"
+    ],
+    "lessonArt": "assets/visual-library/167-learn.webp",
+    "quizArt": "assets/visual-library/167-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_exp_rise",
+    "name": "Exponential rise",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "A(1 \u2212 e^(\u2212t/\u03c4)).",
+    "features": [
+      "A(1 \u2212 e^(\u2212t/\u03c4))."
+    ],
+    "aliases": [
+      "Exponential rise"
+    ],
+    "lessonArt": "assets/visual-library/168-learn.webp",
+    "quizArt": "assets/visual-library/168-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_damped_sine",
+    "name": "Damped sinusoid",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Oscillation under exponential envelope.",
+    "features": [
+      "Oscillation under exponential envelope."
+    ],
+    "aliases": [
+      "damped sine wave",
+      "Damped sinusoid"
+    ],
+    "lessonArt": "assets/visual-library/169-learn.webp",
+    "quizArt": "assets/visual-library/169-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_chirp",
+    "name": "Chirp (linear FM)",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Frequency sweeps with time.",
+    "features": [
+      "Frequency sweeps with time."
+    ],
+    "aliases": [
+      "Chirp"
+    ],
+    "lessonArt": "assets/visual-library/170-learn.webp",
+    "quizArt": "assets/visual-library/170-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_sinc",
+    "name": "Sinc pulse",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "sin(x)/x; FT of a rect.",
+    "features": [
+      "sin(x)/x.",
+      "FT of a rect."
+    ],
+    "aliases": [
+      "Sinc pulse"
+    ],
+    "lessonArt": "assets/visual-library/171-learn.webp",
+    "quizArt": "assets/visual-library/171-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_gaussian",
+    "name": "Gaussian pulse",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Bell-shaped; self-Fourier.",
+    "features": [
+      "Bell-shaped.",
+      "self-Fourier."
+    ],
+    "aliases": [
+      "Gaussian pulse"
+    ],
+    "lessonArt": "assets/visual-library/172-learn.webp",
+    "quizArt": "assets/visual-library/172-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_raised_cosine",
+    "name": "Raised-cosine pulse",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "ISI-controlled eye-friendly pulse.",
+    "features": [
+      "ISI-controlled eye-friendly pulse."
+    ],
+    "aliases": [
+      "Raised-cosine pulse"
+    ],
+    "lessonArt": "assets/visual-library/173-learn.webp",
+    "quizArt": "assets/visual-library/173-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_nyquist_pulse",
+    "name": "Nyquist pulse",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Zero crossings at symbol periods.",
+    "features": [
+      "Zero crossings at symbol periods."
+    ],
+    "aliases": [
+      "Nyquist pulse"
+    ],
+    "lessonArt": "assets/visual-library/174-learn.webp",
+    "quizArt": "assets/visual-library/174-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_eye_diagram",
+    "name": "PRBS eye (schematic)",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Overlapped bits forming an \u201ceye\u201d opening.",
+    "features": [
+      "Overlapped bits forming an \u201ceye\u201d opening."
+    ],
+    "aliases": [
+      "PRBS eye"
+    ],
+    "lessonArt": "assets/visual-library/175-learn.webp",
+    "quizArt": "assets/visual-library/175-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_am",
+    "name": "AM envelope",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Carrier amplitude follows message.",
+    "features": [
+      "Carrier amplitude follows message."
+    ],
+    "aliases": [
+      "AM envelope"
+    ],
+    "lessonArt": "assets/visual-library/176-learn.webp",
+    "quizArt": "assets/visual-library/176-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_fm",
+    "name": "FM instantaneous",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Carrier frequency follows message.",
+    "features": [
+      "Carrier frequency follows message."
+    ],
+    "aliases": [
+      "FM instantaneous"
+    ],
+    "lessonArt": "assets/visual-library/177-learn.webp",
+    "quizArt": "assets/visual-library/177-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_pm",
+    "name": "PM phase steps",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Phase shifts encode symbols.",
+    "features": [
+      "Phase shifts encode symbols."
+    ],
+    "aliases": [
+      "PM phase steps"
+    ],
+    "lessonArt": "assets/visual-library/178-learn.webp",
+    "quizArt": "assets/visual-library/178-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_bpsk",
+    "name": "BPSK constellation",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Two antipodal points on I\u2013Q.",
+    "features": [
+      "Two antipodal points on I\u2013Q."
+    ],
+    "aliases": [
+      "bpsk",
+      "BPSK constellation"
+    ],
+    "lessonArt": "assets/visual-library/179-learn.webp",
+    "quizArt": "assets/visual-library/179-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_qpsk",
+    "name": "QPSK constellation",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Four phase points.",
+    "features": [
+      "Four phase points."
+    ],
+    "aliases": [
+      "qpsk",
+      "QPSK constellation"
+    ],
+    "lessonArt": "assets/visual-library/180-learn.webp",
+    "quizArt": "assets/visual-library/180-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_qam16",
+    "name": "16-QAM constellation",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Rectangular grid of amplitude/phase points.",
+    "features": [
+      "Rectangular grid of amplitude/phase points."
+    ],
+    "aliases": [
+      "16 qam",
+      "16-QAM constellation"
+    ],
+    "lessonArt": "assets/visual-library/181-learn.webp",
+    "quizArt": "assets/visual-library/181-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_ofdm",
+    "name": "OFDM brick wall (schematic)",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Orthogonal subcarrier sinc packing.",
+    "features": [
+      "Orthogonal subcarrier sinc packing."
+    ],
+    "aliases": [
+      "OFDM brick wall"
+    ],
+    "lessonArt": "assets/visual-library/182-learn.webp",
+    "quizArt": "assets/visual-library/182-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_awgn",
+    "name": "Noise AWGN trace",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "Random jagged time trace.",
+    "features": [
+      "Random jagged time trace."
+    ],
+    "aliases": [
+      "Noise AWGN trace"
+    ],
+    "lessonArt": "assets/visual-library/183-learn.webp",
+    "quizArt": "assets/visual-library/183-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_pink_noise",
+    "name": "Pink noise spectrum slope",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Waveforms and pulses",
+    "definition": "1/f spectral shape cue.",
+    "features": [
+      "1/f spectral shape cue."
+    ],
+    "aliases": [
+      "Pink noise spectrum slope"
+    ],
+    "lessonArt": "assets/visual-library/184-learn.webp",
+    "quizArt": "assets/visual-library/184-quiz.webp",
+    "related": {
+      "academy": "trig",
+      "chapter": "graphs"
+    }
+  },
+  {
+    "id": "t4_ee_rect_spectrum",
+    "name": "Rect spectrum",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Ideal bandlimited brick-wall spectrum.",
+    "features": [
+      "Ideal bandlimited brick-wall spectrum."
+    ],
+    "aliases": [
+      "Rect spectrum"
+    ],
+    "lessonArt": "assets/visual-library/185-learn.webp",
+    "quizArt": "assets/visual-library/185-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_tri_spectrum",
+    "name": "Triangular spectrum",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "FT of a sinc\u00b2-type pulse family.",
+    "features": [
+      "FT of a sinc\u00b2-type pulse family."
+    ],
+    "aliases": [
+      "Triangular spectrum"
+    ],
+    "lessonArt": "assets/visual-library/186-learn.webp",
+    "quizArt": "assets/visual-library/186-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_bode_lp",
+    "name": "Low-pass Bode magnitude",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Flat then \u221220 dB/dec roll-off.",
+    "features": [
+      "Flat then \u221220 dB/dec roll-off."
+    ],
+    "aliases": [
+      "Low-pass Bode magnitude"
+    ],
+    "lessonArt": "assets/visual-library/187-learn.webp",
+    "quizArt": "assets/visual-library/187-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_bode_hp",
+    "name": "High-pass Bode",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Rising then flat passband.",
+    "features": [
+      "Rising then flat passband."
+    ],
+    "aliases": [
+      "High-pass Bode"
+    ],
+    "lessonArt": "assets/visual-library/188-learn.webp",
+    "quizArt": "assets/visual-library/188-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_bode_bp",
+    "name": "Band-pass Bode",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Peak between two cutoffs.",
+    "features": [
+      "Peak between two cutoffs."
+    ],
+    "aliases": [
+      "Band-pass Bode"
+    ],
+    "lessonArt": "assets/visual-library/189-learn.webp",
+    "quizArt": "assets/visual-library/189-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_bode_notch",
+    "name": "Band-stop / notch",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Deep dip at notch frequency.",
+    "features": [
+      "Deep dip at notch frequency."
+    ],
+    "aliases": [
+      "Band-stop / notch"
+    ],
+    "lessonArt": "assets/visual-library/190-learn.webp",
+    "quizArt": "assets/visual-library/190-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_butterworth",
+    "name": "Butterworth flat",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Maximally flat passband shape.",
+    "features": [
+      "Maximally flat passband shape."
+    ],
+    "aliases": [
+      "Butterworth flat"
+    ],
+    "lessonArt": "assets/visual-library/191-learn.webp",
+    "quizArt": "assets/visual-library/191-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_chebyshev",
+    "name": "Chebyshev ripple",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Equiripple passband.",
+    "features": [
+      "Equiripple passband."
+    ],
+    "aliases": [
+      "Chebyshev ripple"
+    ],
+    "lessonArt": "assets/visual-library/192-learn.webp",
+    "quizArt": "assets/visual-library/192-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_elliptic_filter",
+    "name": "Elliptic filter",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Ripple in pass and stop; steep transition.",
+    "features": [
+      "Ripple in pass and stop.",
+      "steep transition."
+    ],
+    "aliases": [
+      "Elliptic filter"
+    ],
+    "lessonArt": "assets/visual-library/193-learn.webp",
+    "quizArt": "assets/visual-library/193-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_rc_step",
+    "name": "RC step response",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Exponential approach to final value.",
+    "features": [
+      "Exponential approach to final value."
+    ],
+    "aliases": [
+      "RC step response"
+    ],
+    "lessonArt": "assets/visual-library/194-learn.webp",
+    "quizArt": "assets/visual-library/194-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_rlc_under",
+    "name": "RLC underdamped ring",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Decaying oscillation.",
+    "features": [
+      "Decaying oscillation."
+    ],
+    "aliases": [
+      "RLC underdamped ring"
+    ],
+    "lessonArt": "assets/visual-library/195-learn.webp",
+    "quizArt": "assets/visual-library/195-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_rlc_over",
+    "name": "RLC overdamped",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Slow non-oscillatory return.",
+    "features": [
+      "Slow non-oscillatory return."
+    ],
+    "aliases": [
+      "RLC overdamped"
+    ],
+    "lessonArt": "assets/visual-library/196-learn.webp",
+    "quizArt": "assets/visual-library/196-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_rlc_crit",
+    "name": "RLC critically damped",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Fastest non-ringing return.",
+    "features": [
+      "Fastest non-ringing return."
+    ],
+    "aliases": [
+      "RLC critically damped"
+    ],
+    "lessonArt": "assets/visual-library/197-learn.webp",
+    "quizArt": "assets/visual-library/197-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_s_plane",
+    "name": "S-plane poles zeros",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "\u00d7 poles, \u25cb zeros on complex plane.",
+    "features": [
+      "\u00d7 poles, \u25cb zeros on complex plane."
+    ],
+    "aliases": [
+      "S-plane poles zeros"
+    ],
+    "lessonArt": "assets/visual-library/198-learn.webp",
+    "quizArt": "assets/visual-library/198-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_root_locus",
+    "name": "Root locus branches",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Pole paths vs gain.",
+    "features": [
+      "Pole paths vs gain."
+    ],
+    "aliases": [
+      "Root locus branches"
+    ],
+    "lessonArt": "assets/visual-library/199-learn.webp",
+    "quizArt": "assets/visual-library/199-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_nyquist_plot",
+    "name": "Nyquist plot loop",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Polar frequency-response curve.",
+    "features": [
+      "Polar frequency-response curve."
+    ],
+    "aliases": [
+      "Nyquist plot loop"
+    ],
+    "lessonArt": "assets/visual-library/200-learn.webp",
+    "quizArt": "assets/visual-library/200-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_nichols",
+    "name": "Nichols chart fragment",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "dB vs phase grid fragment.",
+    "features": [
+      "dB vs phase grid fragment."
+    ],
+    "aliases": [
+      "Nichols chart fragment"
+    ],
+    "lessonArt": "assets/visual-library/201-learn.webp",
+    "quizArt": "assets/visual-library/201-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_smith_chart",
+    "name": "Smith chart fragment",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "Impedance circles on reflection-coefficient plane.",
+    "features": [
+      "Impedance circles on reflection-coefficient plane."
+    ],
+    "aliases": [
+      "smith chart",
+      "Smith chart fragment"
+    ],
+    "lessonArt": "assets/visual-library/202-learn.webp",
+    "quizArt": "assets/visual-library/202-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_vswr",
+    "name": "VSWR standing wave",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "|V| envelope along a mismatched line.",
+    "features": [
+      "|V| envelope along a mismatched line."
+    ],
+    "aliases": [
+      "VSWR standing wave"
+    ],
+    "lessonArt": "assets/visual-library/203-learn.webp",
+    "quizArt": "assets/visual-library/203-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_gamma",
+    "name": "Reflection coefficient arrow",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Spectra and filters",
+    "definition": "\u0393 vector on Smith / polar plane.",
+    "features": [
+      "\u0393 vector on Smith / polar plane."
+    ],
+    "aliases": [
+      "Reflection coefficient arrow"
+    ],
+    "lessonArt": "assets/visual-library/204-learn.webp",
+    "quizArt": "assets/visual-library/204-quiz.webp",
+    "related": {
+      "academy": "precalc",
+      "chapter": "explog"
+    }
+  },
+  {
+    "id": "t4_ee_dipole_pattern",
+    "name": "Dipole antenna figure-8",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "A vertical dipole has a figure-eight elevation pattern and circular azimuth pattern.",
+    "features": [
+      "A vertical dipole has a figure-eight elevation pattern and circular azimuth pattern."
+    ],
+    "aliases": [
+      "Dipole antenna figure-8"
+    ],
+    "lessonArt": "assets/visual-library/205-learn.webp",
+    "quizArt": "assets/visual-library/205-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_monopole_pattern",
+    "name": "Monopole hemisphere pattern",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "A monopole above an ideal ground plane radiates the upper half of a dipole pattern.",
+    "features": [
+      "A monopole above an ideal ground plane radiates the upper half of a dipole pattern."
+    ],
+    "aliases": [
+      "Monopole hemisphere pattern"
+    ],
+    "lessonArt": "assets/visual-library/206-learn.webp",
+    "quizArt": "assets/visual-library/206-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_isotropic",
+    "name": "Isotropic sphere pattern",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Ideal equal radiation in all directions.",
+    "features": [
+      "Ideal equal radiation in all directions."
+    ],
+    "aliases": [
+      "Isotropic sphere pattern"
+    ],
+    "lessonArt": "assets/visual-library/207-learn.webp",
+    "quizArt": "assets/visual-library/207-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_cardioid",
+    "name": "Cardioid mic / antenna",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Heart-shaped unidirectional pattern.",
+    "features": [
+      "Heart-shaped unidirectional pattern."
+    ],
+    "aliases": [
+      "Cardioid mic / antenna"
+    ],
+    "lessonArt": "assets/visual-library/208-learn.webp",
+    "quizArt": "assets/visual-library/208-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_endfire",
+    "name": "Endfire array lobe",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Main beam along array axis.",
+    "features": [
+      "Main beam along array axis."
+    ],
+    "aliases": [
+      "Endfire array lobe"
+    ],
+    "lessonArt": "assets/visual-library/209-learn.webp",
+    "quizArt": "assets/visual-library/209-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_broadside",
+    "name": "Broadside array lobe",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Main beam perpendicular to array.",
+    "features": [
+      "Main beam perpendicular to array."
+    ],
+    "aliases": [
+      "Broadside array lobe"
+    ],
+    "lessonArt": "assets/visual-library/210-learn.webp",
+    "quizArt": "assets/visual-library/210-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_phased_array",
+    "name": "Phased-array steered beam",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Main lobe steered off broadside.",
+    "features": [
+      "Main lobe steered off broadside."
+    ],
+    "aliases": [
+      "Phased-array steered beam"
+    ],
+    "lessonArt": "assets/visual-library/211-learn.webp",
+    "quizArt": "assets/visual-library/211-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_sidelobes",
+    "name": "Sidelobes & nulls",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Secondary lobes with labeled nulls.",
+    "features": [
+      "Secondary lobes with labeled nulls."
+    ],
+    "aliases": [
+      "Sidelobes & nulls"
+    ],
+    "lessonArt": "assets/visual-library/212-learn.webp",
+    "quizArt": "assets/visual-library/212-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_horn",
+    "name": "Horn antenna flare",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Flared waveguide aperture silhouette.",
+    "features": [
+      "Flared waveguide aperture silhouette."
+    ],
+    "aliases": [
+      "Horn antenna flare"
+    ],
+    "lessonArt": "assets/visual-library/213-learn.webp",
+    "quizArt": "assets/visual-library/213-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_parabolic_dish",
+    "name": "Parabolic dish reflector",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Paraboloid focusing to feed.",
+    "features": [
+      "Paraboloid focusing to feed."
+    ],
+    "aliases": [
+      "Parabolic dish reflector"
+    ],
+    "lessonArt": "assets/visual-library/214-learn.webp",
+    "quizArt": "assets/visual-library/214-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_patch",
+    "name": "Patch antenna rectangle",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Microstrip patch + ground silhouette.",
+    "features": [
+      "Microstrip patch + ground silhouette."
+    ],
+    "aliases": [
+      "Patch antenna rectangle"
+    ],
+    "lessonArt": "assets/visual-library/215-learn.webp",
+    "quizArt": "assets/visual-library/215-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_loop_antenna",
+    "name": "Loop antenna",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Circular/square loop radiator.",
+    "features": [
+      "Circular/square loop radiator."
+    ],
+    "aliases": [
+      "Loop antenna"
+    ],
+    "lessonArt": "assets/visual-library/216-learn.webp",
+    "quizArt": "assets/visual-library/216-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_yagi",
+    "name": "Yagi-Uda elements",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Driven + reflector + directors line.",
+    "features": [
+      "Driven + reflector + directors line."
+    ],
+    "aliases": [
+      "yagi",
+      "yagi uda antenna",
+      "Yagi-Uda elements"
+    ],
+    "lessonArt": "assets/visual-library/217-learn.webp",
+    "quizArt": "assets/visual-library/217-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_helix",
+    "name": "Helical antenna",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Screw-like radiating helix.",
+    "features": [
+      "Screw-like radiating helix."
+    ],
+    "aliases": [
+      "Helical antenna"
+    ],
+    "lessonArt": "assets/visual-library/218-learn.webp",
+    "quizArt": "assets/visual-library/218-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_toroid_core",
+    "name": "Toroidal inductor core",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Closed magnetic path doughnut.",
+    "features": [
+      "Closed magnetic path doughnut."
+    ],
+    "aliases": [
+      "Toroidal inductor core"
+    ],
+    "lessonArt": "assets/visual-library/219-learn.webp",
+    "quizArt": "assets/visual-library/219-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_solenoid",
+    "name": "Solenoid field lines",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Uniform interior B; exterior weak.",
+    "features": [
+      "Uniform interior B.",
+      "exterior weak."
+    ],
+    "aliases": [
+      "Solenoid field lines"
+    ],
+    "lessonArt": "assets/visual-library/220-learn.webp",
+    "quizArt": "assets/visual-library/220-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_flux_loop",
+    "name": "Flux loop / linkage",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Closed B-line linking a turn.",
+    "features": [
+      "Closed B-line linking a turn."
+    ],
+    "aliases": [
+      "Flux loop / linkage"
+    ],
+    "lessonArt": "assets/visual-library/221-learn.webp",
+    "quizArt": "assets/visual-library/221-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_transformer_core",
+    "name": "Transformer core window",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "E-I or toroid core shape with windings cue.",
+    "features": [
+      "E-I or toroid core shape with windings cue."
+    ],
+    "aliases": [
+      "Transformer core window"
+    ],
+    "lessonArt": "assets/visual-library/222-learn.webp",
+    "quizArt": "assets/visual-library/222-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_poynting",
+    "name": "Poynting vector flow",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Energy-flux arrows in a TEM sketch.",
+    "features": [
+      "Energy-flux arrows in a TEM sketch."
+    ],
+    "aliases": [
+      "Poynting vector flow"
+    ],
+    "lessonArt": "assets/visual-library/223-learn.webp",
+    "quizArt": "assets/visual-library/223-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_te10",
+    "name": "Waveguide TE10 field",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Half-sine E across broad wall.",
+    "features": [
+      "Half-sine E across broad wall."
+    ],
+    "aliases": [
+      "Waveguide TE10 field"
+    ],
+    "lessonArt": "assets/visual-library/224-learn.webp",
+    "quizArt": "assets/visual-library/224-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_coax_tem",
+    "name": "Coax TEM fields",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Radial E, circling H between conductors.",
+    "features": [
+      "Radial E, circling H between conductors."
+    ],
+    "aliases": [
+      "Coax TEM fields"
+    ],
+    "lessonArt": "assets/visual-library/225-learn.webp",
+    "quizArt": "assets/visual-library/225-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_twin_lead",
+    "name": "Twin-lead fields",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Field loops between two wires.",
+    "features": [
+      "Field loops between two wires."
+    ],
+    "aliases": [
+      "Twin-lead fields"
+    ],
+    "lessonArt": "assets/visual-library/226-learn.webp",
+    "quizArt": "assets/visual-library/226-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_microstrip",
+    "name": "Microstrip fields",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "E lines strip\u2192ground through substrate.",
+    "features": [
+      "E lines strip\u2192ground through substrate."
+    ],
+    "aliases": [
+      "Microstrip fields"
+    ],
+    "lessonArt": "assets/visual-library/227-learn.webp",
+    "quizArt": "assets/visual-library/227-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_stripline",
+    "name": "Stripline fields",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Strip centered between grounds.",
+    "features": [
+      "Strip centered between grounds."
+    ],
+    "aliases": [
+      "Stripline fields"
+    ],
+    "lessonArt": "assets/visual-library/228-learn.webp",
+    "quizArt": "assets/visual-library/228-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_near_field",
+    "name": "Near-field reactive zone",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Antennas and fields",
+    "definition": "Spherical zone radii: reactive / Fresnel / far.",
+    "features": [
+      "Spherical zone radii: reactive / Fresnel / far."
+    ],
+    "aliases": [
+      "Near-field reactive zone"
+    ],
+    "lessonArt": "assets/visual-library/229-learn.webp",
+    "quizArt": "assets/visual-library/229-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_clock_jitter",
+    "name": "Clock square + jitter",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Edges with timing uncertainty band.",
+    "features": [
+      "Edges with timing uncertainty band."
+    ],
+    "aliases": [
+      "Clock square + jitter"
+    ],
+    "lessonArt": "assets/visual-library/230-learn.webp",
+    "quizArt": "assets/visual-library/230-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_nrz",
+    "name": "NRZ data stream",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Non-return-to-zero bit levels.",
+    "features": [
+      "Non-return-to-zero bit levels."
+    ],
+    "aliases": [
+      "NRZ data stream"
+    ],
+    "lessonArt": "assets/visual-library/231-learn.webp",
+    "quizArt": "assets/visual-library/231-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_manchester",
+    "name": "Manchester coding",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Mid-bit transition coding shape.",
+    "features": [
+      "Mid-bit transition coding shape."
+    ],
+    "aliases": [
+      "Manchester coding"
+    ],
+    "lessonArt": "assets/visual-library/232-learn.webp",
+    "quizArt": "assets/visual-library/232-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_pwm",
+    "name": "PWM duty sweep",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Pulse width varies; period fixed.",
+    "features": [
+      "Pulse width varies.",
+      "period fixed."
+    ],
+    "aliases": [
+      "PWM duty sweep"
+    ],
+    "lessonArt": "assets/visual-library/233-learn.webp",
+    "quizArt": "assets/visual-library/233-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_buck_il",
+    "name": "Buck inductor triangle current",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Triangular inductor current ripple.",
+    "features": [
+      "Triangular inductor current ripple."
+    ],
+    "aliases": [
+      "Buck inductor triangle current"
+    ],
+    "lessonArt": "assets/visual-library/234-learn.webp",
+    "quizArt": "assets/visual-library/234-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_boost_sw",
+    "name": "Boost switch node",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Pulsed switch-node waveform.",
+    "features": [
+      "Pulsed switch-node waveform."
+    ],
+    "aliases": [
+      "Boost switch node"
+    ],
+    "lessonArt": "assets/visual-library/235-learn.webp",
+    "quizArt": "assets/visual-library/235-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_spwm",
+    "name": "Sinusoidal PWM bridge",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Carrier triangle vs sine comparators.",
+    "features": [
+      "Carrier triangle vs sine comparators."
+    ],
+    "aliases": [
+      "Sinusoidal PWM bridge"
+    ],
+    "lessonArt": "assets/visual-library/236-learn.webp",
+    "quizArt": "assets/visual-library/236-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_three_phase",
+    "name": "Three-phase set",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "120\u00b0-shifted sine trio.",
+    "features": [
+      "120\u00b0-shifted sine trio."
+    ],
+    "aliases": [
+      "Three-phase set"
+    ],
+    "lessonArt": "assets/visual-library/237-learn.webp",
+    "quizArt": "assets/visual-library/237-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_svpwm_hex",
+    "name": "Space-vector hexagon",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Hexagon of inverter voltage vectors.",
+    "features": [
+      "Hexagon of inverter voltage vectors."
+    ],
+    "aliases": [
+      "Space-vector hexagon"
+    ],
+    "lessonArt": "assets/visual-library/238-learn.webp",
+    "quizArt": "assets/visual-library/238-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_phasor",
+    "name": "Phasor arrow",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Rotating complex amplitude arrow.",
+    "features": [
+      "Rotating complex amplitude arrow."
+    ],
+    "aliases": [
+      "Phasor arrow"
+    ],
+    "lessonArt": "assets/visual-library/239-learn.webp",
+    "quizArt": "assets/visual-library/239-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_power_triangle",
+    "name": "Power triangle",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "P\u2013Q\u2013S right triangle.",
+    "features": [
+      "P\u2013Q\u2013S right triangle."
+    ],
+    "aliases": [
+      "Power triangle"
+    ],
+    "lessonArt": "assets/visual-library/240-learn.webp",
+    "quizArt": "assets/visual-library/240-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_bh_loop",
+    "name": "Hysteresis B\u2013H loop",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Magnetic hysteresis loop shape.",
+    "features": [
+      "Magnetic hysteresis loop shape."
+    ],
+    "aliases": [
+      "Hysteresis B\u2013H loop"
+    ],
+    "lessonArt": "assets/visual-library/241-learn.webp",
+    "quizArt": "assets/visual-library/241-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_diode_iv",
+    "name": "Diode I\u2013V curve",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Exponential forward knee shape.",
+    "features": [
+      "Exponential forward knee shape."
+    ],
+    "aliases": [
+      "Diode I\u2013V curve"
+    ],
+    "lessonArt": "assets/visual-library/242-learn.webp",
+    "quizArt": "assets/visual-library/242-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_mosfet_family",
+    "name": "MOSFET Id\u2013Vds family",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Triode + saturation regions.",
+    "features": [
+      "Triode + saturation regions."
+    ],
+    "aliases": [
+      "MOSFET Id\u2013Vds family"
+    ],
+    "lessonArt": "assets/visual-library/243-learn.webp",
+    "quizArt": "assets/visual-library/243-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_opamp_bode",
+    "name": "Op-amp open-loop Bode",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "High gain then single-pole roll-off.",
+    "features": [
+      "High gain then single-pole roll-off."
+    ],
+    "aliases": [
+      "Op-amp open-loop Bode"
+    ],
+    "lessonArt": "assets/visual-library/244-learn.webp",
+    "quizArt": "assets/visual-library/244-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_schmitt",
+    "name": "Schmitt trigger loop",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Input\u2013output hysteresis rectangle.",
+    "features": [
+      "Input\u2013output hysteresis rectangle."
+    ],
+    "aliases": [
+      "Schmitt trigger loop"
+    ],
+    "lessonArt": "assets/visual-library/245-learn.webp",
+    "quizArt": "assets/visual-library/245-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_pll",
+    "name": "PLL lock range cue",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "VCO vs phase-error block shapes.",
+    "features": [
+      "VCO vs phase-error block shapes."
+    ],
+    "aliases": [
+      "PLL lock range cue"
+    ],
+    "lessonArt": "assets/visual-library/246-learn.webp",
+    "quizArt": "assets/visual-library/246-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_fft_bins",
+    "name": "FFT bin stems",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Discrete spectral lines.",
+    "features": [
+      "Discrete spectral lines."
+    ],
+    "aliases": [
+      "FFT bin stems"
+    ],
+    "lessonArt": "assets/visual-library/247-learn.webp",
+    "quizArt": "assets/visual-library/247-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_hann",
+    "name": "Window Hann shape",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Raised-cosine time window.",
+    "features": [
+      "Raised-cosine time window."
+    ],
+    "aliases": [
+      "Window Hann shape"
+    ],
+    "lessonArt": "assets/visual-library/248-learn.webp",
+    "quizArt": "assets/visual-library/248-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_spectrogram",
+    "name": "Spectrogram waterfall",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Time\u2013frequency intensity map (schematic).",
+    "features": [
+      "Time\u2013frequency intensity map (schematic)."
+    ],
+    "aliases": [
+      "Spectrogram waterfall"
+    ],
+    "lessonArt": "assets/visual-library/249-learn.webp",
+    "quizArt": "assets/visual-library/249-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_iq_circle",
+    "name": "IQ circle (constant envelope)",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "|s| constant on I\u2013Q plane.",
+    "features": [
+      "|s| constant on I\u2013Q plane."
+    ],
+    "aliases": [
+      "IQ circle"
+    ],
+    "lessonArt": "assets/visual-library/250-learn.webp",
+    "quizArt": "assets/visual-library/250-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_adc_stairs",
+    "name": "ADC quantization staircase",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Stair transfer curve.",
+    "features": [
+      "Stair transfer curve."
+    ],
+    "aliases": [
+      "ADC quantization staircase"
+    ],
+    "lessonArt": "assets/visual-library/251-learn.webp",
+    "quizArt": "assets/visual-library/251-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_sah",
+    "name": "Sample-and-hold flat tops",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Held levels between samples.",
+    "features": [
+      "Held levels between samples."
+    ],
+    "aliases": [
+      "Sample-and-hold flat tops"
+    ],
+    "lessonArt": "assets/visual-library/252-learn.webp",
+    "quizArt": "assets/visual-library/252-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_aliasing",
+    "name": "Aliasing fold schematic",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Spectrum folding about Nyquist.",
+    "features": [
+      "Spectrum folding about Nyquist."
+    ],
+    "aliases": [
+      "Aliasing fold schematic"
+    ],
+    "lessonArt": "assets/visual-library/253-learn.webp",
+    "quizArt": "assets/visual-library/253-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_matched_filter",
+    "name": "Matched filter peak",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Autocorrelation peak at alignment.",
+    "features": [
+      "Autocorrelation peak at alignment."
+    ],
+    "aliases": [
+      "Matched filter peak"
+    ],
+    "lessonArt": "assets/visual-library/254-learn.webp",
+    "quizArt": "assets/visual-library/254-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_radar_sinc",
+    "name": "Radar range sinc",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Compressed pulse main lobe + sidelobes.",
+    "features": [
+      "Compressed pulse main lobe + sidelobes."
+    ],
+    "aliases": [
+      "Radar range sinc"
+    ],
+    "lessonArt": "assets/visual-library/255-learn.webp",
+    "quizArt": "assets/visual-library/255-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_circ_pol",
+    "name": "Circular polarization helix cue",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Rotating E vector helix schematic.",
+    "features": [
+      "Rotating E vector helix schematic."
+    ],
+    "aliases": [
+      "Circular polarization helix cue"
+    ],
+    "lessonArt": "assets/visual-library/256-learn.webp",
+    "quizArt": "assets/visual-library/256-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_ellip_pol",
+    "name": "Elliptical polarization",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "E-vector ellipse tip path.",
+    "features": [
+      "E-vector ellipse tip path."
+    ],
+    "aliases": [
+      "Elliptical polarization"
+    ],
+    "lessonArt": "assets/visual-library/257-learn.webp",
+    "quizArt": "assets/visual-library/257-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_brewster",
+    "name": "Brewster angle sketch",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Reflection zero for p-pol at \u03b8_B.",
+    "features": [
+      "Reflection zero for p-pol at \u03b8_B."
+    ],
+    "aliases": [
+      "Brewster angle sketch"
+    ],
+    "lessonArt": "assets/visual-library/258-learn.webp",
+    "quizArt": "assets/visual-library/258-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_fresnel",
+    "name": "Fresnel coefficients curves",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "|\u0393| vs angle for s/p.",
+    "features": [
+      "|\u0393| vs angle for s/p."
+    ],
+    "aliases": [
+      "Fresnel coefficients curves"
+    ],
+    "lessonArt": "assets/visual-library/259-learn.webp",
+    "quizArt": "assets/visual-library/259-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_skin_depth",
+    "name": "Skin-depth exponential",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "|J| decays into conductor.",
+    "features": [
+      "|J| decays into conductor."
+    ],
+    "aliases": [
+      "Skin-depth exponential"
+    ],
+    "lessonArt": "assets/visual-library/260-learn.webp",
+    "quizArt": "assets/visual-library/260-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_gain_polar",
+    "name": "Antenna gain dBi polar",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Polar plot in dBi.",
+    "features": [
+      "Polar plot in dBi."
+    ],
+    "aliases": [
+      "Antenna gain dBi polar"
+    ],
+    "lessonArt": "assets/visual-library/261-learn.webp",
+    "quizArt": "assets/visual-library/261-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_link_budget",
+    "name": "Link budget arrow chain",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Gain/loss blocks as shape flow (minimal).",
+    "features": [
+      "Gain/loss blocks as shape flow (minimal)."
+    ],
+    "aliases": [
+      "Link budget arrow chain"
+    ],
+    "lessonArt": "assets/visual-library/262-learn.webp",
+    "quizArt": "assets/visual-library/262-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_eye_mask",
+    "name": "Eye mask template",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Forbidden polygon inside an eye.",
+    "features": [
+      "Forbidden polygon inside an eye."
+    ],
+    "aliases": [
+      "Eye mask template"
+    ],
+    "lessonArt": "assets/visual-library/263-learn.webp",
+    "quizArt": "assets/visual-library/263-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  },
+  {
+    "id": "t4_ee_constellation_noise",
+    "name": "Constellation with noise cloud",
+    "domain": "ee",
+    "tier": "T4",
+    "family": "Digital, control, and power",
+    "definition": "Symbol points smeared by AWGN clouds.",
+    "features": [
+      "Symbol points smeared by AWGN clouds."
+    ],
+    "aliases": [
+      "Constellation with noise cloud"
+    ],
+    "lessonArt": "assets/visual-library/264-learn.webp",
+    "quizArt": "assets/visual-library/264-quiz.webp",
+    "related": {
+      "academy": "linalg",
+      "chapter": "vectors"
+    }
+  }
+]

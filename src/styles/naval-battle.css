@@ -1,0 +1,98 @@
+.naval-screen { --navy: #081c28; --sea-line: #36515c; --signal: #ffc16e; color: #e9f3f5; background: #081c28; height: 100%; min-height: 0; overflow: auto; font-family: var(--font-body, system-ui, sans-serif); }
+.naval-header { display: flex; align-items: center; gap: 16px; padding: 12px 22px; border-bottom: 1px solid #36515c; }
+.naval-header > div:first-child { flex: 1; min-width: 0; }
+.naval-header h2 { margin: 2px 0 0; color: #f6ead5; font: 800 clamp(20px, 3vw, 28px)/1.1 system-ui, sans-serif; letter-spacing: .045em; }
+.naval-overline { font: 700 11px/1.4 system-ui, sans-serif; letter-spacing: .14em; color: #a8c6d2; }
+.naval-clock { font: 750 38px/1 system-ui, sans-serif; color: #ffc16e; font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 5px; }
+.naval-clock small { font-size: 10px; color: #a8c6d2; }
+.naval-clock.urgent { color: #ff927c; }
+.naval-time-track { height: 3px; background: #1e3743; }
+.naval-time-track i { display: block; height: 100%; background: #ffc16e; transition: width .1s linear; }
+.naval-combat-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(290px, 1fr); gap: 18px; max-width: 1400px; margin: auto; padding: 18px 22px; align-items: start; }
+.naval-battle { min-width: 0; border: 1px solid #36515c; border-radius: 14px; overflow: hidden; background: #0d2430; }
+.naval-scene-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 14px; height: 40px; font: 700 10px/1 system-ui, sans-serif; letter-spacing: .12em; color: #b5d0d9; background: #102b38; }
+.naval-scene-toolbar button, .naval-console-tools button { color: #d5e9ef; background: transparent; border: none; font: inherit; cursor: pointer; padding: 12px 4px; text-decoration: underline; text-underline-offset: 3px; }
+.naval-waterline { height: clamp(230px, 42vh, 420px); position: relative; background: #112735; overflow: hidden; }
+.naval-renderer, .naval-canvas, .naval-canvas canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.naval-battle:not(.naval-ready) .naval-renderer { visibility: hidden; }
+.ship-label { position: absolute; pointer-events: none; transform: translate(-50%, -100%); min-width: 62px; max-width: 105px; padding: 4px 7px; background: #071b29db; border: 1px solid #6b8a9699; border-radius: 5px; color: #f4f8fa; font: 700 11px/1.2 system-ui, sans-serif; }
+.ship-label.captain { border-color: var(--ship-color); }
+.ship-label span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ship-label i { display: block; height: 3px; margin-top: 4px; background: #38434a; }
+.ship-label b { display: block; height: 100%; background: var(--ship-color); transition: width .3s; }
+.fleet-fallback { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); place-content: center; height: 100%; gap: 14px; padding: 14px; }
+.fleet-fallback:has(> :nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fleet-status { display: flex; flex-direction: column; align-items: center; gap: 3px; font: 13px/1.4 system-ui, sans-serif; }
+.fleet-status b { color: var(--ship-color); max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.fallback-vessel { font-size: 44px; }
+.fleet-status.sunk .fallback-vessel { opacity: .35; transform: rotate(-15deg); }
+.naval-radio { display: flex; flex-wrap: wrap; gap: 5px 10px; align-items: baseline; min-height: 51px; padding: 10px 14px; border-top: 1px solid #36515c; background: #102b38; font: 13px/1.35 system-ui, sans-serif; }
+.naval-radio b { color: #ffc16e; font-size: 9px; letter-spacing: .1em; }
+.fleet-readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 7px; padding: 10px; }
+.fleet-card { border: 1px solid #36515c; border-left: 3px solid var(--ship-color); border-radius: 5px; padding: 7px 8px; font: 12px/1.25 system-ui, sans-serif; min-width: 0; }
+.fleet-card.active { background: #1b3945; }
+.fleet-card > div { display: flex; gap: 6px; justify-content: space-between; }
+.fleet-card b { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fleet-card strong { font-size: 11px; color: var(--ship-color); }
+.fleet-card meter { display: block; width: 100%; height: 8px; margin: 3px 0; accent-color: var(--ship-color); }
+.fleet-card meter::-webkit-meter-bar { background: #314751; border: 0; }
+.fleet-card meter::-webkit-meter-optimum-value { background: var(--ship-color); }
+.fleet-card meter::-moz-meter-bar { background: var(--ship-color); }
+.fleet-card small { font-size: 10px; color: #bfd0d8; }
+.naval-console { background: #102b38; border: 1px solid #46606a; border-radius: 14px; padding: 22px; min-width: 0; box-shadow: 0 8px 25px #0002; }
+.naval-expression { color: #fff7e7; font: 800 clamp(24px, 3.6vw, 44px)/1.25 system-ui, sans-serif; text-align: center; padding: 20px 0; }
+.naval-answer { display: flex; gap: 9px; }
+.naval-answer input { width: 100%; min-width: 0; min-height: 56px; background: #071a25; border: 1px solid #6b8791; border-radius: 8px; color: #fff; text-align: center; font: 750 28px/1 system-ui, sans-serif; }
+.naval-answer input::placeholder { color: #7c9ca9; }
+.fire-button { min-width: 102px; background: #ffb45b; color: #241b0e; border: 1px solid #ffdaa6; border-radius: 8px; font: 900 18px/1 system-ui, sans-serif; letter-spacing: .06em; cursor: pointer; box-shadow: inset 0 -4px #8d4a2333; }
+.fire-button:disabled { background: #786546; border-color: #a89677; color: #f8e4c4; cursor: default; }
+.naval-feedback { min-height: 56px; display: flex; align-items: center; padding: 8px 0; font: 13px/1.4 system-ui, sans-serif; color: #c2d6dd; }
+.naval-feedback.correct { color: #7febc5; }
+.naval-feedback.miss { color: #ffb3a3; }
+.naval-keypad { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+.naval-keypad button { min-height: 48px; border: 1px solid #58727c; border-radius: 7px; background: #23424f; color: #f3f6f7; font: 700 22px/1 system-ui, sans-serif; cursor: pointer; touch-action: manipulation; }
+.naval-keypad button:disabled { opacity: .58; cursor: default; }
+.naval-keypad button:active:not(:disabled) { background: #456776; transform: translateY(1px); }
+.naval-console-tools { display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-top: 8px; font: 12px/1.2 system-ui, sans-serif; }
+.naval-console-tools > span { color: #ffc16e; }
+.naval-screen button:focus-visible, .naval-screen input:focus-visible { outline: 3px solid #84ecff; outline-offset: 3px; }
+.naval-summary { display: flex; flex-direction: column; gap: 16px; }
+.naval-summary h2 { color: #ffc16e; font: 800 27px/1.2 system-ui, sans-serif; overflow-wrap: anywhere; }
+.naval-summary p { font: 15px/1.5 system-ui, sans-serif; margin: 0; }
+.naval-port { max-width: 1200px; margin: auto; padding: 18px 22px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr); align-items: start; gap: 18px; }
+.naval-port .panel { background: #102b38; border-color: #46606a; }
+.naval-port h1 { font: 800 27px/1.2 system-ui, sans-serif; }
+.naval-rules { border-top: 1px solid #46606a; padding-top: 10px; font: 13px/1.5 system-ui, sans-serif; color: #bfd0d8; }
+.naval-connection { padding: 8px 16px; margin: 0; color: #ffd0c5; background: #502a25; font-size: 13px; }
+@media (max-width: 760px) {
+  .naval-header { padding: 9px 12px; gap: 10px; }
+  .naval-header h2 { font-size: 20px; }
+  .naval-clock { font-size: 31px; }
+  .naval-combat-layout, .naval-port { grid-template-columns: 1fr; gap: 10px; padding: 10px; }
+  .naval-waterline { height: clamp(135px, 20vh, 175px); }
+  .naval-scene-toolbar { height: 32px; }
+  .naval-radio { min-height: 40px; padding: 6px 10px; font-size: 11px; }
+  .fleet-readout { gap: 5px; padding: 6px; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); }
+  .fleet-card { padding: 5px 6px; }
+  .naval-console { padding: 12px; }
+  .naval-console > .naval-overline { display: none; }
+  .naval-expression { padding: 2px 0 6px; font-size: 29px; }
+  .naval-answer input { min-height: 46px; }
+  .naval-feedback { min-height: 38px; padding: 5px 0; font-size: 12px; }
+  .naval-keypad { gap: 5px; }
+  .naval-keypad button { min-height: 44px; font-size: 21px; }
+  .naval-console-tools { margin-top: 4px; }
+  .naval-overline { font-size: 9px; }
+  .naval-port .naval-waterline { height: 220px; }
+}
+@media (prefers-reduced-motion: reduce) { .naval-screen *, .naval-battle * { transition: none !important; animation: none !important; } }
+.naval-reduced * { transition: none !important; animation: none !important; }
+
+/* Phones: nothing in the gunnery console is selectable, so a long press never opens copy/paste. */
+.naval-console, .naval-console * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+.naval-keypad button, .fire-button, .naval-console-tools button { touch-action: manipulation; }
+.naval-keypad button.locked { opacity: .58; cursor: default; }
+.naval-readout { width: 100%; min-width: 0; min-height: 56px; display: flex; align-items: center; justify-content: center; background: #071a25; border: 1px solid #6b8791; border-radius: 8px; color: #fff; font: 750 28px/1 system-ui, sans-serif; }
+.naval-readout.empty { color: #7c9ca9; }
+.naval-readout.locked { opacity: .7; }
+@media (max-width: 720px) { .naval-readout { min-height: 46px; } }
