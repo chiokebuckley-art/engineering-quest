@@ -36,7 +36,7 @@ export function DrillScreen() {
   return (
     <div className="screen-scroll" style={{ background: 'url(/assets/environments/arithmetic-village.svg) center / cover' }}>
       <div className="container stack" style={{ maxWidth: 820 }}>
-        <Panel title="Training Grounds" icon="target" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>}>
+        <Panel title="Training Grounds" icon="target" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>}>
           <p className="small muted">Quick practice. Facts you miss come back more often.</p>
           <div className="stack">
             <div className="row wrap">

@@ -39,6 +39,11 @@ import { TycoonScreen } from './game/tycoon/TycoonScreen';
 import { VersusRoomProvider } from './game/hooks/useVersusRoom';
 import { GalleryScreen } from './game/screens/GalleryScreen';
 import { ContestTrackScreen } from './game/screens/ContestTrackScreen';
+import { HomeScreen } from './game/screens/HomeScreen';
+import { LibraryScreen, TopicHubScreen, FriendsScreen, SetupScreen } from './game/screens/LibraryScreens';
+import { MeScreen, GrownupsScreen } from './game/screens/MeScreens';
+import { SearchScreen } from './game/screens/SearchScreen';
+import { hashFor, parseHash } from './game/nav';
 
 function Screen() {
   const { state } = useGame();
@@ -82,6 +87,14 @@ function Screen() {
     case 'reality': return <RealityScreen />;
     case 'tycoon': return <TycoonScreen />;
     case 'contest': return <ContestTrackScreen />;
+    case 'home': return <HomeScreen />;
+    case 'library': return <LibraryScreen />;
+    case 'topic': return <TopicHubScreen />;
+    case 'setup': return <SetupScreen />;
+    case 'friends': return <FriendsScreen />;
+    case 'me': return <MeScreen />;
+    case 'grownups': return <GrownupsScreen />;
+    case 'search': return <SearchScreen />;
     default: return <RegionScreen />;
   }
 }
@@ -95,6 +108,9 @@ let pendingRoom = (() => {
   } catch { return ''; }
 })();
 
+/** A #/library?kind=drill style address present when the app opened; applied once a character exists. */
+let pendingHash = (() => { try { return parseHash(window.location.hash); } catch { return null; } })();
+
 function Shell() {
   const { state } = useGame();
   const inGame = !!state.character && state.screen !== 'menu' && state.screen !== 'intro' && state.screen !== 'create';
@@ -107,6 +123,22 @@ function Shell() {
     const code = pendingRoom; pendingRoom = '';
     dispatch({ type: 'NAVIGATE', screen: pendingGame === 'plaza' ? 'plaza' : pendingGame === 'gear' ? 'gear' : pendingGame === 'tycoon' ? 'tycoon' : pendingGame === 'dice' ? 'dice' : 'arcade', params: { room: code } });
   }, [inGame, dispatch]);
+  // An address typed or followed while the app is open (#/library?kind=drill) opens that page too.
+  useEffect(() => {
+    if (!inGame) return;
+    const onHash = () => { const h = parseHash(window.location.hash); if (h) dispatch({ type: 'NAVIGATE', screen: h.screen, params: h.params }); };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, [inGame, dispatch]);
+  // Hash routes: open the linked page once, then keep the address in step with the screen.
+  useEffect(() => {
+    if (!inGame) return;
+    if (pendingHash) { const h = pendingHash; pendingHash = null; if (!pendingRoom) { dispatch({ type: 'NAVIGATE', screen: h.screen, params: h.params }); return; } }
+    try {
+      const next = hashFor(state.screen, state.screenParams as Record<string, string | number | undefined>);
+      if (window.location.hash !== next) window.history.replaceState(null, '', window.location.pathname + window.location.search + next);
+    } catch { /* addresses are a convenience */ }
+  }, [inGame, state.screen, state.screenParams, dispatch]);
   const body = (
     <div className={`app ${immersive ? 'immersive' : ''} ${state.screen === 'plaza' && state.plaza?.phase === 'playing' ? 'plaza-play' : ''}`}>
       {inGame && <Hud />}

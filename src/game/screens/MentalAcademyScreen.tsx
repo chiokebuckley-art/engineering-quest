@@ -37,7 +37,7 @@ function Academy() {
   return (
     <div className="screen-scroll" style={{ background: 'url(/assets/environments/workshop-lab.svg) center / cover' }}>
       <div className="container stack">
-        <Panel title="Mental Math Academy" icon="brain" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>}>
+        <Panel title="Mental Math Academy" icon="brain" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>}>
           <p className="small muted">
             Learn to see numbers as parts that can be moved: 347 + 286 becomes 547, then 627, then 633. Ten worlds take you from
             place value to 125 × 24 in your head. See it, understand it, do it with help, do it alone, do it accurately, then do it quickly.

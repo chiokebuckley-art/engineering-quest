@@ -59,7 +59,7 @@ function MillMenu() {
           <span className="chip">Best {fmtMoney(rec.best)}</span>
           {rec.wins > 0 && <span className="chip ok">{rec.wins} × millionaire</span>}
           <span className="spacer" />
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Arcade</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
         </div>
         <CapsStrip />
         <div className="mill-hero">

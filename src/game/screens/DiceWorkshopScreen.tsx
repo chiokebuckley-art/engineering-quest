@@ -26,7 +26,7 @@ function DiceSolo(){
  function record(category:Category){play(done===12?'victory':'coin');send({kind:'score',category});setZero(null);}
  // The app shell does not scroll; screens scroll inside .screen-scroll.
  return <div className="screen-scroll"><section className="dice-workshop" aria-labelledby="dice-title">
-  <header className="dice-header"><div><span className="dice-eyebrow">ENG. QUEST · MATH ARCADE</span><h1 id="dice-title">Dice Workshop</h1></div><button className="btn small" onClick={()=>dispatch({type:'NAVIGATE',screen:'arcade'})}>{r&&!r.finished?'Save & leave':'Back to Arcade'}</button></header>
+  <header className="dice-header"><div><span className="dice-eyebrow">ENG. QUEST · LIBRARY · PLAY</span><h1 id="dice-title">Dice Workshop</h1></div><button className="btn small" onClick={()=>dispatch({type:'NAVIGATE',screen:'library'})}>{r&&!r.finished?'Save & leave':'‹ Library'}</button></header>
   {!r?<>
    <p className="dice-intro">Five dice. Thirteen choices. Build your score with addition, equal groups, fractions or ratios—at your own pace.</p>
    <img className="dice-preview" src={`${import.meta.env.BASE_URL}assets/dice-workshop/preview.png`} alt="Dice Workshop: a teal dice table with a math screen and brass-trimmed scorecard" />

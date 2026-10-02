@@ -1,8 +1,8 @@
 import { GearAvatarPicker, gearAsset } from '../components/GearAvatarPicker';
 import { normalizeGearAvatar, suggestedGearAvatar, gearSpotlightId, type GearAvatarId } from '../../engine/state/gearAvatars';
 import '../../styles/gear-studio.css';
-const GearStudio = lazy(() => import('../components/GearStudio'));
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+const GearStudio = lazy(() => import('../components/GearStudio'));
 import { useGame } from '../store';
 import { Icon, Panel } from '../components/ui';
 import { MathChallenge } from '../components/MathChallenge';
@@ -88,7 +88,7 @@ function GearSetupScreen() {
           <span className="chip">{rec.wins}/{rec.games} won</span>
           {rec.bestPot > 0 && <span className="chip">Best pot {rec.bestPot}</span>}
           <span className="spacer" />
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Arcade</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
         </div>
         <div className="gear-hero">
           <div className="gear-logo"><span>THE STUDIO</span><b>WEAKEST GEAR</b></div>

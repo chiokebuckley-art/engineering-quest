@@ -62,7 +62,7 @@ export function WorkshopScreen() {
   return (
     <div className="screen-scroll" style={{ background: 'url(/assets/environments/workshop-lab.svg) center / cover' }}>
       <div className="container stack">
-        <Panel title="Model Workshop" icon="telescope" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>}>
+        <Panel title="Model Workshop" icon="telescope" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>}>
           <p className="small muted">Build a probability of an outcome the way the Probability lab teaches it: base rate → factors → logistic → blend with ratings → simulate → price it → decide → score yourself. Everything updates as you change a number; your model is saved on this device.</p>
         </Panel>
 

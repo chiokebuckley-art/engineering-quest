@@ -87,7 +87,7 @@ export function DashboardScreen() {
         </div>
         <VisitPanel />
         <ContestParentCard open />
-        <Panel title="Arcade progress" icon="dashboard" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Arcade</button>}>
+        <Panel title="Arcade progress" icon="dashboard" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library', params: { kind: 'drill' } })}>Drills</button>}>
           <LedgerOverview ledger={state.stats.ledger ?? initialLedger()} gameLabel={(g) => ARCADE_GAMES.find((x) => x.id === g)?.label ?? g} />
         </Panel>
         <Panel title="Why this matters" icon="gear">

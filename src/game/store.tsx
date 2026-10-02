@@ -23,7 +23,7 @@ const saveSystem = createSaveSystem<GameState>(adapter);
 let pendingTimer: ReturnType<typeof setTimeout> | undefined;
 const doFetch = (i: string, o?: RequestInit) => fetch(i, o);
 /** Screens a pulled save may land on without interrupting anything; elsewhere the pull keeps the player where they are. */
-const HUB_SCREENS = new Set(['region', 'map', 'settings', 'dashboard', 'inventory', 'quests', 'achievements', 'lessons', 'skilltree', 'notebook', 'lab', 'academy']);
+const HUB_SCREENS = new Set(['home', 'library', 'me', 'topic', 'friends', 'grownups', 'search', 'setup', 'region', 'map', 'settings', 'dashboard', 'inventory', 'quests', 'achievements', 'lessons', 'skilltree', 'notebook', 'lab', 'academy']);
 /** An Equation Plaza game and a left match's room seat belong to the device they were played on, never to a save brought from elsewhere. */
 const withoutPlaza = (d: GameState): GameState => ({ ...d, plaza: null, stats: d.stats?.plaza ? { ...d.stats, plaza: { ...d.stats.plaza, paused: undefined } } : d.stats });
 /** Mid-run screens: a conflicting cloud copy waits rather than wiping the run. */
@@ -241,11 +241,11 @@ export function GameProvider({ children }: { children: ReactNode }) {
     hasSave: !!state.character,
     profiles,
     switchProfile: (id) => {
-      if (!profiles.profiles.some((p) => p.id === id) || id === profiles.active) { if (id === profiles.active && state.character) rawDispatch({ type: 'NAVIGATE', screen: 'region' }); return; }
+      if (!profiles.profiles.some((p) => p.id === id) || id === profiles.active) { if (id === profiles.active && state.character) rawDispatch({ type: 'NAVIGATE', screen: 'home' }); return; }
       const idx = updateProfile(profiles, id, { lastPlayedAt: Date.now() });
       activate(idx, id);
       const loaded = loadFor(id);
-      if (loaded?.character) rawDispatch({ type: 'LOAD', state: { ...loaded, screen: 'region' } });
+      if (loaded?.character) rawDispatch({ type: 'LOAD', state: { ...loaded, screen: 'home' } });
       else rawDispatch({ type: 'NEW_GAME' });
     },
     newProfile: () => {
@@ -323,7 +323,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         idx = setSyncLink(idx, id, { code, rev: remote.rev, at: remote.savedAt });
         activate(idx, id);
         const loaded = loadFor(id) ?? data;
-        rawDispatch({ type: 'LOAD', state: { ...loaded, screen: 'region' } });
+        rawDispatch({ type: 'LOAD', state: { ...loaded, screen: 'home' } });
         notice(`${name} is linked. Progress now syncs on this device.`);
         return null;
       } catch (e) { return e instanceof Error && /too old/.test(e.message) ? e.message : 'Could not reach the sync server. Check the connection and try again.'; }

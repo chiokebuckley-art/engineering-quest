@@ -413,7 +413,8 @@ function ArcadeLobby() {
   /** The current pick if the grade allows it, else the first allowed option. */
   const fit = <T extends string | number>(g: ArcadeGame, cur: T, options: readonly T[]): T => (ok(g, cur) ? cur : options.find((o) => ok(g, o)) ?? cur);
   const shown = ARCADE_GAMES.filter((g) => gameOk(grade, g.id));
-  const [chosen, setGame] = useState<ArcadeGame>('mult');
+  // The Library set-up card's "+ more…" and "Who" open the full lobby on its game (params.game) and friends card (params.friends).
+  const [chosen, setGame] = useState<ArcadeGame>(() => (ARCADE_GAMES.some((g) => g.id === state.screenParams.game) ? state.screenParams.game as ArcadeGame : 'mult'));
   const game: ArcadeGame = shown.some((g) => g.id === chosen) ? chosen : shown[0]?.id ?? 'mult';
   const [pickedTables, setTables] = useState<number[]>([]);
   const [pickedFact, setFact] = useState<string | null>(null);
@@ -448,12 +449,12 @@ function ArcadeLobby() {
   const friendsOk = clocks;
   const inviteCode = typeof state.screenParams.room === 'string' ? state.screenParams.room : '';
   // A friend's invite link opens the friends card straight away with no grade; with one it asks first (Grade 1: never).
-  const [consent, setConsent] = useState<ArcadeMode | 'versus' | 'rocket' | null>(() => (grade && inviteCode && friendsOk ? 'versus' : null));
+  const [consent, setConsent] = useState<ArcadeMode | 'versus' | 'rocket' | null>(() => (grade && (inviteCode || state.screenParams.friends) && friendsOk ? 'versus' : null));
   const openAcademies = ACADEMIES.filter((a) => academyUnlocked(state, a.id) && a.chapters.length);
   const [acad, setAcad] = useState(() => { const a = [...openAcademies].reverse()[0]; const c = a ? coreChapters(a)[0] : undefined; return a && c ? `${a.id}.${c.key}` : 'arithmetic.count'; });
   const [duration, setDuration] = useState(BLITZ_MS);
   const [target, setTarget] = useState(5000);
-  const [versus, setVersus] = useState(!!inviteCode && !grade);
+  const [versus, setVersus] = useState((!!inviteCode || !!state.screenParams.friends) && !grade);
   const versusRef = useRef<HTMLDivElement>(null);
   // Phones: the friends card sits below the chart, so bring it on screen when it opens.
   useEffect(() => { if (versus) setTimeout(() => versusRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }, [versus]);
@@ -516,7 +517,7 @@ function ArcadeLobby() {
           <button className="btn small" onClick={() => { play('click'); dispatch({ type: 'NAVIGATE', screen: 'plaza' }); }}>▦ Equation Plaza{state.plaza && state.plaza.phase !== 'over' || pausedPlaza(state.stats.plaza) ? ' · resume' : ''}</button>
           <button className="btn small" onClick={() => { play('click'); dispatch({ type: 'NAVIGATE', screen: 'tycoon' }); }}>🏙 Engine City Tycoon</button>
           {grade !== 'g1' && grade !== 'g3' && <button className="btn small" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'countlab' })}>♠ Count Lab · Parent PIN</button>}
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
         </div>
         <CapsStrip />
         {grade && consent === 'rocket' && <ClockConsent what={consentText} onYes={consentYes} onNo={() => setConsent(null)} />}

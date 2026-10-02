@@ -81,7 +81,7 @@ function StudMenu() {
           <span className="chip">{rec.wins}/{rec.hands} hands won</span>
           {rec.bestRank > 0 && <span className="chip">Best hand: {HAND_NAMES[rec.bestRank]}</span>}
           <span className="spacer" />
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Arcade</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
         </div>
         <CapsStrip />
         <div className="stud-hero">

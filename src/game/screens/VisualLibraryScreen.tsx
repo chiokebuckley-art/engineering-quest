@@ -86,7 +86,7 @@ export function VisualLibraryScreen() {
         {domain === 'k12' && <div><label htmlFor="vl-chapter">Geometry chapter</label><select id="vl-chapter" value={chapter} onChange={e => { setChapter(e.target.value); setId(''); resetAnswer(); }}><option value="">All geometry</option>{['triangles','polygons','circles','solids'].map(k => <option key={k} value={k}>{chapterOf('geometry', k)?.title}</option>)}</select></div>}
         {chapterDef && <button className="btn ghost" onClick={() => dispatch({ type: 'ACADEMY_OPEN', view: 'chapter', academy: 'geometry', chapter })}>Chapter {chapterDef.n} · {chapterDef.title}</button>}
         {domain !== 'k12' && <p className="small muted">Advanced visual reference. These cards do not unlock or certify an Academy chapter.</p>}
-        <button className="btn ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Arcade</button>
+        <button className="btn ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
       </aside>
       <section className="vl-content" aria-label="Visual learning content">
         <div className="vl-steps" aria-label="Learning mode">{(['learn','choice','recall'] as const).map((p,i) => <button key={p} className="btn ghost" aria-pressed={phase === p} onClick={() => switchPhase(p)}>{i+1} · {p === 'learn' ? 'Learn' : p === 'choice' ? 'Choose the name' : 'Type the name'}</button>)}</div>

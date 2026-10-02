@@ -132,7 +132,7 @@ function TycoonSetupView() {
 
         <div className="ty-actions">
           <button className="btn primary" disabled={!others.length} onClick={start}>Start the game</button>
-          <button className="btn ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Back to the Arcade</button>
+          <button className="btn ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
         </div>
         {!others.length && <p className="small muted">Add at least one other player.</p>}
 
@@ -197,7 +197,7 @@ function TycoonTable({ g }: { g: TycoonGame }) {
             <b>Leave the table?</b>
             <p className="small">{g.online ? (g.online.host ? 'Your device runs this table: if you leave, the game ends for everyone.' : 'A computer player will take your seat.') : 'Your game is saved: come back from the Arcade any time.'}</p>
             <div className="ty-actions">
-              {!g.online && <button className="btn" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Save and leave</button>}
+              {!g.online && <button className="btn" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>Save and leave</button>}
               {(!g.online || g.online.host) && <button className="btn" onClick={() => { dispatch({ type: 'TYCOON_FINISH' }); setLeaving(false); }}>End the game now and count up</button>}
               <button className="btn ghost" onClick={() => dispatch({ type: 'TYCOON_EXIT' })}>{g.online ? (g.online.host ? 'Close the table for everyone' : 'Leave the table') : 'Quit without scoring'}</button>
               <button className="btn ghost" onClick={() => setLeaving(false)}>Keep playing</button>
@@ -422,7 +422,7 @@ function Ledger({ g }: { g: TycoonGame }) {
         <div className="ty-actions">
           {!g.online && <button className="btn primary" onClick={again}>Play again</button>}
           <button className="btn" onClick={() => dispatch({ type: 'TYCOON_EXIT' })}>New game setup</button>
-          <button className="btn ghost" onClick={() => { dispatch({ type: 'TYCOON_EXIT' }); dispatch({ type: 'NAVIGATE', screen: 'arcade' }); }}>Back to the Arcade</button>
+          <button className="btn ghost" onClick={() => { dispatch({ type: 'TYCOON_EXIT' }); dispatch({ type: 'NAVIGATE', screen: 'library' }); }}>‹ Library</button>
         </div>
       </div>
     </div>

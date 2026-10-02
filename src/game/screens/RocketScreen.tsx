@@ -49,7 +49,7 @@ function MissionSelect() {
           <span className="chip">{rec.points} points</span>
           <span className="chip">{done}/{ROCKET_MISSIONS.length} missions</span>
           <span className="spacer" />
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'arcade' })}>Arcade</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
         </div>
         <div className="expedition-briefing">
           <div className="expedition-intro">

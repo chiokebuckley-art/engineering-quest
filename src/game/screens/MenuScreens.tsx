@@ -25,7 +25,7 @@ export function MainMenu() {
         <div className="stack" style={{ maxWidth: 320, margin: '0 auto' }}>
           {list.length > 0 && <div className="who">Who's playing?</div>}
           {list.map((p) => (
-            <button key={p.id} className={`profile-row ${p.id === profiles.active ? 'active' : ''}`} onClick={() => { play('open'); if (p.id === profiles.active && state.character) dispatch({ type: 'NAVIGATE', screen: 'region' }); else switchProfile(p.id); }}>
+            <button key={p.id} className={`profile-row ${p.id === profiles.active ? 'active' : ''}`} onClick={() => { play('open'); if (p.id === profiles.active && state.character) dispatch({ type: 'NAVIGATE', screen: 'home' }); else switchProfile(p.id); }}>
               {p.avatar ? <img src={p.avatar} alt="" /> : <span className="ph"><Icon name="helmet" /></span>}
               <span className="pr-body"><b>{p.name}</b><small>{p.id === profiles.active && !state.character ? 'New adventure' : `Level ${p.level} · ${ago(p.lastPlayedAt)}`}{p.sync ? ' · synced' : ''}</small></span>
               <span className="pr-go">{p.id === profiles.active && state.character ? 'Continue ▸' : 'Play ▸'}</span>
@@ -47,7 +47,7 @@ export function MainMenu() {
           {importing && (
             <div className="panel tight" style={{ textAlign: 'left' }}>
               <textarea value={raw} onChange={(e) => setRaw(e.target.value)} placeholder="Paste exported save JSON" style={{ width: '100%', height: 80, background: '#050912', color: 'var(--text)', border: '1px solid var(--line)', borderRadius: 6 }} />
-              <button className="btn small primary" style={{ marginTop: 6 }} onClick={() => { if (importSave(raw)) { setImporting(false); dispatch({ type: 'NAVIGATE', screen: 'region' }); } else alert('That does not look like a valid save.'); }}>Load</button>
+              <button className="btn small primary" style={{ marginTop: 6 }} onClick={() => { if (importSave(raw)) { setImporting(false); dispatch({ type: 'NAVIGATE', screen: 'home' }); } else alert('That does not look like a valid save.'); }}>Load</button>
             </div>
           )}
         </div>

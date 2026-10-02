@@ -58,7 +58,7 @@ function NotebookList() {
           <span className="chip">{active.length} open</span>
           <span className="chip ok">{cleared} cleared</span>
           <span className="spacer" />
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'me' })}>‹ Me</button>
         </div>
         <Panel title="How the notebook works" icon="book">
           <p className="small muted">Every miss lands here with what you answered and what kind of mistake it was. <b>Fix it</b> means re-solving it, then three variations of the same structure, then one twist. A fix is clean when the original and all three variations are right first time. Three clean fixes, spaced out (now, 3 days, 7 days), clear the card. This is how the best students in the world study: they own their mistakes.</p>

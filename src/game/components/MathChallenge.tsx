@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type MouseEvent as ReactMouseEvent } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type PointerEvent as ReactPointerEvent, type MouseEvent as ReactMouseEvent } from 'react';
 import type { Question } from '../../engine/types';
 import { labeled, hasLabels, LabelKey } from './Labeled';
 import { MathVisual } from './MathVisual';
@@ -28,6 +28,12 @@ interface Props {
   readAloud?: boolean;
   /** Read each new question aloud as it appears (Grade 1 track default). */
   autoRead?: boolean;
+  /** The answer button's word: FIRE in battles, ANSWER everywhere else. */
+  submitLabel?: string;
+  /** More help for the ? Help sheet (battle NPC tips, Power Strike). */
+  helpExtra?: ReactNode;
+  /** A short line from a guide, shown left of ? Help. */
+  guideLine?: ReactNode;
 }
 
 /** What the speaker button reads: the question's own words, else its prompt and expression. */
@@ -42,6 +48,8 @@ export function MathChallenge(p: Props) {
   const { state, play } = useGame();
   const [value, setValue] = useState('');
   const [picked, setPicked] = useState<number | null>(null);
+  const [help, setHelp] = useState(false);
+  useEffect(() => { setHelp(false); }, [p.question.id]);
   const lastFb = useRef<unknown>(null);
   useEffect(() => {
     if (!p.feedback || p.feedback === lastFb.current) return;
@@ -79,6 +87,7 @@ export function MathChallenge(p: Props) {
   const speaker = !!(p.readAloud || p.question.readAloud) && canSpeak();
   useEffect(() => { if (p.autoRead && canSpeak()) speak(readText(p.question)); return () => { if (p.autoRead) stopSpeaking(); }; }, [p.question.id, p.autoRead]); // eslint-disable-line react-hooks/exhaustive-deps
   const choices = p.question.choices?.length ? p.question.choices : null;
+  const inline = !choices && p.question.mode !== 'applied' && /=\s*\?\s*$/.test(p.question.expression);
   const choose = (v: number) => { if (p.feedback || p.disabled) return; play('tick'); setPicked(v); p.onSubmit(String(v)); };
 
   const submit = () => {
@@ -101,7 +110,8 @@ export function MathChallenge(p: Props) {
   // a fraction answer is judged by value, so its decimal form must be typeable too (1/5 or 0.2)
   const dec = !!p.question.allowDecimal || frac;
   const extra = [...(dec ? ['.'] : []), ...(frac ? ['/'] : []), ...(neg ? ['−'] : [])];
-  const keys = ['7', '8', '9', '⌫', '4', '5', '6', '1', '2', '3', 'C', '0', ...extra];
+  // One keypad everywhere: 7 8 9 · 4 5 6 · 1 2 3 · ⌫ 0 and the extra keys this question needs.
+  const keys = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '⌫', '0', ...extra];
   // '-' is escaped: a bare '-' after '.' or '/' made the class an invalid range, so typing threw
   const allowed = `0-9${dec ? '.' : ''}${frac ? '/' : ''}\\-`;
   const tap = (k: string) => ({
@@ -112,7 +122,12 @@ export function MathChallenge(p: Props) {
   return (
     <div className="challenge">
       {p.question.mode === 'applied' && <div className="prompt">{labeled(p.question.prompt)}</div>}
-      <div className={`expr ${p.question.mode === 'applied' ? 'applied' : ''}`}>{p.question.expression}</div>
+      {/* Typed digits land in the question itself, in gold, where the ? was. */}
+      {inline ? (
+        <div className="expr" aria-live="polite">{p.question.expression.replace(/\?\s*$/, '')}<span className={`typed ${p.feedback ? (p.feedback.correct ? 'correct' : 'wrong') : ''}`}>{value || (p.feedback ? (p.feedback.correct && Number.isInteger(p.question.answer) ? String(p.question.answer) : '') : '?')}{!p.feedback && <i className="caret" />}</span></div>
+      ) : (
+        <div className={`expr ${p.question.mode === 'applied' ? 'applied' : ''}`}>{p.question.expression}</div>
+      )}
       {showVisualAlways && !p.feedback && <MathVisual visual={p.question.visual} />}
       {choices ? (
         <div className="choice-area">
@@ -130,7 +145,7 @@ export function MathChallenge(p: Props) {
           {p.feedback && <div className="answer-row"><button type="button" className="btn teal" onClick={p.onNext} autoFocus>{p.nextLabel ?? (p.feedback.correct ? 'Continue' : 'Try again')} ⏎</button></div>}
         </div>
       ) : (
-        <form className="answer-row" onSubmit={(e) => { e.preventDefault(); submit(); }}>
+        <form className={`answer-row ${inline && isTouch ? 'keypad-only' : ''}`} onSubmit={(e) => { e.preventDefault(); submit(); }}>
           <input
             ref={inputRef}
             className={`answer-input ${p.feedback ? (p.feedback.correct ? 'correct' : 'wrong') : ''}`}
@@ -144,7 +159,7 @@ export function MathChallenge(p: Props) {
             autoComplete="off"
           />
           {!p.feedback ? (
-            <button type="submit" className="btn primary big-answer" disabled={!value.trim() || p.disabled}><Icon name="energy" /> Go</button>
+            <button type="submit" className="btn primary big-answer" disabled={!value.trim() || p.disabled}>{p.submitLabel ?? 'ANSWER'} ▸</button>
           ) : (
             <button type="button" className="btn teal" onClick={p.onNext} autoFocus>{p.nextLabel ?? (p.feedback.correct ? 'Continue' : 'Try again')} ⏎</button>
           )}
@@ -153,20 +168,30 @@ export function MathChallenge(p: Props) {
       {isTouch && !p.feedback && !choices && (
         <div className="keypad" onContextMenu={(e) => e.preventDefault()}>
           {keys.map((k) => (
-            <button key={k} type="button" className={k === '⌫' || k === 'C' ? 'edit' : k === '0' ? (extra.length === 1 ? 'zero2' : extra.length ? 'zero3' : 'zero') : ''} {...tap(k)} aria-label={k === '⌫' ? 'Delete' : k === 'C' ? 'Clear' : k === '/' ? 'Fraction bar' : k === '−' ? 'Minus' : k}>{k}</button>
+            <button key={k} type="button" className={k === '⌫' ? 'edit' : k === '0' && !extra.length ? 'zero2' : ''} {...tap(k)} aria-label={k === '⌫' ? 'Delete' : k === 'C' ? 'Clear' : k === '/' ? 'Fraction bar' : k === '−' ? 'Minus' : k}>{k}</button>
           ))}
         </div>
       )}
       {p.feedback && <div className={`feedback ${p.feedback.correct ? 'correct' : 'wrong'}`}>{labeled(p.feedback.text)}</div>}
       {!p.feedback && p.hintShown && <div className="feedback" style={{ borderColor: 'var(--teal)', color: '#99f6e4', background: 'rgba(45,212,191,0.08)' }}>Hint: {labeled(p.question.hint)}</div>}
       <div className="tools">
-        {p.onHint && !p.hintShown && !p.feedback && (
-          <button className="btn small ghost" onClick={p.onHint} disabled={(p.hintCharges ?? 1) <= 0}><Icon name="lantern" /> Hint{p.hintCharges !== undefined ? ` (${p.hintCharges})` : ''}</button>
-        )}
+        {p.guideLine && <span className="guide-line">{p.guideLine}</span>}
+        {/* Young players hear the question without opening Help. */}
         {speaker && <button className="btn small ghost" onClick={() => speak(readText(p.question))} aria-label="Read the question aloud"><Icon name="sound-on" /> Read to me</button>}
-        <button className="btn small ghost" onClick={p.onToggleExplanation}><Icon name="book" /> {p.showExplanation ? 'Hide' : 'Show me how'}</button>
         {p.showTimer !== false && state.settings.showTimer && <span className="timer">{p.feedback ? '' : `${(elapsed / 1000).toFixed(1)}s`}</span>}
+        <button type="button" className={`help-pill ${help ? 'on' : ''}`} aria-expanded={help} onClick={() => { play('click'); setHelp((v) => !v); }}>? Help</button>
       </div>
+      {help && (
+        <div className="help-sheet" role="group" aria-label="Help">
+          {p.helpExtra}
+          <div className="help-row">
+            {p.onHint && !p.hintShown && !p.feedback && (
+              <button className="btn small ghost" onClick={p.onHint} disabled={(p.hintCharges ?? 1) <= 0}><Icon name="lantern" /> Hint{p.hintCharges !== undefined ? ` (${p.hintCharges})` : ''}</button>
+            )}
+            <button className="btn small ghost" onClick={p.onToggleExplanation}><Icon name="book" /> {p.showExplanation ? 'Hide' : 'Explain this'}</button>
+          </div>
+        </div>
+      )}
       {p.showExplanation && <Explanation q={p.question} />}
     </div>
   );

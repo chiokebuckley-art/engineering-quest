@@ -30,7 +30,7 @@ export function SettingsScreen() {
   return (
     <div className="screen-scroll">
       <div className="container stack" style={{ maxWidth: 640 }}>
-        <Panel title="Profiles" icon="helmet" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>}>
+        <Panel title="Profiles" icon="helmet" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'me' })}>‹ Me</button>}>
           <p className="small muted">Everyone on this phone gets their own profile with their own progress. Switching is one tap, no passwords. Reset wipes a profile's progress but keeps the slot.</p>
           <div className="stack">
             {profiles.profiles.map((p) => (

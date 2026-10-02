@@ -8,7 +8,9 @@ import type { QuestMap } from '../quests/QuestEngine';
 
 export type Screen =
   | 'menu' | 'intro' | 'create' | 'map' | 'region' | 'battle' | 'lesson' | 'lessons' | 'skilltree'
-  | 'dice' | 'dashboard' | 'inventory' | 'lab' | 'quests' | 'drill' | 'mission' | 'dungeon' | 'settings' | 'achievements' | 'arcade' | 'versus' | 'rocket' | 'millionaire' | 'stud' | 'gear' | 'plaza' | 'countlab' | 'notebook' | 'workshop' | 'mental' | 'academy' | 'reality' | 'tycoon' | 'contest' | 'visual-library';
+  | 'dice' | 'dashboard' | 'inventory' | 'lab' | 'quests' | 'drill' | 'mission' | 'dungeon' | 'settings' | 'achievements' | 'arcade' | 'versus' | 'rocket' | 'millionaire' | 'stud' | 'gear' | 'plaza' | 'countlab' | 'notebook' | 'workshop' | 'mental' | 'academy' | 'reality' | 'tycoon' | 'contest' | 'visual-library'
+  // Streamline shell: four tabs (home · quest=region/map · library · me) plus their sub-pages.
+  | 'home' | 'library' | 'me' | 'search' | 'topic' | 'friends' | 'grownups' | 'setup';
 
 export type ArcadeGame = 'mult' | 'div' | 'add' | 'sub' | 'bonds' | 'alg' | 'word' | 'tricks' | 'mental' | 'volume' | 'measure' | 'geo' | 'rates' | 'fit' | 'phys' | 'pipe' | 'prob' | 'spiral' | 'precalc' | 'mm' | 'mixed' | 'academy' | 'frac' | 'ratio' | 'pattern' | 'blocks' | 'paths' | 'data' | 'logic' | 'pctmulti' | 'grid';
 export type ArcadeMode = 'practice' | 'blitz' | 'conquer' | 'speed';

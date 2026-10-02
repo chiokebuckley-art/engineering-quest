@@ -62,7 +62,7 @@ function Hub() {
               <h1>Contest Path</h1>
               <p className="ct-sub">{grade ? `${GRADES[grade].title} · ${GRADES[grade].track}` : 'Calm picture puzzles for Grades 1, 3 and 5. Pick your own grade.'}</p>
             </div>
-            <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back to the village</button>
+            <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
           </div>
           <p className="ct-disclaimer">{CONTEST_DISCLAIMER}</p>
         </header>

@@ -25,7 +25,7 @@ export function LessonsScreen() {
   return (
     <div className="screen-scroll" style={{ background: 'url(/assets/environments/arithmetic-village.svg) center / cover' }}>
       <div className="container stack">
-        <Panel title="Lecture Hall" icon="scroll" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'region' })}>Back</button>}>
+        <Panel title="Lecture Hall" icon="scroll" right={<button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>}>
           <p className="small muted">Short lessons: see it, understand it, try it.</p>
           {grade && <p className="small muted">{GRADES[grade].title} · caps on: {all ? `showing all ${LESSONS.length} lessons` : `${onPath} lessons on your path`}. <button className="btn small ghost" onClick={() => setAll((v) => !v)}>{all ? 'Only my path' : 'Show all lessons'}</button></p>}
         </Panel>
