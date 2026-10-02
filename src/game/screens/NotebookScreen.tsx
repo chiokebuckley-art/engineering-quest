@@ -1,7 +1,6 @@
 import { answerLabel } from '../../engine/questions';
 import { useEffect, useState } from 'react';
 import { useGame } from '../store';
-import { Icon, Panel } from '../components/ui';
 import { MathChallenge } from '../components/MathChallenge';
 import { labeled, LabelKey } from '../components/Labeled';
 import { Confetti } from '../components/Fx';
@@ -15,29 +14,28 @@ export function NotebookScreen() {
   return state.notebookRun ? <NotebookRunView /> : <NotebookList />;
 }
 
+const FROM: Record<string, string> = { battle: 'from a fight', boss: 'from a boss', lesson: 'from a lesson', drill: 'from a drill', mission: 'from a mission', review: 'from a review', diagnostic: 'from the diagnostic' };
+
+/** 2m: one card per miss. Tap to fix; three clean fixes clear it. */
 function Card({ e, now, onFix, onDrop }: { e: NotebookEntry; now: number; onFix: () => void; onDrop: () => void }) {
   const q = e.question; const k = ERROR_LABELS[e.kind];
-  const due = e.dueAt <= now;
+  const due = !e.clearedAt && e.dueAt <= now;
+  const fixed = !!e.clearedAt;
+  const expr = q.expression.replace(/\s*=\s*\?\s*$/, '');
   return (
-    <div className={`nb-card ${due ? 'due' : ''}`}>
-      <div className="nb-top">
-        <span className={`chip kind-${e.kind}`}>{k.label}</span>
-        <span className="chip">{q.topic}{q.subtopic ? ` · ${q.subtopic}` : ''}</span>
-        {e.lapses > 0 && <span className="chip hot">missed {e.lapses + 1}×</span>}
-        <span className="spacer" />
-        <span className="small muted">{due ? 'Due now' : `Due in ${ago(e.dueAt - now)}`}</span>
-      </div>
-      {q.prompt && <div className="nb-prompt">{labeled(q.prompt)}</div>}
-      <div className="nb-expr">{labeled(q.expression)}</div>
-      <div className="nb-answers"><span className="wrong">You: {e.given === '' ? '(blank)' : e.given}</span><span className="right">Answer: {answerLabel(q)}{q.unit ? ` ${q.unit}` : ''}</span></div>
-      {q.word && <div className="small muted">{q.word.structure} → {q.word.ops.map((o) => OP_NAME[o]).join(', then ')}: {labeled(q.word.setup ?? q.word.layout)}</div>}
-      <div className="nb-advice">{k.advice}</div>
-      <div className="row wrap" style={{ marginTop: 8 }}>
-        <span className="nb-dots" title={`${e.clean} of ${CLEAN_TO_CLEAR} clean fixes`}>{Array.from({ length: CLEAN_TO_CLEAR }, (_, i) => <i key={i} className={i < e.clean ? 'on' : ''} />)}</span>
-        <span className="spacer" />
-        <button className="btn small ghost" onClick={onDrop} title="Remove this card">Drop</button>
-        <button className={`btn small ${due ? 'primary' : ''}`} onClick={onFix}><Icon name="repair" /> Fix it</button>
-      </div>
+    <div className={`sq-nb ${due ? 'due' : ''}`}>
+      <button className="body" onClick={onFix} disabled={fixed} aria-label={`Fix ${expr}`}>
+        <span className="top">
+          <span className="q">{labeled(fixed ? `${expr} = ${answerLabel(q)}` : `${expr} = ${e.given === '' ? '…' : e.given}`)} <b className={fixed ? 'ok' : 'x'}>{fixed ? '✓' : '✗'}</b></span>
+          <span className={`tag ${fixed ? 'fixed' : due ? 'due' : 'heal'}`}>{fixed ? 'FIXED' : due ? 'DUE' : 'HEALING'}</span>
+        </span>
+        {q.prompt && !fixed && <span className="prompt">{labeled(q.prompt)}</span>}
+        <span className="sub">{k.label.toLowerCase()} · {FROM[e.context] ?? q.topic}{e.lapses > 0 ? ` · missed ${e.lapses + 1}×` : ''} · {fixed ? 'cleared' : due ? `answer ${answerLabel(q)}${q.unit ? ` ${q.unit}` : ''}` : `next fix in ${ago(e.dueAt - now)}`}</span>
+        {!fixed && <span className="tip">{k.advice}</span>}
+        {q.word && !fixed && <span className="tip">{q.word.structure} → {q.word.ops.map((o) => OP_NAME[o]).join(', then ')}</span>}
+        <span className="segs" title={`${e.clean} of ${CLEAN_TO_CLEAR} clean fixes`}>{Array.from({ length: CLEAN_TO_CLEAR }, (_, i) => <i key={i} className={fixed || i < e.clean ? 'on' : ''} />)}</span>
+      </button>
+      {!fixed && <button className="drop" onClick={onDrop} title="Remove this card" aria-label="Drop this card">✕</button>}
     </div>
   );
 }
@@ -47,31 +45,32 @@ function NotebookList() {
   const now = Date.now();
   const book = state.notebook ?? [];
   const active = activeEntries(book); const due = dueEntries(book, now);
-  const cleared = book.filter((e) => e.clearedAt).length;
-  const [showCleared, setShowCleared] = useState(false);
+  const healing = active.filter((e) => e.dueAt > now);
+  const cleared = book.filter((e) => e.clearedAt).slice().reverse();
+  const [filter, setFilter] = useState<'due' | 'healing' | 'fixed'>(due.length ? 'due' : 'healing');
   const fix = (id: string) => { play('open'); dispatch({ type: 'NOTEBOOK_START', entryId: id }); };
+  const shown = filter === 'due' ? due : filter === 'healing' ? healing : cleared;
   return (
-    <div className="screen-scroll" style={{ background: 'url(/assets/environments/workshop-lab.svg) center / cover' }}>
-      <div className="container stack" style={{ maxWidth: 820 }}>
-        <div className="row wrap">
-          <h2 className="brass">Wrong-Answer Notebook</h2>
-          <span className="chip">{active.length} open</span>
-          <span className="chip ok">{cleared} cleared</span>
-          <span className="spacer" />
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'me' })}>‹ Me</button>
-        </div>
-        <Panel title="How the notebook works" icon="book">
-          <p className="small muted">Every miss lands here with what you answered and what kind of mistake it was. <b>Fix it</b> means re-solving it, then three variations of the same structure, then one twist. A fix is clean when the original and all three variations are right first time. Three clean fixes, spaced out (now, 3 days, 7 days), clear the card. This is how the best students in the world study: they own their mistakes.</p>
-          {due.length > 0 && <button className="btn primary big" onClick={() => fix(due[0].id)}><Icon name="repair" /> Fix the next one ({due.length} due)</button>}
-        </Panel>
-        {active.length === 0 && <div className="panel center"><h3 className="brass">Nothing to fix.</h3><p className="small muted">Go make some mistakes. Every miss in battles, the Arcade, the Rocket, Millionaire, Stud or the arena lands here.</p></div>}
-        {active.map((e) => <Card key={e.id} e={e} now={now} onFix={() => fix(e.id)} onDrop={() => { play('click'); dispatch({ type: 'NOTEBOOK_DROP', entryId: e.id }); }} />)}
-        {cleared > 0 && (
-          <div className="stack">
-            <button className="btn small ghost" onClick={() => setShowCleared((v) => !v)}>{showCleared ? 'Hide' : 'Show'} cleared cards ({cleared})</button>
-            {showCleared && book.filter((e) => e.clearedAt).slice().reverse().map((e) => <div key={e.id} className="nb-card cleared"><span className="chip ok">Cleared</span> <span className="nb-expr small">{labeled(`${e.question.prompt ? `${e.question.prompt} ` : ''}${e.question.expression}`)}</span> <span className="small muted">missed {e.lapses + 1}×, fixed {e.fixes}×</span></div>)}
-          </div>
+    <div className="sq">
+      <div className="sq-in">
+        <button className="sq-back" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'me' })}>‹ Me</button>
+        <div><h1 className="sq-title">Notebook</h1><p className="sq-sub">Every miss becomes a card. Fix it three times and it’s gone.</p></div>
+        {due.length > 0 && (
+          <section className="sq-due">
+            <span className="big">{due.length}</span>
+            <span className="main"><b>card{due.length === 1 ? '' : 's'} due today</b>~{Math.max(1, Math.round(due.length * 1.5))} minutes · original, three variations, one twist</span>
+            <button className="sq-cta dark sm" onClick={() => fix(due[0].id)}>FIX ALL ▸</button>
+          </section>
         )}
+        <div className="sq-chips" role="group" aria-label="Which cards">
+          <button className={`sq-chip k-next ${filter === 'due' ? 'on' : ''}`} onClick={() => setFilter('due')}>Due {due.length}</button>
+          <button className={`sq-chip k-next ${filter === 'healing' ? 'on' : ''}`} onClick={() => setFilter('healing')}>Healing {healing.length}</button>
+          <button className={`sq-chip k-done ${filter === 'fixed' ? 'on' : ''}`} onClick={() => setFilter('fixed')}>Fixed {cleared.length}</button>
+        </div>
+        {shown.length === 0 && <p className="sq-empty">{active.length === 0 ? 'Nothing to fix. Every miss in fights, drills, the Rocket, Millionaire, Stud or the arena lands here, and fixing it is how it sticks.' : filter === 'due' ? 'Nothing due right now. Healing cards come back on their own.' : filter === 'healing' ? 'No cards healing.' : 'No cards fixed yet.'}</p>}
+        <div className="sq-rows">
+          {shown.map((e) => <Card key={e.id} e={e} now={now} onFix={() => fix(e.id)} onDrop={() => { play('click'); dispatch({ type: 'NOTEBOOK_DROP', entryId: e.id }); }} />)}
+        </div>
       </div>
     </div>
   );

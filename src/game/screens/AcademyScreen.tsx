@@ -14,7 +14,7 @@ import { AcademyModel, ChoiceButtons, PickModel } from '../components/AcademyMod
 import { Callout, Confetti } from '../components/Fx';
 import { ACADEMIES, academyById, chapterOf, coreChapters, nextAcademy, prevAcademy } from '../../engine/academy/registry';
 import type { AcademyDef } from '../../engine/academy/defs';
-import { chapterGates, graduation, trialReady, academyNext, criticalFacts, passRule, judge, currentAcademy, ladder, trackOf, graduated, type ChapterGates } from '../../engine/academy/AcademyEngine';
+import { chapterGates, graduation, trialReady, academyNext, criticalFacts, passRule, judge, currentAcademy, ladder, trackOf, graduated, TRANSFER_PASS } from '../../engine/academy/AcademyEngine';
 import { showVisualOnModel } from '../../engine/academy/visualPolicy';
 import { Calculator } from '../components/Calculator';
 import type { AskStep } from '../../engine/academy/types';
@@ -193,83 +193,98 @@ function EngineGauge({ a, mastered, total, graduated: done }: { a: AcademyDef; m
 }
 
 /* ---------------- chapter ---------------- */
+/** 2i: one chapter. Four gates, then the chapter in order with the next step in gold, then the Mastery Trial. */
 function ChapterScreen({ a, k }: { a: AcademyDef; k: string }) {
   const { state, dispatch, play } = useGame();
+  const [open, setOpen] = useState<string | null>(null);
   const c = chapterOf(a.id, k)!;
   const g = chapterGates(state, a.id, k);
   const canPlay = g.available;
   const isTrial = k === 'trial';
   const tr = isTrial ? trialReady(state, a.id) : null;
   const track = trackOf(state.academy, a.id);
+  const core = coreChapters(a);
+  const toGo = core.filter((x) => !chapterGates(state, a.id, x.key).mastered).length;
   const start = (kind: 'quest' | 'concept' | 'transfer' | 'trial', questId?: string) => { play('open'); dispatch({ type: 'ACADEMY_START', kind, academy: a.id, chapter: k, questId }); };
-  return (
-    <div className="screen-scroll">
-      <div className="container stack academy" style={{ maxWidth: 720 }}>
-        <div className="academy-head">
-          <div>
-            <div className="small muted"><Icon name={a.wings[c.wing]?.icon ?? a.icon} /> {c.wingName} · {a.short.toUpperCase()} · CHAPTER {c.n}</div>
-            <h1>{c.title}</h1>
-            {a.id === 'geometry' && ['triangles','polygons','circles','solids'].includes(k) && <button className="btn primary" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'visual-library', params: { domain: 'k12', chapter: k } })}>Visual Library · {c.title}</button>}
-            <p className="small">{c.goal}</p>
-          </div>
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'ACADEMY_OPEN', view: 'hub', academy: a.id })}>{a.short}</button>
-        </div>
-        {!canPlay && <div className="end-story">Locked. {g.lockedBecause}</div>}
-        {!isTrial && <Meters g={g} />}
-        <Panel title={isTrial ? 'The Trial' : 'Quests'} icon="sword">
-          <div className="stack">
-            {c.quests.map((q, i) => (
-              <button key={q.id} className="quest-row" disabled={!canPlay && !isTrial} onClick={() => start('quest', q.id)}>
-                <img src={npcPortrait(q.giver)} alt="" />
-                <span className="pr-body"><b>{i === 0 ? 'Guided' : 'Challenge'}: {q.name}</b><small>{q.hook}</small></span>
-                <span className="qr-clears">{(g.quests[i]?.clears ?? 0) > 0 ? `✓ ×${g.quests[i].clears}` : 'Play ▸'}</span>
-              </button>
-            ))}
-            {isTrial && (
-              <div className="stack">
-                {tr && !tr.ready && <ul className="reasons">{tr.reasons.slice(0, 5).map((r) => <li key={r}>{r}</li>)}</ul>}
-                <button className="btn primary big" disabled={!tr?.ready} onClick={() => start('trial')}><Icon name="reactor" /> Begin the Mastery Trial{track.trial.attempts ? ` (best ${track.trial.best})` : ''}</button>
-              </div>
-            )}
-          </div>
-        </Panel>
-        {!isTrial && (
-          <Panel title="Mastery checks" icon="target">
-            <div className="stack">
-              <div className="check-row"><span><b>Concept check</b><small>3 model items · 2 right passes · best {g.concept.best}/3</small></span><button className="btn small primary" disabled={!canPlay} onClick={() => start('concept')}>{g.concept.pass ? 'Again' : 'Start'}</button></div>
-              <div className="check-row"><span><b>Transfer set</b><small>{c.transferCount} new engineering problems · best {g.transfer.best}/{c.transferCount}</small></span><button className="btn small primary" disabled={!canPlay} onClick={() => start('transfer')}>{g.transfer.pass ? 'Again' : 'Start'}</button></div>
-              <div className="check-row"><span><b>Fluency: {c.fluency.label}</b><small>{g.fluency.have}/{g.fluency.n} recent · {Math.round(g.fluency.accuracy * 100)}% · median {(g.fluency.medianMs / 1000).toFixed(1)}s (need {Math.round(c.fluency.accuracy * 100)}%, ≤ {c.fluency.medianMs / 1000}s)</small></span><button className="btn small" onClick={() => { play('open'); dispatch({ type: 'ARCADE_START', game: c.drill.game as ArcadeGame, mode: 'practice', selection: c.drill.selection }); }}><Icon name="hourglass" /> {c.drill.label}</button></div>
-            </div>
-          </Panel>
-        )}
-        <Panel title="Teach-in-world" icon="scroll">
-          <p className="small muted"><b>Watch for:</b> {c.misconception}</p>
-          <div className="stack">
-            {c.teach.map((t) => (
-              <div key={t.title} className="teach-card">
-                <b>{t.title}</b>
-                <p className="small">{labeled(t.text)}</p>
-                {t.visual && <MathVisual visual={t.visual} />}
-                {t.model && <AcademyModel model={t.model} />}
-                {t.lessonId && lessonById(t.lessonId) && <button className="btn small ghost" onClick={() => { play('open'); dispatch({ type: 'START_LESSON', lessonId: t.lessonId! }); }}><Icon name="scroll" /> Ask Vector: {lessonById(t.lessonId)!.title}</button>}
-              </div>
-            ))}
-          </div>
-        </Panel>
-      </div>
-    </div>
+  const drill = () => { play('open'); dispatch({ type: 'PLAY_TRAIN', game: c.drill.game as ArcadeGame, selection: c.drill.selection, label: c.drill.label }); };
+  const questsDone = g.questsCleared >= g.quests.length;
+  // The one next thing: the first gate still open, in the order the chapter teaches it.
+  const next = !canPlay ? null : !questsDone ? `quest:${c.quests[g.questsCleared]?.id ?? c.quests[0].id}` : !g.concept.pass ? 'concept' : !g.fluency.pass ? 'drill' : !g.transfer.pass ? 'transfer' : null;
+  const gates = [
+    { name: 'Quests', ok: questsDone, status: `${g.questsCleared} of ${g.quests.length}` },
+    { name: 'Concept', ok: g.concept.pass, status: `${g.concept.best} of 3` },
+    { name: 'Fluency', ok: g.fluency.pass, status: g.fluency.have ? `${Math.round(g.fluency.accuracy * 100)}%` : `0 of ${g.fluency.n}` },
+    { name: 'Transfer', ok: g.transfer.pass, status: `${g.transfer.best} of ${c.transferCount}` },
+  ];
+  const Step = ({ id, k: kind, icon, name, meta, cta, go, done }: { id: string; k: string; icon: string; name: string; meta: string; cta: string; go: () => void; done?: boolean }) => (
+    <button className={`sq-row k-${kind} ${next === id ? 'current' : ''}`} disabled={!canPlay && kind !== 'learn'} onClick={go}>
+      <span className="sq-tile sm"><Icon name={icon} /></span>
+      <span className="main"><span className="name">{name}</span><span className="meta">{meta}</span></span>
+      {next === id ? <span className="sq-cta sm" style={{ minHeight: 34 }}>{cta} ▸</span> : <span className="end" style={done ? { color: 'var(--mint)' } : undefined}>{done ? 'Done' : cta}</span>}
+    </button>
   );
-}
-
-function Meters({ g }: { g: ChapterGates }) {
-  const dot = (ok: boolean, partial?: boolean) => <i className={`gate-dot ${ok ? 'ok' : partial ? 'part' : ''}`} />;
   return (
-    <div className="gates">
-      <span>{dot(g.questsCleared === 2, g.questsCleared === 1)} Quests {g.questsCleared}/2</span>
-      <span>{dot(g.concept.pass, g.concept.attempts > 0)} Concept</span>
-      <span>{dot(g.fluency.pass, g.fluency.have > 0)} Fluency</span>
-      <span>{dot(g.transfer.pass, g.transfer.attempts > 0)} Transfer</span>
-      <span className={g.mastered ? 'mastered' : ''}>{g.mastered ? '★ Mastered' : `${g.missing.length} to go`}</span>
+    <div className="sq">
+      <div className="sq-in">
+        <button className="sq-back" onClick={() => { play('click'); dispatch({ type: 'ACADEMY_OPEN', view: 'hub', academy: a.id }); }}>‹ {a.name}</button>
+        <div>
+          <p className="sq-eyebrow k-learn">{isTrial ? 'Graduation' : `Chapter ${c.n} of ${core.length}`} · {c.wingName}</p>
+          <h1 className="sq-title" style={{ marginTop: 4 }}>{c.title}</h1>
+          <p className="sq-sub">{c.goal}</p>
+        </div>
+        {!canPlay && <div className="sq-card" style={{ borderColor: 'var(--orange)' }}>🔒 {g.lockedBecause}</div>}
+
+        {!isTrial && (
+          <div className="sq-gates">
+            {gates.map((x, i) => (
+              <div key={x.name} className={`gate ${x.ok ? 'ok' : ''}`}>
+                <span className="dot">{x.ok ? '✓' : i + 1}</span>
+                <b>{x.name}</b><small>{x.status}</small>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {isTrial ? (
+          <section className="sq-rows">
+            {tr && !tr.ready && <ul className="reasons">{tr.reasons.slice(0, 5).map((r) => <li key={r}>{r}</li>)}</ul>}
+            <button className="sq-cta" disabled={!tr?.ready} onClick={() => start('trial')}>BEGIN THE MASTERY TRIAL{track.trial.attempts ? ` · BEST ${track.trial.best}` : ''} ▸</button>
+          </section>
+        ) : (
+          <section className="sq-rows">
+            <p className="sq-eyebrow">The chapter, in order</p>
+            {c.teach.map((t) => (
+              <div key={t.title} className="stack" style={{ gap: 6 }}>
+                <Step id={`teach:${t.title}`} k="learn" icon="scroll" name={`Teach card · ${t.title}`} meta="worked example, line by line" cta={open === t.title ? 'Close' : 'Reread'} go={() => { play('click'); setOpen(open === t.title ? null : t.title); }} />
+                {open === t.title && (
+                  <div className="teach-card">
+                    <p className="small">{labeled(t.text)}</p>
+                    {t.visual && <MathVisual visual={t.visual} />}
+                    {t.model && <AcademyModel model={t.model} />}
+                    {t.lessonId && lessonById(t.lessonId) && <button className="btn small ghost" onClick={() => { play('open'); dispatch({ type: 'START_LESSON', lessonId: t.lessonId! }); }}><Icon name="scroll" /> Ask Vector: {lessonById(t.lessonId)!.title}</button>}
+                  </div>
+                )}
+              </div>
+            ))}
+            {c.quests.map((q, i) => (
+              <Step key={q.id} id={`quest:${q.id}`} k="done" icon="sword" name={`Quest ${i + 1} · ${q.name}`} meta={`${i === 0 ? 'Guided' : 'Challenge'} · ${q.hook}`} cta={(g.quests[i]?.clears ?? 0) > 0 ? `✓ ×${g.quests[i].clears}` : 'Play'} done={(g.quests[i]?.clears ?? 0) > 0} go={() => start('quest', q.id)} />
+            ))}
+            <Step id="concept" k="learn" icon="target" name="Concept check" meta={`3 model items · 2 right passes · best ${g.concept.best}/3`} cta={g.concept.pass ? 'Again' : 'Start'} done={g.concept.pass} go={() => start('concept')} />
+            <Step id="transfer" k="next" icon="gear" name={`Transfer set · ${c.transferCount} engineering problems`} meta={`needs ${Math.ceil(c.transferCount * TRANSFER_PASS)} right · opens the gate · best ${g.transfer.best}/${c.transferCount}`} cta={g.transfer.pass ? 'Again' : 'Start'} done={g.transfer.pass} go={() => start('transfer')} />
+            <Step id="drill" k="drill" icon="hourglass" name={`Drill · ${c.drill.label}`} meta={`counts toward fluency · ${g.fluency.have}/${g.fluency.n} logged`} cta="Open" done={g.fluency.pass} go={drill} />
+            {a.id === 'geometry' && ['triangles', 'polygons', 'circles', 'solids'].includes(k) && <Step id="visual" k="learn" icon="telescope" name={`Visual Library · ${c.title}`} meta="name the shapes and parts" cta="Open" go={() => dispatch({ type: 'NAVIGATE', screen: 'visual-library', params: { domain: 'k12', chapter: k } })} />}
+            <p className="sq-sub"><b>Watch for:</b> {c.misconception}</p>
+          </section>
+        )}
+
+        {!isTrial && (
+          <button className="sq-boss" onClick={() => { play('open'); dispatch({ type: 'ACADEMY_OPEN', view: 'chapter', academy: a.id, chapter: 'trial' }); }}>
+            <span className="sq-tile" style={{ background: 'rgba(10,13,42,.35)', borderColor: 'transparent', color: '#fff' }}><Icon name="trophy" /></span>
+            <span><b>Mastery Trial · Graduation</b><small>{toGo ? `${toGo} chapter${toGo === 1 ? '' : 's'} to go` : 'Every chapter mastered'} · seats the {a.coreName}</small></span>
+            <span className="go">▸</span>
+          </button>
+        )}
+      </div>
     </div>
   );
 }

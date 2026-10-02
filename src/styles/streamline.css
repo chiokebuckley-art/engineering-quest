@@ -318,3 +318,32 @@ span.bq-x { visibility: hidden; }
 .sq-boss .go { margin-left: auto; font: 700 18px var(--font-display); }
 .sq-boss.shut { opacity: 0.75; cursor: default; box-shadow: none; }
 .sq-boss.shut img { filter: grayscale(1) brightness(0.6); }
+
+/* ---------- 2m Notebook ---------- */
+.sq-nb { position: relative; display: flex; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--line-soft); }
+.sq-nb.due { border-color: var(--orange); }
+.sq-nb .body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: none; border: 0; color: var(--text); text-align: left; font: inherit; cursor: pointer; }
+.sq-nb .body:disabled { cursor: default; }
+.sq-nb .top { display: flex; align-items: center; gap: 10px; }
+.sq-nb .q { flex: 1; font: 700 18px var(--font-display); letter-spacing: 0.02em; }
+.sq-nb .q .x { color: var(--red); } .sq-nb .q .ok { color: var(--mint); }
+.sq-nb .tag { font: 700 9.5px var(--font-display); letter-spacing: 0.08em; border-radius: 999px; padding: 4px 9px; color: var(--ink); }
+.sq-nb .tag.due { background: var(--orange); } .sq-nb .tag.heal { background: var(--gold); } .sq-nb .tag.fixed { background: var(--mint); }
+.sq-nb .prompt { font-size: 13px; color: var(--text-2); }
+.sq-nb .sub { font-size: 12px; color: var(--muted); }
+.sq-nb .tip { font-size: 12px; color: var(--text-2); }
+.sq-nb .segs { display: flex; gap: 4px; margin-top: 4px; }
+.sq-nb .segs i { flex: 1; max-width: 48px; height: 5px; border-radius: 3px; background: var(--bg-3); }
+.sq-nb .segs i.on { background: var(--mint); }
+.sq-nb .drop { align-self: flex-start; margin: 8px 8px 0 0; width: 30px; height: 30px; border-radius: 8px; background: none; border: 1px solid var(--line-soft); color: var(--muted); cursor: pointer; }
+
+/* ---------- 2i Library · academy chapter ---------- */
+.sq-gates { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.sq-gates .gate { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--gold); text-align: center; }
+.sq-gates .gate.ok { border-color: var(--mint); }
+.sq-gates .dot { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--ink); font: 700 12px var(--font-display); }
+.sq-gates .gate.ok .dot { background: var(--mint); }
+.sq-gates b { font-size: 11px; font-weight: 600; }
+.sq-gates small { font-size: 10px; color: var(--muted); }
+.sq-row:disabled { opacity: 0.55; cursor: not-allowed; }
+.sq-in > section.sq-due { flex-direction: row; align-items: center; gap: 14px; }
