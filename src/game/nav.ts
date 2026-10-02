@@ -1,11 +1,12 @@
 import type { Screen } from '../engine/state/types';
 
-/** The four bottom tabs. There is no "More": every screen belongs to one of these, or is reached from search. */
-export type Tab = 'home' | 'quest' | 'library' | 'me';
+/** The bottom tabs. There is no "More": every screen belongs to one of these, or is reached from search. */
+export type Tab = 'home' | 'quest' | 'arcade' | 'library' | 'me';
 
 export const TABS: { tab: Tab; screen: Screen; label: string; icon: string }[] = [
   { tab: 'home', screen: 'home', label: 'Home', icon: 'star' },
   { tab: 'quest', screen: 'map', label: 'Quest', icon: 'sword' },
+  { tab: 'arcade', screen: 'arcade', label: 'Arcade', icon: 'hourglass' },
   { tab: 'library', screen: 'library', label: 'Library', icon: 'book' },
   { tab: 'me', screen: 'me', label: 'Me', icon: 'dashboard' },
 ];
@@ -21,7 +22,8 @@ const TAB_OF: Record<Screen, Tab> = {
   // Library: learn · drill · play · friends.
   library: 'library', topic: 'library', setup: 'library', friends: 'library',
   academy: 'library', lessons: 'library', lesson: 'library', mental: 'library', contest: 'library', reality: 'library', countlab: 'library', 'visual-library': 'library',
-  arcade: 'library', drill: 'library', versus: 'library',
+  // Arcade: the drill lobby and the friends race, one tap from anywhere.
+  arcade: 'arcade', versus: 'arcade', drill: 'library',
   rocket: 'library', millionaire: 'library', stud: 'library', gear: 'library', plaza: 'library', tycoon: 'library', dice: 'library', workshop: 'library',
   // Me: progress and people.
   me: 'me', notebook: 'me', dashboard: 'me', inventory: 'me', achievements: 'me', settings: 'me', grownups: 'me',
@@ -36,6 +38,7 @@ export const tabHome = (tab: Tab): Screen => TABS.find((t) => t.tab === tab)!.sc
 export function backFor(screen: Screen): { screen: Screen; label: string } {
   const tab = tabFor(screen);
   if (tab === 'quest') return { screen: 'map', label: 'World map' };
+  if (tab === 'arcade') return { screen: 'arcade', label: 'Arcade' };
   if (tab === 'library') return { screen: 'library', label: 'Library' };
   if (tab === 'me') return { screen: 'me', label: 'Me' };
   return { screen: 'home', label: 'Home' };
@@ -50,7 +53,7 @@ const PATH_OF: Partial<Record<Screen, string>> = {
 
 /** Old addresses (the More menu and the old tabs) and where they open now. */
 export const LEGACY: Record<string, { screen: Screen; params?: Record<string, string> }> = {
-  '/play': { screen: 'map' }, '/world-map': { screen: 'map' }, '/arcade': { screen: 'library', params: { kind: 'drill' } },
+  '/play': { screen: 'map' }, '/world-map': { screen: 'map' }, '/arcade': { screen: 'arcade' },
   '/learn': { screen: 'library', params: { kind: 'learn' } }, '/lab': { screen: 'reality' }, '/projects': { screen: 'lab' },
   '/stats': { screen: 'dashboard' }, '/items': { screen: 'inventory' }, '/trophies': { screen: 'achievements' }, '/skills': { screen: 'skilltree' },
   '/training': { screen: 'drill' }, '/more': { screen: 'me' },

@@ -517,7 +517,7 @@ function ArcadeLobby() {
           <button className="btn small" onClick={() => { play('click'); dispatch({ type: 'NAVIGATE', screen: 'plaza' }); }}>▦ Equation Plaza{state.plaza && state.plaza.phase !== 'over' || pausedPlaza(state.stats.plaza) ? ' · resume' : ''}</button>
           <button className="btn small" onClick={() => { play('click'); dispatch({ type: 'NAVIGATE', screen: 'tycoon' }); }}>🏙 Engine City Tycoon</button>
           {grade !== 'g1' && grade !== 'g3' && <button className="btn small" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'countlab' })}>♠ Count Lab · Parent PIN</button>}
-          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>‹ Library</button>
+          <button className="btn small ghost" onClick={() => dispatch({ type: 'NAVIGATE', screen: 'library' })}>Library ›</button>
         </div>
         <CapsStrip />
         {grade && consent === 'rocket' && <ClockConsent what={consentText} onYes={consentYes} onNo={() => setConsent(null)} />}
