@@ -1,7 +1,7 @@
 {
   "name": "engineering-quest",
   "private": true,
-  "version": "0.46.1",
+  "version": "0.47.0",
   "type": "module",
   "description": "ENGINEERING QUEST - an RPG that teaches mathematics from arithmetic to engineering.",
   "scripts": {
