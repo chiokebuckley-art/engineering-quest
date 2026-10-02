@@ -723,12 +723,13 @@ describe('Contest Path screen', () => {
     s = step(s, { type: 'CONTEST_CLOCK', accept: false });
     const before = screen(s);
     expect(before).toContain('ct-play ct-noexplain');
-    // ContestTrackScreen.css hides the last button without an aria-label in the tool row: it must be "Show me how"
+    // The worked answer lives in the ? Help sheet; during the mock it is left out (explainLocked), and the tool row
+    // offers only labelled buttons and ? Help, never the explanation itself.
     const tools = /<div class="tools">(.*?)<\/div>/.exec(before)![1];
     const btns = buttons(tools);
-    expect(btns.at(-1)!.text).toBe('Show me how');
-    expect(btns.at(-1)!.attrs).not.toContain('aria-label');
+    expect(btns.at(-1)!.text).toBe('? Help');
     expect(btns.slice(0, -1).every((b) => b.attrs.includes('aria-label')), 'only labelled buttons come before it').toBe(true);
+    expect(before).not.toMatch(/Explain this|Show me how/);
     s = step(s, { type: 'CONTEST_ANSWER', given: String(cur(s).question.answer) });
     expect(screen(s)).not.toContain('ct-noexplain');
   });

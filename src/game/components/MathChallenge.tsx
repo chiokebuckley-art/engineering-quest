@@ -34,6 +34,8 @@ interface Props {
   helpExtra?: ReactNode;
   /** A short line from a guide, shown left of ? Help. */
   guideLine?: ReactNode;
+  /** Test-like runs (the Contest mini-mock): no worked answer until the item is answered. */
+  explainLocked?: boolean;
 }
 
 /** What the speaker button reads: the question's own words, else its prompt and expression. */
@@ -188,7 +190,7 @@ export function MathChallenge(p: Props) {
             {p.onHint && !p.hintShown && !p.feedback && (
               <button className="btn small ghost" onClick={p.onHint} disabled={(p.hintCharges ?? 1) <= 0}><Icon name="lantern" /> Hint{p.hintCharges !== undefined ? ` (${p.hintCharges})` : ''}</button>
             )}
-            <button className="btn small ghost" onClick={p.onToggleExplanation}><Icon name="book" /> {p.showExplanation ? 'Hide' : 'Explain this'}</button>
+            {!p.explainLocked && <button className="btn small ghost" onClick={p.onToggleExplanation}><Icon name="book" /> {p.showExplanation ? 'Hide' : 'Explain this'}</button>}
           </div>
         </div>
       )}

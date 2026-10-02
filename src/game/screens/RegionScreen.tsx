@@ -4,7 +4,7 @@ import { NPCS } from '../../content/npcs';
 import { Icon } from '../components/ui';
 import { useState } from 'react';
 import { MINE_DEPTHS, DIVISION_DEPTHS, FOREST_DEPTHS, enemyById, type DepthDef } from '../../engine/combat/enemies';
-import { VillageScene, VillageBoard, MineLamps, CoreCeremony, saveEngineCard } from '../components/World';
+import { VillageScene, VillageBoard, CoreCeremony, saveEngineCard } from '../components/World';
 import { AcademyCard } from './AcademyScreen';
 import { ACADEMIES, prevAcademy } from '../../engine/academy/registry';
 import { academyUnlocked, graduated, academyNext } from '../../engine/academy/AcademyEngine';
@@ -17,6 +17,8 @@ import { recommendedLesson } from '../../engine/state/selectors';
 import { GuideBar } from '../components/GuideBar';
 import { nextStep, villageStage } from '../../engine/state/guide';
 import { asset } from '../../assets';
+import type { Action } from '../../engine/state/actions';
+import type { ArcadeGame } from '../../engine/state/types';
 
 export function RegionScreen() {
   const { state, dispatch, play } = useGame();
@@ -177,84 +179,25 @@ function VillageStatus() {
 }
 
 function MineGalleries() {
-  const { state, dispatch, play } = useGame();
-  const step = nextStep(state);
-  const cleared = state.world.depthCleared['mines'] ?? 0;
-  const forgeOpen = state.world.unlockedRegions.includes('forge');
+  const { state } = useGame();
   const completed = new Set(Object.entries(state.quests).filter(([, q]) => q.status === 'completed').map(([id]) => id));
+  const forgeOpen = state.world.unlockedRegions.includes('forge');
   const forgeReady = regionReadiness(regionById('forge')!, state.mastery, completed);
+  const beaten = state.stats.bossesDefeated.includes('multiplication-dragon');
   return (
-    <div className="stack">
-      <div className="row wrap">
-        <h3 className="brass">Galleries</h3>
-        <span className="chip">Cleared {cleared} / {MINE_DEPTHS.length}</span>
-        <span className="spacer" />
-        <button className="btn small ghost" onClick={() => dispatch({ type: 'TRAVEL', regionId: 'village' })}><Icon name="home" /> Back to village</button>
-      </div>
-      <MineLamps />
-      <RouteChooser regionId="mines" depths={MINE_DEPTHS} />
-      <div className="depth-list">
-        {MINE_DEPTHS.map((d) => {
-          const e = enemyById(d.enemyId)!;
-          const locked = d.depth > cleared + 1;
-          const wins = state.world.depthWins[`mines:${d.depth}`] ?? 0;
-          const m = Math.round(d.tables.reduce((a, t) => a + skillMastery(`mult.${t}`, state.mastery), 0) / d.tables.length);
-          const sideDone = (state.world.sideDone ?? []).includes(`mines:${d.depth}`);
-          return (
-            <button key={d.depth} className={`depth ${locked ? 'locked' : ''} ${d.depth <= cleared ? 'cleared' : ''} ${step.hotspot === `depth-${d.depth}` ? 'glow' : ''}`} disabled={locked} onClick={() => { play('open'); dispatch({ type: 'START_BATTLE', enemyId: d.enemyId, regionId: 'mines', depth: d.depth }); }}>
-              <img src={e.sprite} alt="" style={{ filter: locked ? 'grayscale(1) brightness(0.4)' : undefined }} />
-              <div>
-                <div className="dn">{d.depth}. {d.name}</div>
-                <div className="ds">{e.name} · {d.tables.map((t) => `×${t}`).join(', ')}</div>
-                <div className="ds">{locked ? 'Locked' : d.depth <= cleared ? `Cleared ✓ · ${m}%` : `${wins}/${d.clears} wins · ${m}%`}</div>
-                {d.side && !locked && <div className={`dside ${sideDone ? 'done' : ''}`}>★ {sideDone ? `Done: ${d.side.reward}` : d.side.text}</div>}
-              </div>
-            </button>
-          );
-        })}
-        <button className={`depth ${forgeOpen ? '' : 'locked'}`} disabled={!forgeOpen} onClick={() => dispatch({ type: 'TRAVEL', regionId: 'forge' })}>
-          <img src={asset('/assets/enemies/multiplication-dragon.svg')} alt="" style={{ filter: forgeOpen ? undefined : 'grayscale(1) brightness(0.4)' }} />
-          <div>
-            <div className="dn">The Dragon's Forge</div>
-            <div className="ds">Boss · 50 facts from all tables</div>
-            <div className="ds">{forgeOpen ? 'Gate open — the Forge Key hums.' : `Readiness ${forgeReady.percent}% · needs Forge Key & 75% mastery`}</div>
-          </div>
-        </button>
-      </div>
-    </div>
+    <DepthRows regionId="mines" depths={MINE_DEPTHS} unit="Gallery" lit="galleries lit" keeper="Foreman Brick" tableSkill={(t) => `mult.${t}`} tableLabel={(t) => `×${t}`}
+      boss={{ name: "Dragon's Forge · Boss", art: asset('/assets/enemies/multiplication-dragon.svg'), open: forgeOpen, line: beaten ? 'Defeated ✓ — rematch for XP' : forgeOpen ? 'The gate is open. 50 facts, 5 misses allowed.' : `Light ${MINE_DEPTHS.length} lanterns to open · readiness ${forgeReady.percent}%`, go: { type: 'TRAVEL', regionId: 'forge' } }} />
   );
 }
 
 function DivisionHalls() {
-  const { state, dispatch, play } = useGame();
+  const { state } = useGame();
   const cleared = state.world.depthCleared['division'] ?? 0;
+  const open = cleared >= DIVISION_DEPTHS.length;
+  const beaten = state.stats.bossesDefeated.includes('division-titan');
   return (
-    <div className="stack">
-      <div className="row wrap"><h3 className="brass">Halls</h3><span className="spacer" /><button className="btn small ghost" onClick={() => dispatch({ type: 'TRAVEL', regionId: 'village' })}><Icon name="home" /> Village</button></div>
-      <div className="depth-list">
-        {DIVISION_DEPTHS.map((d) => {
-          const e = enemyById(d.enemyId)!;
-          const locked = d.depth > cleared + 1;
-          const wins = state.world.depthWins[`division:${d.depth}`] ?? 0;
-          return (
-            <button key={d.depth} className={`depth ${locked ? 'locked' : ''} ${d.depth <= cleared ? 'cleared' : ''}`} disabled={locked} onClick={() => { play('open'); dispatch({ type: 'START_BATTLE', enemyId: d.enemyId, regionId: 'division', depth: d.depth }); }}>
-              <img src={e.sprite} alt="" />
-              <div><div className="dn">{d.depth}. {d.name}</div><div className="ds">{e.name} · {e.title}</div><div className="ds">{d.depth <= cleared ? `Cleared · ${wins} wins` : `${wins}/${d.clears} wins to clear`}</div></div>
-            </button>
-          );
-        })}
-        {(() => {
-          const open = cleared >= DIVISION_DEPTHS.length;
-          const beaten = state.stats.bossesDefeated.includes('division-titan');
-          return (
-            <button className={`depth ${open ? '' : 'locked'}`} disabled={!open} onClick={() => { play('boss-roar'); dispatch({ type: 'START_BATTLE', enemyId: 'division-titan', regionId: 'division' }); }}>
-              <img src={asset('/assets/enemies/division-titan.svg')} alt="" style={{ filter: open ? undefined : 'grayscale(1) brightness(0.4)' }} />
-              <div><div className="dn">The Division Titan</div><div className="ds">Boss · 50 division facts, 5 misses allowed</div><div className="ds">{beaten ? 'Defeated ✓ — rematch for XP' : open ? `Awake · division mastery ${Math.round(skillMastery('div', state.mastery))}%` : 'Clear both halls to wake it'}</div></div>
-            </button>
-          );
-        })()}
-      </div>
-    </div>
+    <DepthRows regionId="division" depths={DIVISION_DEPTHS} unit="Hall" lit="halls lit" keeper="Foreman Brick" tableSkill={(t) => `div.${t}`} tableLabel={(t) => `÷${t}`}
+      boss={{ name: 'Division Titan · Boss', art: asset('/assets/enemies/division-titan.svg'), open, line: beaten ? 'Defeated ✓ — rematch for XP' : open ? `Awake · 50 division facts, 5 misses · mastery ${Math.round(skillMastery('div', state.mastery))}%` : `Clear all ${DIVISION_DEPTHS.length} halls to wake it`, go: { type: 'START_BATTLE', enemyId: 'division-titan', regionId: 'division' } }} />
   );
 }
 
@@ -300,69 +243,89 @@ function ForgottenEntrance() {
   );
 }
 
-/** The fork before a gallery: the main passage, a quiet tunnel (fewer, harder facts) or a loud shaft (more, easier ones, more XP). */
-function RouteChooser({ regionId, depths }: { regionId: string; depths: DepthDef[] }) {
+/** Fraction Forest: three groves, then the three-headed Hydra. */
+function FractionGroves() {
+  const { state, dispatch } = useGame();
+  const cleared = state.world.depthCleared['fraction-forest'] ?? 0;
+  const hydraOpen = cleared >= FOREST_DEPTHS.length;
+  const beaten = state.stats.bossesDefeated.includes('fraction-hydra');
+  return (
+    <>
+      <DepthRows regionId="fraction-forest" depths={FOREST_DEPTHS} unit="Grove" lit="groves lit" keeper="Professor Vector"
+        boss={{ name: 'Fraction Hydra · Boss', art: asset('/assets/enemies/fraction-hydra.svg'), open: hydraOpen, line: beaten ? 'Defeated ✓ — rematch for XP' : hydraOpen ? 'Awake. Three heads: sums, products, everything. 4 misses allowed.' : `Clear all ${FOREST_DEPTHS.length} groves to wake it`, go: { type: 'START_BATTLE', enemyId: 'fraction-hydra', regionId: 'fraction-forest' } }} />
+      <button className="sq-btn2 k-learn" onClick={() => dispatch({ type: 'START_LESSON', lessonId: 'l.pc-fractions' })}><Icon name="scroll" style={{ width: 16, height: 16, verticalAlign: '-3px' }} /> Fractions lesson</button>
+    </>
+  );
+}
+
+/**
+ * 2d: a region's galleries / halls / groves as rows. Lamp circle (mint lit, gold the one to fight, dim locked),
+ * the route choice on the current one, side goals left open, and the boss banner at the end.
+ */
+function DepthRows({ regionId, depths, unit, lit, keeper, tableSkill, tableLabel, boss }: {
+  regionId: string; depths: DepthDef[]; unit: string; lit: string; keeper: string;
+  tableSkill?: (t: number) => string; tableLabel?: (t: number) => string;
+  boss: { name: string; art: string; open: boolean; line: string; go: Action };
+}) {
   const { state, dispatch, play } = useGame();
   const cleared = state.world.depthCleared[regionId] ?? 0;
-  const d = depths[Math.min(cleared, depths.length - 1)];
-  if (!d || cleared >= depths.length) return null;
-  const go = (route?: 'quiet' | 'loud') => { play('open'); dispatch({ type: 'START_BATTLE', enemyId: d.enemyId, regionId, depth: d.depth, route }); };
+  const sideDone = (d: DepthDef) => (state.world.sideDone ?? []).includes(`${regionId}:${d.depth}`);
+  const sidesOpen = depths.filter((d) => d.side && d.depth <= cleared + 1 && !sideDone(d)).length;
+  const tables = [...new Set(depths.flatMap((d) => d.tables))].filter((t) => t !== 1);
+  const skills = [...new Set(depths.flatMap((d) => d.skills ?? []))];
+  const weakest = tableSkill && tableLabel && tables.length
+    ? (() => { const t = [...tables].sort((a, b) => skillMastery(tableSkill(a), state.mastery) - skillMastery(tableSkill(b), state.mastery))[0]; return { label: tableLabel(t), go: { type: 'PLAY_TRAIN' as const, game: (regionId === 'division' ? 'div' : 'mult') as ArcadeGame, selection: `${regionId === 'division' ? 'div' : 'mult'}:${t}`, label: tableLabel(t) } }; })()
+    : skills.length ? { label: `${Math.round(Math.min(...skills.map((k) => skillMastery(k, state.mastery))))}%`, go: null } : null;
+  const fight = (d: DepthDef, route?: 'quiet' | 'loud') => { play('open'); dispatch({ type: 'START_BATTLE', enemyId: d.enemyId, regionId, depth: d.depth, route }); };
+  const current = depths.find((d) => d.depth === cleared + 1);
+
   return (
-    <div className="route-row">
-      <span className="small muted">Into {d.name}:</span>
-      <button className="btn small primary" onClick={() => go()}>Main passage</button>
-      <button className="btn small" onClick={() => go('quiet')} title="Fewer facts, a level harder">Quiet tunnel · fewer, harder</button>
-      <button className="btn small" onClick={() => go('loud')} title="More facts, a level easier, +30% XP">Loud shaft · more, easier</button>
+    <div className="sq-depths">
+      <p className="sq-sub" style={{ margin: 0 }}>{keeper} · {cleared} of {depths.length} {lit}</p>
+      <div className="sq-stats">
+        <div className="sq-stat k-done"><b>{cleared}/{depths.length}</b><small>lanterns</small></div>
+        <button className="sq-stat k-fix" disabled={!weakest?.go} onClick={() => { if (weakest?.go) { play('open'); dispatch(weakest.go); } }} style={{ cursor: weakest?.go ? 'pointer' : 'default', font: 'inherit', color: 'inherit' }}><b>{weakest?.label ?? '–'}</b><small>weakest{weakest?.go ? ' · train' : ''}</small></button>
+        <div className="sq-stat k-next"><b>{sidesOpen}</b><small>side goals</small></div>
+      </div>
+      <div className="sq-rows">
+        {depths.map((d) => {
+          const e = enemyById(d.enemyId)!;
+          const done = d.depth <= cleared;
+          const now = d.depth === cleared + 1;
+          const locked = d.depth > cleared + 1;
+          const wins = state.world.depthWins[`${regionId}:${d.depth}`] ?? 0;
+          const what = d.tables.length && tableLabel ? d.tables.map(tableLabel).join(' ') : e.title.split(' · ')[1] ?? e.title;
+          const side = d.side && !sideDone(d) && !locked;
+          return (
+            <div key={d.depth} className={`sq-depth ${done ? 'lit' : now ? 'now' : 'locked'}`}>
+              <span className="lamp">{d.depth}</span>
+              <span className="main">
+                <span className="name">{e.name} · {what}</span>
+                <span className="meta">{locked ? `Beat ${unit.toLowerCase()} ${d.depth - 1}` : now ? `${d.name} · ${wins}/${d.clears} wins` : `${d.name} · lit${d.side && sideDone(d) ? ' · side goal done' : ''}`}</span>
+                {side && <span className="side">★ {d.side!.text}</span>}
+                {now && (
+                  <span className="routes">
+                    <button onClick={() => fight(d, 'quiet')} title="Fewer facts, a level harder">Quiet · fewer, harder</button>
+                    <button onClick={() => fight(d, 'loud')} title="More facts, a level easier, +30% XP">Loud · more ×1.3 XP</button>
+                  </span>
+                )}
+              </span>
+              {locked ? <span className="end">🔒</span>
+                : now ? <button className="go now" onClick={() => fight(d)}>Fight ▸</button>
+                : side ? <button className="go side" onClick={() => fight(d)}>Side goal</button>
+                : <button className="go" onClick={() => fight(d)}>Replay</button>}
+            </div>
+          );
+        })}
+      </div>
+      <button className={`sq-boss ${boss.open ? '' : 'shut'}`} disabled={!boss.open} onClick={() => { play('boss-roar'); dispatch(boss.go); }}>
+        <img src={boss.art} alt="" />
+        <span><b>{boss.name}</b><small>{boss.line}</small></span>
+        {boss.open && <span className="go">▸</span>}
+      </button>
+      {!current && <p className="sq-sub" style={{ textAlign: 'center', margin: 0 }}>Every {unit.toLowerCase()} is lit.</p>}
     </div>
   );
 }
 
-/** Fraction Forest: three groves, then the three-headed Hydra. */
-function FractionGroves() {
-  const { state, dispatch, play } = useGame();
-  const cleared = state.world.depthCleared['fraction-forest'] ?? 0;
-  const hydraOpen = cleared >= FOREST_DEPTHS.length;
-  const beaten = state.stats.bossesDefeated.includes('fraction-hydra');
-  const m = (id: string) => Math.round(skillMastery(id, state.mastery));
-  return (
-    <div className="stack">
-      <div className="row wrap">
-        <h3 className="brass">Groves</h3>
-        <span className="chip">Cleared {cleared} / {FOREST_DEPTHS.length}</span>
-        <span className="chip">Adding {m('precalc.frac.add')}% · Multiplying {m('precalc.frac.mul')}%</span>
-        <span className="spacer" />
-        <button className="btn small ghost" onClick={() => dispatch({ type: 'START_LESSON', lessonId: 'l.pc-fractions' })}><Icon name="scroll" /> Fractions lesson</button>
-        <button className="btn small ghost" onClick={() => dispatch({ type: 'TRAVEL', regionId: 'village' })}><Icon name="home" /> Village</button>
-      </div>
-      <RouteChooser regionId="fraction-forest" depths={FOREST_DEPTHS} />
-      <div className="depth-list">
-        {FOREST_DEPTHS.map((d) => {
-          const e = enemyById(d.enemyId)!;
-          const locked = d.depth > cleared + 1;
-          const wins = state.world.depthWins[`fraction-forest:${d.depth}`] ?? 0;
-          const sideDone = (state.world.sideDone ?? []).includes(`fraction-forest:${d.depth}`);
-          return (
-            <button key={d.depth} className={`depth ${locked ? 'locked' : ''} ${d.depth <= cleared ? 'cleared' : ''}`} disabled={locked} onClick={() => { play('open'); dispatch({ type: 'START_BATTLE', enemyId: d.enemyId, regionId: 'fraction-forest', depth: d.depth }); }}>
-              <img src={e.sprite} alt="" style={{ filter: locked ? 'grayscale(1) brightness(0.4)' : e.hue ? `hue-rotate(${e.hue}deg)` : undefined }} />
-              <div>
-                <div className="dn">{d.depth}. {d.name}</div>
-                <div className="ds">{e.name} · {e.title.split(' · ')[1]}</div>
-                <div className="ds">{locked ? 'Locked' : d.depth <= cleared ? 'Cleared ✓' : `${wins}/${d.clears} wins to clear`}</div>
-                {d.side && !locked && <div className={`dside ${sideDone ? 'done' : ''}`}>★ {sideDone ? `Done: ${d.side.reward}` : d.side.text}</div>}
-              </div>
-            </button>
-          );
-        })}
-        <button className={`depth ${hydraOpen ? '' : 'locked'}`} disabled={!hydraOpen} onClick={() => { play('boss-roar'); dispatch({ type: 'START_BATTLE', enemyId: 'fraction-hydra', regionId: 'fraction-forest' }); }}>
-          <img src={asset('/assets/enemies/fraction-hydra.svg')} alt="" style={{ filter: hydraOpen ? undefined : 'grayscale(1) brightness(0.4)' }} />
-          <div>
-            <div className="dn">The Fraction Hydra</div>
-            <div className="ds">Boss · three heads: sums, products, everything</div>
-            <div className="ds">{beaten ? 'Defeated ✓ — rematch for XP' : hydraOpen ? 'Awake. 4 misses allowed.' : `Clear all ${FOREST_DEPTHS.length} groves to wake it`}</div>
-          </div>
-        </button>
-      </div>
-    </div>
-  );
-}
 

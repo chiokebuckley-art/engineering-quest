@@ -12,7 +12,7 @@ import { BattleScreen } from './game/screens/BattleScreen';
 import { LessonScreen, LessonsScreen } from './game/screens/LessonScreens';
 import { DrillScreen, MissionScreen } from './game/screens/SessionScreens';
 import { DungeonScreen } from './game/screens/DungeonScreen';
-import { WorldMapScreen } from './game/screens/WorldMapScreen';
+import { QuestMapScreen } from './game/screens/QuestMapScreen';
 import { SkillTreeScreen } from './game/screens/SkillTreeScreen';
 import { DashboardScreen } from './game/screens/DashboardScreen';
 import { InventoryScreen } from './game/screens/InventoryScreen';
@@ -62,7 +62,7 @@ function Screen() {
     case 'drill': return <DrillScreen />;
     case 'mission': return state.session ? <MissionScreen /> : <RegionScreen />;
     case 'dungeon': return <DungeonScreen />;
-    case 'map': return <WorldMapScreen />;
+    case 'map': return <QuestMapScreen />;
     case 'skilltree': return <SkillTreeScreen />;
     case 'dashboard': return <DashboardScreen />;
     case 'inventory': return <InventoryScreen />;

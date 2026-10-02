@@ -274,3 +274,47 @@ span.bq-x { visibility: hidden; }
 .bq-changed .o { color: var(--orange); } .bq-changed .g { color: var(--gold); } .bq-changed .m { color: var(--muted); } .bq-changed .l { color: var(--lime); }
 .bq-end-row { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
 .bq-end-row:empty { display: none; }
+
+/* ---------- 2c Quest · world map ---------- */
+.sq-qhero { height: 190px; background: center / cover no-repeat; position: relative; display: flex; align-items: flex-end; padding: 0 16px 14px; }
+.sq-qhero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 13, 42, 0.1), var(--bg) 96%); }
+.sq-qhero > div { position: relative; z-index: 1; max-width: 720px; width: 100%; margin: 0 auto; }
+.sq-qhero .gold { color: var(--gold); margin: 2px 0 0; font-size: 13px; font-weight: 600; }
+.sq-region { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 12px; background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: 14px; }
+.sq-region .main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sq-region .name { font-size: 14px; font-weight: 600; }
+.sq-region .meta { font-size: 12px; color: var(--muted); }
+.sq-region .rbar { height: 5px; border-radius: 3px; background: var(--bg-3); overflow: hidden; margin-top: 4px; }
+.sq-region .rbar i { display: block; height: 100%; background: var(--rc); box-shadow: 0 0 8px var(--rg); }
+.sq-region .cta { background: none; border: 1px solid var(--rc); color: var(--rc); border-radius: 10px; min-height: 36px; padding: 0 12px; font: 700 12px var(--font-display); letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; }
+.sq-region .cta:hover { background: var(--rc); color: var(--ink); }
+.sq-region .lock { font-size: 16px; opacity: 0.8; }
+.sq-mapview { position: absolute; inset: 0; }
+.sq-mapback { position: absolute; top: 10px; left: 12px; z-index: 6; }
+
+/* ---------- 2d Quest · region galleries ---------- */
+.sq-depths { display: flex; flex-direction: column; gap: 10px; max-width: 720px; width: 100%; }
+.sq-depths .sq-stat { border: 1px solid var(--line-soft); background: var(--bg-2); }
+.sq-depth { display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 8px 12px; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--line-soft); }
+.sq-depth.now { border-color: var(--gold); background: var(--bg-3); }
+.sq-depth .lamp { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 700 12px var(--font-display); background: var(--bg-3); color: var(--muted); flex-shrink: 0; }
+.sq-depth.lit .lamp { background: var(--mint); color: var(--ink); box-shadow: 0 0 12px rgba(60, 255, 157, 0.6); }
+.sq-depth.now .lamp { background: var(--gold); color: var(--ink); box-shadow: 0 0 12px rgba(255, 201, 60, 0.6); }
+.sq-depth.locked { opacity: 0.6; }
+.sq-depth .main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sq-depth .name { font-size: 14px; font-weight: 600; }
+.sq-depth .meta { font-size: 12px; color: var(--muted); }
+.sq-depth .side { font-size: 11.5px; color: var(--orange); }
+.sq-depth .routes { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.sq-depth .routes button { min-height: 30px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); color: var(--text-2); font: 600 11.5px var(--font-body); padding: 0 10px; cursor: pointer; }
+.sq-depth .go { min-height: 36px; padding: 0 12px; border-radius: 10px; background: var(--bg-3); border: 1px solid var(--line-soft); color: var(--text-2); font: 700 12px var(--font-display); cursor: pointer; white-space: nowrap; }
+.sq-depth .go.now { background: var(--gold); color: var(--ink); border-color: var(--gold); box-shadow: var(--glow-gold); }
+.sq-depth .go.side { color: var(--orange); border-color: rgba(255, 122, 26, 0.5); }
+.sq-depth .end { font-size: 16px; }
+.sq-boss { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 0; background: linear-gradient(135deg, var(--violet), var(--magenta)); color: #fff; text-align: left; font: inherit; cursor: pointer; box-shadow: 0 10px 30px rgba(255, 61, 138, 0.35); }
+.sq-boss img { width: 44px; height: 44px; object-fit: contain; }
+.sq-boss b { display: block; font: 700 14px var(--font-display); }
+.sq-boss small { font-size: 12px; opacity: 0.9; }
+.sq-boss .go { margin-left: auto; font: 700 18px var(--font-display); }
+.sq-boss.shut { opacity: 0.75; cursor: default; box-shadow: none; }
+.sq-boss.shut img { filter: grayscale(1) brightness(0.6); }

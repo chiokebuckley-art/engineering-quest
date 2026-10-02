@@ -384,6 +384,7 @@ function PlayView({ run }: { run: ContestRun }) {
         hintShown={run.hintShown}
         showExplanation={run.showExplanation}
         onToggleExplanation={() => { if (!lockExplain) dispatch({ type: 'CONTEST_EXPLAIN' }); }}
+        explainLocked={lockExplain}
         nextLabel={retry ? 'Try again' : lastOne ? 'Finish' : 'Next'}
         showTimer={false}
         readAloud={young || !!q.readAloud}

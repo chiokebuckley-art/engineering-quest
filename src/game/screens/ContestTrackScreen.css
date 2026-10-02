@@ -103,4 +103,4 @@
  * MathChallenge's tool row "Show me how" is the last button ("Read to me", when shown, comes before it and carries an
  * aria-label). Matched by position, not by its icon's URL: the single-file build inlines icons as data: URIs.
  */
-.ct-noexplain .tools > button:last-of-type:not([aria-label]) { display: none; }
+/* The mini-mock's worked answer waits for the answer: MathChallenge leaves "Explain this" out of ? Help (explainLocked). */
