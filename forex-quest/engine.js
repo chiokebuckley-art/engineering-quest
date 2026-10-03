@@ -85,3 +85,10 @@ export function planScore({units,stopPips,reason='',ackCost=false},d){
 }
 // League process score: avg plan quality (0–4) × 10 + streak days (cap 30) + licences × 5 + blueprints frozen with holdout revealed × 2. Reads only; P&L is not an input.
 export function processScore(s){const plans=s.plans??[],avg=plans.length?plans.reduce((n,p)=>n+p.score,0)/plans.length:0,licences=Object.values(s.exams??{}).filter(e=>e.passed).length,revealed=(s.blueprints??[]).filter(b=>Number.isFinite(b.holdoutNet)).length;return Math.round(avg*10+Math.min(s.streak?.current??0,30)+licences*5+revealed*2);}
+// Desk licences: the count of passed world challenges sets the career tier. Licences come only from exam passes.
+// Only account size and title are wired today. TODO(GBP/USD): unlock a second pair at the Execution licence (2 passed)
+// once quoteAt()/pnl() and the scenario tapes are generalised by pair; the engine is EUR/USD only.
+const allScenarios=['harbor','trend','range'];
+export const tiers=[{passed:0,title:'Intern',account:10000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:1,title:'Junior trader',account:10000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:2,title:'Junior trader',account:25000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:3,title:'Trader',account:25000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:7,title:'Senior',account:25000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:12,title:'Head of desk',account:100000,pairs:['EUR/USD'],scenarios:allScenarios}];
+export const tierFor=passed=>[...tiers].reverse().find(t=>passed>=t.passed);
+export const titles=[...new Set(tiers.map(t=>t.title))];
