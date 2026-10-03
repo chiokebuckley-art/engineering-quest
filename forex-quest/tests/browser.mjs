@@ -9,7 +9,7 @@ import {fresh,question,rng} from '../engine.js';
 import {decisions} from '../advanced-content.js';
 const require=createRequire(import.meta.url),root=fileURLToPath(new URL('../',import.meta.url));
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const mime={'.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.html':'text/html'};
+const mime={'.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.html':'text/html','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{try{const name=decodeURIComponent(new URL(req.url,'http://local').pathname).replace(/^\/forex-quest\//,'');const file=path.resolve(root,name||'index.html');if(!file.startsWith(root)){res.writeHead(403).end();return;}const bytes=await readFile(file);res.setHeader('Content-Type',mime[path.extname(file)]||'text/plain');res.end(bytes);}catch{res.writeHead(404).end();}});
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base=`http://127.0.0.1:${server.address().port}/forex-quest/`;
@@ -31,7 +31,7 @@ await page.locator('[data-repair]').click();const answer=await page.evaluate(()=
 await page.locator('#answer').fill(String(answer));await page.getByRole('button',{name:'Check answer'}).click();await page.locator('#next').click();assert.ok((await page.locator('main').innerText()).toLowerCase().includes('2 of 5'));
 await page.getByRole('button',{name:/Practice arcade/}).click();assert.equal(await page.locator('[data-skill]').count(),27);
 await page.locator('[data-skill="parityjudgment"]').click();await page.locator('input[type=radio]').first().check();await page.getByRole('button',{name:'Check answer'}).click();await page.locator('#next').waitFor();
-await page.getByRole('button',{name:/Trading desk/}).click();await page.locator('#reason').fill('Practice a long entry with a defined stop.');await page.getByRole('button',{name:'Open simulated position'}).click();await page.getByRole('heading',{name:'Open position'}).waitFor();
+await page.getByRole('button',{name:/Trading desk/}).click();await page.getByRole('button',{name:'Pause'}).click();await page.locator('#reason').fill('Practice a long entry with a defined stop.');await page.getByRole('button',{name:'Open simulated position'}).click();await page.getByRole('heading',{name:'Open position'}).waitFor();
 for(let i=0;i<6;i++)await page.locator('#advance').click();await page.getByText(/Stop filled at next available quote/).waitFor();assert.ok((await page.locator('main').innerText()).includes('$9973.00'));
 await page.screenshot({path:path.join(qa,'desk.png'),fullPage:true});
 await page.locator('#scenario').selectOption('range');assert.ok((await page.locator('main').innerText()).includes('$10000.00'));

@@ -2,7 +2,14 @@ import {decisions} from './advanced-content.js';
 import {advancedQuestion} from './advanced-engine.js';
 export const KEY='forex-quest.v1';
 export const round=(x,d=2)=>Number(x.toFixed(d));
-export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[]};}
+export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0}};}
+// One play session = one market day. Clock is minutes since 00:00; it only names the phase and never gates answers.
+export const sessions=[['asia',360,480,'Asia','briefing'],['london',480,900,'London','desk open'],['newyork',900,1020,'New York','review & close']];
+export function sessionAt(clock){return clock>=1020?'closed':(sessions.find(([,from,to])=>clock<to)??sessions[0])[0];}
+export function setClock(s,clock){const c=Math.min(1020,Math.max(s.day.clock,Math.round(clock)));return {...s,day:{...s.day,clock:c,session:sessionAt(c)}};}
+export function masteries(records){return Object.fromEntries(Object.entries(records).map(([k,r])=>[k,mastery(r)]));}
+// Start Day N+1: reset today's loop and snapshot mastery for the close-of-day diff. Never touches records.
+export function startDay(s){const n=s.day.n+1;return {...s,day:{...s.day,n,session:'asia',clock:360},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:n,records:masteries(s.records),lessons:s.lessons.length,reviews:(s.reviewHistory??[]).length,answers:0,correct:0,bestConquer:0}};}
 const knownSkills=new Set(['quote','inverse','pip','spread','risk','margin','returns','surprise','forward','expectancy','stress','optionpayoff','imbalance','rmse','portfolio',...Object.keys(decisions)]);
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 export function valid(s){
@@ -35,7 +42,7 @@ export function repairResult(s,id,clean,now=Date.now()){
  return n;
 }
 export function variations(q,random=Math.random){const out=[q];let tries=0;while(out.length<4&&tries++<1000){const next=question(q.skill,random);if(!out.some(x=>x.id===next.id))out.push(next);}return out;}
-export function migrate(s){if(!valid(s))throw Error('Invalid progress');return {...fresh(),...s,exams:s.exams??{},labs:s.labs??{},reviewHistory:s.reviewHistory??[]};}
+export function migrate(s){if(!valid(s))throw Error('Invalid progress');const base=fresh();const next={...base,...s,exams:s.exams??{},labs:s.labs??{},reviewHistory:s.reviewHistory??[]};if(!s.snapshot)next.snapshot={...base.snapshot,records:masteries(next.records),lessons:next.lessons.length,reviews:next.reviewHistory.length};return next;}
 export function grade(q,raw){if(String(raw).trim()==='')return false;const value=Number(raw);if(q.choices)return Number.isInteger(value)&&value===q.answer;return Number.isFinite(value)&&Math.abs(value-q.answer)<(q.tolerance??.011);}
 export function rng(seed){return ()=>{seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296;};}
 export function question(skill,random=Math.random){const advanced=advancedQuestion(skill,random);if(advanced)return advanced;const pick=a=>a[Math.floor(random()*a.length)];const units=pick([1000,2000,5000,10000,20000]);const rate=pick([1.05,1.08,1.1,1.12,1.2,1.25]);let prompt,answer,explanation;

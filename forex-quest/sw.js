@@ -1,6 +1,6 @@
 // Bump this version on EVERY release, including content-only changes.
 const CACHE='forex-quest-v2.0.3';
-const ASSETS=['./','index.html','style.css','app.js','profiles.js','updates.js','engine.js','content.js','advanced-engine.js','advanced-content.js','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png'];
+const ASSETS=['./','index.html','style.css','app.js','profiles.js','updates.js','engine.js','content.js','advanced-engine.js','advanced-content.js','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','fredoka-600.woff2','nunito-400.woff2','nunito-600.woff2','nunito-800.woff2'];
 // A complete release must be cached before it can replace the current one.
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS.map(path=>new Request(new URL(path,self.registration.scope),{cache:'reload'})))));});
 self.addEventListener('message',event=>{if(event.data?.type==='ACTIVATE_UPDATE')event.waitUntil(self.skipWaiting());});

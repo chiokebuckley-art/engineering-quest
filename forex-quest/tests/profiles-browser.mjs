@@ -9,7 +9,7 @@ import {fresh,question,rng} from '../engine.js';
 import {decisions} from '../advanced-content.js';
 const require=createRequire(import.meta.url),root=fileURLToPath(new URL('../',import.meta.url));
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const mime={'.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.html':'text/html'};
+const mime={'.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.html':'text/html','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{try{const name=decodeURIComponent(new URL(req.url,'http://local').pathname).replace(/^\/forex-quest\//,'');const file=path.resolve(root,name||'index.html');if(!file.startsWith(root)){res.writeHead(403).end();return;}const bytes=await readFile(file);res.setHeader('Content-Type',mime[path.extname(file)]||'text/plain');res.end(bytes);}catch{res.writeHead(404).end();}});
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base=`http://127.0.0.1:${server.address().port}/forex-quest/`;
@@ -31,7 +31,7 @@ try{
  await page.locator('#player-profile').click();await page.locator('[data-player]').filter({hasText:'Chioke'}).click();
  assert.ok((await page.locator('.stats').innerText()).includes('1 / 36'));
  await page.locator('#player-profile').click();await page.locator('#player-name').fill('<img src=x onerror=alert(1)>');await page.getByRole('button',{name:'Save name',exact:true}).click();
- assert.equal(await page.locator('.player-bar img').count(),0);
+ assert.equal(await page.locator('aside .side-note img').count(),0);
  await page.locator('#player-profile').click();await page.locator('#player-name').fill('Chioke');await page.getByRole('button',{name:'Save name',exact:true}).click();
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
  await page.screenshot({path:path.join(qa,'profiles-mobile.png')});
