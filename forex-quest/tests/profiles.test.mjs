@@ -20,3 +20,4 @@ test('invalid names and failed storage writes leave active player intact',()=>{
 test('malformed saved profiles are rejected without overwriting the stored data',()=>{
  const db=storage();db.setItem(PROFILE_KEY,'broken');assert.throws(()=>profileStore(db,fresh()));assert.equal(db.getItem(PROFILE_KEY),'broken');
 });
+test('loadAll returns every player read-only without touching storage',()=>{const db=storage(),p=profileStore(db,fresh());p.rename('Chioke');p.add('Myla');const before=db.getItem(PROFILE_KEY);const all=p.loadAll();assert.deepEqual(all.map(x=>x.name),['Chioke','Myla']);all[0].progress.lessons.push('mutated');assert.equal(db.getItem(PROFILE_KEY),before);assert.deepEqual(p.loadAll()[0].progress.lessons,[]);assert.equal(p.current().name,'Myla');});

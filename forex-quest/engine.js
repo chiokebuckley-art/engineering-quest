@@ -2,17 +2,38 @@ import {decisions} from './advanced-content.js';
 import {advancedQuestion} from './advanced-engine.js';
 export const KEY='forex-quest.v1';
 export const round=(x,d=2)=>Number(x.toFixed(d));
-export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[]};}
+export function fresh(){return {version:2,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0},streak:{current:0,best:0,lastClearedDay:0},plans:[],blueprints:[]};}
+// One play session = one market day. Clock is minutes since 00:00; it only names the phase and never gates answers.
+export const sessions=[['asia',360,480,'Asia','briefing'],['london',480,900,'London','desk open'],['newyork',900,1020,'New York','review & close']];
+export function sessionAt(clock){return clock>=1020?'closed':(sessions.find(([,from,to])=>clock<to)??sessions[0])[0];}
+export function setClock(s,clock){const c=Math.min(1020,Math.max(s.day.clock,Math.round(clock)));return {...s,day:{...s.day,clock:c,session:sessionAt(c)}};}
+export function masteries(records){return Object.fromEntries(Object.entries(records).map(([k,r])=>[k,mastery(r)]));}
+// Start Day N+1: reset today's loop and snapshot mastery for the close-of-day diff. Never touches records.
+export const dueCount=(notebook,now=Date.now())=>Object.values(notebook).filter(q=>(q.due??0)<=now).length;
+// New York close: the review streak counts a day when no notebook card is due. Repairs alone write the notebook; the streak never writes records.
+export function closeDay(s,now=Date.now()){const n=s.day.n,old=s.streak??{current:0,best:0,lastClearedDay:0};let streak=old;
+ if(dueCount(s.notebook,now)===0&&old.lastClearedDay!==n){const current=old.lastClearedDay===n-1?old.current+1:1;streak={current,best:Math.max(old.best,current),lastClearedDay:n};}
+ return {...setClock(s,1020),loop:{...s.loop,close:true},streak};}
+export function startDay(s,now=Date.now()){s=closeDay(s,now);const n=s.day.n+1;if(s.streak.lastClearedDay!==s.day.n)s={...s,streak:{...s.streak,current:0}};return {...s,day:{...s.day,n,session:'asia',clock:360},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:n,records:masteries(s.records),lessons:s.lessons.length,reviews:(s.reviewHistory??[]).length,answers:0,correct:0,bestConquer:0}};}
 const knownSkills=new Set(['quote','inverse','pip','spread','risk','margin','returns','surprise','forward','expectancy','stress','optionpayoff','imbalance','rmse','portfolio',...Object.keys(decisions)]);
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 export function valid(s){
- if(!object(s)||s.version!==1||!object(s.records)||!object(s.notebook)||!Array.isArray(s.lessons)||!Array.isArray(s.journal))return false;
+ if(!object(s)||![1,2].includes(s.version)||!object(s.records)||!object(s.notebook)||!Array.isArray(s.lessons)||!Array.isArray(s.journal))return false;
  if(!Object.entries(s.records).every(([k,r])=>knownSkills.has(k)&&object(r)&&Array.isArray(r.history)&&r.history.length<=12&&r.history.every(x=>typeof x==='boolean')&&Array.isArray(r.examples)&&r.examples.length<=100&&r.examples.every(x=>typeof x==='string')&&Number.isFinite(r.due)))return false;
  if(!Object.entries(s.notebook).every(([k,q])=>object(q)&&knownSkills.has(q.skill)&&q.id===k&&typeof q.prompt==='string'&&typeof q.explanation==='string'&&Number.isFinite(q.answer)&&(!q.choices||(Array.isArray(q.choices)&&q.choices.length===3&&q.choices.every(x=>typeof x==='string')&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<3))&&(q.clean===undefined||(Number.isInteger(q.clean)&&q.clean>=0&&q.clean<3))&&(q.due===undefined||Number.isFinite(q.due))))return false;
  if(!s.lessons.every(x=>typeof x==='string')||s.lessons.length>100||s.journal.length>100||!s.journal.every(x=>object(x)&&typeof x.summary==='string'))return false;
  if(s.exams!==undefined&&(!object(s.exams)||!Object.values(s.exams).every(x=>object(x)&&typeof x.passed==='boolean'&&Number.isFinite(x.best))))return false;
  if(s.labs!==undefined&&(!object(s.labs)||!Object.values(s.labs).every(x=>typeof x==='boolean'||Number.isFinite(x))))return false;
  if(s.reviewHistory!==undefined&&(!Array.isArray(s.reviewHistory)||s.reviewHistory.length>200))return false;
+ // Version-2 trading-floor fields: all optional so v1 saves stay valid.
+ const int=(x,lo=0,hi=1e9)=>Number.isInteger(x)&&x>=lo&&x<=hi;
+ if(!s.journal.every(x=>x.reflection===undefined||['plan','luck','changed'].includes(x.reflection)))return false;
+ if(s.day!==undefined&&!(object(s.day)&&int(s.day.n,1)&&['asia','london','newyork','closed'].includes(s.day.session)&&int(s.day.clock,0,1440)&&[0,1,3].includes(s.day.speed)))return false;
+ if(s.loop!==undefined&&!(object(s.loop)&&['briefing','desk','review','close'].every(k=>typeof s.loop[k]==='boolean')))return false;
+ if(s.plans!==undefined&&!(Array.isArray(s.plans)&&s.plans.length<=200&&s.plans.every(p=>object(p)&&Number.isFinite(p.at)&&int(p.score,0,4)&&Array.isArray(p.checks)&&p.checks.length===4&&p.checks.every(x=>typeof x==='boolean')&&(p.tradeIndex===null||int(p.tradeIndex,0,99))&&(p.day===undefined||int(p.day,1)))))return false;
+ if(s.streak!==undefined&&!(object(s.streak)&&int(s.streak.current)&&int(s.streak.best)&&int(s.streak.lastClearedDay)&&s.streak.best>=s.streak.current))return false;
+ if(s.blueprints!==undefined&&!(Array.isArray(s.blueprints)&&s.blueprints.length<=200&&s.blueprints.every(b=>object(b)&&int(b.seed,0,4294967295)&&['momentum','reversion','flat'].includes(b.kind)&&int(b.lookback,2,30)&&Number.isFinite(b.costPips)&&b.costPips>=0&&b.costPips<=100&&int(b.frozenDay,1)&&(b.holdoutNet===null||Number.isFinite(b.holdoutNet)))))return false;
+ if(s.snapshot!==undefined&&!(object(s.snapshot)&&int(s.snapshot.day,1)&&object(s.snapshot.records)&&Object.values(s.snapshot.records).every(Number.isFinite)))return false;
  return true;
 }
 export function mastery(r){if(!r?.history.length)return 0;let weights=0,hits=0;r.history.forEach((x,i)=>{const w=.85**(r.history.length-1-i);weights+=w;hits+=w*Number(x);});return Math.round(hits/weights*Math.min(100,40+r.examples.length*10,r.history.length*15));}
@@ -35,7 +56,7 @@ export function repairResult(s,id,clean,now=Date.now()){
  return n;
 }
 export function variations(q,random=Math.random){const out=[q];let tries=0;while(out.length<4&&tries++<1000){const next=question(q.skill,random);if(!out.some(x=>x.id===next.id))out.push(next);}return out;}
-export function migrate(s){if(!valid(s))throw Error('Invalid progress');return {...fresh(),...s,exams:s.exams??{},labs:s.labs??{},reviewHistory:s.reviewHistory??[]};}
+export function migrate(s){if(!valid(s))throw Error('Invalid progress');const base=fresh();const next={...base,...s,exams:s.exams??{},labs:s.labs??{},reviewHistory:s.reviewHistory??[]};if(!s.snapshot)next.snapshot={...base.snapshot,day:next.day.n,records:masteries(next.records),lessons:next.lessons.length,reviews:next.reviewHistory.length};next.version=2;return next;}
 export function grade(q,raw){if(String(raw).trim()==='')return false;const value=Number(raw);if(q.choices)return Number.isInteger(value)&&value===q.answer;return Number.isFinite(value)&&Math.abs(value-q.answer)<(q.tolerance??.011);}
 export function rng(seed){return ()=>{seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296;};}
 export function question(skill,random=Math.random){const advanced=advancedQuestion(skill,random);if(advanced)return advanced;const pick=a=>a[Math.floor(random()*a.length)];const units=pick([1000,2000,5000,10000,20000]);const rate=pick([1.05,1.08,1.1,1.12,1.2,1.25]);let prompt,answer,explanation;
@@ -49,10 +70,34 @@ if(answer===undefined)throw Error('Unknown skill');return {skill,prompt,answer,e
 export function chooseSkill(records,skills,now=Date.now()){return [...skills].sort((a,b)=>{const score=id=>mastery(records[id])-(records[id]?.due<=now?25:0);return score(a)-score(b);})[0];}
 // EUR/USD only, USD account. Synthetic quote ticks; no inference of intratick prices.
 export const tape=[1.1000,1.1006,1.1002,1.1010,1.1005,1.0998,1.0980,1.0975,1.0982,1.0993,1.1001,1.1008];
-export const scenarios={harbor:{name:'Harbor liquidity gap',description:'A quiet market meets a widening spread.',prices:tape},trend:{name:'Policy repricing',description:'Directional pressure with a reversal; synthetic, not a historical reconstruction.',prices:[1.1,1.1008,1.1012,1.1006,1.102,1.1031,1.1025,1.104,1.1037,1.1029,1.1018,1.1025]},range:{name:'Range and whipsaw',description:'Alternating moves challenge a directional narrative.',prices:[1.1,1.1008,1.0994,1.1009,1.0992,1.101,1.0988,1.1005,1.099,1.1007,1.0996,1.1]}};
-export function desk(scenario='harbor'){if(!scenarios[scenario])throw Error('Unknown scenario');return {balance:10000,tick:0,position:null,logs:[],finished:false,scenario};}
+// Synthetic teaching calendars. spreadPips marks a step where quoteAt() really widens the spread.
+const sessionEnd={step:11,title:'Session end',expected:'open positions close at the last quote',impact:'—'};
+export const scenarios={harbor:{name:'Harbor liquidity gap',description:'A quiet market meets a widening spread.',prices:tape,calendar:[{step:3,title:'Regional data release',expected:'expected in line · low impact',impact:'low'},{step:6,title:'Liquidity gap',expected:'thin market · spread widens to 12 pips',impact:'high',spreadPips:12},sessionEnd]},trend:{name:'Policy repricing',description:'Directional pressure with a reversal; synthetic, not a historical reconstruction.',prices:[1.1,1.1008,1.1012,1.1006,1.102,1.1031,1.1025,1.104,1.1037,1.1029,1.1018,1.1025],calendar:[{step:2,title:'Flash PMI',expected:'expected 51.0 · low impact',impact:'low'},{step:6,title:'Rate decision',expected:'expected hold · surprise unknown',impact:'high'},{step:7,title:'Press conference',expected:'tone, not number — reversal risk',impact:'med'},sessionEnd]},range:{name:'Range and whipsaw',description:'Alternating moves challenge a directional narrative.',prices:[1.1,1.1008,1.0994,1.1009,1.0992,1.101,1.0988,1.1005,1.099,1.1007,1.0996,1.1],calendar:[{step:4,title:'Option expiry',expected:'large strikes near 1.1000 · pinning risk',impact:'med'},{step:8,title:'Official speech',expected:'no new information expected',impact:'low'},sessionEnd]}};
+export function desk(scenario='harbor',balance=10000){if(!scenarios[scenario])throw Error('Unknown scenario');if(!Number.isFinite(balance)||balance<=0)throw Error('Invalid balance');return {balance,tick:0,position:null,logs:[],finished:false,scenario};}
 export function quoteAt(tick,scenario='harbor'){const mid=scenarios[scenario].prices[tick];const spread=tick===6&&scenario==='harbor'?.0012:.0002;return {bid:round(mid-spread/2,5),ask:round(mid+spread/2,5)};}
 export function pnl(p,q){return p?round(p.units*(p.side==='buy'?q.bid-p.entry:p.entry-q.ask)):0;}
-export function openTrade(d,{side,units,stopPips,reason}){if(d.finished||d.position)throw Error('Finish the open position or start a new scenario.');if(!['buy','sell'].includes(side)||!Number.isInteger(units)||units<=0||units>1000000||!Number.isFinite(stopPips)||stopPips<1||stopPips>1000||typeof reason!=='string'||reason.trim().length<10)throw Error('Enter positive whole units, a stop of 1–1000 pips, and a plan of at least 10 characters.');const q=quoteAt(d.tick,d.scenario),entry=side==='buy'?q.ask:q.bid;const margin=units*entry/20;if(margin>d.balance)throw Error('Insufficient initial margin under this scenario’s 20:1 rule.');const planned=units*stopPips*.0001;if(planned>d.balance*.01+.00001)throw Error('This training desk limits planned stop risk to 1% of balance. Reduce units.');const p={side,units,entry,stop:entry+(side==='buy'?-1:1)*stopPips*.0001,margin,reason:reason.trim(),planned};return {...d,position:p};}
-export function closeTrade(d,why='Manual close'){if(!d.position)return d;const profit=pnl(d.position,quoteAt(d.tick,d.scenario));return {...d,balance:round(d.balance+profit),position:null,logs:[...d.logs,{summary:`${why}: ${d.position.side} ${d.position.units} EUR. P/L $${profit.toFixed(2)}. Planned stop risk $${d.position.planned.toFixed(2)}. Plan: ${d.position.reason}`,profit}]};}
+export function openTrade(d,{side,units,stopPips,reason}){if(d.finished||d.position)throw Error('Finish the open position or start a new scenario.');if(!['buy','sell'].includes(side)||!Number.isInteger(units)||units<=0||units>1000000||!Number.isFinite(stopPips)||stopPips<1||stopPips>1000||typeof reason!=='string'||reason.trim().length<10)throw Error('Enter positive whole units, a stop of 1–1000 pips, and a plan of at least 10 characters.');const q=quoteAt(d.tick,d.scenario),entry=side==='buy'?q.ask:q.bid;const margin=units*entry/20;if(margin>d.balance)throw Error('Insufficient initial margin under this scenario’s 20:1 rule.');const planned=units*stopPips*.0001;if(planned>d.balance*.01+.00001)throw Error('This training desk limits planned stop risk to 1% of balance. Reduce units.');const p={side,units,entry,stop:entry+(side==='buy'?-1:1)*stopPips*.0001,margin,reason:reason.trim(),planned,stopPips,spread:round(q.ask-q.bid,5)};return {...d,position:p};}
+export function closeTrade(d,why='Manual close'){if(!d.position)return d;const p=d.position,q=quoteAt(d.tick,d.scenario),profit=pnl(p,q);
+ // Spread paid versus midpoint: half the entry spread plus half the exit spread.
+ const spreadCost=round(p.units*((p.spread??0)+(q.ask-q.bid))/2);
+ return {...d,balance:round(d.balance+profit),position:null,logs:[...d.logs,{summary:`${why}: ${p.side} ${p.units} EUR. P/L $${profit.toFixed(2)}. Planned stop risk $${p.planned.toFixed(2)}. Plan: ${p.reason}`,profit,side:p.side,units:p.units,stopPips:p.stopPips,planned:p.planned,spreadCost,why,scenario:d.scenario,...(Number.isInteger(p.plan)?{plan:p.plan}:{})}]};}
 export function advance(d){if(d.finished)return d;let n={...d,tick:Math.min(tape.length-1,d.tick+1)};const p=n.position,q=quoteAt(n.tick,n.scenario);if(p){const equity=n.balance+pnl(p,q);if(equity<=p.margin*.5)n=closeTrade(n,'Illustrative margin liquidation');else if(p.side==='buy'?q.bid<=p.stop:q.ask>=p.stop)n=closeTrade(n,'Stop filled at next available quote (may gap)');}if(n.tick===tape.length-1){n=closeTrade(n,'Scenario end');n.finished=true;}return n;}
+
+// Risk-officer approval: scores the written plan 0–4 before entry. Never blocks a legal trade and never touches records.
+const words={hypothesis:/\b(expect|because|should|likely|think|believe|hypothes|drift|bias|anticipat|forecast|surprise|momentum|trend|revert|reversal|breakout|hold)/i,invalidation:/\d+\.\d+|\bif\b|\bunless\b|\blevel\b|invalidat|wrong/i,cost:/spread|cost|fee|commission|slippage/i};
+export function planScore({units,stopPips,reason='',ackCost=false},d){
+ const text=String(reason??'').trim(),q=quoteAt(d.tick,d.scenario),budget=round(d.balance*.01);
+ const event=scenarios[d.scenario].calendar.find(e=>e.spreadPips&&e.step>d.tick)??null,cap=round(d.balance*(event?.006:.01));
+ const validSize=Number.isFinite(units)&&units>0&&Number.isFinite(stopPips)&&stopPips>0,planned=validSize?round(units*stopPips*.0001):0;
+ const checks=[text.length>=10&&words.hypothesis.test(text),words.invalidation.test(text),validSize&&planned<=cap+.00001,words.cost.test(text)||ackCost===true];
+ return {score:checks.filter(Boolean).length,checks,planned,budget,cap,event,suggestedUnits:validSize?Math.floor(cap/(stopPips*.0001)+1e-8):0,cost:validSize?round(units*(q.ask-q.bid)):0,spreadPips:round((q.ask-q.bid)/.0001,1)};
+}
+// League process score: avg plan quality (0–4) × 10 + streak days (cap 30) + licences × 5 + blueprints frozen with holdout revealed × 2. Reads only; P&L is not an input.
+export function processScore(s){const plans=s.plans??[],avg=plans.length?plans.reduce((n,p)=>n+p.score,0)/plans.length:0,licences=Object.values(s.exams??{}).filter(e=>e.passed).length,revealed=(s.blueprints??[]).filter(b=>Number.isFinite(b.holdoutNet)).length;return Math.round(avg*10+Math.min(s.streak?.current??0,30)+licences*5+revealed*2);}
+// Desk licences: the count of passed world challenges sets the career tier. Licences come only from exam passes.
+// Only account size and title are wired today. TODO(GBP/USD): unlock a second pair at the Execution licence (2 passed)
+// once quoteAt()/pnl() and the scenario tapes are generalised by pair; the engine is EUR/USD only.
+const allScenarios=['harbor','trend','range'];
+export const tiers=[{passed:0,title:'Intern',account:10000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:1,title:'Junior trader',account:10000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:2,title:'Junior trader',account:25000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:3,title:'Trader',account:25000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:7,title:'Senior',account:25000,pairs:['EUR/USD'],scenarios:allScenarios},{passed:12,title:'Head of desk',account:100000,pairs:['EUR/USD'],scenarios:allScenarios}];
+export const tierFor=passed=>[...tiers].reverse().find(t=>passed>=t.passed);
+export const titles=[...new Set(tiers.map(t=>t.title))];

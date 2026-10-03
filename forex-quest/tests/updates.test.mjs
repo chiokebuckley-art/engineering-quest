@@ -35,10 +35,10 @@ test('background checks, reconnection and updatefound do not touch lesson DOM',a
 test('worker stages cache without auto-activation, serves cached release and cleans only game caches',async()=>{
  const events={},deleted=[];let skipped=0,requests=[],claimed=0,network=0;
  const cache={addAll:async r=>{requests=r;},match:async()=>new Response('cached release')};
- const ctx=vm.createContext({Request,Response,URL,fetch:async()=>{network++;return new Response('network');},caches:{open:async()=>cache,keys:async()=>['other-app','forex-quest-v2.0.2','forex-quest-v2.0.3'],delete:async k=>deleted.push(k)},self:{registration:{scope:'https://example.org/forex-quest/'},addEventListener:(k,f)=>events[k]=f,skipWaiting:async()=>{skipped++;},clients:{claim:async()=>{claimed++;}}}});
+ const ctx=vm.createContext({Request,Response,URL,fetch:async()=>{network++;return new Response('network');},caches:{open:async()=>cache,keys:async()=>['other-app','forex-quest-v2.0.3','forex-quest-v2.1.0'],delete:async k=>deleted.push(k)},self:{registration:{scope:'https://example.org/forex-quest/'},addEventListener:(k,f)=>events[k]=f,skipWaiting:async()=>{skipped++;},clients:{claim:async()=>{claimed++;}}}});
  vm.runInContext(workerSource,ctx);let pending;
  events.install({waitUntil:p=>pending=p});await pending;assert.equal(skipped,0);assert.ok(requests.some(r=>r.url.endsWith('/updates.js')));assert.ok(requests.every(r=>r.cache==='reload'));
  events.message({data:{type:'ACTIVATE_UPDATE'},waitUntil:p=>pending=p});await pending;assert.equal(skipped,1);
- events.activate({waitUntil:p=>pending=p});await pending;assert.deepEqual(deleted,['forex-quest-v2.0.2']);assert.equal(claimed,1);
+ events.activate({waitUntil:p=>pending=p});await pending;assert.deepEqual(deleted,['forex-quest-v2.0.3']);assert.equal(claimed,1);
  events.fetch({request:new Request('https://example.org/forex-quest/app.js'),respondWith:p=>pending=p});assert.equal(await (await pending).text(),'cached release');assert.equal(network,0);
 });

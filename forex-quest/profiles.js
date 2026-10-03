@@ -13,6 +13,8 @@ export function profileStore(storage,legacy){
  const clean=name=>{name=name.trim();if(!name||name.length>40)throw Error('Enter a name between 1 and 40 characters.');return name;};
  return {
   current, list:()=>data.players.map(({id,name})=>({id,name})), load:()=>migrate(current().progress),
+  // Read-only snapshot of every local player for the desk league; never writes storage.
+  loadAll:()=>data.players.map(p=>{try{return {id:p.id,name:p.name,progress:migrate(structuredClone(p.progress))};}catch{return null;}}).filter(Boolean),
   save(progress){const next=structuredClone(data);next.players.find(p=>p.id===next.active).progress=progress;write(next);},
   rename(name){const next=structuredClone(data);next.players.find(p=>p.id===next.active).name=clean(name);write(next);},
   add(name){name=clean(name);if(data.players.some(p=>p.name.toLowerCase()===name.toLowerCase()))throw Error('That player name already exists.');const next=structuredClone(data),id=crypto.randomUUID();next.players.push({id,name,progress:fresh()});next.active=id;write(next);},
