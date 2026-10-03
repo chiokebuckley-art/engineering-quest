@@ -1,4 +1,4 @@
-# Forex Quest — Currency Expedition 2.0
+# Forex Quest — The Trading Floor 2.1
 
 A complete twelve-world educational browser game in the Eng Quest family. Canonical source is `engineering-quest/public/forex-quest/` in Command Center. The existing Vite public copy includes it at `/quest/forex-quest/`. The static published copy lives in the public Engineering Quest repository at `forex-quest/`.
 
@@ -20,6 +20,21 @@ A complete twelve-world educational browser game in the Eng Quest family. Canoni
 12. Capstone Desk — correlated exposures and integrated decision evaluation.
 
 This is an educational course and simulator, not a postgraduate degree, professional credential, or profitability guarantee. Lessons condense the concepts into teachable units; linked primary references allow deeper study.
+
+## The trading floor (2.1)
+
+One play session is one market day: Asia → **Briefing** (lesson + the day's synthetic calendar), London → **Desk** (scenario with a session clock, risk-officer approval, desk calls), New York → **Risk review** (notebook repairs + review streak), 17:00 → **Close of day** (practice ledger, one reflection per trade, mastery deltas against the Start Day snapshot, scorecard, Start Day N+1). The floor (home) picks what's up next: an unexplored lesson in the current world → today's scenario → due reviews → close.
+
+- **Clock.** `day.clock` is minutes since 00:00; it names the session and never gates answers. Speed 0/1/3 drives `advance()` only on the desk, and only while a position is open or Observe only is on. Pause is always available.
+- **Calendar.** Each scenario has a synthetic `calendar`. Harbor's liquidity gap at step 6 is the existing 12-pip spread widening; a test enforces that every widening has an event. The desk chart draws dashed markers for events.
+- **Risk officer.** `planScore(plan, desk)` → 0–4: hypothesis, invalidation, size within the 1% budget (0.6% when a real spread event is ahead), cost acknowledged (reason mentions spread/cost, or the ticket's cost box is ticked). Approval never blocks a legal trade; Fix size is a suggestion. Scores go to `state.plans`.
+- **Review streak.** `closeDay()` counts a day when no notebook card is due at New York close; Start Day breaks it if cards were left due.
+- **Desk licences.** World challenges are licences. The passed count sets the tier: $10,000 account (Intern / Junior trader), $25,000 from two licences, $100,000 and Head of desk at twelve. EUR/USD only — a GBP/USD unlock needs `quoteAt()`/`pnl()` generalised by pair (TODO in `engine.js`).
+- **Strategy lab.** Card builder over the existing test bench; frozen rules persist as `state.blueprints` with their holdout result. Hedge, option and order-flow labs are tabs.
+- **Desk league.** Local profiles (`profileStore.loadAll()`, read-only) ranked by process score: average plan quality × 10 + review streak (cap 30) + licences × 5 + revealed blueprints × 2. Practice P&L has its own unranked tab.
+- **Guard-rails.** Mastery changes only via `record()`; licences only via an exam pass. P&L, plan quality, streak and league never write `records`. The 1% planned-risk cap, 20:1 margin rule, synthetic labels and footer disclaimer are unchanged. The field guide is the footer's Compliance link.
+
+Typography uses the bundled Fredoka 600 and Nunito 400/600/800 woff2 files (cached by the service worker).
 
 ## Flow and mastery
 
@@ -56,11 +71,11 @@ The in-game field guide links BIS, CFTC, Federal Reserve, SNB, Bank of England, 
 - Pricing, explanation, forecasting, and trading profitability are separate evaluations.
 - No current policy rates, legal leverage ceilings, historical price replays, or live quotes are fabricated. The desk and research series are labeled synthetic.
 
-No remote scripts, advertising, analytics, subscriptions, or broker connections. All interface illustrations are original SVG geometry; icons are rendered from the included SVG. The system-font layout needs no external fonts.
+No remote scripts, advertising, analytics, subscriptions, or broker connections. All interface illustrations are original SVG geometry; icons are rendered from the included SVG. Fonts are bundled locally; nothing is fetched from a font service.
 
 ## Persistence and installation
 
-One local learner slot, autosave, JSON export/import with validation, version-1 save migration, and app-scoped offline caching after initial online load. Add to home screen using browser install/share controls. External reference links need internet. Progress is local to the browser and is not synchronized across devices. Export/import moves it. A service worker and manifest use relative paths and scope, keeping Eng Quest and Sentence Forge separate.
+One local learner slot, autosave, JSON export/import with validation, version-1 → version-2 save migration (new trading-floor fields get defaults; storage keys are unchanged), and app-scoped offline caching after initial online load. Add to home screen using browser install/share controls. External reference links need internet. Progress is local to the browser and is not synchronized across devices. Export/import moves it. A service worker and manifest use relative paths and scope, keeping Eng Quest and Sentence Forge separate.
 
 ## Development
 
@@ -73,7 +88,10 @@ npm start
 
 ```sh
 PLAYWRIGHT_MODULE=/path/to/playwright CHROME_PATH=/path/to/chromium node tests/browser.mjs
+PLAYWRIGHT_MODULE=/path/to/playwright CHROME_PATH=/path/to/chromium node tests/floor-browser.mjs
 ```
+
+`tests/floor-browser.mjs` covers v1→v2 migration, plan score 0–4 and Fix size, clock pause/resume, streak increment and break, licence tier unlocks and a two-profile league.
 
 `QA_DIR` overrides `/tmp/forex-qa` for screenshots. Browser tests render icon PNGs from `icon.svg` and verify lesson routes, decision/numeric practice, spaced-repair flow, world challenge outcomes, journals, scenarios, four labs, mobile overflow, offline reload, and no uncaught errors. Engine tests cover all skills and decisions, mastery attainability, exact calculations, repair scheduling, migration, option reference values and parity, backtest cost accounting and holdout isolation, and execution risk. No parent Command Center dependency change is required.
 

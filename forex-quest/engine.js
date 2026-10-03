@@ -2,7 +2,7 @@ import {decisions} from './advanced-content.js';
 import {advancedQuestion} from './advanced-engine.js';
 export const KEY='forex-quest.v1';
 export const round=(x,d=2)=>Number(x.toFixed(d));
-export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0},streak:{current:0,best:0,lastClearedDay:0},plans:[],blueprints:[]};}
+export function fresh(){return {version:2,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0},streak:{current:0,best:0,lastClearedDay:0},plans:[],blueprints:[]};}
 // One play session = one market day. Clock is minutes since 00:00; it only names the phase and never gates answers.
 export const sessions=[['asia',360,480,'Asia','briefing'],['london',480,900,'London','desk open'],['newyork',900,1020,'New York','review & close']];
 export function sessionAt(clock){return clock>=1020?'closed':(sessions.find(([,from,to])=>clock<to)??sessions[0])[0];}
@@ -18,13 +18,22 @@ export function startDay(s,now=Date.now()){s=closeDay(s,now);const n=s.day.n+1;i
 const knownSkills=new Set(['quote','inverse','pip','spread','risk','margin','returns','surprise','forward','expectancy','stress','optionpayoff','imbalance','rmse','portfolio',...Object.keys(decisions)]);
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 export function valid(s){
- if(!object(s)||s.version!==1||!object(s.records)||!object(s.notebook)||!Array.isArray(s.lessons)||!Array.isArray(s.journal))return false;
+ if(!object(s)||![1,2].includes(s.version)||!object(s.records)||!object(s.notebook)||!Array.isArray(s.lessons)||!Array.isArray(s.journal))return false;
  if(!Object.entries(s.records).every(([k,r])=>knownSkills.has(k)&&object(r)&&Array.isArray(r.history)&&r.history.length<=12&&r.history.every(x=>typeof x==='boolean')&&Array.isArray(r.examples)&&r.examples.length<=100&&r.examples.every(x=>typeof x==='string')&&Number.isFinite(r.due)))return false;
  if(!Object.entries(s.notebook).every(([k,q])=>object(q)&&knownSkills.has(q.skill)&&q.id===k&&typeof q.prompt==='string'&&typeof q.explanation==='string'&&Number.isFinite(q.answer)&&(!q.choices||(Array.isArray(q.choices)&&q.choices.length===3&&q.choices.every(x=>typeof x==='string')&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<3))&&(q.clean===undefined||(Number.isInteger(q.clean)&&q.clean>=0&&q.clean<3))&&(q.due===undefined||Number.isFinite(q.due))))return false;
  if(!s.lessons.every(x=>typeof x==='string')||s.lessons.length>100||s.journal.length>100||!s.journal.every(x=>object(x)&&typeof x.summary==='string'))return false;
  if(s.exams!==undefined&&(!object(s.exams)||!Object.values(s.exams).every(x=>object(x)&&typeof x.passed==='boolean'&&Number.isFinite(x.best))))return false;
  if(s.labs!==undefined&&(!object(s.labs)||!Object.values(s.labs).every(x=>typeof x==='boolean'||Number.isFinite(x))))return false;
  if(s.reviewHistory!==undefined&&(!Array.isArray(s.reviewHistory)||s.reviewHistory.length>200))return false;
+ // Version-2 trading-floor fields: all optional so v1 saves stay valid.
+ const int=(x,lo=0,hi=1e9)=>Number.isInteger(x)&&x>=lo&&x<=hi;
+ if(!s.journal.every(x=>x.reflection===undefined||['plan','luck','changed'].includes(x.reflection)))return false;
+ if(s.day!==undefined&&!(object(s.day)&&int(s.day.n,1)&&['asia','london','newyork','closed'].includes(s.day.session)&&int(s.day.clock,0,1440)&&[0,1,3].includes(s.day.speed)))return false;
+ if(s.loop!==undefined&&!(object(s.loop)&&['briefing','desk','review','close'].every(k=>typeof s.loop[k]==='boolean')))return false;
+ if(s.plans!==undefined&&!(Array.isArray(s.plans)&&s.plans.length<=200&&s.plans.every(p=>object(p)&&Number.isFinite(p.at)&&int(p.score,0,4)&&Array.isArray(p.checks)&&p.checks.length===4&&p.checks.every(x=>typeof x==='boolean')&&(p.tradeIndex===null||int(p.tradeIndex,0,99))&&(p.day===undefined||int(p.day,1)))))return false;
+ if(s.streak!==undefined&&!(object(s.streak)&&int(s.streak.current)&&int(s.streak.best)&&int(s.streak.lastClearedDay)&&s.streak.best>=s.streak.current))return false;
+ if(s.blueprints!==undefined&&!(Array.isArray(s.blueprints)&&s.blueprints.length<=200&&s.blueprints.every(b=>object(b)&&int(b.seed,0,4294967295)&&['momentum','reversion','flat'].includes(b.kind)&&int(b.lookback,2,30)&&Number.isFinite(b.costPips)&&b.costPips>=0&&b.costPips<=100&&int(b.frozenDay,1)&&(b.holdoutNet===null||Number.isFinite(b.holdoutNet)))))return false;
+ if(s.snapshot!==undefined&&!(object(s.snapshot)&&int(s.snapshot.day,1)&&object(s.snapshot.records)&&Object.values(s.snapshot.records).every(Number.isFinite)))return false;
  return true;
 }
 export function mastery(r){if(!r?.history.length)return 0;let weights=0,hits=0;r.history.forEach((x,i)=>{const w=.85**(r.history.length-1-i);weights+=w;hits+=w*Number(x);});return Math.round(hits/weights*Math.min(100,40+r.examples.length*10,r.history.length*15));}
@@ -47,7 +56,7 @@ export function repairResult(s,id,clean,now=Date.now()){
  return n;
 }
 export function variations(q,random=Math.random){const out=[q];let tries=0;while(out.length<4&&tries++<1000){const next=question(q.skill,random);if(!out.some(x=>x.id===next.id))out.push(next);}return out;}
-export function migrate(s){if(!valid(s))throw Error('Invalid progress');const base=fresh();const next={...base,...s,exams:s.exams??{},labs:s.labs??{},reviewHistory:s.reviewHistory??[]};if(!s.snapshot)next.snapshot={...base.snapshot,records:masteries(next.records),lessons:next.lessons.length,reviews:next.reviewHistory.length};return next;}
+export function migrate(s){if(!valid(s))throw Error('Invalid progress');const base=fresh();const next={...base,...s,exams:s.exams??{},labs:s.labs??{},reviewHistory:s.reviewHistory??[]};if(!s.snapshot)next.snapshot={...base.snapshot,day:next.day.n,records:masteries(next.records),lessons:next.lessons.length,reviews:next.reviewHistory.length};next.version=2;return next;}
 export function grade(q,raw){if(String(raw).trim()==='')return false;const value=Number(raw);if(q.choices)return Number.isInteger(value)&&value===q.answer;return Number.isFinite(value)&&Math.abs(value-q.answer)<(q.tolerance??.011);}
 export function rng(seed){return ()=>{seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296;};}
 export function question(skill,random=Math.random){const advanced=advancedQuestion(skill,random);if(advanced)return advanced;const pick=a=>a[Math.floor(random()*a.length)];const units=pick([1000,2000,5000,10000,20000]);const rate=pick([1.05,1.08,1.1,1.12,1.2,1.25]);let prompt,answer,explanation;
