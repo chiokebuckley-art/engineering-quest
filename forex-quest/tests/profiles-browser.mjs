@@ -37,7 +37,7 @@ try{
  await page.screenshot({path:path.join(qa,'profiles-mobile.png')});
  await page.locator('#player-profile').click();await page.getByRole('button',{name:'Close',exact:true}).click();
  await page.locator('#up-next').click();await page.getByRole('button',{name:/Try two on my own/}).click();
- await page.locator('#answer').fill('-10');await page.getByRole('button',{name:'Check answer'}).click();
+ await page.locator('#answer').fill('-10');await page.getByRole('button',{name:'Check',exact:true}).click();
  await page.reload();
  const data=await page.evaluate(()=>JSON.parse(localStorage.getItem('forex-quest.profiles.v1')));
  assert.equal(Object.keys(data.players.find(p=>p.name==='Chioke').progress.notebook).length,1);
