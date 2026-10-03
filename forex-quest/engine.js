@@ -2,7 +2,7 @@ import {decisions} from './advanced-content.js';
 import {advancedQuestion} from './advanced-engine.js';
 export const KEY='forex-quest.v1';
 export const round=(x,d=2)=>Number(x.toFixed(d));
-export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0},streak:{current:0,best:0,lastClearedDay:0}};}
+export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0},streak:{current:0,best:0,lastClearedDay:0},plans:[],blueprints:[]};}
 // One play session = one market day. Clock is minutes since 00:00; it only names the phase and never gates answers.
 export const sessions=[['asia',360,480,'Asia','briefing'],['london',480,900,'London','desk open'],['newyork',900,1020,'New York','review & close']];
 export function sessionAt(clock){return clock>=1020?'closed':(sessions.find(([,from,to])=>clock<to)??sessions[0])[0];}
