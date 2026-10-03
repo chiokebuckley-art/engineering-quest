@@ -36,7 +36,7 @@ try{
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
  await page.screenshot({path:path.join(qa,'profiles-mobile.png')});
  await page.locator('#player-profile').click();await page.getByRole('button',{name:'Close',exact:true}).click();
- await page.locator('#up-next').click();await page.getByRole('button',{name:'Mark explored & try it'}).click();
+ await page.locator('#up-next').click();await page.getByRole('button',{name:/Try two on my own/}).click();
  await page.locator('#answer').fill('-10');await page.getByRole('button',{name:'Check answer'}).click();
  await page.reload();
  const data=await page.evaluate(()=>JSON.parse(localStorage.getItem('forex-quest.profiles.v1')));

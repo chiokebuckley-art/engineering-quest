@@ -24,7 +24,7 @@ page.on('pageerror',e=>errors.push(e.message));
 await page.goto(base);
 await page.screenshot({path:path.join(qa,'desktop.png'),fullPage:true});
 await page.getByRole('button',{name:'Worlds'}).click();assert.equal(await page.locator('[data-world]').count(),12);
-await page.getByRole('button',{name:/The floor/}).click();assert.equal(await page.locator('.loop-row').count(),4);await page.locator('#up-next').click();await page.getByRole('heading',{name:'Two currencies. One price.'}).waitFor();await page.getByRole('button',{name:'Mark explored & try it'}).click();
+await page.getByRole('button',{name:/The floor/}).click();assert.equal(await page.locator('.loop-row').count(),4);await page.locator('#up-next').click();await page.getByRole('heading',{name:'Two currencies. One price.'}).waitFor();await page.getByRole('button',{name:/Try two on my own/}).click();
 await page.locator('#answer').fill('-10');await page.getByRole('button',{name:'Check answer'}).click();
 await page.getByRole('button',{name:/Mistake notebook/}).click();assert.equal(await page.locator('[data-repair]').count(),1);
 await page.locator('[data-repair]').click();const answer=await page.evaluate(()=>{const p=JSON.parse(localStorage.getItem('forex-quest.profiles.v1'));return Object.values(p.players.find(x=>x.id===p.active).progress.notebook)[0].answer;});
@@ -43,7 +43,7 @@ await page.getByRole('button',{name:'Order-flow observatory',exact:true}).click(
 // Populate only prior mastery to exercise every lesson route and challenge UI without thousands of preliminary repetitions.
 const mastered=fresh();for(const k of Object.keys(skillNames))mastered.records[k]={history:Array(12).fill(true),examples:Array.from({length:6},(_,i)=>`${k}-${i}`),due:Date.now()+86400000};for(const w of worlds)mastered.exams[w.id]={passed:true,best:12};
 await page.evaluate(s=>{const p=JSON.parse(localStorage.getItem('forex-quest.profiles.v1'));p.players.find(x=>x.id===p.active).progress=s;localStorage.setItem('forex-quest.profiles.v1',JSON.stringify(p));},mastered);await page.reload();await page.getByRole('button',{name:'Worlds'}).click();
-for(const w of worlds)for(const l of w.lessons){await page.locator(`[data-world="${w.id}"]`).click();assert.equal(await page.locator('[data-lesson]').count(),3);await page.locator(`[data-lesson="${l.id}"]`).click();await page.getByRole('button',{name:'Mark explored & try it'}).waitFor();await page.getByRole('button',{name:'Worlds'}).click();}
+for(const w of worlds)for(const l of w.lessons){await page.locator(`[data-world="${w.id}"]`).click();assert.equal(await page.locator('[data-lesson]').count(),3);await page.locator(`[data-lesson="${l.id}"]`).click();await page.getByRole('button',{name:/Try two on my own/}).waitFor();await page.getByRole('button',{name:'Worlds'}).click();}
 // Run a whole challenge with genuinely wrong first answers; previously passed result must not be erased.
 await page.locator('[data-world="funding"]').click();await page.locator('#world-exam').click();
 for(let i=0;i<12;i++){if(await page.locator('#answer').count())await page.locator('#answer').fill('-999999');else {const prompt=await page.locator('section h2').innerText();const row=Object.values(decisions).flat().find(r=>r[0]===prompt);const labels=page.locator('.choices label');let chosen=false;for(let j=0;j<await labels.count();j++){if(!(await labels.nth(j).innerText()).includes(row[1])){await labels.nth(j).locator('input').check();chosen=true;break;}}assert.ok(chosen);}await page.getByRole('button',{name:'Check answer'}).click();await page.locator('#next').click();}
