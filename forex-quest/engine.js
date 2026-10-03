@@ -2,14 +2,19 @@ import {decisions} from './advanced-content.js';
 import {advancedQuestion} from './advanced-engine.js';
 export const KEY='forex-quest.v1';
 export const round=(x,d=2)=>Number(x.toFixed(d));
-export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0}};}
+export function fresh(){return {version:1,records:{},notebook:{},lessons:[],journal:[],exams:{},labs:{},reviewHistory:[],day:{n:1,session:'asia',clock:360,speed:1},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:1,records:{},lessons:0,reviews:0,answers:0,correct:0,bestConquer:0},streak:{current:0,best:0,lastClearedDay:0}};}
 // One play session = one market day. Clock is minutes since 00:00; it only names the phase and never gates answers.
 export const sessions=[['asia',360,480,'Asia','briefing'],['london',480,900,'London','desk open'],['newyork',900,1020,'New York','review & close']];
 export function sessionAt(clock){return clock>=1020?'closed':(sessions.find(([,from,to])=>clock<to)??sessions[0])[0];}
 export function setClock(s,clock){const c=Math.min(1020,Math.max(s.day.clock,Math.round(clock)));return {...s,day:{...s.day,clock:c,session:sessionAt(c)}};}
 export function masteries(records){return Object.fromEntries(Object.entries(records).map(([k,r])=>[k,mastery(r)]));}
 // Start Day N+1: reset today's loop and snapshot mastery for the close-of-day diff. Never touches records.
-export function startDay(s){const n=s.day.n+1;return {...s,day:{...s.day,n,session:'asia',clock:360},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:n,records:masteries(s.records),lessons:s.lessons.length,reviews:(s.reviewHistory??[]).length,answers:0,correct:0,bestConquer:0}};}
+export const dueCount=(notebook,now=Date.now())=>Object.values(notebook).filter(q=>(q.due??0)<=now).length;
+// New York close: the review streak counts a day when no notebook card is due. Repairs alone write the notebook; the streak never writes records.
+export function closeDay(s,now=Date.now()){const n=s.day.n,old=s.streak??{current:0,best:0,lastClearedDay:0};let streak=old;
+ if(dueCount(s.notebook,now)===0&&old.lastClearedDay!==n){const current=old.lastClearedDay===n-1?old.current+1:1;streak={current,best:Math.max(old.best,current),lastClearedDay:n};}
+ return {...setClock(s,1020),loop:{...s.loop,close:true},streak};}
+export function startDay(s,now=Date.now()){s=closeDay(s,now);const n=s.day.n+1;if(s.streak.lastClearedDay!==s.day.n)s={...s,streak:{...s.streak,current:0}};return {...s,day:{...s.day,n,session:'asia',clock:360},loop:{briefing:false,desk:false,review:false,close:false},snapshot:{day:n,records:masteries(s.records),lessons:s.lessons.length,reviews:(s.reviewHistory??[]).length,answers:0,correct:0,bestConquer:0}};}
 const knownSkills=new Set(['quote','inverse','pip','spread','risk','margin','returns','surprise','forward','expectancy','stress','optionpayoff','imbalance','rmse','portfolio',...Object.keys(decisions)]);
 const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 export function valid(s){
