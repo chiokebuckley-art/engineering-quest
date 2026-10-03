@@ -72,3 +72,11 @@ footer a{color:var(--muted)}
 .upcoming{display:flex;flex-direction:column;gap:8px;margin-top:10px}.up-row{display:flex;gap:10px;align-items:center;font-size:13px;padding:8px 10px;border-radius:10px;background:var(--well);border:0;color:var(--soft);text-align:left;width:100%}.up-row b{width:84px;flex:none}.up-row small{color:var(--muted)}
 @media(max-width:1050px){.review{grid-template-columns:1fr}}
 @media(max-width:650px){.steps{flex-wrap:wrap}.steps div{flex:1 1 40%}}
+/* Close of day */
+.close{display:grid;grid-template-columns:1fr 1fr;gap:18px}.close h1{font-size:28px;margin:2px 0 0}.ledger{display:flex;flex-direction:column;margin-top:8px}.ledger>div{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(150,190,230,.12);font-size:14px;color:#dfe8f1}.ledger b{font-family:var(--head);font-weight:600;font-size:16px;white-space:nowrap}.ledger .total{border:0;font-weight:800;font-size:15px}.ledger .total b{font-size:24px}
+.reflect{padding:12px;border-radius:12px;background:var(--well);margin-top:10px}.reflect small{color:var(--muted)}.reflect p{font-size:14px;line-height:1.5;margin:4px 0 8px;color:var(--text)}.chip-btn{border:0;padding:6px 10px;border-radius:999px;background:var(--panel2);color:var(--text);font-size:12px;min-height:32px}.chip-btn[aria-pressed=true]{background:var(--up);color:var(--floor);font-weight:800}
+.gain .track{position:relative;height:10px;overflow:visible}.gain u{position:absolute;top:0;width:2px;height:100%;background:#fff;opacity:.6}.gain b{width:84px}
+.scorecard{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.scorecard div{padding:10px;border-radius:10px;background:var(--well);text-align:center}.scorecard strong{display:block;font-family:var(--head);font-weight:600;font-size:20px}.scorecard span{font-size:11px;color:var(--muted);line-height:1.3}
+.close .up-next{display:flex;flex-direction:column}.close .up-next h1{font-size:20px}.close .up-next .row{margin-top:auto}.link.muted{color:var(--muted);font-weight:600;font-size:12px;text-decoration:underline;cursor:pointer}
+@media(max-width:1050px){.close{grid-template-columns:1fr}}
+@media(max-width:650px){.scorecard{grid-template-columns:repeat(2,1fr)}}

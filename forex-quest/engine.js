@@ -83,3 +83,5 @@ export function planScore({units,stopPips,reason='',ackCost=false},d){
  const checks=[text.length>=10&&words.hypothesis.test(text),words.invalidation.test(text),validSize&&planned<=cap+.00001,words.cost.test(text)||ackCost===true];
  return {score:checks.filter(Boolean).length,checks,planned,budget,cap,event,suggestedUnits:validSize?Math.floor(cap/(stopPips*.0001)+1e-8):0,cost:validSize?round(units*(q.ask-q.bid)):0,spreadPips:round((q.ask-q.bid)/.0001,1)};
 }
+// League process score: avg plan quality (0–4) × 10 + streak days (cap 30) + licences × 5 + blueprints frozen with holdout revealed × 2. Reads only; P&L is not an input.
+export function processScore(s){const plans=s.plans??[],avg=plans.length?plans.reduce((n,p)=>n+p.score,0)/plans.length:0,licences=Object.values(s.exams??{}).filter(e=>e.passed).length,revealed=(s.blueprints??[]).filter(b=>Number.isFinite(b.holdoutNet)).length;return Math.round(avg*10+Math.min(s.streak?.current??0,30)+licences*5+revealed*2);}
