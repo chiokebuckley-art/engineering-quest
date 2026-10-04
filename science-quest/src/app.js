@@ -45,7 +45,7 @@ import {CATEGORIES,skillState,recordCheck,fairPair,createRun,makeProfile,validat
 import {openStore,loadSave,persist,getEvents,getBackupEvents,importEvents,deleteProfileEvents,replaceSaveWithEvents,recoveryExport,archiveUnreadableSave} from './storage.js';
 import {scene,chart,esc,robot} from './visuals.js';
 import {cinemaView,cinemaOverlayScene} from './cinema-view.js';
-import {documentaries,cinemaById,activeCaption,activeChapter} from './cinema.js';
+import {documentaries,cinemaById,activeCaption,activeChapter,formatTime} from './cinema.js';
 import {noticeMediaForMission} from './notice-media.js';
 const $=s=>document.querySelector(s);const app=$('#app');
 let data,storageMode,ui={view:'explore',region:'motion',mission:'rover-rescue',feedback:null,choice:null,animation:null,progress:0,paused:false,visualMode:'schematic',mapStyle:'illustrated',cinema:{activeId:'motion',isPlaying:false,currentTime:0,speed:1,muted:false,theaterMode:false},lab:{adapter:'ramp',input:.2,trials:[],options:{},coop:false},arcade:null},saveError=false,saveConflict=false,swUpdate=null;
@@ -118,7 +118,7 @@ function buildOffComparison(a){const comparison=compareBuildOff(a.designs);retur
 function arcadeGame(){const a=ui.arcade;if(a.id==='buildoff'&&a.round===3&&!a.comparisonComplete)return buildOffComparison(a);let adapter=a.id==='signal'?'wave':a.id==='habitat'?'habitat':'ramp',target=a.id==='signal'?[5,2,10][a.round%3]:a.id==='buildoff'?1:[1,2,1.5][a.round%3];const done=a.round>=3;return `<section class="content">${button('← Arcade','arcade-exit','back')}${heading(a.scored?'PRACTICE CHALLENGE':'SUPPORTED PREVIEW',({cargo:'Cargo Catch',signal:'Signal Sprint',habitat:'Habitat Balance',buildoff:'Build-Off'})[a.id],`Round ${Math.min(3,a.round+1)} of 3 · ${a.score} points · no timer`)}${done?`<div class="celebration"><div class="completion-icon">✧</div><h2>Challenge complete!</h2><p>${a.score} points ${a.scored?'saved to this explorer':'in supported preview'}.</p>${a.id==='buildoff'?'<p>Three working designs and your energy comparison are saved to this explorer’s journal.</p>':''}${button('Return to arcade','arcade-exit','primary')}</div>`:`<div class="lab-layout"><div class="scene-card"><div id="scene">${scene(adapter,a.input,a.result,a.result?1:0,adapter==='ramp'?[target-.05,target+.05]:null)}</div>${a.result?`<p class="scene-caption">Result: ${round(a.result.value)} ${adapters[adapter].outUnit}</p>`:''}</div><aside class="task-panel"><h2>${a.id==='habitat'?`Supply ${[4,8,6][a.round]} animals`:`Target: ${target} ${adapters[adapter].outUnit}`}</h2><p>${a.id==='buildoff'?`Design ${a.round+1}: use resistance ${[.2,.4,.1][a.round]}. Land at the same bay with a different ramp.`:a.id==='habitat'?'Each animal needs 5 units of food each day. Choose the exact food budget.':'Adjust one setting and test your design.'}</p>${controls(adapter,a.input)}${button('Test my design','arcade-test','primary full')}${a.feedback?`<div class="feedback ${a.passed?'good':'try'}">${esc(a.feedback)}</div>`:''}${a.passed?button('Next round →','arcade-next','secondary full'):''}</aside></div>`}</section>`;}
 function placementView(){const p=profile().placement,suggestion=p&&placementSuggestion(p);if(!p)return '';if(p.status!=='active')return `<section class="content">${heading('OPTIONAL STARTING POINT',p.status==='skipped'?'Choose your own adventure.':'A place to begin.','This activity suggests a starting mission. It does not award mastery or unlock advanced tools.')}<p>${suggestion?suggestion.reason:'You can explore any guided mission or return to this activity later.'}</p>${suggestion?button('Try '+byId[suggestion.mission].title,'start','primary',`data-id="${suggestion.mission}"`):button('Explore the islands','nav','primary','data-view="explore"')}${button('Choose a learning pathway','nav','secondary','data-view="courses"')}${button('Try these questions again','placement-restart','text-button')}</section>`;const index=p.responses.length,item=placementItems[index],order=[0,1,2].map(i=>(i+index+1)%3);return `<section class="content">${heading('OPTIONAL STARTING POINT',`Question ${index+1} of ${placementItems.length}`,'No timer. No grade. You can skip and choose any mission.')}<div class="task-panel"><h2>${item.prompt}</h2>${button('Read question and choices aloud','placement-narrate','secondary')}${button('Stop reading','stop-reading','text-button')}<div role="group" aria-label="Choose one response">${order.map(i=>button(item.options[i],'placement-choice',`choice ${p.choice===i?'selected':''}`,`data-value="${i}" aria-pressed="${p.choice===i}"`)).join('')}</div>${button(index===placementItems.length-1?'See my suggestion':'Next question','placement-next','primary',p.choice===null?'disabled':'')}${button('Skip this activity','placement-skip','text-button')}</div><p class="muted">Responses are saved on this device for this explorer. Reading preferences are separate from science readiness. You can leave and resume later.</p></section>`;}
 function settings(){const p=profile();return `<section class="content settings">${heading('MAKE YOURSELF AT HOME','Explorers & settings','Profiles and progress stay in this browser. No account or personal information needed.')}<div class="settings-grid"><section class="settings-panel"><h2>Choose an explorer</h2><div class="profiles">${data.profiles.map(x=>`<button class="explorer ${x.id===p.id?'selected':''}" data-action="profile" data-id="${x.id}" aria-pressed="${x.id===p.id}"><span>${esc(x.avatar)}</span><b>${esc(x.name)}</b>${x.id===p.id?'<small>Playing now</small>':''}</button>`).join('')}</div><form id="new-profile"><label class="field">Explorer nickname<input id="profile-name" maxlength="30" required placeholder="e.g. River" autocomplete="off"></label><label class="field">Explorer<select id="profile-avatar"><option>🧑🏽‍🚀</option><option>👩🏿‍🔬</option><option>👨🏻‍🔬</option><option>👩🏽‍🚀</option><option>🧑🏼‍🔬</option><option>🤖</option></select></label><button class="secondary" type="submit" ${data.profiles.length>=12?'disabled':''}>Add explorer</button></form>${data.profiles.length>1?button('Delete this explorer’s local progress','delete-profile','danger text-button'):''}</section><section class="settings-panel"><h2>Comfort & reading</h2><p>Saved separately for ${esc(p.name)}.</p><label class="toggle"><input id="picture-support" type="checkbox" ${reading().pictures?'checked':''}> Picture cues where available</label><label class="field">Read-aloud speed<select id="reading-rate">${[[.7,'Slower'],[.9,'Gentle'],[1.1,'Quicker']].map(([v,label])=>`<option value="${v}" ${reading().rate===v?'selected':''}>${label}</option>`).join('')}</select></label><label class="field">Learning pathway<select id="band">${['All explorers','K–2','3–5','6–8','9–12'].map(b=>`<option ${reading().band===b?'selected':''}>${b}</option>`).join('')}</select></label><p class="muted">A guide for where to begin; all investigations stay available.</p><label class="toggle"><input id="large-text" type="checkbox" ${reading().large?'checked':''}> Larger text</label><label class="toggle"><input id="reduced-motion" type="checkbox" ${reading().reduced?'checked':''}> Reduce animation</label><label class="toggle"><input id="technical-theme" type="checkbox" ${reading().technical?'checked':''}> Night / technical theme</label>${button('Read a sample aloud','sample-narration','secondary')}<p class="muted">Read-aloud uses your device’s available voice. Every spoken message is also written on screen. English content.</p><h3>Find a starting point</h3><p>Four optional questions suggest a mission. You can skip them; they never award mastery.</p>${button(profile().placement?.status==='active'?'Resume starting-point activity':'Find my starting point','placement-open','secondary')}<h3>Readiness bridge</h3><p>New to experiments? Compare two pushes, then learn what makes a fair test.</p>${button('Start with First Move','start','secondary','data-id="first-move"')}</section><section class="settings-panel"><h2>Keep your discoveries</h2><p><a href="./rooms/">Private online room setup ↗</a> · service deployment pending</p><p><a href="./sync/">Device sync setup ↗</a> · cloud service deployment pending</p><p>Export a backup to move explorers between devices. Import merges by explorer ID and keeps a separate imported copy if progress differs.</p><div class="run-buttons">${button('Export backup','export','primary')}<label class="button secondary">Import backup<input id="import-save" type="file" accept="application/json,.json" hidden></label></div><p class="muted">Storage: ${storageMode}. ${navigator.onLine?'Online':'Offline'}. Export regularly if this device clears browser data.</p>${button('Export recovery archives','export-recovery','text-button')}<h3>About this release</h3><p><a href="./coverage/">Curriculum coverage and review ledger ↗</a></p><p><a href="./author/">Content Studio: author and review investigations ↗</a></p><p>${missions.length} playable investigations across six regions, with guided missions, a free lab and four arcade challenges.</p><p>Local shared-device co-op is in Build. Online co-op and account sync are not included. Device export/import is available.</p><p>Original curriculum in early access. No claims of complete standards coverage or proven learning outcomes.</p><a href="https://chiokebuckley-art.github.io/engineering-quest/" target="_blank" rel="noopener">Engineering Quest ↗</a> · <a href="https://chiokebuckley-art.github.io/wordraiders/" target="_blank" rel="noopener">Word Raiders ↗</a></section></div></section>`;}
-function render(){document.body.classList.toggle('large-text',!!reading().large);document.body.classList.toggle('technical',!!reading().technical);document.body.classList.toggle('reduced',!!reading().reduced);let views={explore:mapView,cinema:()=>cinemaView(ui.cinema),workshop:workshopView,coop:coopView,courses:coursesView,region:regionView,mission:missionView,math:()=>mathBridgeView(ui.mathId,profile().mathBridges[ui.mathId]),capstone:routeCapstoneView,placement:placementView,'climate-data':()=>climateDataView(profile().climateData??=createClimateData()),'energy-capstone':()=>energyCapstoneView(profile().energyCapstone??=createEnergyCapstone()),'energy-model':()=>energyConstructionView(profile().energyConstruction??=createEnergyConstruction()),'motion-data':()=>motionDataView(profile().motionData??=createMotionData()),lab:freeLab,journal,arcade:arcadeView,settings};app.innerHTML=shell((views[ui.view]||mapView)());syncHarborClock();}
+function render(){document.body.classList.toggle('large-text',!!reading().large);document.body.classList.toggle('technical',!!reading().technical);document.body.classList.toggle('reduced',!!reading().reduced);let views={explore:mapView,cinema:()=>cinemaView(ui.cinema),workshop:workshopView,coop:coopView,courses:coursesView,region:regionView,mission:missionView,math:()=>mathBridgeView(ui.mathId,profile().mathBridges[ui.mathId]),capstone:routeCapstoneView,placement:placementView,'climate-data':()=>climateDataView(profile().climateData??=createClimateData()),'energy-capstone':()=>energyCapstoneView(profile().energyCapstone??=createEnergyCapstone()),'energy-model':()=>energyConstructionView(profile().energyConstruction??=createEnergyConstruction()),'motion-data':()=>motionDataView(profile().motionData??=createMotionData()),lab:freeLab,journal,arcade:arcadeView,settings};app.innerHTML=shell((views[ui.view]||mapView)());syncHarborClock();if(ui.view==='cinema')attachCinemaVideoListeners();}
 let harborClock=null;
 function stopHarborClock(){if(harborClock)cancelAnimationFrame(harborClock.frame);harborClock=null;}
 function syncHarborClock(){
@@ -136,72 +136,155 @@ function syncHarborClock(){
 document.addEventListener('visibilitychange',()=>{stopHarborClock();if(document.hidden){if(data?.profiles&&profile().harborRuntime&&!saveError)save('harbor-visibility-pause');}else syncHarborClock();});
 window.addEventListener('pagehide',()=>{stopHarborClock();if(data?.profiles&&profile().harborRuntime&&!saveError)save('harbor-page-pause');});
 function stopAnimation(){ui.rampDrag=null;if(ui.animation)cancelAnimationFrame(ui.animation.frame);ui.animation=null;ui.paused=false;ui.replay=null;}
-let cinemaTimer=null,cinemaAudio=null;
-function stopCinema(){if(cinemaTimer){cancelAnimationFrame(cinemaTimer);cinemaTimer=null;}if(cinemaAudio){try{cinemaAudio.pause();}catch(e){}cinemaAudio=null;}if(ui.cinema)ui.cinema.isPlaying=false;}
+let cinemaTimer=null;
+function stopCinema(){
+ if(cinemaTimer){cancelAnimationFrame(cinemaTimer);cinemaTimer=null;}
+ const v=$('#cinema-video');
+ if(v){try{v.pause();}catch(e){}}
+ if(ui.cinema)ui.cinema.isPlaying=false;
+}
+
+function syncCinemaControls(){
+ const v=$('#cinema-video');
+ const doc=cinemaById(ui.cinema.activeId);
+ const dur=v&&v.duration&&isFinite(v.duration)?v.duration:doc.duration;
+ const playBtn=$('#cinema-play-btn');
+ if(playBtn){
+  playBtn.textContent=ui.cinema.isPlaying?'⏸ Pause':'▶ Play';
+  playBtn.setAttribute('aria-label',ui.cinema.isPlaying?'Pause':'Play');
+ }
+ const bigPlay=$('.cinema-big-play');
+ if(bigPlay)bigPlay.style.display=ui.cinema.isPlaying?'none':'block';
+ const muteBtn=$('#cinema-mute-btn');
+ if(muteBtn){
+  muteBtn.textContent=ui.cinema.muted?'🔇 Muted':'🔊 Voiceover';
+  muteBtn.setAttribute('aria-label',ui.cinema.muted?'Unmute voiceover':'Mute voiceover');
+ }
+ updateCinemaScreen();
+}
+
+function attachCinemaVideoListeners(){
+ const v=$('#cinema-video');
+ if(!v||v._boundEvents)return;
+ v._boundEvents=true;
+ v.addEventListener('timeupdate',()=>{
+  if(!v.paused){
+   ui.cinema.currentTime=v.currentTime;
+   updateCinemaScreen();
+  }
+ });
+ v.addEventListener('ended',()=>{
+  ui.cinema.isPlaying=false;
+  stopCinema();
+  syncCinemaControls();
+ });
+ v.addEventListener('play',()=>{
+  if(!ui.cinema.isPlaying){
+   ui.cinema.isPlaying=true;
+   syncCinemaControls();
+  }
+ });
+ v.addEventListener('pause',()=>{
+  if(ui.cinema.isPlaying){
+   ui.cinema.isPlaying=false;
+   syncCinemaControls();
+  }
+ });
+}
+
 function toggleCinemaPlayback(){
+ const v=$('#cinema-video');
+ const doc=cinemaById(ui.cinema.activeId);
+ const dur=v&&v.duration&&isFinite(v.duration)?v.duration:doc.duration;
  if(ui.cinema.isPlaying){
   stopCinema();
-  render();
+  syncCinemaControls();
  }else{
-  const doc=cinemaById(ui.cinema.activeId);
-  if(ui.cinema.currentTime>=doc.duration)ui.cinema.currentTime=0;
+  if(ui.cinema.currentTime>=dur)ui.cinema.currentTime=0;
   ui.cinema.isPlaying=true;
-  if(!ui.cinema.muted&&doc.audioSrc){
-   try{
-    cinemaAudio=new Audio(doc.audioSrc);
-    cinemaAudio.currentTime=ui.cinema.currentTime;
-    cinemaAudio.playbackRate=ui.cinema.speed;
-    cinemaAudio.play().catch(()=>{});
-   }catch(e){}
+  if(v){
+   v.muted=!!ui.cinema.muted;
+   v.playbackRate=ui.cinema.speed||1;
+   if(Math.abs(v.currentTime-ui.cinema.currentTime)>0.3)v.currentTime=ui.cinema.currentTime;
+   const playPromise=v.play();
+   if(playPromise!==undefined){
+    playPromise.catch(()=>{
+     if(!v.muted){
+      v.muted=true;
+      ui.cinema.muted=true;
+      v.play().catch(()=>{});
+     }
+    });
+   }
   }
   let lastTimestamp=performance.now();
   function tick(now){
    if(!ui.cinema.isPlaying)return;
    const delta=(now-lastTimestamp)/1000;
    lastTimestamp=now;
-   ui.cinema.currentTime+=delta*ui.cinema.speed;
-   if(ui.cinema.currentTime>=doc.duration){
-    ui.cinema.currentTime=doc.duration;
+   if(v&&!v.paused&&!v.ended){
+    ui.cinema.currentTime=v.currentTime;
+   }else if(!v){
+    ui.cinema.currentTime+=delta*(ui.cinema.speed||1);
+   }
+   if(ui.cinema.currentTime>=dur||(v&&v.ended)){
+    ui.cinema.currentTime=dur;
     stopCinema();
-    render();
+    syncCinemaControls();
     return;
    }
    updateCinemaScreen();
    cinemaTimer=requestAnimationFrame(tick);
   }
   cinemaTimer=requestAnimationFrame(tick);
-  render();
+  syncCinemaControls();
  }
 }
+
 function seekCinema(time){
  const doc=cinemaById(ui.cinema.activeId);
- ui.cinema.currentTime=Math.max(0,Math.min(doc.duration,time));
- if(cinemaAudio){try{cinemaAudio.currentTime=ui.cinema.currentTime;}catch(e){}}
+ const v=$('#cinema-video');
+ const dur=v&&v.duration&&isFinite(v.duration)?v.duration:doc.duration;
+ ui.cinema.currentTime=Math.max(0,Math.min(dur,time));
+ if(v){try{v.currentTime=ui.cinema.currentTime;}catch(e){}}
  updateCinemaScreen();
- const scrubber=$('#cinema-scrubber');
- if(scrubber)scrubber.value=ui.cinema.currentTime;
- const timeDisplay=$('#cinema-time-display');
- if(timeDisplay)timeDisplay.textContent=`${Math.floor(ui.cinema.currentTime)}s / ${doc.duration}s`;
 }
+
 function updateCinemaScreen(){
  const doc=cinemaById(ui.cinema.activeId);
+ const v=$('#cinema-video');
+ const dur=v&&v.duration&&isFinite(v.duration)?v.duration:doc.duration;
+ const t=ui.cinema.currentTime;
+ const progress=dur>0?Math.min(1,t/dur):0;
+
  const sim=$('#cinema-sim-overlay');
- if(sim)sim.innerHTML=cinemaOverlayScene(doc,ui.cinema.currentTime);
- const caption=$('#cinema-caption-text');
- if(caption){
-  const c=activeCaption(doc,ui.cinema.currentTime);
-  caption.textContent=c?c.text:'';
-  caption.style.display=c?'inline-block':'none';
+ if(sim)sim.innerHTML=cinemaOverlayScene(doc,t,progress);
+
+ const captionText=$('#cinema-caption-text');
+ const captionBox=$('#cinema-caption-box');
+ const c=activeCaption(doc,t);
+ if(captionText)captionText.textContent=c?c.text:'';
+ if(captionBox){
+  captionBox.classList.toggle('active',!!c);
+  captionBox.style.display=c?'flex':'none';
  }
+
+ const chapterTag=$('#cinema-chapter-tag');
+ if(chapterTag){
+  const ch=activeChapter(doc,t);
+  chapterTag.textContent=ch?ch.title:'';
+ }
+
  const scrubber=$('#cinema-scrubber');
- if(scrubber)scrubber.value=ui.cinema.currentTime;
- const timeDisplay=$('#cinema-time-display');
- if(timeDisplay)timeDisplay.textContent=`${Math.floor(ui.cinema.currentTime)}s / ${doc.duration}s`;
- const backdrop=$('#cinema-backdrop');
- if(backdrop){
-  const p=ui.cinema.currentTime/doc.duration;
-  backdrop.style.transform=`scale(${1+p*0.1}) translate(${(p-.5)*20}px, 0)`;
+ if(scrubber){
+  scrubber.value=t;
+  scrubber.max=dur;
  }
+ const scrubberProgress=$('#cinema-scrubber-progress');
+ if(scrubberProgress)scrubberProgress.style.width=`${progress*100}%`;
+
+ const timeDisplay=$('#cinema-time-display');
+ if(timeDisplay)timeDisplay.textContent=`${formatTime(t)} / ${formatTime(dur)}`;
 }
 function animate(result,adapter,target=null,onComplete){stopAnimation();ui.replay=result;if(reading().reduced||matchMedia('(prefers-reduced-motion: reduce)').matches){ui.progress=1;onComplete?.();render();return;}ui.animation={elapsed:0,last:performance.now(),frame:0};const duration=adapter==='plant'||adapter==='energy'?3500:Math.min(5500,Math.max(2000,result.duration*700));render();function frame(now){if(!ui.animation)return;const a=ui.animation;if(!ui.paused)a.elapsed+=Math.min(100,now-a.last);a.last=now;ui.progress=Math.min(1,a.elapsed/duration);const targetEl=$('#scene');if(targetEl)targetEl.innerHTML=ui.view==='lab'&&adapter==='ramp'?rampBayScene(result.input,result,ui.progress,result.options||{},true):scene(adapter,result.input,result,ui.progress,target,null,result.options||{},ui.view==='mission'?{...currentMission(),visualMode:ui.visualMode}:{region:missions.find(m=>m.adapter===adapter)?.region||'motion',visualMode:ui.visualMode});if(ui.progress<1)a.frame=requestAnimationFrame(frame);else{ui.animation=null;onComplete?.();render();}}ui.animation.frame=requestAnimationFrame(frame);}
 function runExperiment(){if(ui.animation){ui.paused=!ui.paused;render();return;}const lab=ui.view==='lab',m=lab?null:currentMission(),r=lab?ui.lab:currentRun(),adapter=lab?r.adapter:m.adapter;const transfer=lab?null:transferPlan(m,r);if(!lab&&((r.stage!=='test'&&!transfer)||(adapter==='energy'&&!r.energyModel)))return;if(lab)validateLabOptions(profile(),adapter,r.options);const result={...simulate(adapter,r.input,lab?r.options:(transfer?.options||{})),id:crypto.randomUUID(),at:Date.now()};if(transfer){r.transferTrials??={};r.transferTrials[r.stage]??=[];r.transferTrials[r.stage].push(result);}else{r.trials.push(result);if(!lab)r.trialIds.push(result.id);}if(lab)ui.lab.trials=r.trials;save(transfer?'transfer-trial':'trial',{stage:r.stage,configuration:{input:r.input,options:lab?r.options:(transfer?.options||{})},measurements:result,hintFlags:lab?{}:r.assistance});animate(result,adapter,transfer?.target??m?.target);}
@@ -224,9 +307,9 @@ app.addEventListener('click',async e=>{const el=e.target.closest('[data-action]'
  case'cinema-rewind':seekCinema(ui.cinema.currentTime-5);break;
  case'cinema-forward':seekCinema(ui.cinema.currentTime+5);break;
  case'cinema-jump':seekCinema(Number(el.dataset.time));break;
- case'cinema-mute':ui.cinema.muted=!ui.cinema.muted;if(cinemaAudio)cinemaAudio.muted=ui.cinema.muted;render();break;
+ case'cinema-mute':ui.cinema.muted=!ui.cinema.muted;{const mv=$('#cinema-video');if(mv)mv.muted=ui.cinema.muted;syncCinemaControls();}break;
  case'cinema-theater':ui.cinema.theaterMode=!ui.cinema.theaterMode;render();break;
- case'cinema-speed':ui.cinema.speed=Number(el.dataset.speed);if(cinemaAudio)cinemaAudio.playbackRate=ui.cinema.speed;render();break;
+ case'cinema-speed':ui.cinema.speed=Number(el.dataset.speed||el.value);{const spv=$('#cinema-video');if(spv)spv.playbackRate=ui.cinema.speed;syncCinemaControls();}break;
  case'planned-trial':if(!ui.animation&&ui.view==='mission'&&currentRun().stage==='test'){setInput(Number(el.dataset.input));runExperiment();}break;
  case'climate-open':profile().climateData??=createClimateData();await save('climate-data-open');goto('climate-data');break;
  case'climate-read':narrate($('#main').textContent);break;
@@ -318,7 +401,7 @@ app.addEventListener('click',async e=>{const el=e.target.closest('[data-action]'
  }}catch(error){notify('That action could not finish: '+error.message);}
 });
 app.addEventListener('input',e=>{if(e.target.dataset.harborSetting==='height'){setHarborSetting(profile(),'height',Number(e.target.value));$('#harbor-height-output').textContent=Number(e.target.value).toFixed(2)+' m';}if(e.target.dataset.fairSetting){const key=e.target.dataset.fairSetting;changeFairSetup(currentMission(),currentRun(),key,key==='variable'?e.target.value:Number(e.target.value));ui.feedback=null;checkpoint(currentRun()).feedback=null;save('fair-setup-configuration');if(key!=='variable')e.target.nextElementSibling.textContent=Number(e.target.value).toFixed(2)+' m';const status=$('.fair-setup [role=status]');if(status)status.textContent=fairSetupReady(fairSetupFor(currentMission(),currentRun()))?'One difference: ramp height. These settings are ready for your fair-test check.':'Setup blocked: choose different heights and keep the lane surface fixed.';$('.task-panel .feedback')?.remove();const next=$('.task-panel [data-action=next]');if(next){next.dataset.action='check';next.textContent='Check my idea';next.disabled=ui.choice===null;}}if(e.target.dataset.energyModel){editEnergyConstruction(profile().energyConstruction,e.target.dataset.energyModel,e.target.value);save('energy-construction-draft');}if(e.target.dataset.motionField){editMotionData(profile().motionData,e.target.dataset.motionField,e.target.value);save('motion-data-draft');}if(e.target.id==='cap-setting'){const c=currentRun().capstone;if(c&&!c.complete){c.config[routeSteps[c.phase].key]=Number(e.target.value);e.target.nextElementSibling.textContent=e.target.value+' '+routeSteps[c.phase].unit;save('capstone-setting');}}if(e.target.id==='coop-input'){const s=activeCoop();if(s?.stage==='experiment'){s.input=Number(e.target.value);save('coop-configuration',{session:s.id,profile:rolesFor(s).find(r=>r.role==='Builder').profile,input:s.input});e.target.nextElementSibling.textContent=s.input+' '+adapters[s.model].unit;}}if(e.target.id==='cinema-scrubber')seekCinema(Number(e.target.value));if(e.target.id==='experiment-input'&&!ui.animation)setInput(Number(e.target.value));if(e.target.id==='prediction-note'){currentRun().predictionNote=e.target.value;save('prediction-note');}if(e.target.id==='explanation'){currentRun().notes=e.target.value;save('explanation-note');}});
-app.addEventListener('change',async e=>{const id=e.target.id;try{if(e.target.dataset.harborSetting){setHarborSetting(profile(),e.target.dataset.harborSetting,Number(e.target.value));await save('harbor-setting');updateHarborRuntimeView(profile(),ui.harborSite,reading().reduced);return;}if(e.target.dataset.climate){editClimateData(profile().climateData,e.target.dataset.climate,e.target.value);await save('climate-data-draft');return;}if(e.target.dataset.energyCap){editEnergyCapstone(profile().energyCapstone,e.target.dataset.energyCap,e.target.value);await save('energy-capstone-draft');return;}if(e.target.dataset.energyModel){editEnergyConstruction(profile().energyConstruction,e.target.dataset.energyModel,e.target.value);await save('energy-construction-draft');return;}if(e.target.dataset.motionField){editMotionData(profile().motionData,e.target.dataset.motionField,e.target.value);await save('motion-data-draft');return;}if(e.target.dataset.investigation){const r=currentRun();if(r.stage!=='build'||!needsPlan(currentMission()))return;choosePlan(r,e.target.dataset.investigation,e.target.value===''?null:Number(e.target.value));ui.feedback=null;checkpoint(r).feedback=null;const field=e.target.dataset.investigation;await save('investigation-plan-choice');render();document.querySelector(`[data-investigation="${field}"]`)?.focus();return;}if(e.target.dataset.placement){if(e.target.value)placeDecoration(profile(),e.target.value,e.target.dataset.placement);else delete profile().world.placements[e.target.dataset.placement];await save('workshop-placement');render();}if(id.startsWith('energy-')){const r=currentRun();r.energyDraft??={};r.energyDraft[id.slice(7)]=e.target.value;r.energyModel=false;save('energy-model-edit');render();}if(id==='picture-support'){setReading(profile(),'pictures',e.target.checked);await save('reading-settings');render();}if(id==='reading-rate'){setReading(profile(),'rate',Number(e.target.value));await save('reading-settings');}if(['large-text','reduced-motion','technical-theme'].includes(id)){setReading(profile(),{'large-text':'large','reduced-motion':'reduced','technical-theme':'technical'}[id],e.target.checked);save('settings');render();}if(id==='band'){setReading(profile(),'band',e.target.value);save('settings');const next=missions.find(m=>m.band===e.target.value);if(next){data.lastMission=next.id;profile().lastMission=next.id;notify('Suggested starting point: '+next.title+'. All missions remain available.');}}if(id==='lab-resistance'){changeLabOption(profile(),ui.lab,'resistance',Number(e.target.value));ui.progress=0;}if(id==='lab-efficiency')changeLabOption(profile(),ui.lab,'efficiency',Number(e.target.value));if(id==='lab-storage'){changeLabOption(profile(),ui.lab,'storage',Number(e.target.value));}if(id==='import-save'){const file=e.target.files[0];if(!file)return;if(file.size>8e6)throw Error('Backup is too large. Maximum 8 MB.');const imported=validateSharedSave(validateSave(JSON.parse(await file.text())));for(const p of imported.profiles){for(const [key,r]of Object.entries(p.runs)){if(!byId[key]||r.mission!==key)throw Error('Unknown mission in backup.');simulate(byId[key].adapter,r.input);for(const t of r.trials)if(!adapters[t.model])throw Error('Unknown model in backup.');}}const incoming=[];const remap=new Map();for(const p of imported.profiles){const existing=data.profiles.find(x=>x.id===p.id);if(!existing)incoming.push(p);else if(JSON.stringify(existing)!==JSON.stringify(p)){const clone=structuredClone(p);clone.id=crypto.randomUUID();clone.name=(p.name+' (imported)').slice(0,30);remap.set(p.id,clone.id);incoming.push(clone);}}if(data.profiles.length+incoming.length>12)throw Error('Import would exceed 12 explorers. Export and remove an unused local profile first.');const {merged,events}=mergeSharedSave(data,imported,remap,incoming);await replaceSaveWithEvents(merged,events);data=merged;await save('import');render();notify('Backup imported. Existing discoveries were preserved.');}}catch(error){notify('Could not import or change this setting: '+error.message);}});
+app.addEventListener('change',async e=>{const id=e.target.id;try{if(e.target.dataset.action==='cinema-speed'){ui.cinema.speed=Number(e.target.value);const v=$('#cinema-video');if(v)v.playbackRate=ui.cinema.speed;return;}if(e.target.dataset.harborSetting){setHarborSetting(profile(),e.target.dataset.harborSetting,Number(e.target.value));await save('harbor-setting');updateHarborRuntimeView(profile(),ui.harborSite,reading().reduced);return;}if(e.target.dataset.climate){editClimateData(profile().climateData,e.target.dataset.climate,e.target.value);await save('climate-data-draft');return;}if(e.target.dataset.energyCap){editEnergyCapstone(profile().energyCapstone,e.target.dataset.energyCap,e.target.value);await save('energy-capstone-draft');return;}if(e.target.dataset.energyModel){editEnergyConstruction(profile().energyConstruction,e.target.dataset.energyModel,e.target.value);await save('energy-construction-draft');return;}if(e.target.dataset.motionField){editMotionData(profile().motionData,e.target.dataset.motionField,e.target.value);await save('motion-data-draft');return;}if(e.target.dataset.investigation){const r=currentRun();if(r.stage!=='build'||!needsPlan(currentMission()))return;choosePlan(r,e.target.dataset.investigation,e.target.value===''?null:Number(e.target.value));ui.feedback=null;checkpoint(r).feedback=null;const field=e.target.dataset.investigation;await save('investigation-plan-choice');render();document.querySelector(`[data-investigation="${field}"]`)?.focus();return;}if(e.target.dataset.placement){if(e.target.value)placeDecoration(profile(),e.target.value,e.target.dataset.placement);else delete profile().world.placements[e.target.dataset.placement];await save('workshop-placement');render();}if(id.startsWith('energy-')){const r=currentRun();r.energyDraft??={};r.energyDraft[id.slice(7)]=e.target.value;r.energyModel=false;save('energy-model-edit');render();}if(id==='picture-support'){setReading(profile(),'pictures',e.target.checked);await save('reading-settings');render();}if(id==='reading-rate'){setReading(profile(),'rate',Number(e.target.value));await save('reading-settings');}if(['large-text','reduced-motion','technical-theme'].includes(id)){setReading(profile(),{'large-text':'large','reduced-motion':'reduced','technical-theme':'technical'}[id],e.target.checked);save('settings');render();}if(id==='band'){setReading(profile(),'band',e.target.value);save('settings');const next=missions.find(m=>m.band===e.target.value);if(next){data.lastMission=next.id;profile().lastMission=next.id;notify('Suggested starting point: '+next.title+'. All missions remain available.');}}if(id==='lab-resistance'){changeLabOption(profile(),ui.lab,'resistance',Number(e.target.value));ui.progress=0;}if(id==='lab-efficiency')changeLabOption(profile(),ui.lab,'efficiency',Number(e.target.value));if(id==='lab-storage'){changeLabOption(profile(),ui.lab,'storage',Number(e.target.value));}if(id==='import-save'){const file=e.target.files[0];if(!file)return;if(file.size>8e6)throw Error('Backup is too large. Maximum 8 MB.');const imported=validateSharedSave(validateSave(JSON.parse(await file.text())));for(const p of imported.profiles){for(const [key,r]of Object.entries(p.runs)){if(!byId[key]||r.mission!==key)throw Error('Unknown mission in backup.');simulate(byId[key].adapter,r.input);for(const t of r.trials)if(!adapters[t.model])throw Error('Unknown model in backup.');}}const incoming=[];const remap=new Map();for(const p of imported.profiles){const existing=data.profiles.find(x=>x.id===p.id);if(!existing)incoming.push(p);else if(JSON.stringify(existing)!==JSON.stringify(p)){const clone=structuredClone(p);clone.id=crypto.randomUUID();clone.name=(p.name+' (imported)').slice(0,30);remap.set(p.id,clone.id);incoming.push(clone);}}if(data.profiles.length+incoming.length>12)throw Error('Import would exceed 12 explorers. Export and remove an unused local profile first.');const {merged,events}=mergeSharedSave(data,imported,remap,incoming);await replaceSaveWithEvents(merged,events);data=merged;await save('import');render();notify('Backup imported. Existing discoveries were preserved.');}}catch(error){notify('Could not import or change this setting: '+error.message);}});
 app.addEventListener('submit',async e=>{if(e.target.id==='energy-model-form'){e.preventDefault();return;}if(e.target.id==='motion-data-form'){e.preventDefault();try{const s=profile().motionData;for(const el of e.target.querySelectorAll('[data-motion-field]'))editMotionData(s,el.dataset.motionField,el.value);const record=checkMotionData(s);await save('motion-data-check',{record});render();}catch(error){notify(error.message);}return;}if(e.target.matches('.adult-feedback')){e.preventDefault();try{const f=e.target,r=profile().runs[f.dataset.mission],review=addAdultFeedback(r,{reviewer:f.elements.reviewer.value,note:f.elements.note.value,nextStep:f.elements.nextStep.value});await save('adult-feedback',{mission:f.dataset.mission,review});render();notify('Discussion note saved.');}catch(error){notify(error.message);}return;}if(e.target.id==='coop-setup'){e.preventDefault();try{const roster=[...document.querySelectorAll('[name=coop-player]:checked')].map(el=>el.value),session=createCoopSession(roster,byId[$('#coop-mission').value],data.profiles);data.coopSessions??=[];data.coopSessions.push(session);data.coopActive=session.id;await save('coop-created',{session:session.id,roster});render();}catch(error){notify(error.message);}return;}if(e.target.id!=='new-profile')return;e.preventDefault();let name=$('#profile-name').value.trim();if(!name||data.profiles.length>=12)return;const p=makeProfile(name,$('#profile-avatar').value);data.profiles.push(p);data.active=p.id;data.lastMission=null;await save('profile-created');render();notify('Welcome, '+p.name+'!');});
 window.addEventListener('online',()=>{if(data)render();});window.addEventListener('offline',()=>{if(data)render();});
 function downloadJSON(value,name){const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);}

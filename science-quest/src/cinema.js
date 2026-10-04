@@ -10,7 +10,8 @@ export const documentaries=[
  color:'#eeb947',
  poster:'./assets/motion_harbor_rover.jpg',
  audio:'./assets/audio/motion_harbor_video.m4a',
- duration:38,
+ video:'./assets/videos/motion_harbor.mp4',
+ duration:43,
  missionId:'rover-rescue',
  mathFormula:'PE = m·g·h → KE = ½m·v² | Stopping distance d = h / μ',
  summary:'Observe how gravitational potential energy transforms into kinetic energy on an inclined plane, and how rolling resistance does work against motion to bring the rover to rest.',
@@ -48,7 +49,8 @@ export const documentaries=[
  color:'#b794e7',
  poster:'./assets/matter_workshop_chemistry.jpg',
  audio:'./assets/audio/matter_workshop_video.m4a',
- duration:38,
+ video:'./assets/videos/matter_workshop.mp4',
+ duration:44,
  missionId:'nothing-lost',
  mathFormula:'∑ m(reactants) = ∑ m(products) | Bohr Shells: 2, 8, 8',
  summary:'Explore atomic electron orbital shells, how valence configurations govern molecular bonding, and why mass is strictly conserved in sealed reaction vessels.',
@@ -85,7 +87,8 @@ export const documentaries=[
  color:'#85cda2',
  poster:'./assets/living_valley_biodome.jpg',
  audio:'./assets/audio/living_valley_video.m4a',
- duration:40,
+ video:'./assets/videos/living_valley.mp4',
+ duration:47,
  missionId:'biodome-balance',
  mathFormula:'6 CO₂ + 6 H₂O + hν → C₆H₁₂O₆ + 6 O₂ | 10% Trophic Transfer',
  summary:'Inside the geodesic biodome, trace how photons drive chloroplast photosynthesis to produce glucose and oxygen, and how carbon cycles through atmospheric, organismal, and soil pools.',
@@ -122,7 +125,8 @@ export const documentaries=[
  color:'#df9c75',
  poster:'./assets/earthwatch_ridge_climate.jpg',
  audio:'./assets/audio/earthwatch_ridge_video.m4a',
- duration:40,
+ video:'./assets/videos/earthwatch_ridge.mp4',
+ duration:46,
  missionId:'rain-garden',
  mathFormula:'Fin = ¼ S₀ (1 - α) = σ Teff⁴ | NASA GISTEMP v4 (1880–2025)',
  summary:'From mountain observatory terraces to NASA global climate datasets: understand radiation equilibrium, how rain gardens mitigate runoff, and how scientists analyze observational temperature records.',
@@ -159,7 +163,8 @@ export const documentaries=[
  color:'#72ceda',
  poster:'./assets/signal_coast_waves.jpg',
  audio:'./assets/audio/signal_coast_video.m4a',
- duration:35,
+ video:'./assets/videos/signal_coast.mp4',
+ duration:40,
  missionId:'signal-sprint',
  mathFormula:'v = f · λ | E(Wh) = P(watts) · t(hours) | P = I²·R',
  summary:'Explore how electromagnetic wave signals transmit information across the ocean, why higher frequencies produce shorter wavelengths at constant speed, and how battery storage banks balance night power grids.',
@@ -195,7 +200,8 @@ export const documentaries=[
  color:'#93a9ed',
  poster:'./assets/orbital_station_astronomy.jpg',
  audio:'./assets/audio/orbital_station_video.m4a',
- duration:38,
+ video:'./assets/videos/orbital_station.mp4',
+ duration:45,
  missionId:'orbital-patterns',
  mathFormula:'T² = a³ (for 1 M☉) | v_orbit = √(G·M / r)',
  summary:'High above Discovery Islands, observe celestial mechanics in action. Discover Kepler’s Third Law: why distant planets take dramatically longer to orbit their star, and how gravitational physics shapes orbital velocity.',
@@ -222,6 +228,13 @@ export const documentaries=[
  ]
 }
 ];
+
+export function formatTime(seconds){
+ const s=Math.max(0,Math.floor(seconds||0));
+ const m=Math.floor(s/60);
+ const rem=s%60;
+ return `${m}:${String(rem).padStart(2,'0')}`;
+}
 
 export function cinemaById(id){
  return cinemaById[id]||documentaries[0];

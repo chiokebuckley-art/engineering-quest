@@ -68,13 +68,15 @@ test('cinemaOverlayScene renders dynamic SVG graphics without exceptions', () =>
  }
 });
 
-test('cinemaView renders complete theater interface', () => {
+test('cinemaView renders complete theater interface with HTML5 video player', () => {
  const state={activeId:'motion',isPlaying:false,currentTime:0,speed:1,muted:false,theaterMode:false};
  const html=cinemaView(state);
  assert.ok(html.includes('cinema-theater'));
  assert.ok(html.includes('cinema-scrubber'));
  assert.ok(html.includes('cinema-caption-box'));
  assert.ok(html.includes('PE = mgh'));
+ assert.ok(html.includes('<video id="cinema-video" class="cinema-video-player"'));
+ assert.ok(html.includes('assets/videos/motion_harbor.mp4'));
 });
 
 test('noticeMediaForMission generates valid cards for missions', () => {
@@ -101,7 +103,7 @@ test('realisticBackdropForAdapter maps all model adapters to valid files', () =>
  }
 });
 
-test('All 7 artwork image assets and 6 audio voiceover files exist on disk and are non-empty', () => {
+test('All 7 artwork images, 6 audio files, and 6 standalone MP4 video files exist on disk and are non-empty', () => {
  const images=[
   'assets/discovery_islands_hero.jpg',
   'assets/motion_harbor_rover.jpg',
@@ -133,5 +135,27 @@ test('All 7 artwork image assets and 6 audio voiceover files exist on disk and a
   assert.ok(fs.existsSync(p),`Audio file ${aud} must exist`);
   const stat=fs.statSync(p);
   assert.ok(stat.size>10000,`Audio file ${aud} must be substantial (>10KB), found ${stat.size} bytes`);
+ }
+
+ const videos=[
+  'assets/videos/motion_harbor.mp4',
+  'assets/videos/matter_workshop.mp4',
+  'assets/videos/living_valley.mp4',
+  'assets/videos/earthwatch_ridge.mp4',
+  'assets/videos/signal_coast.mp4',
+  'assets/videos/orbital_station.mp4'
+ ];
+
+ for(const vid of videos){
+  const p=path.resolve(rootDir,vid);
+  assert.ok(fs.existsSync(p),`Video file ${vid} must exist`);
+  const stat=fs.statSync(p);
+  assert.ok(stat.size>1_000_000,`Video file ${vid} must be substantial (>1MB), found ${stat.size} bytes`);
+ }
+
+ for(const doc of documentaries){
+  assert.ok(doc.video&&doc.video.endsWith('.mp4'),`Documentary ${doc.id} must define a valid .mp4 video path`);
+  const videoPath=path.resolve(rootDir,doc.video.replace('./',''));
+  assert.ok(fs.existsSync(videoPath),`Documentary ${doc.id} video path ${doc.video} must exist on disk`);
  }
 });

@@ -1,12 +1,5 @@
-import {documentaries,cinemaById,activeCaption,activeChapter} from './cinema.js';
+import {documentaries,cinemaById,activeCaption,activeChapter,formatTime} from './cinema.js';
 import {esc} from './visuals.js';
-
-function formatTime(seconds){
- const s=Math.max(0,Math.floor(seconds||0));
- const m=Math.floor(s/60);
- const rem=s%60;
- return `${m}:${String(rem).padStart(2,'0')}`;
-}
 
 export function cinemaOverlayScene(doc,time,progress){
  const t=time||0;
@@ -233,20 +226,22 @@ export function cinemaView(state={}){
   </div>
 
   <div class="cinema-theater ${state.theaterMode?'theater-mode':''}">
-   <div class="cinema-screen" id="cinema-screen">
-    <img class="cinema-backdrop" src="${doc.poster}" alt="${esc(doc.title)}" style="transform: scale(${1+progress*0.08}) translate(${-progress*2}%, ${-progress*1.5}%);" />
+   <div class="cinema-screen" id="cinema-screen" data-action="cinema-toggle">
+    <video id="cinema-video" class="cinema-video-player" src="${doc.video}" poster="${doc.poster}" preload="metadata" playsinline webkit-playsinline ${muted?'muted':''}></video>
     <div class="cinema-overlay-dim"></div>
-    <div class="cinema-sim-layer">
+    <div class="cinema-sim-layer" id="cinema-sim-overlay">
      ${cinemaOverlayScene(doc,currentTime,progress)}
     </div>
     
     <div class="cinema-hud-top">
      <span class="cinema-live-indicator"><span class="pulse-dot"></span> FIELD RECORDING</span>
-     <span class="cinema-chapter-tag">${chapter?esc(chapter.title):''}</span>
+     <span class="cinema-chapter-tag" id="cinema-chapter-tag">${chapter?esc(chapter.title):''}</span>
      <span class="cinema-formula-pill">${esc(doc.mathFormula)}</span>
     </div>
 
-    ${caption?`<div class="cinema-caption-box" role="region" aria-live="polite"><p>${esc(caption)}</p></div>`:''}
+    <div class="cinema-caption-box ${caption?'active':''}" id="cinema-caption-box" role="region" aria-live="polite">
+     <p id="cinema-caption-text">${esc(caption?caption.text:'')}</p>
+    </div>
 
     ${!isPlaying?`<button class="cinema-big-play" data-action="cinema-toggle" aria-label="Play documentary">▶</button>`:''}
    </div>
@@ -254,7 +249,7 @@ export function cinemaView(state={}){
    <div class="cinema-controls-bar">
     <div class="cinema-timeline-wrapper">
      <input type="range" class="cinema-scrubber" id="cinema-scrubber" min="0" max="${duration}" step="0.1" value="${currentTime}" aria-label="Video scrubber" data-action="cinema-seek" />
-     <div class="cinema-scrubber-progress" style="width:${progress*100}%"></div>
+     <div class="cinema-scrubber-progress" id="cinema-scrubber-progress" style="width:${progress*100}%"></div>
      <div class="cinema-chapter-pips">
       ${doc.chapters.map(c=>`<span class="chapter-pip" style="left:${(c.time/duration)*100}%" title="${esc(c.title)}"></span>`).join('')}
      </div>
@@ -262,21 +257,21 @@ export function cinemaView(state={}){
 
     <div class="cinema-buttons-row">
      <div class="ctrl-left">
-      <button class="cinema-btn" data-action="cinema-toggle" aria-label="${isPlaying?'Pause':'Play'}">
+      <button class="cinema-btn" id="cinema-play-btn" data-action="cinema-toggle" aria-label="${isPlaying?'Pause':'Play'}">
        ${isPlaying?'⏸ Pause':'▶ Play'}
       </button>
       <button class="cinema-btn secondary" data-action="cinema-rewind" aria-label="Rewind 5 seconds">↺ 5s</button>
       <button class="cinema-btn secondary" data-action="cinema-forward" aria-label="Forward 5 seconds">5s ↻</button>
-      <span class="cinema-time-readout">${formatTime(currentTime)} / ${formatTime(duration)}</span>
+      <span class="cinema-time-readout" id="cinema-time-display">${formatTime(currentTime)} / ${formatTime(duration)}</span>
      </div>
 
      <div class="ctrl-right">
       <label class="cinema-select-label">Speed
-       <select data-action="cinema-speed" aria-label="Playback speed">
+       <select data-action="cinema-speed" id="cinema-speed-select" aria-label="Playback speed">
         ${[0.75, 1, 1.25, 1.5].map(s=>`<option value="${s}" ${speed===s?'selected':''}>${s}×</option>`).join('')}
        </select>
       </label>
-      <button class="cinema-btn secondary" data-action="cinema-mute" aria-label="${muted?'Unmute voiceover':'Mute voiceover'}">
+      <button class="cinema-btn secondary" id="cinema-mute-btn" data-action="cinema-mute" aria-label="${muted?'Unmute voiceover':'Mute voiceover'}">
        ${muted?'🔇 Muted':'🔊 Voiceover'}
       </button>
       <button class="cinema-btn secondary" data-action="cinema-theater" aria-label="Toggle theater size">
