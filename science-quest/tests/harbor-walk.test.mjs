@@ -138,3 +138,44 @@ test('harborWalkView renders HTML for each step without throwing', () => {
     assert.ok(html.includes('harbor-walk-stepper'));
   }
 });
+
+test('harborWalkView includes touch D-pad, camera reset chip, and mobile instructions', () => {
+  const profile = makeProfile('Maya');
+  const state = createHarborWalkState();
+  const html = harborWalkView(profile, state);
+
+  // Ergonomic Touch D-Pad
+  assert.ok(html.includes('harbor-walk-dpad'), 'D-Pad element exists');
+  assert.ok(html.includes('data-dir="forward"'), 'Forward button exists');
+  assert.ok(html.includes('data-dir="backward"'), 'Backward button exists');
+  assert.ok(html.includes('data-dir="left"'), 'Left button exists');
+  assert.ok(html.includes('data-dir="right"'), 'Right button exists');
+  assert.ok(html.includes('touch-center'), 'Compass center button exists');
+
+  // Camera Reset / Focus Rover Chip
+  assert.ok(html.includes('harbor-walk-cam-reset'), 'Camera reset button exists');
+  assert.ok(html.includes('data-action="harbor-walk-focus-rover"'), 'Focus rover action hooked up');
+
+  // Mobile Guidance
+  assert.ok(html.includes('mobile-guide'), 'Mobile guide text present');
+  assert.ok(html.includes('Phone / Touch:'), 'Step 1 instructs phone players');
+});
+
+test('styles.css contains mobile phone responsive styles for Harbor Walk', async () => {
+  const fs = await import('node:fs/promises');
+  const css = await fs.readFile(new URL('../styles.css', import.meta.url), 'utf-8');
+
+  // Viewport and touch prevention
+  assert.ok(css.includes('touch-action:none'), 'Canvas touch-action is set to none');
+  assert.ok(css.includes('.harbor-walk-dpad'), 'CSS rules for .harbor-walk-dpad exist');
+  assert.ok(css.includes('.harbor-walk-cam-reset'), 'CSS rules for .harbor-walk-cam-reset exist');
+
+  // Media query for mobile phones
+  assert.ok(css.includes('@media(max-width:768px)'), 'Mobile 768px media query exists');
+  assert.ok(css.includes('clamp(240px,38vh,340px)'), 'Phone viewport height clamp exists');
+  assert.ok(css.includes('min-height:48px'), 'Accessible 48px touch targets are styled');
+
+  // Landscape phone orientation
+  assert.ok(css.includes('orientation:landscape'), 'Landscape phone optimization exists');
+});
+
