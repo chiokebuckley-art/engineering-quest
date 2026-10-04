@@ -65,3 +65,29 @@ test('Mobile phone DOM simulation: touch D-pad and camera reset interactions', (
   assert.ok(mobileGuide, 'Mobile guide element exists');
   assert.match(mobileGuide.textContent, /Left D-Pad to Walk/i);
 });
+
+test('Cinema view renders subtitles outside video screen with toggle button', async () => {
+  const { cinemaView } = await import('../src/cinema-view.js');
+  const { documentaries } = await import('../src/cinema.js');
+  const profile = makeProfile('Test Child');
+  const doc = documentaries.find(d => d.id === 'motion');
+
+  const html = cinemaView(profile, {
+    activeId: 'motion',
+    currentTime: 1.0,
+    muted: false,
+    speed: 1,
+    theaterMode: false,
+    showCaptions: true,
+    view: 'cinema'
+  });
+
+  // Verify that cinema-screen does NOT contain the caption box (unblocked animated video!)
+  const screenPart = html.substring(html.indexOf('<div class="cinema-screen'), html.indexOf('<!-- Subtitles Bar:'));
+  assert.ok(!screenPart.includes('id="cinema-caption-box"'), 'Caption box is removed from inside cinema-screen');
+
+  // Verify that cinema-caption-bar exists outside the screen
+  assert.ok(html.includes('class="cinema-caption-bar'), 'Caption bar is rendered outside the video screen');
+  assert.ok(html.includes('data-action="cinema-toggle-captions"'), 'Subtitle toggle button is provided in controls');
+});
+

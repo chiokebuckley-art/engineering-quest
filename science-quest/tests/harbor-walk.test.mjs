@@ -172,10 +172,14 @@ test('styles.css contains mobile phone responsive styles for Harbor Walk', async
 
   // Media query for mobile phones
   assert.ok(css.includes('@media(max-width:768px)'), 'Mobile 768px media query exists');
-  assert.ok(css.includes('clamp(240px,38vh,340px)'), 'Phone viewport height clamp exists');
+  assert.ok(css.includes('height:210px'), 'Phone viewport height 210px exists to fit phone screen');
   assert.ok(css.includes('min-height:48px'), 'Accessible 48px touch targets are styled');
 
   // Landscape phone orientation
   assert.ok(css.includes('orientation:landscape'), 'Landscape phone optimization exists');
+
+  // Cinema subtitles positioned below video without blocking animation
+  assert.ok(css.includes('.cinema-caption-bar'), 'Cinema caption bar exists');
+  assert.ok(css.includes('.cinema-caption-box{display:none!important}'), 'Floating caption overlay on video is removed');
 });
 

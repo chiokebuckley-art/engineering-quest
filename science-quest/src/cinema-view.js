@@ -245,11 +245,13 @@ export function cinemaView(state={}){
      ${formulas?`<span class="cinema-formula-pill">${esc(doc.mathFormula)}</span>`:''}
     </div>
 
-    <div class="cinema-caption-box ${caption?'active':''}" id="cinema-caption-box" role="region" aria-live="polite">
-     <p id="cinema-caption-text">${esc(caption?caption.text:'')}</p>
-    </div>
-
     ${!unlocked?`<div class="cinema-lock" role="note"><strong>Meet the words first</strong><p>This film celebrates ${esc(state.missionTitle||'the mission')}. Tap each word to meet it, then the film opens.</p><div class="terms">${lockWords.map(t=>`<button class="term ${met[t]?'met':''}" data-action="term" data-term="${esc(t)}">${met[t]?'✓ ':''}${esc(t)}</button>`).join('')}</div></div>`:!isPlaying?`<button class="cinema-big-play" data-action="cinema-toggle" aria-label="Play documentary">▶</button>`:''}
+   </div>
+
+   <!-- Subtitles Bar: positioned directly below the video canvas so it NEVER blocks the animation -->
+   <div class="cinema-caption-bar ${caption&&state.showCaptions!==false?'active':''}" id="cinema-caption-box" role="region" aria-live="polite" style="${state.showCaptions===false?'display:none;':''}">
+    <span class="cinema-caption-icon" aria-hidden="true">💬</span>
+    <p id="cinema-caption-text">${esc(caption&&state.showCaptions!==false?caption.text:'')}</p>
    </div>
 
    <div class="cinema-controls-bar">
@@ -277,6 +279,9 @@ export function cinemaView(state={}){
         ${[0.75, 1, 1.25, 1.5].map(s=>`<option value="${s}" ${speed===s?'selected':''}>${s}×</option>`).join('')}
        </select>
       </label>
+      <button class="cinema-btn secondary ${state.showCaptions===false?'off':''}" id="cinema-caption-toggle-btn" data-action="cinema-toggle-captions" aria-label="${state.showCaptions===false?'Show subtitles':'Hide subtitles'}">
+       ${state.showCaptions===false?'💬 Subtitles: Off':'💬 Subtitles: On'}
+      </button>
       <button class="cinema-btn secondary" id="cinema-mute-btn" data-action="cinema-mute" aria-label="${muted?'Unmute voiceover':'Mute voiceover'}">
        ${muted?'🔇 Muted':'🔊 Voiceover'}
       </button>

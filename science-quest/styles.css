@@ -68,8 +68,11 @@
 @keyframes pulseRed{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
 .cinema-chapter-tag{background:rgba(8,22,29,.85);backdrop-filter:blur(6px);border:1px solid rgba(164,207,216,.3);color:#d6f2e8;font-size:12px;font-weight:600;padding:4px 14px;border-radius:12px}
 .cinema-formula-pill{background:rgba(8,22,29,.85);backdrop-filter:blur(6px);border:1px solid rgba(255,208,120,.4);color:#ffd078;font-family:monospace;font-size:11px;font-weight:700;padding:4px 12px;border-radius:12px}
-.cinema-caption-box{position:absolute;bottom:18px;left:24px;right:24px;display:flex;justify-content:center;pointer-events:none;z-index:4}
-#cinema-caption-text{background:rgba(6,18,24,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#f5fcf9;font-size:14px;font-weight:600;line-height:1.45;padding:10px 24px;border-radius:24px;border:1px solid rgba(91,214,179,.4);text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.7);max-width:85%}
+.cinema-caption-box{display:none!important}
+.cinema-caption-bar{background:rgba(12,32,42,.92);border:1px solid rgba(85,226,207,.35);border-radius:12px;padding:8px 18px;margin-top:10px;display:none;align-items:center;justify-content:center;gap:10px;color:#f0faf6;font-size:13px;font-weight:600;line-height:1.45;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.35);min-height:36px;transition:all .18s ease}
+.cinema-caption-bar.active{display:flex}
+.cinema-caption-icon{font-size:16px;flex-shrink:0}
+#cinema-caption-text{margin:0;color:#f5fcf9}
 .cinema-big-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:rgba(14,40,49,.85);border:2.5px solid #5bd6b3;color:#5bd6b3;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding-left:5px;box-shadow:0 0 30px rgba(91,214,179,.5),0 8px 24px rgba(0,0,0,.6);transition:all .18s ease;z-index:5}
 .cinema-big-play:hover{transform:translate(-50%,-50%) scale(1.1);background:#1c525f;color:#fff;border-color:#fff;box-shadow:0 0 40px rgba(91,214,179,.8)}
 .cinema-controls-bar{background:#112631;border:1px solid #1f4354;padding:14px 18px;border-radius:14px;margin-top:14px;display:flex;flex-direction:column;gap:10px}
@@ -186,28 +189,30 @@
 .celebration-actions{display:flex;flex-direction:column;gap:10px;margin-top:16px}
 @media(max-width:1100px){.harbor-walk-main-layout{grid-template-columns:1fr}.harbor-walk-sidebar{width:100%}}
 @media(max-width:768px){
-  .harbor-walk-wrap{padding:10px 10px 32px}
-  .harbor-walk-topbar{gap:8px;margin-bottom:10px}
-  .harbor-walk-title h1{font-size:19px}
-  .harbor-walk-title .badge{font-size:11px;padding:3px 8px}
-  .harbor-walk-main-layout{grid-template-columns:1fr;gap:12px}
-  .harbor-walk-viewport-container{aspect-ratio:auto;min-height:220px;height:clamp(240px,38vh,340px);border-radius:14px;box-shadow:0 4px 16px rgba(23,62,73,.12)}
-  .harbor-walk-sidebar{width:100%;gap:12px}
-  .desktop-guide{display:none}
-  .mobile-guide{display:inline-flex;align-items:center;gap:4px}
-  .harbor-walk-keys-guide{bottom:8px;right:8px;padding:4px 10px;font-size:10px}
-  .harbor-walk-cam-reset{top:8px;right:8px;padding:5px 10px;font-size:11px}
-  .harbor-walk-touch-controls{bottom:8px;left:8px}
-  .harbor-walk-dpad{grid-template-columns:repeat(3,42px);grid-template-rows:repeat(3,42px);gap:3px}
-  .touch-btn{width:42px;height:42px;min-width:42px;min-height:42px;font-size:16px;border-radius:10px}
-  .harbor-walk-stepper{border-radius:10px;scrollbar-width:none}
+  .harbor-walk-wrap{padding:6px 8px 84px}
+  .harbor-walk-topbar{gap:6px;margin-bottom:6px}
+  .harbor-walk-title h1{font-size:18px}
+  .harbor-walk-title .badge{font-size:10px;padding:2px 6px}
+  .harbor-walk-main-layout{grid-template-columns:1fr;gap:8px}
+  .harbor-walk-viewport-container{aspect-ratio:auto;width:100%;height:210px;min-height:180px;max-height:230px;border-radius:12px;box-shadow:0 4px 14px rgba(23,62,73,.15)}
+  .harbor-walk-sidebar{width:100%;gap:8px}
+  .desktop-guide{display:none!important}
+  .mobile-guide{display:none!important}
+  .harbor-walk-keys-guide{display:none!important}
+  .harbor-walk-cam-reset{top:6px;right:6px;padding:4px 8px;font-size:11px}
+  .harbor-walk-touch-controls{bottom:6px;left:6px;display:flex!important}
+  .harbor-walk-dpad{display:grid!important;grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,40px);gap:3px}
+  .touch-btn{width:40px;height:40px;min-width:40px;min-height:40px;font-size:15px;border-radius:10px}
+  .harbor-walk-stepper{border-radius:8px;scrollbar-width:none}
   .harbor-walk-stepper::-webkit-scrollbar{display:none}
-  .harbor-walk-stepper li{padding:8px 6px;font-size:10px;gap:4px}
-  .step-num{width:17px;height:17px;font-size:9px}
-  .harbor-walk-card{padding:14px 12px;border-radius:14px}
-  .harbor-walk-card h3{font-size:17px;margin:2px 0 6px}
-  .harbor-walk-pip{gap:10px;margin-bottom:12px}
-  .pip-face-icon{font-size:26px}
+  .harbor-walk-stepper li{padding:6px 4px;font-size:10px;gap:3px}
+  .step-num{width:16px;height:16px;font-size:9px}
+  .harbor-walk-card{padding:12px 10px;border-radius:12px}
+  .harbor-walk-card h3{font-size:16px;margin:2px 0 4px}
+  .harbor-walk-pip{gap:8px;margin-bottom:8px}
+  .pip-face-icon{font-size:24px}
+  .harbor-walk-tips{padding:8px 10px;font-size:11px;margin:8px 0}
+  .harbor-walk-tips p{margin:2px 0}
   .harbor-walk-height-buttons,.harbor-walk-surface-buttons{grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:6px}
   .harbor-walk-height-buttons .choice,.harbor-walk-surface-buttons .choice{min-height:48px;padding:8px 6px;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
   .harbor-walk-card .primary.full{min-height:48px;font-size:15px}
