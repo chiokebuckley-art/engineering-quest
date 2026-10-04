@@ -1,7 +1,9 @@
 import {documentaries,cinemaById,activeCaption,activeChapter,formatTime} from './cinema.js';
 import {esc} from './visuals.js';
+import {clips} from './dictionary.js';
+import {glossary} from './content.js';
 
-export function cinemaOverlayScene(doc,time,progress){
+export function cinemaOverlayScene(doc,time,progress,{formulas=true}={}){
  const t=time||0;
  if(doc.id==='motion'){
   const h=0.35, exit=300, scale=120;
@@ -54,9 +56,9 @@ export function cinemaOverlayScene(doc,time,progress){
    <g transform="translate(600 40)">
     <rect width="170" height="95" rx="10" fill="#0d2530" fill-opacity=".85" stroke="#48788a" stroke-width="1.5"/>
     <text x="15" y="24" fill="#a4cfd8" font-size="12" font-weight="bold">ENERGY TELEMETRY</text>
-    <text x="15" y="44" fill="#ffd078" font-size="11">PE (mgh): ${Math.round(pe)}%</text>
+    <text x="15" y="44" fill="#ffd078" font-size="11">${formulas?'PE (mgh)':'Stored by height'}: ${Math.round(pe)}%</text>
     <rect x="15" y="49" width="140" height="6" rx="3" fill="#244552"/><rect x="15" y="49" width="${1.4*pe}" height="6" rx="3" fill="#ffd078"/>
-    <text x="15" y="73" fill="#6bd6a2" font-size="11">KE (½mv²): ${Math.round(ke)}%</text>
+    <text x="15" y="73" fill="#6bd6a2" font-size="11">${formulas?'KE (½mv²)':'Motion energy'}: ${Math.round(ke)}%</text>
     <rect x="15" y="78" width="140" height="6" rx="3" fill="#244552"/><rect x="15" y="78" width="${1.4*ke}" height="6" rx="3" fill="#6bd6a2"/>
    </g>
   </svg>`;
@@ -199,6 +201,7 @@ export function cinemaView(state={}){
  const chapter=activeChapter(doc,currentTime);
  const speed=state.speed||1;
  const muted=!!state.muted;
+ const unlocked=state.unlocked!==false,formulas=state.formulas!==false,met=state.met||{},lockWords=state.lockWords||[];
 
  return `<section class="content cinema-content">
   <div class="cinema-header">
@@ -213,6 +216,9 @@ export function cinemaView(state={}){
    </div>
   </div>
 
+  <h2 class="shelf-title">Short clips · one idea each</h2>
+  <div class="clip-shelf">${clips.map(c=>`<button class="clip-card ${met[c.term]?'met':''}" data-action="clip-open" data-id="${c.id}" data-term="${c.term}"><span class="clip-thumb" aria-hidden="true">▶</span><strong>${esc(c.title)}</strong><small>${c.duration}s${met[c.term]?' · met ✓':''}</small></button>`).join('')}</div>
+  <h2 class="shelf-title">Region films · after the mission words</h2>
   <div class="cinema-nav-carousel" role="tablist" aria-label="Select a science documentary">
    ${documentaries.map(d=>`
     <button class="cinema-tab-btn ${d.id===doc.id?'active':''}" data-action="cinema-select" data-id="${d.id}" role="tab" aria-selected="${d.id===doc.id}" style="--tab-color:${d.color}">
@@ -226,24 +232,24 @@ export function cinemaView(state={}){
   </div>
 
   <div class="cinema-theater ${state.theaterMode?'theater-mode':''}">
-   <div class="cinema-screen" id="cinema-screen" data-action="cinema-toggle">
+   <div class="cinema-screen ${unlocked?'':'locked'}" id="cinema-screen" data-action="cinema-toggle">
     <video id="cinema-video" class="cinema-video-player" src="${doc.video}" poster="${doc.poster}" preload="metadata" playsinline webkit-playsinline ${muted?'muted':''}></video>
     <div class="cinema-overlay-dim"></div>
-    <div class="cinema-sim-layer" id="cinema-sim-overlay">
-     ${cinemaOverlayScene(doc,currentTime,progress)}
+    <div class="cinema-sim-layer" id="cinema-sim-overlay" data-formulas="${formulas}">
+     ${cinemaOverlayScene(doc,currentTime,progress,{formulas})}
     </div>
     
     <div class="cinema-hud-top">
      <span class="cinema-live-indicator"><span class="pulse-dot"></span> FIELD RECORDING</span>
      <span class="cinema-chapter-tag" id="cinema-chapter-tag">${chapter?esc(chapter.title):''}</span>
-     <span class="cinema-formula-pill">${esc(doc.mathFormula)}</span>
+     ${formulas?`<span class="cinema-formula-pill">${esc(doc.mathFormula)}</span>`:''}
     </div>
 
     <div class="cinema-caption-box ${caption?'active':''}" id="cinema-caption-box" role="region" aria-live="polite">
      <p id="cinema-caption-text">${esc(caption?caption.text:'')}</p>
     </div>
 
-    ${!isPlaying?`<button class="cinema-big-play" data-action="cinema-toggle" aria-label="Play documentary">▶</button>`:''}
+    ${!unlocked?`<div class="cinema-lock" role="note"><strong>Meet the words first</strong><p>This film celebrates ${esc(state.missionTitle||'the mission')}. Tap each word to meet it, then the film opens.</p><div class="terms">${lockWords.map(t=>`<button class="term ${met[t]?'met':''}" data-action="term" data-term="${esc(t)}">${met[t]?'✓ ':''}${esc(t)}</button>`).join('')}</div></div>`:!isPlaying?`<button class="cinema-big-play" data-action="cinema-toggle" aria-label="Play documentary">▶</button>`:''}
    </div>
 
    <div class="cinema-controls-bar">
@@ -257,7 +263,7 @@ export function cinemaView(state={}){
 
     <div class="cinema-buttons-row">
      <div class="ctrl-left">
-      <button class="cinema-btn" id="cinema-play-btn" data-action="cinema-toggle" aria-label="${isPlaying?'Pause':'Play'}">
+      <button class="cinema-btn" id="cinema-play-btn" data-action="cinema-toggle" aria-label="${isPlaying?'Pause':'Play'}" ${unlocked?'':'disabled'}>
        ${isPlaying?'⏸ Pause':'▶ Play'}
       </button>
       <button class="cinema-btn secondary" data-action="cinema-rewind" aria-label="Rewind 5 seconds">↺ 5s</button>
@@ -296,16 +302,16 @@ export function cinemaView(state={}){
     <div class="cinema-summary-box">
      <h3>Scientific Overview</h3>
      <p>${esc(doc.summary)}</p>
-     <div class="formula-callout">
+     ${formulas?`<div class="formula-callout">
       <small>GOVERNING MATHEMATICAL RELATIONSHIP</small>
       <code>${esc(doc.mathFormula)}</code>
-     </div>
+     </div>`:`<p class="muted formula-wait">The symbols and formula for this film appear after you finish ${esc(state.missionTitle||'its mission')}.</p>`}
     </div>
 
     <div class="cinema-concepts-box">
-     <h3>Core Pedagogical Principles</h3>
+     <h3>Core Pedagogical Principles</h3>${formulas?'':`<p class="muted">These open with the formula, after the mission.</p>`}
      <ul class="concepts-list">
-      ${doc.keyConcepts.map(c=>`<li><span class="check-mark">✓</span> <span>${esc(c)}</span></li>`).join('')}
+      ${(formulas?doc.keyConcepts:[]).map(c=>`<li><span class="check-mark">✓</span> <span>${esc(c)}</span></li>`).join('')}
      </ul>
     </div>
 
@@ -348,7 +354,7 @@ export function cinemaView(state={}){
 
     <div class="cinema-pip-box">
      <div class="pip-icon-wrap">🤖</div>
-     <p><strong>Pip’s Field Tip:</strong><br>“A video shows you how the universe behaves. A fair experiment proves it! Once you finish watching, jump into the guided mission to test your own hypotheses.”</p>
+     <p><strong>Pip’s Field Tip:</strong><br>“Meet the word, watch the short clip, run the mission. Then this film celebrates what you found.”</p>
     </div>
    </aside>
   </div>

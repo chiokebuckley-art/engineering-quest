@@ -4,6 +4,10 @@
 
 An original science adventure built from the Science Quest developer handoff. Version 1.43 is a playable early-access release, with 91 guided investigations across six research regions, plus high-school motion-data, observed-climate, energy-model construction and energy-design capstone activities. It is not a complete or validated K–12 curriculum.
 
+## Version 1.45 additions
+
+A Dictionary opens from Home, the top bar, and any technical word in a mission sentence. Each entry gives the glossary sentence, a unit where the app's models use one, and a picture from the harbor or lab. A word counts as met once it is opened. Nothing in the Dictionary is graded. Five short Motion Harbor concept clips (force, fair test, variable, distance, energy on a ramp) are drawn in the browser and linked from their entries. Each region film opens after its mission's words are met. The formula bar and symbol-heavy concepts appear after the linked mission is finished. The mission stepper now shows both Apply steps.
+
 ## Version 1.43 additions
 
 Motion Harbor now runs a saved supply model while its view is visible: arriving cargo becomes prepared cargo, the crane loads it, and the rover attempts deliveries. A shared energy store, generator settings, power limits and the Night Lab upgrade affect work. Pausing, single-minute stepping, facility inspections and a systems notebook make the flows visible. Electricity and cargo have separate conserved accounts; operating the harbor awards no science mastery.
