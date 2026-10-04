@@ -118,3 +118,61 @@
 .cinema-pip-box p{margin:0;font-size:12px;line-height:1.45;color:#444533}
 @media(max-width:860px){.cinema-details-grid{grid-template-columns:1fr}.cinema-buttons-row{flex-direction:column;align-items:stretch}.ctrl-left,.ctrl-right{justify-content:space-between}}
 
+/* Dictionary, tappable words and concept clips */
+.word-link{display:inline;min-height:0;padding:0 1px;background:none;border:0;font:inherit;color:#176d73;text-decoration:underline dotted;text-underline-offset:3px;cursor:pointer;border-radius:3px}.word-link:hover{background:#e3efe8}.word-link.met{text-decoration-style:solid;text-decoration-color:#9dbfa4}
+.term.met{color:#2f6f53;text-decoration-style:solid}
+.mission-words{border-radius:10px;background:#e8f1e9;padding:15px;font-size:12px;margin:0 0 14px}.mission-words p{font-size:11px;margin:6px 0 0}.mission-words .terms{margin-top:6px}
+.word-layer{position:fixed;inset:0;z-index:60;background:#0f2f3699;display:grid;place-items:center;padding:16px;overflow-y:auto}
+.word-dialog{background:var(--paper);border-radius:16px;max-width:620px;width:100%;max-height:calc(100vh - 32px);overflow-y:auto;box-shadow:0 12px 40px #0c2a3044;padding:24px}
+.word-card h2{font-size:32px;margin-bottom:8px}.word-sentence{font-size:17px;color:var(--ink)}.word-unit{font-size:13px;color:var(--muted)}.word-picture{margin:14px 0 0;border:1px solid #cdded3;border-radius:12px;overflow:hidden;background:#e1eee5}.word-picture figcaption{font-size:11px;color:#55756c;padding:8px 12px;background:#e9f0e5}
+.clip-player{margin:14px 0}.clip-stage{border:1px solid #cdded3;border-radius:12px;overflow:hidden;background:#e6f1ea}.clip-svg{display:block;width:100%;height:auto}.clip-word{font-family:'Outfit',system-ui,sans-serif;font-size:46px;font-weight:700;fill:#173e49}.clip-small{font-family:'DM Sans',system-ui,sans-serif;font-size:18px;fill:#33545b}.clip-strong{font-weight:700;fill:#173e49}.clip-sentence{font-family:'DM Sans',system-ui,sans-serif;font-size:15px;fill:#173e49}.clip-caption{font-size:14px;color:var(--ink);min-height:1.6em;margin:10px 0}
+.shelf-title{font-size:17px;margin:22px 0 10px}.clip-shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:18px}.clip-card{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--paper)}.clip-card:hover{box-shadow:var(--shadow)}.clip-card.met{border-color:#9dbfa4}.clip-thumb{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--yellow);font-size:14px}.clip-card small{font-size:10px;color:var(--muted)}
+.dictionary-search{max-width:420px}.word-list{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}.word-row{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px;border:1px solid var(--border);border-radius:10px;background:var(--paper)}.word-row strong{font-family:'Outfit',sans-serif;font-size:17px}.word-row span{font-size:12px;color:var(--muted);line-height:1.5}.word-row small{font-size:10px;color:#2f6f53;min-height:1em}.word-row.met{background:#eef5ec}
+.cinema-lock{position:absolute;inset:auto 16px 16px 16px;z-index:5;background:#fffdf3f2;color:var(--ink);border-radius:12px;padding:16px 18px;box-shadow:0 5px 20px #123f4633}.cinema-lock p{font-size:12px;margin:6px 0 0}.cinema-lock .terms{margin-top:8px}
+@media(max-width:600px){.word-dialog{padding:18px}.word-card h2{font-size:26px}.clip-word{font-size:40px}.cinema-lock{inset:auto 8px 8px 8px;padding:12px}}
+.cinema-screen.locked .cinema-caption-box{display:none!important}
+@media(max-width:600px){.top-actions .cinema-top-btn span:last-child{display:none}.top-actions .cinema-top-btn{padding:4px 10px}}
+
+/* Harbor Walk 3D Styles */
+.harbor-walk-wrap{padding:20px 4% 36px;max-width:1600px;margin:auto}
+.harbor-walk-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.harbor-walk-title{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.harbor-walk-title h1{font-size:clamp(22px,2.4vw,34px);margin:0}
+.harbor-walk-main-layout{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:24px;align-items:start}
+.harbor-walk-viewport-container{position:relative;border-radius:18px;overflow:hidden;background:#9ee0ea;box-shadow:0 8px 30px rgba(23,62,73,.14);aspect-ratio:16/10;min-height:500px;display:flex}
+.harbor-walk-canvas-box{width:100%;height:100%;display:block;outline:none}
+.harbor-walk-canvas-box canvas{width:100%!important;height:100%!important;display:block}
+.harbor-walk-keys-guide{position:absolute;bottom:14px;left:16px;background:rgba(12,38,45,.82);backdrop-filter:blur(6px);color:#d9f2e9;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid rgba(85,226,207,.35);pointer-events:none;z-index:2;display:flex;align-items:center;gap:6px}
+.key-badge{background:rgba(255,255,255,.2);padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.3);font-family:monospace;font-size:11px}
+.harbor-walk-touch-controls{position:absolute;bottom:14px;right:16px;display:none;flex-direction:column;align-items:center;gap:6px;z-index:2}
+@media(pointer:coarse){.harbor-walk-touch-controls{display:flex}}
+.touch-btn{width:46px;height:46px;background:rgba(12,38,45,.75);color:#fff;border:1px solid rgba(85,226,207,.4);border-radius:50%;font-size:18px;display:grid;place-items:center;touch-action:manipulation;cursor:pointer}
+.touch-row{display:flex;gap:6px}
+.harbor-walk-sidebar{display:flex;flex-direction:column;gap:18px}
+.harbor-walk-stepper{list-style:none;padding:0;margin:0;display:flex;background:#eef3eb;border:1px solid #d4ded0;border-radius:12px;overflow-x:auto}
+.harbor-walk-stepper li{display:flex;align-items:center;gap:6px;padding:10px 12px;font-size:11px;font-weight:600;color:#678278;white-space:nowrap;flex:1;justify-content:center}
+.harbor-walk-stepper li.current{background:#17464e;color:#f0f9f5;border-radius:10px}
+.harbor-walk-stepper li.completed{color:#1e6b5d}
+.step-num{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#dbe4d8;font-size:10px;font-weight:800}
+.harbor-walk-stepper li.current .step-num{background:#54dfc2;color:#0e363d}
+.harbor-walk-stepper li.completed .step-num{background:#3a8f79;color:#fff}
+.harbor-walk-card{background:var(--paper,#fffef7);border:1px solid var(--border,#dce4d8);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.harbor-walk-card h3{margin:4px 0 10px;font-size:19px;color:#153d44}
+.harbor-walk-pip{display:flex;gap:14px;margin-bottom:16px}
+.pip-face-icon{font-size:32px;line-height:1}
+.harbor-walk-tips{background:#eef3eb;border-radius:10px;padding:12px 14px;font-size:12px;margin:14px 0;line-height:1.6}
+.harbor-walk-tips p{margin:4px 0}
+.harbor-walk-form{display:flex;flex-direction:column;gap:16px}
+.harbor-walk-height-buttons,.harbor-walk-surface-buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin-top:8px}
+.harbor-walk-fixed{font-size:12px;background:#e9f0e6;padding:10px 12px;border-radius:8px;margin:0}
+.harbor-walk-warning{background:#fdf2d6;border:2px solid #e09f3e;border-radius:10px;padding:14px;color:#784507;font-size:13px;line-height:1.5;margin-bottom:14px}
+.harbor-walk-evidence-banner{display:flex;gap:12px;background:#e7f4ef;border:1.5px solid #6ac4a8;border-radius:10px;padding:12px 14px;font-size:12px;margin-bottom:14px;color:#184a42}
+.evidence-icon{font-size:22px}
+.harbor-walk-trial-summary{margin-top:16px;border-top:1px solid #dce4d8;padding-top:14px}
+.harbor-walk-trial-summary h4{margin:0 0 8px 0;font-size:13px;color:#244c4f}
+.trial-row{font-size:12px;background:#f5f7f0;padding:8px 10px;border-radius:6px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.celebration-card{text-align:center}
+.restoration-badge{margin:18px 0;padding:14px;background:#e6f3eb;border-radius:12px}
+.harbor-walk-what-changed-final{text-align:left;background:#f0f5ee;border-radius:10px;padding:14px;margin:16px 0;font-size:12px;line-height:1.6}
+.celebration-actions{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+@media(max-width:1100px){.harbor-walk-main-layout{grid-template-columns:1fr}.harbor-walk-sidebar{width:100%}}
