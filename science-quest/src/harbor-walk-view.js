@@ -39,8 +39,8 @@ export function harborWalkView(profile, state) {
           </div>
         </div>
         <div class="harbor-walk-tips">
-          <p>⌨️ <strong>Walk:</strong> W, A, S, D or Arrow Keys</p>
-          <p>🖱️ <strong>Look:</strong> Drag mouse or touch to look around the harbor</p>
+          <p>📱 <strong>Phone / Touch:</strong> Use the left D-pad with your thumb to walk, swipe the dock with your finger to look.</p>
+          <p>⌨️ <strong>Desktop:</strong> Use W, A, S, D or Arrow Keys to walk, drag mouse to look.</p>
         </div>
         <div class="harbor-walk-card-actions">
           <button class="secondary text-button" data-action="harbor-walk-teleport-rover">Approach Rover Directly →</button>
@@ -239,21 +239,29 @@ export function harborWalkView(profile, state) {
 
       <div class="harbor-walk-main-layout">
         <div class="harbor-walk-viewport-container">
-          <div id="harbor-walk-canvas-container" class="harbor-walk-canvas-box" tabindex="0" role="region" aria-label="Walkable 3D Harbor Dock viewport. Use WASD or arrow keys to move, drag mouse to look.">
+          <div id="harbor-walk-canvas-container" class="harbor-walk-canvas-box" tabindex="0" role="region" aria-label="Walkable 3D Harbor Dock viewport. Use WASD or on-screen D-pad to walk, drag to look.">
             <!-- Three.js Canvas mounts here -->
           </div>
 
+          <!-- Camera focus chip -->
+          <button class="harbor-walk-cam-reset" data-action="harbor-walk-focus-rover" aria-label="Point camera toward rover">
+            <span class="cam-icon">🎯</span> <span>Find Rover</span>
+          </button>
+
+          <!-- Input guidance -->
           <div class="harbor-walk-keys-guide" aria-hidden="true">
-            <span class="key-badge">W</span><span class="key-badge">A</span><span class="key-badge">S</span><span class="key-badge">D</span> / Arrows to Walk · Drag Mouse to Look
+            <span class="desktop-guide"><span class="key-badge">W</span><span class="key-badge">A</span><span class="key-badge">S</span><span class="key-badge">D</span> to Walk · Drag to Look</span>
+            <span class="mobile-guide">◀ ▲ ▶ Left D-Pad to Walk · Swipe to Look</span>
           </div>
 
-          <!-- Touch Movement Controls for Touchscreen/Mobile -->
-          <div class="harbor-walk-touch-controls" aria-label="Touch walk controls">
-            <button class="touch-btn touch-up" data-action="touch-walk" data-dir="forward" aria-label="Walk forward">▲</button>
-            <div class="touch-row">
-              <button class="touch-btn touch-left" data-action="touch-walk" data-dir="left" aria-label="Walk left">◀</button>
-              <button class="touch-btn touch-down" data-action="touch-walk" data-dir="backward" aria-label="Walk backward">▼</button>
-              <button class="touch-btn touch-right" data-action="touch-walk" data-dir="right" aria-label="Walk right">▶</button>
+          <!-- Ergonomic Touch D-Pad for Finger Controls on Phones -->
+          <div class="harbor-walk-touch-controls" role="group" aria-label="Touch walk controls">
+            <div class="harbor-walk-dpad">
+              <button type="button" class="touch-btn touch-up" data-action="touch-walk" data-dir="forward" aria-label="Walk forward">▲</button>
+              <button type="button" class="touch-btn touch-left" data-action="touch-walk" data-dir="left" aria-label="Turn left">◀</button>
+              <button type="button" class="touch-btn touch-center" data-action="harbor-walk-focus-rover" aria-label="Point camera toward rover" title="Center view on rover">🧭</button>
+              <button type="button" class="touch-btn touch-right" data-action="touch-walk" data-dir="right" aria-label="Turn right">▶</button>
+              <button type="button" class="touch-btn touch-down" data-action="touch-walk" data-dir="backward" aria-label="Walk backward">▼</button>
             </div>
           </div>
         </div>

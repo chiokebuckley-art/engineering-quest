@@ -687,28 +687,55 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     isDragging = false;
   }
 
-  // Touch Support
-  let touchStartX = 0;
-  let touchStartY = 0;
+  // Multi-Touch Camera Orbit Support
+  let touchCameraId = null;
+  let prevTouchX = 0;
+  let prevTouchY = 0;
+
   function onTouchStart(e) {
-    if (e.touches.length === 1) {
-      isDragging = true;
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
+    if (touchCameraId === null && e.changedTouches.length > 0) {
+      const t = e.changedTouches[0];
+      touchCameraId = t.identifier;
+      prevTouchX = t.clientX;
+      prevTouchY = t.clientY;
+      if (e.cancelable) e.preventDefault();
     }
   }
-  function onTouchMove(e) {
-    if (!isDragging || e.touches.length !== 1) return;
-    const dx = e.touches[0].clientX - touchStartX;
-    const dy = e.touches[0].clientY - touchStartY;
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
 
-    cameraYaw -= dx * 0.008;
-    cameraPitch = Math.max(0.18, Math.min(1.15, cameraPitch + dy * 0.007));
+  function onTouchMove(e) {
+    if (touchCameraId === null) return;
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+      if (t.identifier === touchCameraId) {
+        if (e.cancelable) e.preventDefault();
+        const dx = t.clientX - prevTouchX;
+        const dy = t.clientY - prevTouchY;
+        prevTouchX = t.clientX;
+        prevTouchY = t.clientY;
+
+        cameraYaw -= dx * 0.007;
+        cameraPitch = Math.max(0.18, Math.min(1.15, cameraPitch + dy * 0.006));
+        break;
+      }
+    }
   }
-  function onTouchEnd() {
-    isDragging = false;
+
+  function onTouchEnd(e) {
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      if (e.changedTouches[i].identifier === touchCameraId) {
+        touchCameraId = null;
+        break;
+      }
+    }
+  }
+
+  function onTouchCancel(e) {
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      if (e.changedTouches[i].identifier === touchCameraId) {
+        touchCameraId = null;
+        break;
+      }
+    }
   }
 
   window.addEventListener('keydown', onKeyDown);
@@ -716,9 +743,10 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   canvas.addEventListener('mousedown', onMouseDown);
   window.addEventListener('mousemove', onMouseMove);
   window.addEventListener('mouseup', onMouseUp);
-  canvas.addEventListener('touchstart', onTouchStart, { passive: true });
-  window.addEventListener('touchmove', onTouchMove, { passive: true });
+  canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+  window.addEventListener('touchmove', onTouchMove, { passive: false });
   window.addEventListener('touchend', onTouchEnd);
+  window.addEventListener('touchcancel', onTouchCancel);
 
   // -------------------------------------------------------------
   // Collision Detection
@@ -999,6 +1027,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
       canvas.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
+      window.removeEventListener('touchcancel', onTouchCancel);
       window.removeEventListener('resize', resize);
       renderer.dispose();
       if (renderer.domElement && renderer.domElement.parentNode) {
@@ -1028,6 +1057,16 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     teleportToRover() {
       avatarGroup.position.set(-3.5, 0, 1.2);
       avatarGroup.rotation.y = 0;
+    },
+    resetCamera() {
+      cameraYaw = -Math.PI / 4;
+      cameraPitch = 0.42;
+    },
+    lookAtRover() {
+      const dx = -0.4 - avatarGroup.position.x;
+      const dz = 3.5 - avatarGroup.position.z;
+      cameraYaw = Math.atan2(dx, dz);
+      cameraPitch = 0.38;
     },
     resize,
     getState() {
