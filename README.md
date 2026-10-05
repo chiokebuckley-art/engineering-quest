@@ -1,5 +1,7 @@
 # ENGINEERING QUEST
 
+**v0.56.1 — Home's GO resumes the Contest Path:** when a Contest Path session was waiting, Home's first task was "resume" but GO only un-paused it and stayed on Home, so nothing seemed to happen. Resume now always opens the Contest Path. A new test taps every open task's GO in the common states and checks each one opens a screen or a conversation.
+
 **v0.56.0 — Every day spends time on the weakest thing:** Today's tasks on Home now include a **Weak spot** task right after the Notebook: the weakest skill or fact the player has met (under 80%, at least two answers), with a goal of 10 right answers on it today. GO opens practice for that exact thing (a mental-math skill's guided practice, a fact's table in the Arcade, a picture-game kind, a drill), sized to what is left of the goal; a round in progress is resumed from Home. Once work has started the focus stays the same all day, and a locked multi-step weak spot becomes the next mental-math skill on its way. The same task shows in Today's training on Progress & stats.
 
 **v0.53.0 — Robo Rescue:** build a little rover and restore Sprout Harbor across 12 animated 2D missions. Calibrated wheels, cargo trays, charge cells, repeat blocks, distance sensors and body widths turn counting, equal groups, subtraction and measurement into robot decisions. Home, Arcade and Library open the campaign; each profile keeps its robot, paint, builds, repairs and progress. Story completion, an independent changed contract and next-day recall are separate checks. See [Robo Rescue](docs/ROBO_RESCUE.md).
