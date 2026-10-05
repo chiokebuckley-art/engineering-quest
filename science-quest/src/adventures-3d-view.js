@@ -372,13 +372,13 @@ export function adventure3DView(regionId, profile, state) {
             <span class="card-eyebrow">PIP'S FIELD HUD · STEP ${step}</span>
             <h4 class="card-title">${stepsList[step - 1]?.label || 'Task'}</h4>
           </div>
-          <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-label="${isCollapsed ? 'Expand Pip task panel' : 'Collapse Pip task panel'}">
+          <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-expanded="${!isCollapsed}" aria-controls="adventure-task-body" aria-label="${isCollapsed ? 'Expand Pip task panel' : 'Collapse Pip task panel'}">
             ${isCollapsed ? '▲ Expand' : '▼ Minimize'}
           </button>
         </div>
 
         ${isCollapsed ? '' : `
-          <div class="adventure-card-body">
+          <div class="adventure-card-body" id="adventure-task-body">
             ${stepperHtml}
             ${taskCardBodyHtml}
           </div>

@@ -667,6 +667,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
 
   // Keyboard navigation
   function onKeyDown(e) {
+    if (e.target?.closest?.('input,textarea,select,button,[contenteditable="true"]')) return;
     const k = e.key.toLowerCase();
     if (k === 'w' || k === 'arrowup') keys.forward = true;
     if (k === 's' || k === 'arrowdown') keys.backward = true;

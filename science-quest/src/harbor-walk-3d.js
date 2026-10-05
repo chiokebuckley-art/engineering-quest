@@ -63,6 +63,7 @@ export function createHarborWalkState() {
     questionChoice: null,
     questionFeedback: null,
     completed: false,
+    cardCollapsed: false,
     freeWalk: false,
     avatarNearRover: false
   };
@@ -650,8 +651,16 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   let cameraYaw = -Math.PI / 4; // Horizontal orbit angle
   let cameraPitch = 0.42;       // Vertical orbit angle (radians above ground)
   const cameraDistance = 5.8;
+  // Start above the dock, not inside the scenery while the first frames converge.
+  camera.position.set(
+    avatarGroup.position.x - Math.sin(cameraYaw) * Math.cos(cameraPitch) * cameraDistance,
+    avatarGroup.position.y + 1.2 + Math.sin(cameraPitch) * cameraDistance,
+    avatarGroup.position.z - Math.cos(cameraYaw) * Math.cos(cameraPitch) * cameraDistance
+  );
+  camera.lookAt(avatarGroup.position.x, avatarGroup.position.y + 1.1, avatarGroup.position.z);
 
   function onKeyDown(e) {
+    if (e.target?.closest?.('input,textarea,select,button,[contenteditable="true"]')) return;
     const k = e.key.toLowerCase();
     if (k === 'w' || k === 'arrowup') keys.forward = true;
     if (k === 's' || k === 'arrowdown') keys.backward = true;

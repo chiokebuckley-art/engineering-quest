@@ -1,0 +1,25 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {Window} from 'happy-dom';
+const win=new Window({url:'http://localhost:5187',settings:{disableCSSFileLoading:true,disableJavaScriptFileLoading:true}});
+win.document.write(await fs.readFile(new URL('../index.html',import.meta.url),'utf8'));
+for(const [k,v] of Object.entries({window:win,document:win.document,localStorage:win.localStorage,navigator:win.navigator,location:win.location,CSS:{escape:s=>s},matchMedia:()=>({matches:true}),requestAnimationFrame:()=>0,cancelAnimationFrame:()=>{}}))Object.defineProperty(globalThis,k,{value:v,writable:true,configurable:true});
+const tick=()=>new Promise(r=>setTimeout(r,15));
+await import('../src/app.js');await tick();await tick();
+const $=s=>document.querySelector(s),click=async s=>{assert.ok($(s),s);assert.equal($(s).disabled,false);$(s).click();await tick();};
+const profile=()=>{const d=JSON.parse(localStorage.getItem('science-quest.v1')).snapshot;return d.profiles.find(p=>p.id===d.active);};
+test('Fresh guided route minimizes, restores, gates and opens a real investigation',async()=>{
+ assert.ok($('.teach-world'));assert.match($('.teach-intro h2').textContent,/Meet Pip/);
+ const world=$('#harbor-walk-canvas-container');await click('[data-action=teach-toggle]');
+ assert.equal($('#teach-tablet-body').hidden,true);assert.equal($('[data-action=teach-toggle]').getAttribute('aria-expanded'),'false');assert.equal($('#harbor-walk-canvas-container'),world);
+ await click('[data-action=teach-toggle]');assert.equal($('#teach-tablet-body').hidden,false);
+ await click('[data-action=teach-seen]');assert.deepEqual(profile().runs,{});
+ await click('[data-action=teach-unit][data-unit="1"]');assert.match($('.teach-intro h2').textContent,/fair test/);
+ assert.equal($('[data-action=teach-unit][data-unit="2"]').disabled,true);
+ await click('[data-action=teach-seen]');await click('[data-action=teach-do]');
+ assert.match($('.mission-title h1').textContent,/Keep It Fair/);assert.ok($('.teach-world'));assert.equal(profile().runs['keep-it-fair'].stage,'notice');assert.deepEqual(profile().runs['keep-it-fair'].evidence,{});
+ await click('[data-action=next]');assert.equal(profile().runs['keep-it-fair'].stage,'predict');
+ await click('[data-action=teach-open]');await click('[data-action=teach-free]');
+ assert.equal(profile().teachPath.enabled,false);assert.equal($('.teach-world'),null);await win.happyDOM.abort();
+});
