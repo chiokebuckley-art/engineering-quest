@@ -89,3 +89,31 @@ body.is-immersive-3d :is(.word-layer,.word-backdrop,.word-overlay,.glossary-laye
 @media(max-height:500px) and (orientation:landscape){
   .teach-tablet,body.is-immersive-3d .harbor-walk-sidebar:not(.is-collapsed),.adventure-3d-card:not(.is-collapsed){left:auto!important;right:8px!important;bottom:8px!important;width:48vw!important;max-height:calc(100dvh - 70px)!important;}
 }
+/* Keep every header control in layout: the focus button must reserve space. */
+body.is-immersive-3d .harbor-walk-topbar,
+.adventure-3d-topbar {display:grid!important;grid-template-columns:auto minmax(0,1fr) auto;gap:8px!important;align-items:center;}
+body.is-immersive-3d .harbor-walk-topbar .harbor-walk-cam-reset,
+.adventure-3d-top-actions .harbor-walk-cam-reset {position:static!important;inset:auto!important;flex-shrink:0;min-height:44px;}
+.harbor-walk-title,.adventure-3d-title {min-width:0;flex-wrap:wrap;justify-content:center;}
+.harbor-walk-title h1,.adventure-3d-title h1 {white-space:normal!important;text-align:center;}
+.teach-world-header button {background:#edf3eb!important;color:#14272c!important;min-height:44px;}
+body.is-immersive-3d .harbor-walk-sidebar.is-collapsed,
+.adventure-3d-card.is-collapsed,
+.teach-tablet.is-collapsed {width:auto!important;max-width:140px!important;max-height:64px!important;padding:4px!important;left:auto!important;right:10px!important;border-radius:14px!important;}
+.harbor-walk-sidebar.is-collapsed .harbor-panel-header,
+.adventure-3d-card.is-collapsed .adventure-card-header,
+.teach-tablet.is-collapsed>header {padding:0!important;margin:0!important;border:0!important;display:block!important;}
+.harbor-walk-sidebar.is-collapsed .harbor-panel-header>strong,
+.adventure-3d-card.is-collapsed .pip-face-icon,
+.adventure-3d-card.is-collapsed .adventure-card-header-text,
+.teach-tablet.is-collapsed>header>strong,
+.adventure-3d-card.is-collapsed .adventure-card-body {display:none!important;}
+.is-collapsed :is(.adventure-card-toggle-btn,.harbor-panel-header button),
+.teach-tablet.is-collapsed>header button {min-height:44px!important;min-width:100px!important;font-size:14px!important;padding:8px 12px!important;margin:0!important;color:#14272c!important;background:#edf3eb!important;}
+@media(max-width:600px){
+ .harbor-walk-topbar .badge,.adventure-3d-topbar .badge,.adventure-3d-title>.region-icon {display:none!important;}
+ .harbor-walk-topbar h1,.adventure-3d-topbar h1 {font-size:12px!important;line-height:1.25!important;}
+ .harbor-walk-topbar button,.adventure-3d-topbar button {font-size:12px!important;padding:8px!important;}
+ .harbor-walk-topbar .back {max-width:65px;}
+ .adventure-3d-top-actions {gap:4px!important;}
+}

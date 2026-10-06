@@ -1,4 +1,6 @@
 import * as THREE from './vendor/three.module.js';
+import {walkDirection} from './walk-direction.js';
+import {addHarborScenery, cameraObstructionGuard} from './harbor-scenery.js';
 
 /**
  * Physical stopping distance model matching Science Quest:
@@ -76,12 +78,13 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   // Scene setup
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x9ee0ea);
-  scene.fog = new THREE.Fog(0x9ee0ea, 28, 70);
+  scene.fog = new THREE.Fog(0x9ee0ea, 45, 100);
+  addHarborScenery(scene);
 
   // Camera setup
   const width = container.clientWidth || 800;
   const height = container.clientHeight || 500;
-  const camera = new THREE.PerspectiveCamera(52, width / height, 0.1, 120);
+  const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 120);
 
   // Renderer setup
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
@@ -501,7 +504,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   // 8. Kid Scientist Avatar (Blocky, readable, school clothes)
   // -------------------------------------------------------------
   const avatarGroup = new THREE.Group();
-  avatarGroup.position.set(-8, 0, -2); // Starts near shed door
+  avatarGroup.position.set(-4, 0, 7); // Open dock: rover ahead, scenery visible.
 
   // Torso (School sweater over collared shirt)
   const sweaterMat = new THREE.MeshStandardMaterial({ color: 0x20455e, roughness: 0.8 }); // Navy sweater
@@ -648,9 +651,10 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   let isDragging = false;
   let prevMouseX = 0;
   let prevMouseY = 0;
-  let cameraYaw = -Math.PI / 4; // Horizontal orbit angle
+  const guardCamera = cameraObstructionGuard([shedGroup, craneGroup]);
+  let cameraYaw = Math.PI * 0.75; // Horizontal orbit angle
   let cameraPitch = 0.42;       // Vertical orbit angle (radians above ground)
-  const cameraDistance = 5.8;
+  const cameraDistance = 8;
   // Start above the dock, not inside the scenery while the first frames converge.
   camera.position.set(
     avatarGroup.position.x - Math.sin(cameraYaw) * Math.cos(cameraPitch) * cameraDistance,
@@ -690,7 +694,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     prevMouseY = e.clientY;
 
     cameraYaw -= dx * 0.007;
-    cameraPitch = Math.max(0.18, Math.min(1.15, cameraPitch + dy * 0.006));
+    cameraPitch = Math.max(0.22, Math.min(0.72, cameraPitch + dy * 0.006));
   }
   function onMouseUp() {
     isDragging = false;
@@ -723,7 +727,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
         prevTouchY = t.clientY;
 
         cameraYaw -= dx * 0.007;
-        cameraPitch = Math.max(0.18, Math.min(1.15, cameraPitch + dy * 0.006));
+        cameraPitch = Math.max(0.22, Math.min(0.72, cameraPitch + dy * 0.006));
         break;
       }
     }
@@ -867,10 +871,12 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     let moveZ = 0;
 
     // Camera facing ground vectors
-    const forwardX = -Math.sin(cameraYaw);
-    const forwardZ = -Math.cos(cameraYaw);
-    const rightX = Math.cos(cameraYaw);
-    const rightZ = -Math.sin(cameraYaw);
+    const offsetX = camera.position.x - avatarGroup.position.x;
+    const offsetZ = camera.position.z - avatarGroup.position.z;
+    const forward = walkDirection(offsetX, offsetZ, 0, 1);
+    const right = walkDirection(offsetX, offsetZ, 1, 0);
+    const forwardX = forward.x, forwardZ = forward.z;
+    const rightX = right.x, rightZ = right.z;
 
     if (keys.forward) {
       moveX += forwardX;
@@ -1005,7 +1011,8 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     const targetCamZ = avatarGroup.position.z - Math.cos(cameraYaw) * Math.cos(cameraPitch) * cameraDistance;
 
     camera.position.lerp(new THREE.Vector3(targetCamX, targetCamY, targetCamZ), delta * 8);
-    camera.lookAt(avatarGroup.position.x, avatarGroup.position.y + 1.1, avatarGroup.position.z);
+    guardCamera(camera, avatarGroup.position);
+    camera.lookAt(avatarGroup.position.x, avatarGroup.position.y + 1.4, avatarGroup.position.z);
 
     renderer.render(scene, camera);
     animFrameId = requestAnimationFrame(tick);
@@ -1068,7 +1075,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
       avatarGroup.rotation.y = 0;
     },
     resetCamera() {
-      cameraYaw = -Math.PI / 4;
+      cameraYaw = Math.PI * 0.75;
       cameraPitch = 0.42;
     },
     lookAtRover() {
