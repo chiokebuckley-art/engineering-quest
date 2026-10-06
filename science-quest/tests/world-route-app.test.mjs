@@ -1,0 +1,28 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {Window} from 'happy-dom';
+import {makeProfile,createRun,CATEGORIES} from '../src/learning.js';
+import {byId} from '../src/content.js';
+import {TEACH_UNITS} from '../src/teach-path.js';
+const win=new Window({url:'http://localhost:5187',settings:{disableCSSFileLoading:true,disableJavaScriptFileLoading:true}});
+win.document.write(await fs.readFile(new URL('../index.html',import.meta.url),'utf8'));
+const p=makeProfile();p.teachPath={version:1,enabled:true,unit:8,seen:Object.fromEntries(Array.from({length:9},(_,i)=>[i,true]))};
+for(const u of TEACH_UNITS.filter(u=>u.mission))p.runs[u.mission]={...createRun(byId[u.mission]),stage:'done',completed:true,evidence:Object.fromEntries(CATEGORIES.map(k=>[k,true]))};
+win.localStorage.setItem('science-quest.v1',JSON.stringify({storageFormat:1,snapshot:{version:1,profiles:[p],active:p.id},events:[]}));
+for(const [k,v] of Object.entries({window:win,document:win.document,localStorage:win.localStorage,navigator:win.navigator,location:win.location,CSS:{escape:s=>s},matchMedia:()=>({matches:true}),requestAnimationFrame:()=>0,cancelAnimationFrame:()=>{}}))Object.defineProperty(globalThis,k,{value:v,writable:true,configurable:true});
+const tick=()=>new Promise(r=>setTimeout(r,15));await import('../src/app.js');await tick();await tick();
+const $=s=>document.querySelector(s),click=async s=>{assert.ok($(s),s);assert.equal($(s).disabled,false);$(s).click();await tick();};
+test('connected route keeps its tests and changes inside the 3D quest',async()=>{
+ await click('[data-action=teach-do]');await click('[data-action=cap-open]');
+ assert.ok($('.teach-tablet.is-experiment .world-lesson'));
+ assert.equal($('.world-lesson svg'),null);
+ await click('[data-action=cap-answer][data-kind=predict][data-value="0"]');
+ await click('[data-action=cap-test]');
+ const input=$('#cap-setting');input.value='.3';input.dispatchEvent(new win.Event('input',{bubbles:true}));await tick();
+ await click('[data-action=cap-test]');
+ const saved=JSON.parse(localStorage.getItem('science-quest.v1')).snapshot.profiles[0].runs['restore-route'].capstone;
+ assert.equal(saved.trials.length,2);assert.equal(saved.trials[1].config.height,.3);
+ assert.ok($('[data-action=cap-answer][data-kind=explain]'));
+ assert.equal(saved.complete,false);await win.happyDOM.abort();
+});

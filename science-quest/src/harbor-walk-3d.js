@@ -1,4 +1,5 @@
 import * as THREE from './vendor/three.module.js';
+import {createExperimentStation} from './world-experiment-3d.js';
 import {walkDirection} from './walk-direction.js';
 import {addHarborScenery, cameraObstructionGuard} from './harbor-scenery.js';
 
@@ -499,6 +500,8 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   }
 
   scene.add(roverGroup);
+  const experimentStation = createExperimentStation(scene,roverGroup);
+  let watchExperiment = false;
 
   // -------------------------------------------------------------
   // 8. Kid Scientist Avatar (Blocky, readable, school clothes)
@@ -682,6 +685,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
 
   const canvas = renderer.domElement;
   function onMouseDown(e) {
+    watchExperiment=false;
     isDragging = true;
     prevMouseX = e.clientX;
     prevMouseY = e.clientY;
@@ -706,6 +710,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   let prevTouchY = 0;
 
   function onTouchStart(e) {
+    watchExperiment=false;
     if (touchCameraId === null && e.changedTouches.length > 0) {
       const t = e.changedTouches[0];
       touchCameraId = t.identifier;
@@ -897,6 +902,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
 
     const moveLen = Math.hypot(moveX, moveZ);
     const isMoving = moveLen > 0.01;
+    if(isMoving)watchExperiment=false;
 
     if (isMoving) {
       moveX /= moveLen;
@@ -1006,6 +1012,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     }
 
     // 6. Camera Follow (Smooth third person trailing)
+    experimentStation.tick(delta);
     const targetCamX = avatarGroup.position.x - Math.sin(cameraYaw) * Math.cos(cameraPitch) * cameraDistance;
     const targetCamY = avatarGroup.position.y + 1.2 + Math.sin(cameraPitch) * cameraDistance;
     const targetCamZ = avatarGroup.position.z - Math.cos(cameraYaw) * Math.cos(cameraPitch) * cameraDistance;
@@ -1013,6 +1020,12 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
     camera.position.lerp(new THREE.Vector3(targetCamX, targetCamY, targetCamZ), delta * 8);
     guardCamera(camera, avatarGroup.position);
     camera.lookAt(avatarGroup.position.x, avatarGroup.position.y + 1.4, avatarGroup.position.z);
+
+    if(experimentStation.active() && watchExperiment){
+      // Look along the lane so it remains visible on a portrait phone.
+      camera.position.set(-12,8.5,9);
+      camera.lookAt(1.5,0.5,3.5);
+    }
 
     renderer.render(scene, camera);
     animFrameId = requestAnimationFrame(tick);
@@ -1033,6 +1046,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
   // Return Controller API
   return {
     destroy() {
+      experimentStation.destroy();
       isDestroyed = true;
       if (animFrameId) cancelAnimationFrame(animFrameId);
       window.removeEventListener('keydown', onKeyDown);
@@ -1068,6 +1082,7 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
       launchCelebration();
     },
     setKey(dir, pressed) {
+      if(pressed)watchExperiment=false;
       if (dir in keys) keys[dir] = !!pressed;
     },
     teleportToRover() {
@@ -1079,12 +1094,22 @@ export function initHarborWalk3D(container, state, onStateChange = () => {}) {
       cameraPitch = 0.42;
     },
     lookAtRover() {
+      if(experimentStation.active()){watchExperiment=true;return;}
       const dx = -0.4 - avatarGroup.position.x;
       const dz = 3.5 - avatarGroup.position.z;
       cameraYaw = Math.atan2(dx, dz);
       cameraPitch = 0.38;
     },
     resize,
+    configureExperiment(config){
+      const wasActive=experimentStation.active();
+      experimentStation.configure(config);
+      rampGroup.visible=!config;roverGroup.visible=!config;
+      if(config&&!wasActive){watchExperiment=true;avatarGroup.position.set(-2,0,6);}
+    },
+    playExperiment(result,onDone,options){watchExperiment=true;return experimentStation.play(result,onDone,options);},
+    pauseExperiment(value){experimentStation.pause(value);},
+    cancelExperiment(){experimentStation.cancel();},
     getState() {
       return state;
     }
