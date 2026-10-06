@@ -2,6 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import fs f
 const win=new Window({url:'http://localhost:5187/',settings:{disableCSSFileLoading:true,disableJavaScriptFileLoading:true}});win.document.write(await fs.readFile(new URL('../index.html',import.meta.url),'utf8'));
 for(const [k,v]of Object.entries({window:win,document:win.document,localStorage:win.localStorage,navigator:win.navigator,location:win.location,matchMedia:()=>({matches:true}),requestAnimationFrame:()=>0,cancelAnimationFrame:()=>{}}))Object.defineProperty(globalThis,k,{value:v,writable:true,configurable:true});
 const tick=()=>new Promise(r=>setTimeout(r,10));await import('../src/app.js');await tick();await tick();const $=s=>document.querySelector(s),click=async s=>{assert.ok($(s),s);assert.equal($(s).disabled,false,s);$(s).click();await tick();},save=()=>JSON.parse(localStorage.getItem('science-quest.v1')).snapshot,active=()=>save().profiles.find(p=>p.id===save().active);
+await click('[data-action=teach-free]');
 test('Harbor opens all facilities, resumes discoveries and returns from the real Free Lab',async()=>{
  await click('[data-action=region][data-id=motion]');assert.equal(document.querySelectorAll('.harbor-hotspots button').length,3);
  await click('[data-action=harbor-site][data-id=crane]');await click('#harbor-detail [data-action=start]');assert.match($('h1').textContent,/First Move/);await click('[data-action=region][data-id=motion]');assert.match($('.site-crane').textContent,/In progress/);

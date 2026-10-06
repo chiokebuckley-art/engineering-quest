@@ -1,0 +1,91 @@
+/* The renderer stays full-screen. Readable, bounded UI floats above it. */
+body.is-immersive-3d .harbor-walk-sidebar,
+.adventure-3d-card {
+  background: #fffef7 !important;
+  color: #14272c !important;
+  border-color: #467477 !important;
+  max-height: min(66dvh, 680px) !important;
+  overscroll-behavior: contain;
+}
+.harbor-walk-card,
+.harbor-walk-tips,
+.harbor-walk-fixed,
+.adventure-3d-card .harbor-walk-tips,
+.adventure-3d-card .harbor-walk-fixed {
+  color: #14272c;
+  background: #f1f4ed;
+}
+.harbor-walk-card :is(p,li,label,output,strong,h2,h3,h4,small),
+.adventure-3d-card :is(p,li,label,output,strong,h2,h3,h4,small,.card-eyebrow,.card-title),
+.harbor-panel-header {color:#14272c !important;}
+.harbor-walk-card :is(.text-button,.secondary,.choice),
+.adventure-3d-card :is(.text-button,.secondary,.choice,.adventure-card-toggle-btn) {color:#14272c;background:#edf3eb;}
+.harbor-walk-card .choice.selected,.adventure-3d-card .choice.selected {background:#cbe9df;border:2px solid #145b54;color:#102a2a;}
+.harbor-panel-header {display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.harbor-panel-header button,.adventure-card-toggle-btn {min-width:90px;min-height:44px;font-size:14px;}
+body.is-immersive-3d .harbor-walk-topbar .back {color:#fff;}
+body.is-immersive-3d .harbor-walk-sidebar.is-collapsed,
+.adventure-3d-card.is-collapsed {width:min(280px,calc(100vw - 180px)) !important;max-height:120px !important;}
+.harbor-walk-sidebar.is-collapsed .harbor-panel-header {margin-bottom:0;flex-wrap:wrap;}
+body.is-immersive-3d .sr-only.harbor-walk-sidebar,
+body.is-immersive-3d .sr-only.harbor-walk-viewport-container {display:none !important;}
+.adventure-3d-stepper {background:#edf3eb;}
+.adventure-3d-stepper li {color:#233c3a;}
+.adventure-3d-stepper li.current {background:#cbe9df;color:#14272c;}
+.adventure-3d-card .adventure-step-content h3 {color:#14272c;}
+.teach-entry {display:flex;gap:18px;justify-content:space-between;align-items:center;background:#edf5eb;border:1px solid #a8c4b8;border-radius:14px;padding:16px;margin-bottom:20px;}
+.teach-entry p {font-size:13px;margin:6px 0 0;}
+.teach-world {position:fixed;inset:0;overflow:hidden;background:#9ee0ea;z-index:1001;}
+.teach-world-canvas {position:absolute!important;inset:0;width:100%!important;height:100%!important;touch-action:none;}
+.teach-world-canvas canvas {width:100%!important;height:100%!important;display:block;}
+.teach-world-header {position:absolute;top:max(8px,env(safe-area-inset-top));left:10px;right:10px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#102e37eb;color:#fff;border-radius:12px;padding:8px 12px;}
+.teach-world-header strong {font-size:15px;text-align:center;}
+.teach-tablet {position:absolute;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:22;width:min(680px,calc(100vw - 200px));max-height:76dvh;display:flex;flex-direction:column;border:2px solid #497676;border-radius:16px;background:#fffef7;color:#14272c;box-shadow:0 8px 28px #102e3744;overflow:hidden;}
+.teach-tablet>header {display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #cddbd4;flex-shrink:0;}
+.teach-tablet.is-collapsed {width:auto;max-width:300px;}
+#teach-tablet-body {overflow:auto;overscroll-behavior:contain;padding:14px;}
+#teach-tablet-body[hidden],#harbor-task-body[hidden] {display:none!important;}
+.teach-tablet .content {padding:0;min-height:0;}
+.teach-tablet .lab-layout {display:flex;flex-direction:column;gap:16px;}
+.teach-tablet .task-panel {order:-1;width:100%;position:static;max-height:none;}
+.teach-tablet .lab-main {width:100%;min-width:0;}
+.teach-tablet :is(p,li,label,output,h1,h2,h3,summary,.muted,.eyebrow) {color:#14272c;}
+.teach-tablet :is(.task-panel,.model-card,.evidence-panel,.mission-words,.pip-note) {background:#fffef7;color:#14272c;}
+.teach-tablet :is(.secondary,.text-button,.word-link,.term,.choice) {background:#edf3eb;color:#14272c;}
+.teach-tablet .choice.selected {background:#cbe9df;color:#14272c;border-color:#145b54;}
+.teach-tablet>header button {min-height:44px;}
+.teach-tablet :is(input,select,textarea) {font-size:16px;}
+.teach-tablet .mission-title {flex-wrap:wrap;}
+.teach-tablet h1 {font-size:24px;}
+.teach-tablet .stepper {overflow-x:auto;}
+.teach-unit-list {margin:14px 0;}
+.teach-unit-list ol {list-style:none;padding:0;}
+.teach-unit-list button {background:#edf3eb;color:#14272c;border-radius:8px;text-align:left;padding:10px;width:100%;margin:3px 0;}
+.teach-unit-list button:disabled {opacity:1;color:#526360;background:#e9ede7;}
+.teach-intro .pip-note {padding:14px;}
+.teach-intro .pip-note>span {font-size:30px;}
+.teach-intro p {font-size:16px;line-height:1.55;}
+.teach-dpad {z-index:25!important;}
+.webgl-fallback {position:absolute;top:20%;left:20px;max-width:330px;padding:16px;color:#14272c;background:#fffef7;}
+.compare-help {padding:10px;border-left:4px solid #91651c;background:#fff2cf;color:#342b18;}
+body.is-immersive-3d #toast {z-index:1200;}
+body.is-immersive-3d :is(.word-layer,.word-backdrop,.word-overlay,.glossary-layer) {z-index:1201;}
+@media(max-width:768px){
+  .teach-entry {align-items:stretch;flex-direction:column;}
+  .teach-world-header {padding:6px;left:6px;right:6px;}
+  .teach-world-header strong {font-size:12px;}
+  .teach-world-header button {padding:8px;font-size:12px;}
+  .teach-tablet {right:8px;left:8px;width:auto;bottom:max(150px,calc(env(safe-area-inset-bottom) + 140px));max-height:55dvh;}
+  .teach-tablet.is-collapsed {left:auto;bottom:max(12px,env(safe-area-inset-bottom));max-width:calc(100vw - 160px);}
+  .teach-tablet.is-collapsed>header {flex-direction:column;gap:4px;}
+  body.is-immersive-3d .harbor-walk-sidebar:not(.is-collapsed),
+  .adventure-3d-card:not(.is-collapsed) {left:8px!important;right:8px!important;width:auto!important;bottom:max(150px,calc(env(safe-area-inset-bottom) + 140px))!important;max-height:55dvh!important;}
+  body.is-immersive-3d .harbor-walk-sidebar.is-collapsed,
+  .adventure-3d-card.is-collapsed {bottom:max(12px,env(safe-area-inset-bottom))!important;}
+  .harbor-walk-card :is(p,label),.adventure-3d-card :is(p,label) {font-size:16px;line-height:1.5;}
+  .harbor-walk-card .harbor-walk-tips p {font-size:15px;}
+  body.is-immersive-3d .harbor-walk-touch-controls {bottom:max(10px,env(safe-area-inset-bottom))!important;}
+}
+@media(max-height:500px) and (orientation:landscape){
+  .teach-tablet,body.is-immersive-3d .harbor-walk-sidebar:not(.is-collapsed),.adventure-3d-card:not(.is-collapsed){left:auto!important;right:8px!important;bottom:8px!important;width:48vw!important;max-height:calc(100dvh - 70px)!important;}
+}

@@ -266,9 +266,9 @@ export function harborWalkView(profile, state) {
           </div>
         </div>
 
-        <aside class="harbor-walk-sidebar" aria-label="Investigation task panel">
-          ${stepperHtml}
-          ${taskCardHtml}
+        <aside class="harbor-walk-sidebar ${state.cardCollapsed ? 'is-collapsed' : ''}" aria-label="Investigation task panel">
+          <div class="harbor-panel-header"><strong>Pip · Current task</strong><button class="secondary" data-action="harbor-walk-toggle-card" aria-expanded="${!state.cardCollapsed}" aria-controls="harbor-task-body">${state.cardCollapsed ? 'Show task' : 'Minimize'}</button></div>
+          <div id="harbor-task-body" ${state.cardCollapsed ? 'hidden' : ''}>${stepperHtml}${taskCardHtml}</div>
         </aside>
       </div>
     </section>
