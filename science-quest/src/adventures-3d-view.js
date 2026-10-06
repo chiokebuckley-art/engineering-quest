@@ -373,7 +373,7 @@ export function adventure3DView(regionId, profile, state) {
             <h4 class="card-title">${stepsList[step - 1]?.label || 'Task'}</h4>
           </div>
           <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-expanded="${!isCollapsed}" aria-controls="adventure-task-body" aria-label="${isCollapsed ? 'Expand Pip task panel' : 'Collapse Pip task panel'}">
-            ${isCollapsed ? '▲ Expand' : '▼ Minimize'}
+            ${isCollapsed ? 'Show task' : '▼ Minimize'}
           </button>
         </div>
 

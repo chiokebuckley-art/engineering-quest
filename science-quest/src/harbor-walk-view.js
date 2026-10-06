@@ -235,6 +235,11 @@ export function harborWalkView(profile, state) {
           <h1>Motion Harbor · 3D Dock Walk</h1>
           <span class="badge ${state.completed ? 'success' : ''}">${state.completed ? 'Harbor Lab Restored' : 'Fair Test Investigation'}</span>
         </div>
+          <!-- Camera focus chip -->
+          <button class="harbor-walk-cam-reset" data-action="harbor-walk-focus-rover" aria-label="Point camera toward rover">
+            <span class="cam-icon">🎯</span> <span>Find Rover</span>
+          </button>
+
       </div>
 
       <div class="harbor-walk-main-layout">
@@ -242,11 +247,6 @@ export function harborWalkView(profile, state) {
           <div id="harbor-walk-canvas-container" class="harbor-walk-canvas-box" tabindex="0" role="region" aria-label="Walkable 3D Harbor Dock viewport. Use WASD or on-screen D-pad to walk, drag to look.">
             <!-- Three.js Canvas mounts here -->
           </div>
-
-          <!-- Camera focus chip -->
-          <button class="harbor-walk-cam-reset" data-action="harbor-walk-focus-rover" aria-label="Point camera toward rover">
-            <span class="cam-icon">🎯</span> <span>Find Rover</span>
-          </button>
 
           <!-- Input guidance -->
           <div class="harbor-walk-keys-guide" aria-hidden="true">
@@ -258,9 +258,9 @@ export function harborWalkView(profile, state) {
           <div class="harbor-walk-touch-controls" role="group" aria-label="Touch walk controls">
             <div class="harbor-walk-dpad">
               <button type="button" class="touch-btn touch-up" data-action="touch-walk" data-dir="forward" aria-label="Walk forward">▲</button>
-              <button type="button" class="touch-btn touch-left" data-action="touch-walk" data-dir="left" aria-label="Turn left">◀</button>
+              <button type="button" class="touch-btn touch-left" data-action="touch-walk" data-dir="left" aria-label="Walk left">◀</button>
               <button type="button" class="touch-btn touch-center" data-action="harbor-walk-focus-rover" aria-label="Point camera toward rover" title="Center view on rover">🧭</button>
-              <button type="button" class="touch-btn touch-right" data-action="touch-walk" data-dir="right" aria-label="Turn right">▶</button>
+              <button type="button" class="touch-btn touch-right" data-action="touch-walk" data-dir="right" aria-label="Walk right">▶</button>
               <button type="button" class="touch-btn touch-down" data-action="touch-walk" data-dir="backward" aria-label="Walk backward">▼</button>
             </div>
           </div>

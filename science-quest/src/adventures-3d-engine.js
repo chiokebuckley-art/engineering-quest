@@ -1,4 +1,6 @@
 import * as THREE from './vendor/three.module.js';
+import {walkDirection} from './walk-direction.js';
+import {addHarborScenery, cameraObstructionGuard} from './harbor-scenery.js';
 import {ADVENTURE_CONFIGS} from './adventures-3d-data.js';
 
 export function initAdventure3D(container, regionId, state, onStateChange = () => {}) {
@@ -19,7 +21,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   let height = getHeight();
 
   // Camera
-  const camera = new THREE.PerspectiveCamera(52, width / height, 0.1, 160);
+  const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 160);
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
@@ -146,10 +148,14 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   // -------------------------------------------------------------
   // World Environment Builders
   // -------------------------------------------------------------
+  const cameraObstacles = [];
+  const guardCamera = cameraObstructionGuard(cameraObstacles);
   let worldTargetPos = new THREE.Vector3(0, 0, -2.5);
   let interactiveAnimObjects = {};
 
   if (regionId === 'motion') {
+    addHarborScenery(scene);
+    scene.fog = new THREE.Fog(config.fogColor, 45, 100);
     // 1. Water
     const waterMesh = new THREE.Mesh(
       new THREE.PlaneGeometry(140, 140),
@@ -190,6 +196,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     shedRoof.rotation.y = Math.PI / 4;
     shed.add(shedRoof);
     scene.add(shed);
+    cameraObstacles.push(shed);
 
     // 4. Cargo Crane
     const crane = new THREE.Group();
@@ -628,7 +635,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   const keys = { forward: false, backward: false, left: false, right: false };
   let cameraAngle = 0; // horizontal orbit angle
   let cameraPitch = 0.38; // vertical tilt angle
-  let cameraDist = 4.8; // distance behind avatar
+  let cameraDist = 8; // distance behind avatar
   let walkPhase = 0;
   const avatarHeading = { val: 0 };
 
@@ -653,7 +660,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     lastPointerY = e.clientY;
 
     cameraAngle -= dx * 0.006;
-    cameraPitch = Math.max(0.1, Math.min(1.1, cameraPitch - dy * 0.005));
+    cameraPitch = Math.max(0.22, Math.min(0.72, cameraPitch - dy * 0.005));
   }
 
   function onPointerUp() {
@@ -818,13 +825,16 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       moveZ /= len;
 
       // Move relative to camera viewing direction
-      const cosA = Math.cos(cameraAngle);
-      const sinA = Math.sin(cameraAngle);
-      const worldDx = (moveX * cosA - moveZ * sinA) * 4.2 * dt;
-      const worldDz = (moveX * sinA + moveZ * cosA) * 4.2 * dt;
+      const direction = walkDirection(Math.sin(cameraAngle), Math.cos(cameraAngle), moveX, -moveZ);
+      const worldDx = direction.x * 4.2 * dt;
+      const worldDz = direction.z * 4.2 * dt;
 
-      avatar.position.x += worldDx;
-      avatar.position.z += worldDz;
+      const nextX = avatar.position.x + worldDx, nextZ = avatar.position.z + worldDz;
+      // Keep the player outside the solid harbor shed.
+      if (regionId !== 'motion' || !(nextX > -11.5 && nextX < -5.5 && nextZ > 2.4 && nextZ < 7.6)) {
+        avatar.position.x = nextX;
+        avatar.position.z = nextZ;
+      }
 
       // Bounds collision checking (-11 to +11 on X, -10 to +10 on Z)
       avatar.position.x = Math.max(-11, Math.min(11, avatar.position.x));
@@ -865,7 +875,8 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     const camZ = avatar.position.z + Math.cos(cameraAngle) * Math.cos(cameraPitch) * cameraDist;
 
     camera.position.set(camX, camY, camZ);
-    camera.lookAt(avatar.position.x, avatar.position.y + 1.1, avatar.position.z);
+    guardCamera(camera, avatar.position);
+    camera.lookAt(avatar.position.x, avatar.position.y + 1.4, avatar.position.z);
 
     renderer.render(scene, camera);
   }
