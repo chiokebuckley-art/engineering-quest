@@ -20,6 +20,24 @@ test('Fresh guided route minimizes, restores, gates and opens a real investigati
  await click('[data-action=teach-seen]');await click('[data-action=teach-do]');
  assert.match($('.mission-title h1').textContent,/Keep It Fair/);assert.ok($('.teach-world'));assert.equal(profile().runs['keep-it-fair'].stage,'notice');assert.deepEqual(profile().runs['keep-it-fair'].evidence,{});
  await click('[data-action=next]');assert.equal(profile().runs['keep-it-fair'].stage,'predict');
+ assert.ok($('.world-lesson'));assert.equal($('#scene'),null,'3D replaces the duplicate tablet diagram');
+ for(const stage of ['predict','build']){
+  assert.equal(profile().runs['keep-it-fair'].stage,stage);
+  await click('[data-action=choice][data-value="0"]');await click('[data-action=check]');
+  assert.ok($('.feedback.good'),document.body.textContent);await click('[data-action=next]');
+ }
+ assert.equal(profile().runs['keep-it-fair'].stage,'test');
+ const evidenceBefore=structuredClone(profile().runs['keep-it-fair'].evidence);
+ await click('[data-action=world-setting][data-value="2"]');await click('[data-action=run]');
+ assert.equal(profile().runs['keep-it-fair'].trials.at(-1).value,.5);
+ assert.match($('.world-observation').textContent,/1-second mark/);
+ await click('[data-action=world-setting][data-value="4"]');await click('[data-action=run]');
+ assert.equal(profile().runs['keep-it-fair'].trials.at(-1).value,1);
+ assert.deepEqual(profile().runs['keep-it-fair'].evidence,evidenceBefore,'Test actions must not award understanding');
+ const ids=profile().runs['keep-it-fair'].trials.map(t=>t.id);
+ await click(`[data-action=select-trial][data-id="${ids[0]}"]`);await click(`[data-action=select-trial][data-id="${ids[1]}"]`);
+ assert.equal($('[data-action=compare]').disabled,false);await click('[data-action=compare]');
+ assert.equal(profile().runs['keep-it-fair'].stage,'compare');assert.ok($('.world-lesson .question'));
  await click('[data-action=teach-open]');await click('[data-action=teach-free]');
  assert.equal(profile().teachPath.enabled,false);assert.equal($('.teach-world'),null);await win.happyDOM.abort();
 });
