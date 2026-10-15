@@ -629,6 +629,174 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     interactiveAnimObjects.probeOrbitAngle = 0;
   }
 
+  // Add hillside vegetation group for Earthwatch Ridge if regionId === 'earth'
+  if (regionId === 'earth') {
+    const slopeTrees = new THREE.Group();
+    slopeTrees.position.set(0, 0.75, -3.5);
+    for (const [tx, tz] of [[-0.6, -1.2], [0.6, -1.0], [-0.5, 0.2], [0.5, 0.4], [0, -0.4]]) {
+      const miniTree = new THREE.Group();
+      miniTree.position.set(tx, 0, tz);
+      const tTrunk = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.35), new THREE.MeshStandardMaterial({ color: 0x4a2e18 }));
+      tTrunk.position.y = 0.17;
+      const tCone = new THREE.Mesh(new THREE.ConeGeometry(0.38, 0.85, 6), new THREE.MeshStandardMaterial({ color: 0x2d6a4f }));
+      tCone.position.y = 0.55;
+      miniTree.add(tTrunk, tCone);
+      slopeTrees.add(miniTree);
+    }
+    scene.add(slopeTrees);
+    interactiveAnimObjects.slopeTrees = slopeTrees;
+  }
+
+  // -------------------------------------------------------------
+  // 3D SimCity / Tycoon Buildable Facilities Grid
+  // -------------------------------------------------------------
+  const tycoonBuildingsGroup = new THREE.Group();
+  scene.add(tycoonBuildingsGroup);
+  const spinningRotors = [];
+
+  function rebuildTycoonBuildings(currentState = state) {
+    while (tycoonBuildingsGroup.children.length > 0) {
+      tycoonBuildingsGroup.remove(tycoonBuildingsGroup.children[0]);
+    }
+    spinningRotors.length = 0;
+
+    const lvls = currentState.buildingLevels || {};
+    const bldgs = config.buildings || [];
+
+    for (let i = 0; i < bldgs.length; i++) {
+      const b = bldgs[i];
+      if (i === 0) continue; // Index 0 is the central apparatus already rendered at worldTargetPos
+      const lvl = lvls[b.id] || 0;
+      const [bx, bz] = b.pos || [4, 2];
+      const plotGroup = new THREE.Group();
+      plotGroup.position.set(bx, 0, bz);
+
+      // Foundation Pad
+      const padMat = new THREE.MeshStandardMaterial({
+        color: lvl > 0 ? 0x2b3d46 : 0x16323b,
+        roughness: 0.7,
+        metalness: 0.2
+      });
+      const pad = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.16, 2.6), padMat);
+      pad.position.y = 0.08;
+      pad.receiveShadow = true;
+      plotGroup.add(pad);
+
+      if (lvl === 0) {
+        // Unbuilt Blueprint Holo-Ring
+        const holoRing = new THREE.Mesh(
+          new THREE.RingGeometry(0.85, 1.05, 24),
+          new THREE.MeshBasicMaterial({ color: 0x54dfc2, side: THREE.DoubleSide, transparent: true, opacity: 0.65 })
+        );
+        holoRing.rotation.x = Math.PI / 2;
+        holoRing.position.y = 0.18;
+        plotGroup.add(holoRing);
+
+        // Corner blueprint posts
+        for (const [cx, cz] of [[-1.1, -1.1], [1.1, -1.1], [-1.1, 1.1], [1.1, 1.1]]) {
+          const post = new THREE.Mesh(
+            new THREE.BoxGeometry(0.1, 0.45, 0.1),
+            new THREE.MeshStandardMaterial({ color: 0x54dfc2, emissive: 0x54dfc2, emissiveIntensity: 0.3 })
+          );
+          post.position.set(cx, 0.3, cz);
+          plotGroup.add(post);
+        }
+      } else {
+        // Built Tycoon Facility (scales with level 1..3)
+        const hScale = 1 + (lvl - 1) * 0.35;
+        const mainH = 1.6 * hScale;
+        const baseMesh = new THREE.Mesh(
+          new THREE.BoxGeometry(1.7, mainH, 1.7),
+          new THREE.MeshStandardMaterial({ color: b.color || 0x54dfc2, roughness: 0.4, metalness: 0.3 })
+        );
+        baseMesh.position.y = 0.16 + mainH / 2;
+        baseMesh.castShadow = true;
+        plotGroup.add(baseMesh);
+
+        // Glowing Energy Core Band
+        const glowBand = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.98, 0.98, 0.22, 16),
+          new THREE.MeshStandardMaterial({ color: 0x54dfc2, emissive: 0x54dfc2, emissiveIntensity: 0.7 })
+        );
+        glowBand.position.y = 0.16 + mainH * 0.65;
+        plotGroup.add(glowBand);
+
+        // Rotating Turbine / Dish / Solar Array on Roof
+        const rotorGroup = new THREE.Group();
+        rotorGroup.position.y = 0.16 + mainH + 0.35;
+        const hub = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.2, 0.25, 0.5, 12),
+          new THREE.MeshStandardMaterial({ color: 0xe0e6ed, metalness: 0.6 })
+        );
+        rotorGroup.add(hub);
+
+        const wing = new THREE.Mesh(
+          new THREE.BoxGeometry(1.8, 0.08, 0.45),
+          new THREE.MeshStandardMaterial({ color: 0xffd166, emissive: 0xffaa00, emissiveIntensity: 0.35 })
+        );
+        wing.position.y = 0.22;
+        rotorGroup.add(wing);
+
+        plotGroup.add(rotorGroup);
+        spinningRotors.push(rotorGroup);
+      }
+
+      tycoonBuildingsGroup.add(plotGroup);
+    }
+  }
+
+  function syncWorldToState(currentState = state) {
+    if (regionId === 'motion') {
+      if (interactiveAnimObjects.rampPlane) {
+        const h = currentState.height || 0.2;
+        interactiveAnimObjects.rampPlane.rotation.x = 0.12 + h * 0.65;
+        interactiveAnimObjects.rampPlane.position.y = 0.25 + h * 0.9;
+      }
+      if (interactiveAnimObjects.matMesh) {
+        const isSmooth = currentState.surface === 'smooth';
+        interactiveAnimObjects.matMesh.material.color.setHex(isSmooth ? 0xc4a375 : 0x2b2d32);
+      }
+    } else if (regionId === 'matter') {
+      if (interactiveAnimObjects.stopper) {
+        const isSealed = currentState.stopper === 'sealed';
+        interactiveAnimObjects.stopper.position.set(isSealed ? 0 : 0.45, isSealed ? 0.54 : 0.08, 0);
+      }
+    } else if (regionId === 'living') {
+      const lux = currentState.lightLevel || 200;
+      if (interactiveAnimObjects.lampBulb) {
+        interactiveAnimObjects.lampBulb.material.emissiveIntensity = lux >= 800 ? 1.2 : lux >= 400 ? 0.65 : 0.2;
+      }
+      if (interactiveAnimObjects.plantsGroup && !isSimActive) {
+        const res = config.calculateResult(currentState);
+        interactiveAnimObjects.plantsGroup.scale.y = Math.max(0.4, res.growthHeight / 14.0);
+      }
+    } else if (regionId === 'earth') {
+      const isVeg = currentState.cover === 'vegetation';
+      if (interactiveAnimObjects.slopeTrees) {
+        interactiveAnimObjects.slopeTrees.visible = isVeg;
+      }
+      if (interactiveAnimObjects.flumeBed) {
+        interactiveAnimObjects.flumeBed.material.color.setHex(isVeg ? 0x2d6a4f : 0x5c4033);
+      }
+      if (interactiveAnimObjects.basin) {
+        interactiveAnimObjects.basin.material.color.setHex(isVeg ? 0x0096c7 : 0x6b4423);
+      }
+    } else if (regionId === 'orbit') {
+      const r = (currentState.radiusAU || 1.0) * 1.15;
+      if (interactiveAnimObjects.orbitRing) {
+        const s = r / 1.42;
+        interactiveAnimObjects.orbitRing.scale.set(s, s, 1);
+      }
+      if (interactiveAnimObjects.sunSphere) {
+        const mScale = (currentState.starMass || 1.0) >= 1.5 ? 1.35 : 1.0;
+        interactiveAnimObjects.sunSphere.scale.set(mScale, mScale, mScale);
+      }
+    }
+    rebuildTycoonBuildings(currentState);
+  }
+
+  syncWorldToState(state);
+
   // -------------------------------------------------------------
   // Controls & Camera Navigation
   // -------------------------------------------------------------
@@ -745,8 +913,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     simResultData = resultData;
     rollProgress = 0;
 
-    const startPos = worldTargetPos.clone();
-    const durationMs = 2800;
+    const durationMs = 1800;
     const startTime = performance.now();
 
     function stepSim(now) {
@@ -755,32 +922,31 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       const p = Math.min(1.0, elapsed / durationMs);
       rollProgress = p;
 
-      // Region-specific visual updates during simulation:
       if (regionId === 'motion' && interactiveAnimObjects.rover) {
         const rover = interactiveAnimObjects.rover;
-        const totalDist = resultData.distance || 1.5;
-        rover.position.z = -2.5 + p * (totalDist + 1.2);
+        const totalDist = (resultData.distance || 1.5) * 2.4;
+        rover.position.z = -2.5 + p * totalDist;
       } else if (regionId === 'matter') {
         if (interactiveAnimObjects.flaskLiquid) {
-          interactiveAnimObjects.flaskLiquid.scale.y = 1.0 + Math.sin(p * 20) * 0.15;
+          interactiveAnimObjects.flaskLiquid.scale.y = 1.0 + Math.sin(p * 24) * 0.22;
         }
       } else if (regionId === 'living') {
         if (interactiveAnimObjects.plantsGroup) {
-          const targetScale = resultData.growthHeight / 12.0;
+          const targetScale = (resultData.growthHeight || 18) / 12.0;
           interactiveAnimObjects.plantsGroup.scale.y = 0.5 + p * (targetScale - 0.5);
         }
       } else if (regionId === 'earth') {
         if (interactiveAnimObjects.basin) {
-          interactiveAnimObjects.basin.position.y = 0.3 + p * 0.1;
+          interactiveAnimObjects.basin.position.y = 0.3 + Math.sin(p * Math.PI) * 0.12;
         }
       } else if (regionId === 'signal') {
         if (interactiveAnimObjects.paddle) {
-          interactiveAnimObjects.paddle.position.z = -2.7 + Math.sin(p * 25) * 0.25;
+          interactiveAnimObjects.paddle.position.z = -2.7 + Math.sin(p * 30) * 0.3;
         }
       } else if (regionId === 'orbit') {
         if (interactiveAnimObjects.probe) {
           interactiveAnimObjects.probeOrbitAngle = p * Math.PI * 4;
-          const r = resultData.radiusAU * 1.4;
+          const r = (resultData.radiusAU || 1.0) * 1.15;
           interactiveAnimObjects.probe.position.x = Math.cos(interactiveAnimObjects.probeOrbitAngle) * r;
           interactiveAnimObjects.probe.position.z = Math.sin(interactiveAnimObjects.probeOrbitAngle) * r;
         }
@@ -801,6 +967,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   // Main Animation / Render Loop
   // -------------------------------------------------------------
   let lastTime = performance.now();
+  let simClock = 0;
 
   function animate(now) {
     if (isDestroyed) return;
@@ -808,6 +975,31 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
 
     const dt = Math.min(0.1, (now - lastTime) / 1000);
     lastTime = now;
+    simClock += dt;
+
+    // Spin built tycoon facility rotors continuously
+    for (const rotor of spinningRotors) {
+      rotor.rotation.y += dt * 1.8;
+    }
+
+    // Continuous background Sim-Tycoon machine motion when not in burst simulation
+    if (!isSimActive) {
+      if (regionId === 'motion' && interactiveAnimObjects.rover) {
+        const res = config.calculateResult(state);
+        const cycle = (simClock * 0.45) % 1;
+        const reach = (res.distance || 1.0) * 2.4;
+        interactiveAnimObjects.rover.position.z = -2.5 + Math.min(1, cycle * 1.3) * reach;
+      } else if (regionId === 'signal' && interactiveAnimObjects.paddle) {
+        const freq = state.frequency || 1.0;
+        interactiveAnimObjects.paddle.position.z = -2.7 + Math.sin(simClock * freq * 4.5) * 0.2;
+      } else if (regionId === 'orbit' && interactiveAnimObjects.probe) {
+        const r = (state.radiusAU || 1.0) * 1.15;
+        const speed = 2.2 / Math.pow(state.radiusAU || 1.0, 1.5);
+        interactiveAnimObjects.probeOrbitAngle = (interactiveAnimObjects.probeOrbitAngle || 0) + dt * speed;
+        interactiveAnimObjects.probe.position.x = Math.cos(interactiveAnimObjects.probeOrbitAngle) * r;
+        interactiveAnimObjects.probe.position.z = Math.sin(interactiveAnimObjects.probeOrbitAngle) * r;
+      }
+    }
 
     // Movement calculation
     let moveX = 0;
@@ -902,8 +1094,13 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     setKey(dir, val) {
       if (keys[dir] !== undefined) keys[dir] = !!val;
     },
+    onParamChange() {
+      syncWorldToState(state);
+    },
+    syncWorldToState,
+    rebuildTycoonBuildings,
     lookAtTarget,
-    lookAtRover: lookAtTarget, // Compatibility with Motion Harbor
+    lookAtRover: lookAtTarget,
     teleportToTarget,
     runSimulation,
     resize: handleResize

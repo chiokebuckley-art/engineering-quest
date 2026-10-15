@@ -4,337 +4,259 @@ import {ADVENTURE_CONFIGS} from './adventures-3d-data.js';
 export function adventure3DView(regionId, profile, state) {
   const config = ADVENTURE_CONFIGS[regionId] || ADVENTURE_CONFIGS.motion;
   const step = state.step || 1;
-  const t1 = state.trials?.[0] || null;
-  const t2 = state.trials?.[1] || null;
   const isCollapsed = !!state.cardCollapsed;
+  const activeTab = state.activeTab || 'tune';
+  const funds = Math.floor(state.funds ?? 220);
+  const metrics = config.calculateTycoonMetrics(state);
 
   const stepsList = [
-    { num: 1, label: config.stepTitles[1] || 'Walk to Target' },
-    { num: 2, label: config.stepTitles[2] || 'First Trial' },
-    { num: 3, label: config.stepTitles[3] || 'Fair Test' },
-    { num: 4, label: config.stepTitles[4] || 'Explain' },
-    { num: 5, label: config.stepTitles[5] || 'Restored' }
+    { num: 1, label: config.stepTitles[1] || 'Inspect' },
+    { num: 2, label: config.stepTitles[2] || 'Tune' },
+    { num: 3, label: config.stepTitles[3] || 'Optimize' },
+    { num: 4, label: config.stepTitles[4] || 'Expand' },
+    { num: 5, label: config.stepTitles[5] || 'Thriving' }
   ];
 
-  const stepperHtml = `
-    <ul class="adventure-3d-stepper harbor-walk-stepper" aria-label="Investigation progress steps">
-      ${stepsList.map(s => `
-        <li class="${s.num === step ? 'current' : s.num < step ? 'completed' : ''}">
-          <span class="step-num">${s.num < step ? '✓' : s.num}</span>
-          <span class="step-name">${s.label}</span>
-        </li>
-      `).join('')}
-    </ul>
-  `;
+  // Region switcher pills so player can manage all 6 islands like SimCity
+  const regionTabsHtml = Object.values(ADVENTURE_CONFIGS).map(r => `
+    <button type="button" class="tycoon-sector-pill ${r.id === config.id ? 'active' : ''}" data-action="open-3d-adventure" data-region="${r.id}" title="Switch to ${esc(r.regionName)}">
+      <span>${r.icon}</span>
+      <span class="sector-pill-name">${esc(r.regionName.split(' ')[0])}</span>
+    </button>
+  `).join('');
 
-  let taskCardBodyHtml = '';
+  // Region-specific live tuning controls (No quizzes—pure live physics & science tuning!)
+  let tunerControlsHtml = '';
 
-  if (step === 1) {
-    taskCardBodyHtml = `
-      <div class="adventure-step-content">
-        <p class="eyebrow">STEP 1 · ${config.regionName.toUpperCase()} EXPLORATION</p>
-        <h3>Welcome to ${config.regionName}!</h3>
-        <p>Walk across the area to the <strong>${config.targetName}</strong> to begin your investigation.</p>
-        
-        <div class="harbor-walk-tips">
-          <p>📱 <strong>Phone / Touch:</strong> Use the left D-pad with your thumb to walk. Swipe the right side of the screen with your finger to look around.</p>
-          <p>⌨️ <strong>Desktop:</strong> Use W, A, S, D or Arrow Keys to walk; click & drag mouse to look.</p>
+  if (regionId === 'motion') {
+    tunerControlsHtml = `
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label for="hw-height">📐 Ramp Elevation (Potential Energy)</label>
+          <strong id="adv-slider-val" class="tycoon-val-pill">${(state.height || 0.2).toFixed(2)} m</strong>
         </div>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${Math.abs((state.height || 0.2) - 0.15) < 0.02 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.15">Low (0.15 m)</button>
+          <button class="choice ${Math.abs((state.height || 0.2) - 0.25) < 0.02 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.25">Med (0.25 m)</button>
+          <button class="choice ${Math.abs((state.height || 0.2) - 0.35) < 0.02 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.35">High (0.35 m)</button>
+        </div>
+        <input id="hw-height" type="range" min="0.15" max="0.40" step="0.05" value="${state.height || 0.2}" data-action="adventure-3d-slider" data-param="height" data-unit="m" aria-label="Ramp Height in metres">
+      </div>
 
-        <div class="harbor-walk-card-actions">
-          <button class="secondary text-button" data-action="adventure-3d-teleport-target" data-region="${config.id}">Approach Target Directly →</button>
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>🛞 Pier Deck Surface (Rolling Friction)</label>
+        </div>
+        <div class="harbor-walk-surface-buttons">
+          <button class="choice ${state.surface === 'smooth' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="surface" data-value="smooth">🪵 Smooth Wood (Low Friction)</button>
+          <button class="choice ${state.surface === 'rubber' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="surface" data-value="rubber">🧽 Rough Rubber (High Friction)</button>
         </div>
       </div>
     `;
-  } else if (step === 2) {
-    let controlsHtml = '';
+  } else if (regionId === 'matter') {
+    tunerControlsHtml = `
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>🔒 Reactor Vessel Containment (System Boundary)</label>
+        </div>
+        <div class="harbor-walk-surface-buttons">
+          <button class="choice ${state.stopper === 'sealed' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="stopper" data-value="sealed">🔒 Sealed Pressure Dome (Closed)</button>
+          <button class="choice ${state.stopper === 'open' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="stopper" data-value="open">💨 Open Vent (Unsealed)</button>
+        </div>
+      </div>
 
-    if (regionId === 'motion') {
-      controlsHtml = `
-        <div class="field">
-          <label for="hw-height">Ramp Height: <strong>${(state.height || 0.2).toFixed(2)} m</strong></label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.height === 0.15 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.15" ${state.isSimulating ? 'disabled' : ''}>Low (0.15 m)</button>
-            <button class="choice ${state.height === 0.25 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.25" ${state.isSimulating ? 'disabled' : ''}>Medium (0.25 m)</button>
-            <button class="choice ${state.height === 0.35 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.35" ${state.isSimulating ? 'disabled' : ''}>High (0.35 m)</button>
-          </div>
-          <input id="hw-height" type="range" min="0.15" max="0.40" step="0.05" value="${state.height || 0.2}" data-action="adventure-3d-slider" data-param="height" ${state.isSimulating ? 'disabled' : ''} aria-label="Ramp Height in metres">
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>⚖️ Reactant Batch Feed Mass</label>
+          <strong class="tycoon-val-pill">${(state.reactantsMass || 60).toFixed(0)} g</strong>
         </div>
-        <p class="harbor-walk-fixed">Dock Surface: <strong>Smooth Wood Dock</strong> (held constant for trial 1)</p>
-      `;
-    } else if (regionId === 'matter') {
-      controlsHtml = `
-        <div class="field">
-          <label>Flask Stopper Seal: <strong>Sealed Flask</strong></label>
-          <p class="harbor-walk-fixed">Starting Reactants: <strong>60.0 g</strong> (50.0g vinegar + 10.0g baking soda)</p>
-          <p class="muted">For Trial 1, we keep the flask securely stoppered so nothing escapes.</p>
-        </div>
-      `;
-    } else if (regionId === 'living') {
-      controlsHtml = `
-        <div class="field">
-          <label>Sunlamp Intensity: <strong>${state.lightLevel || 500} lux</strong></label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.lightLevel === 200 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="200" ${state.isSimulating ? 'disabled' : ''}>Low (200 lux)</button>
-            <button class="choice ${state.lightLevel === 500 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="500" ${state.isSimulating ? 'disabled' : ''}>Medium (500 lux)</button>
-            <button class="choice ${state.lightLevel === 900 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="900" ${state.isSimulating ? 'disabled' : ''}>High (900 lux)</button>
-          </div>
-        </div>
-        <p class="harbor-walk-fixed">Water Supply: <strong>50 mL/day</strong> (held constant for first test)</p>
-      `;
-    } else if (regionId === 'earth') {
-      controlsHtml = `
-        <div class="field">
-          <label>Surface Cover: <strong>Bare Soil</strong></label>
-          <p class="harbor-walk-fixed">Simulated Rainstorm: <strong>30 mm/h</strong> (held constant)</p>
-          <p class="muted">For Trial 1, we test the hillside flume with bare, unprotected soil.</p>
-        </div>
-      `;
-    } else if (regionId === 'signal') {
-      controlsHtml = `
-        <div class="field">
-          <label>Wave Paddle Frequency: <strong>${(state.frequency || 1.0).toFixed(1)} Hz</strong></label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.frequency === 0.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="0.5" ${state.isSimulating ? 'disabled' : ''}>0.5 Hz (Gentle)</button>
-            <button class="choice ${state.frequency === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="1.0" ${state.isSimulating ? 'disabled' : ''}>1.0 Hz (Standard)</button>
-            <button class="choice ${state.frequency === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="2.0" ${state.isSimulating ? 'disabled' : ''}>2.0 Hz (Rapid)</button>
-          </div>
-        </div>
-        <p class="harbor-walk-fixed">Wave Tank Water Depth: <strong>1.0 m</strong> (constant wave speed)</p>
-      `;
-    } else if (regionId === 'orbit') {
-      controlsHtml = `
-        <div class="field">
-          <label>Orbital Radius: <strong>${(state.radiusAU || 1.0).toFixed(1)} AU</strong></label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.radiusAU === 0.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="0.5" ${state.isSimulating ? 'disabled' : ''}>0.5 AU (Inner)</button>
-            <button class="choice ${state.radiusAU === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="1.0" ${state.isSimulating ? 'disabled' : ''}>1.0 AU (Earth-like)</button>
-            <button class="choice ${state.radiusAU === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="2.0" ${state.isSimulating ? 'disabled' : ''}>2.0 AU (Outer)</button>
-          </div>
-        </div>
-        <p class="harbor-walk-fixed">Central Star Mass: <strong>1.0 M☉</strong> (held constant)</p>
-      `;
-    }
-
-    const actionBtnLabel = {
-      motion: '🚀 Roll Rover',
-      matter: '🧪 Mix Reactants (Sealed)',
-      living: '🌱 Run 7-Day Growth Cycle',
-      earth: '🌧 Start Rainstorm Simulation',
-      signal: '🌊 Pulse Wave Paddle',
-      orbit: '🛰 Launch Satellite Orbit'
-    }[regionId] || '🚀 Run Experiment';
-
-    taskCardBodyHtml = `
-      <div class="adventure-step-content">
-        <p class="eyebrow">STEP 2 · FIRST EXPERIMENT</p>
-        <h3>Record Your Baseline Observation</h3>
-        <p>Observe the apparatus closely. Set your starting configuration and run the first trial to collect baseline data.</p>
-        <div class="harbor-walk-form">
-          ${controlsHtml}
-          <button class="primary full" data-action="adventure-3d-run-trial" ${state.isSimulating ? 'disabled' : ''}>
-            ${state.isSimulating ? 'Simulating trial…' : actionBtnLabel}
-          </button>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${state.reactantsMass === 40 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="reactantsMass" data-value="40">40 g (Under)</button>
+          <button class="choice ${state.reactantsMass === 60 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="reactantsMass" data-value="60">60 g (Optimal)</button>
+          <button class="choice ${state.reactantsMass === 80 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="reactantsMass" data-value="80">80 g (Over)</button>
         </div>
       </div>
     `;
-  } else if (step === 3) {
-    let fairControlsHtml = '';
+  } else if (regionId === 'living') {
+    tunerControlsHtml = `
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>☀️ Solar Grow-Lamp Intensity (Photosynthesis)</label>
+          <strong class="tycoon-val-pill">${state.lightLevel || 200} lux</strong>
+        </div>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${state.lightLevel === 200 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="200">200 lux (Dim)</button>
+          <button class="choice ${state.lightLevel === 500 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="500">500 lux (Med)</button>
+          <button class="choice ${state.lightLevel === 900 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="900">900 lux (Peak)</button>
+        </div>
+      </div>
 
-    if (regionId === 'motion') {
-      fairControlsHtml = `
-        <div class="field">
-          <label for="hw-height-2">Ramp Height: <strong>${(state.height || 0.2).toFixed(2)} m</strong> (Trial 1 was ${t1 ? t1.height.toFixed(2) : '0.20'} m)</label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.height === 0.15 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.15" ${state.isSimulating ? 'disabled' : ''}>Low (0.15 m)</button>
-            <button class="choice ${state.height === 0.25 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.25" ${state.isSimulating ? 'disabled' : ''}>Medium (0.25 m)</button>
-            <button class="choice ${state.height === 0.35 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="height" data-value="0.35" ${state.isSimulating ? 'disabled' : ''}>High (0.35 m)</button>
-          </div>
-          <input id="hw-height-2" type="range" min="0.15" max="0.40" step="0.05" value="${state.height || 0.2}" data-action="adventure-3d-slider" data-param="height" ${state.isSimulating ? 'disabled' : ''} aria-label="Ramp Height in metres">
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>💧 Automated Root Irrigation</label>
+          <strong class="tycoon-val-pill">${state.waterPerDay || 50} mL/day</strong>
         </div>
-        <div class="field">
-          <label>Dock Surface:</label>
-          <div class="harbor-walk-surface-buttons">
-            <button class="choice ${state.surface === 'smooth' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="surface" data-value="smooth" ${state.isSimulating ? 'disabled' : ''}>Smooth Wood Dock</button>
-            <button class="choice ${state.surface === 'rubber' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="surface" data-value="rubber" ${state.isSimulating ? 'disabled' : ''}>Rough Rubber Mat</button>
-          </div>
-          <small class="muted">⚠️ Fair test rule: keep surface on Smooth Wood Dock and change ONLY ramp height!</small>
-        </div>
-      `;
-    } else if (regionId === 'matter') {
-      fairControlsHtml = `
-        <div class="field">
-          <label>Flask Stopper Seal:</label>
-          <div class="harbor-walk-surface-buttons">
-            <button class="choice ${state.stopper === 'open' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="stopper" data-value="open" ${state.isSimulating ? 'disabled' : ''}>Open Flask (Stopper Off)</button>
-            <button class="choice ${state.stopper === 'sealed' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="stopper" data-value="sealed" ${state.isSimulating ? 'disabled' : ''}>Sealed Flask (Stopper On)</button>
-          </div>
-          <small class="muted">⚠️ Fair test rule: keep starting reactants at 60.0 g and change ONLY the stopper seal!</small>
-        </div>
-      `;
-    } else if (regionId === 'living') {
-      fairControlsHtml = `
-        <div class="field">
-          <label>Sunlamp Intensity: <strong>${state.lightLevel || 500} lux</strong> (Trial 1 was ${t1 ? t1.lightLevel : 500} lux)</label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.lightLevel === 200 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="200" ${state.isSimulating ? 'disabled' : ''}>Low (200 lux)</button>
-            <button class="choice ${state.lightLevel === 500 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="500" ${state.isSimulating ? 'disabled' : ''}>Medium (500 lux)</button>
-            <button class="choice ${state.lightLevel === 900 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="lightLevel" data-value="900" ${state.isSimulating ? 'disabled' : ''}>High (900 lux)</button>
-          </div>
-          <small class="muted">⚠️ Fair test rule: keep water fixed at 50 mL/day and change ONLY the sunlamp light level!</small>
-        </div>
-      `;
-    } else if (regionId === 'earth') {
-      fairControlsHtml = `
-        <div class="field">
-          <label>Hillside Flume Cover:</label>
-          <div class="harbor-walk-surface-buttons">
-            <button class="choice ${state.cover === 'vegetation' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="cover" data-value="vegetation" ${state.isSimulating ? 'disabled' : ''}>Dense Root Vegetation (Grass)</button>
-            <button class="choice ${state.cover === 'bare' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="cover" data-value="bare" ${state.isSimulating ? 'disabled' : ''}>Bare Soil</button>
-          </div>
-          <small class="muted">⚠️ Fair test rule: keep rainfall fixed at 30 mm/h and change ONLY the surface vegetation cover!</small>
-        </div>
-      `;
-    } else if (regionId === 'signal') {
-      fairControlsHtml = `
-        <div class="field">
-          <label>Wave Paddle Frequency: <strong>${(state.frequency || 1.0).toFixed(1)} Hz</strong> (Trial 1 was ${t1 ? t1.frequency.toFixed(1) : '1.0'} Hz)</label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.frequency === 0.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="0.5" ${state.isSimulating ? 'disabled' : ''}>0.5 Hz (Gentle)</button>
-            <button class="choice ${state.frequency === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="1.0" ${state.isSimulating ? 'disabled' : ''}>1.0 Hz (Standard)</button>
-            <button class="choice ${state.frequency === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="2.0" ${state.isSimulating ? 'disabled' : ''}>2.0 Hz (Rapid)</button>
-          </div>
-          <small class="muted">⚠️ Fair test rule: keep water depth constant and change ONLY the wave frequency!</small>
-        </div>
-      `;
-    } else if (regionId === 'orbit') {
-      fairControlsHtml = `
-        <div class="field">
-          <label>Orbital Radius: <strong>${(state.radiusAU || 1.0).toFixed(1)} AU</strong> (Trial 1 was ${t1 ? t1.radiusAU.toFixed(1) : '1.0'} AU)</label>
-          <div class="harbor-walk-height-buttons">
-            <button class="choice ${state.radiusAU === 0.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="0.5" ${state.isSimulating ? 'disabled' : ''}>0.5 AU (Inner)</button>
-            <button class="choice ${state.radiusAU === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="1.0" ${state.isSimulating ? 'disabled' : ''}>1.0 AU (Earth-like)</button>
-            <button class="choice ${state.radiusAU === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="2.0" ${state.isSimulating ? 'disabled' : ''}>2.0 AU (Outer)</button>
-          </div>
-          <small class="muted">⚠️ Fair test rule: keep central star mass fixed and change ONLY the orbital radius!</small>
-        </div>
-      `;
-    }
-
-    taskCardBodyHtml = `
-      <div class="adventure-step-content">
-        <p class="eyebrow">STEP 3 · CONDUCT A FAIR TEST</p>
-        <h3>Change ONLY the Target Variable</h3>
-        <p>A fair test isolates cause and effect by keeping all other variables constant while changing <em>only one condition</em>!</p>
-
-        ${state.fairWarning ? `
-          <div class="harbor-walk-warning" role="alert">
-            ${esc(state.fairWarning)}
-          </div>
-        ` : ''}
-
-        ${state.whatChanged ? `
-          <div class="harbor-walk-evidence-banner">
-            <span class="evidence-icon">📋</span>
-            <div>
-              <strong>Latest Evidence:</strong>
-              <p>${esc(state.whatChanged)}</p>
-            </div>
-          </div>
-        ` : ''}
-
-        <div class="harbor-walk-form">
-          ${fairControlsHtml}
-          <button class="primary full" data-action="adventure-3d-run-trial" ${state.isSimulating ? 'disabled' : ''}>
-            ${state.isSimulating ? 'Testing comparison…' : '🚀 Run Fair Comparison'}
-          </button>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${state.waterPerDay === 20 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="waterPerDay" data-value="20">20 mL (Dry)</button>
+          <button class="choice ${state.waterPerDay === 50 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="waterPerDay" data-value="50">50 mL (Ideal)</button>
+          <button class="choice ${state.waterPerDay === 90 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="waterPerDay" data-value="90">90 mL (Flood)</button>
         </div>
       </div>
     `;
-  } else if (step === 4) {
-    const q = config.question;
-    taskCardBodyHtml = `
-      <div class="adventure-step-content">
-        <p class="eyebrow">STEP 4 · EXPLAIN THE FAIR TEST</p>
-        <h3>What Did Your Fair Test Prove?</h3>
-        <p>You tested two controlled conditions. Now explain the scientific principle supported by your evidence!</p>
+  } else if (regionId === 'earth') {
+    tunerControlsHtml = `
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>🌲 Hillside Slope Cover (Erosion Control)</label>
+        </div>
+        <div class="harbor-walk-surface-buttons">
+          <button class="choice ${state.cover === 'bare' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="cover" data-value="bare">🟫 Bare Soil (Unprotected)</button>
+          <button class="choice ${state.cover === 'vegetation' ? 'selected' : ''}" data-action="adventure-3d-param" data-param="cover" data-value="vegetation">🌲 Dense Root Forest (Anchored)</button>
+        </div>
+      </div>
 
-        ${state.whatChanged ? `
-          <div class="harbor-walk-evidence-banner">
-            <span class="evidence-icon">📋</span>
-            <div>
-              <strong>Recorded Fair Test Evidence:</strong>
-              <p>${esc(state.whatChanged)}</p>
-            </div>
-          </div>
-        ` : ''}
-
-        <div class="harbor-walk-question">
-          <p class="question-prompt"><strong>${esc(q.prompt)}</strong></p>
-          <div class="choices">
-            ${q.options.map((opt, i) => `
-              <button class="choice ${state.questionChoice === i ? 'selected' : ''}" data-action="adventure-3d-choice" data-value="${i}">
-                <span class="choice-dot">${state.questionChoice === i ? '●' : '○'}</span>
-                <span>${esc(opt)}</span>
-              </button>
-            `).join('')}
-          </div>
-
-          ${state.questionFeedback ? `
-            <div class="feedback ${state.questionFeedback.ok ? 'good' : 'try'}">
-              ${esc(state.questionFeedback.text)}
-            </div>
-          ` : ''}
-
-          <button class="primary full" data-action="adventure-3d-submit-answer" ${state.questionChoice === null ? 'disabled' : ''}>
-            Check Scientific Explanation →
-          </button>
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>🌧️ Reservoir Stormflow Gate</label>
+          <strong class="tycoon-val-pill">${state.rainfallRate || 30} mm/h</strong>
+        </div>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${state.rainfallRate === 15 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="rainfallRate" data-value="15">15 mm/h (Low)</button>
+          <button class="choice ${state.rainfallRate === 30 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="rainfallRate" data-value="30">30 mm/h (Optimal)</button>
+          <button class="choice ${state.rainfallRate === 50 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="rainfallRate" data-value="50">50 mm/h (Surge)</button>
         </div>
       </div>
     `;
-  } else if (step === 5) {
-    taskCardBodyHtml = `
-      <div class="adventure-step-content celebration-card">
-        <div class="completion-icon">✦</div>
-        <p class="eyebrow">DISCOVERY COMPLETE · RESTORATION ACHIEVED</p>
-        <h2>${config.facilityName} is Restored!</h2>
-        <p>By conducting an authentic fair test, your evidence has restored <strong>${config.facilityName}</strong> in <strong>${config.regionName}</strong>!</p>
-
-        <div class="restoration-badge">
-          <span class="badge success">✓ ${config.facilityName} Restored</span>
+  } else if (regionId === 'signal') {
+    tunerControlsHtml = `
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>🌊 Wave Oscillator Frequency (f)</label>
+          <strong class="tycoon-val-pill">${(state.frequency || 1.0).toFixed(1)} Hz</strong>
         </div>
-
-        <div class="harbor-walk-what-changed-final">
-          <h4>Your Fair Test Evidence:</h4>
-          <p>${esc(state.whatChanged || 'Fair comparison verified and recorded.')}</p>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${state.frequency === 0.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="0.5">0.5 Hz (λ=8m)</button>
+          <button class="choice ${state.frequency === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="1.0">1.0 Hz (λ=4m)</button>
+          <button class="choice ${state.frequency === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="frequency" data-value="2.0">2.0 Hz (λ=2m Sync)</button>
         </div>
+      </div>
 
-        <div class="celebration-actions">
-          <button class="primary full" data-action="region" data-id="${config.id}">View Restored ${config.regionName} →</button>
-          <button class="secondary full" data-action="nav" data-view="explore">Return to Discovery Islands Map</button>
-          <button class="text-button" data-action="adventure-3d-freewalk">Keep Exploring 3D World</button>
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>⚓ Channel Water Depth (Wave Speed Medium)</label>
+          <strong class="tycoon-val-pill">${(state.waterDepth || 1.0).toFixed(1)} m</strong>
+        </div>
+        <div class="harbor-walk-surface-buttons">
+          <button class="choice ${state.waterDepth === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="waterDepth" data-value="1.0">1.0 m (Calibrated v=4m/s)</button>
+          <button class="choice ${state.waterDepth === 2.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="waterDepth" data-value="2.5">2.5 m (Deep Drift)</button>
+        </div>
+      </div>
+    `;
+  } else if (regionId === 'orbit') {
+    tunerControlsHtml = `
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>🪐 Satellite Orbital Radius (Kepler Distance)</label>
+          <strong class="tycoon-val-pill">${(state.radiusAU || 1.0).toFixed(1)} AU</strong>
+        </div>
+        <div class="harbor-walk-height-buttons">
+          <button class="choice ${state.radiusAU === 0.5 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="0.5">0.5 AU (4.2s Fast)</button>
+          <button class="choice ${state.radiusAU === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="1.0">1.0 AU (12s Mid)</button>
+          <button class="choice ${state.radiusAU === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="radiusAU" data-value="2.0">2.0 AU (33.9s Sync)</button>
+        </div>
+      </div>
+
+      <div class="tycoon-control-group">
+        <div class="tycoon-control-header">
+          <label>☀️ Central Star Mass Lock (Gravity Source)</label>
+          <strong class="tycoon-val-pill">${(state.starMass || 1.0).toFixed(1)} M☉</strong>
+        </div>
+        <div class="harbor-walk-surface-buttons">
+          <button class="choice ${state.starMass === 1.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="starMass" data-value="1.0">1.0 M☉ (Solar Standard)</button>
+          <button class="choice ${state.starMass === 2.0 ? 'selected' : ''}" data-action="adventure-3d-param" data-param="starMass" data-value="2.0">2.0 M☉ (Heavy Star)</button>
         </div>
       </div>
     `;
   }
 
-  return `
-    <section class="adventure-3d-wrap harbor-walk-wrap is-immersive" aria-label="3D Immersive Adventure: ${config.regionName}">
-      <!-- Top HUD Floating Header -->
-      <header class="adventure-3d-topbar harbor-walk-topbar" role="banner">
-        <button class="adventure-3d-exit-btn back" data-action="adventure-3d-exit" data-region="${config.id}" aria-label="Exit 3D world to map">
-          ← Exit
-        </button>
-        <div class="adventure-3d-title harbor-walk-title">
-          <span class="region-badge-icon">${config.icon}</span>
-          <h1>${config.regionName} · 3D Adventure</h1>
-          <span class="badge ${state.completed ? 'success' : ''}">
-            ${state.completed ? `${config.facilityName} Restored` : `Step ${step}/5: ${stepsList[step - 1]?.label || 'Task'}`}
-          </span>
+  // Buildings grid for the "Build & Upgrade" tab
+  const lvls = state.buildingLevels || {};
+  const buildingsHtml = (config.buildings || []).map(b => {
+    const lvl = lvls[b.id] || 0;
+    const cost = Math.round(b.baseCost * Math.pow(1.5, lvl));
+    const currentInc = lvl > 0 ? Math.round(b.baseIncome * (1 + (lvl - 1) * 0.6)) : 0;
+    const nextInc = Math.round(b.baseIncome * (1 + lvl * 0.6));
+    const canAfford = funds >= cost && lvl < 3;
+    return `
+      <div class="tycoon-bldg-card ${lvl > 0 ? 'is-built' : 'is-unbuilt'}">
+        <div class="tycoon-bldg-icon">${b.icon}</div>
+        <div class="tycoon-bldg-info">
+          <div class="tycoon-bldg-title-row">
+            <strong>${esc(b.name)}</strong>
+            <span class="tycoon-lvl-badge ${lvl > 0 ? 'built' : ''}">${lvl === 0 ? 'Unbuilt' : `Lv.${lvl}`}</span>
+          </div>
+          <p class="tycoon-bldg-desc">${esc(b.desc)}</p>
+          <div class="tycoon-bldg-stats">
+            <span>Income: <b>+$${currentInc}/s</b> → <b class="next-inc">+$${nextInc}/s</b></span>
+          </div>
         </div>
+        <button type="button" class="tycoon-build-btn ${canAfford ? 'can-afford' : ''}" data-action="tycoon-build" data-bldg="${b.id}" ${lvl >= 3 ? 'disabled' : ''}>
+          ${lvl >= 3 ? '✓ MAX' : lvl === 0 ? `🔨 Build $${cost}` : `⬆️ Upgr $${cost}`}
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <section class="adventure-3d-wrap harbor-walk-wrap is-immersive" aria-label="3D Island Tycoon: ${config.regionName}">
+      <!-- Top HUD Floating SimCity / Tycoon Bar -->
+      <header class="adventure-3d-topbar harbor-walk-topbar tycoon-topbar" role="banner">
+        <div class="tycoon-topbar-left">
+          <button class="adventure-3d-exit-btn back" data-action="adventure-3d-exit" data-region="${config.id}" aria-label="Exit 3D world to map">
+            ← Map
+          </button>
+          <div class="tycoon-sector-switcher" role="navigation" aria-label="Switch Island Sector">
+            ${regionTabsHtml}
+          </div>
+        </div>
+
+        <div class="tycoon-economy-strip" aria-live="polite">
+          <div class="econ-pill econ-funds" title="Island Treasury & Income Rate">
+            <span class="econ-icon">💰</span>
+            <div>
+              <strong id="tycoon-funds-val">$${funds}</strong>
+              <small id="tycoon-income-val">+$${metrics.totalIncome}/s</small>
+            </div>
+          </div>
+          <div class="econ-pill econ-efficiency ${metrics.isOptimal ? 'optimal' : 'suboptimal'}" title="Science Machine Efficiency">
+            <span class="econ-icon">⚙️</span>
+            <div>
+              <strong id="tycoon-eff-val">${metrics.efficiency}%</strong>
+              <small>Efficiency</small>
+            </div>
+          </div>
+          <div class="econ-pill econ-power" title="Grid Power Output">
+            <span class="econ-icon">⚡</span>
+            <div>
+              <strong id="tycoon-power-val">${metrics.powerMW} MW</strong>
+              <small>Eco ${metrics.ecoScore}%</small>
+            </div>
+          </div>
+          <div class="econ-pill econ-prosperity" title="Sector Prosperity & Restoration">
+            <span class="econ-icon">🏆</span>
+            <div>
+              <strong id="tycoon-prosperity-val">${metrics.prosperity}%</strong>
+              <small>${state.completed ? 'Restored' : `Step ${step}/5`}</small>
+            </div>
+          </div>
+        </div>
+
         <div class="adventure-3d-top-actions">
+          <div class="adventure-3d-title harbor-walk-title sr-only">
+            <h1>${config.regionName} · Step ${step} of 5</h1>
+          </div>
           <button class="adventure-3d-focus-btn harbor-walk-cam-reset" data-action="adventure-3d-focus-target" data-region="${config.id}" aria-label="Point camera toward ${config.targetName}">
-            <span class="cam-icon">🎯</span> <span>Focus Target</span>
+            <span class="cam-icon">🎯</span> <span>Center</span>
           </button>
           <button class="adventure-3d-fullscreen-btn" data-action="adventure-3d-toggle-fullscreen" aria-label="Toggle Fullscreen">
             ⛶
@@ -343,13 +265,13 @@ export function adventure3DView(regionId, profile, state) {
       </header>
 
       <!-- Full-Screen 3D WebGL Canvas Viewport -->
-      <div id="adventure-3d-canvas-container" class="adventure-3d-canvas-box harbor-walk-canvas-box" tabindex="0" role="region" aria-label="3D walkable world for ${config.regionName}">
+      <div id="adventure-3d-canvas-container" class="adventure-3d-canvas-box harbor-walk-canvas-box" tabindex="0" role="region" aria-label="3D Sim-Tycoon world for ${config.regionName}">
         <!-- WebGL Canvas renders full screen here -->
       </div>
 
       <!-- Controls Guidance -->
       <div class="adventure-3d-keys-guide harbor-walk-keys-guide" aria-hidden="true">
-        <span class="desktop-guide"><span class="key-badge">W</span><span class="key-badge">A</span><span class="key-badge">S</span><span class="key-badge">D</span> to Walk · Drag to Look</span>
+        <span class="desktop-guide"><span class="key-badge">W</span><span class="key-badge">A</span><span class="key-badge">S</span><span class="key-badge">D</span> Walk · Drag to Orbit · Tune & Build on Right</span>
         <span class="mobile-guide">◀ ▲ ▶ Left D-Pad to Walk · Swipe to Look</span>
       </div>
 
@@ -364,29 +286,78 @@ export function adventure3DView(regionId, profile, state) {
         </div>
       </div>
 
-      <!-- Floating Pip Glass Card -->
-      <aside class="adventure-3d-card harbor-walk-card ${isCollapsed ? 'is-collapsed' : ''}" aria-label="Mission investigation card">
+      <!-- Floating Sim-Tycoon Command Dock -->
+      <aside class="adventure-3d-card harbor-walk-card tycoon-dock ${isCollapsed ? 'is-collapsed' : ''}" aria-label="Tycoon Command Dock">
         <div class="adventure-card-header">
-          <div class="pip-face-icon">🤖</div>
+          <div class="pip-face-icon">${config.icon}</div>
           <div class="adventure-card-header-text">
-            <span class="card-eyebrow">PIP'S FIELD HUD · STEP ${step}</span>
-            <h4 class="card-title">${stepsList[step - 1]?.label || 'Task'}</h4>
+            <span class="card-eyebrow">${esc(config.tycoonTitle.toUpperCase())} · +$${metrics.totalIncome}/SEC · STEP ${step}</span>
+            <h4 class="card-title">${state.completed ? `✓ ${config.facilityName} Thriving!` : `${config.regionName} Director`}</h4>
           </div>
-          <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-expanded="${!isCollapsed}" aria-controls="adventure-task-body" aria-label="${isCollapsed ? 'Expand Pip task panel' : 'Collapse Pip task panel'}">
-            ${isCollapsed ? 'Show task' : '▼ Minimize'}
+          <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-expanded="${!isCollapsed}" aria-controls="adventure-task-body" aria-label="${isCollapsed ? 'Expand Tycoon Dock' : 'Minimize Tycoon Dock'}">
+            ${isCollapsed ? '▲ Expand' : '▼ Hide'}
           </button>
         </div>
 
         ${isCollapsed ? '' : `
           <div class="adventure-card-body" id="adventure-task-body">
-            ${stepperHtml}
-            ${taskCardBodyHtml}
+            <!-- Prosperity Progress Bar -->
+            <div class="tycoon-prosperity-bar-wrap">
+              <div class="tycoon-prosperity-labels">
+                <span>🏙️ Sector Prosperity: <strong>${metrics.prosperity}%</strong></span>
+                <span class="prosperity-goal">${state.completed ? '🏆 Facility Restored!' : 'Goal: Tune to 100% + Build'}</span>
+              </div>
+              <div class="tycoon-progress-track">
+                <div class="tycoon-progress-fill ${metrics.isOptimal ? 'optimal' : ''}" style="width: ${metrics.prosperity}%"></div>
+              </div>
+            </div>
+
+            <!-- Mode Tabs: Tune Science vs Build City -->
+            <div class="tycoon-mode-tabs" role="tablist">
+              <button type="button" class="tycoon-tab-btn ${activeTab === 'tune' ? 'active' : ''}" data-action="tycoon-tab" data-tab="tune">
+                🎛️ Tune Science (${metrics.efficiency}%)
+              </button>
+              <button type="button" class="tycoon-tab-btn ${activeTab === 'build' ? 'active' : ''}" data-action="tycoon-tab" data-tab="build">
+                🏗️ Build City (${Object.values(lvls).reduce((a, b) => a + b, 0)})
+              </button>
+            </div>
+
+            ${activeTab === 'tune' ? `
+              <div class="tycoon-tune-panel">
+                <!-- Live Telemetry Readout -->
+                <div class="tycoon-telemetry-box ${metrics.isOptimal ? 'is-optimal' : 'needs-tuning'}">
+                  <div class="telemetry-top-row">
+                    <span class="telemetry-label">${esc(metrics.metricLabel)}: <strong>${esc(metrics.metricValue)}</strong></span>
+                    <span class="telemetry-target">Target: ${esc(metrics.metricTarget)}</span>
+                  </div>
+                  <p class="telemetry-status">${esc(metrics.statusText)}</p>
+                  <p class="telemetry-science">🔬 ${esc(metrics.scienceInsight)}</p>
+                </div>
+
+                <!-- Interactive Sliders & Switches -->
+                ${tunerControlsHtml}
+
+                <!-- Action Row: Pulse 3D Simulation & Collect Grant -->
+                <div class="tycoon-action-row">
+                  <button type="button" class="primary full tycoon-pulse-btn" data-action="adventure-3d-run-trial" ${state.isSimulating ? 'disabled' : ''}>
+                    ${state.isSimulating ? '⚙️ Simulating in 3D...' : `⚡ Test & Collect Shipment (+$${metrics.isOptimal ? 90 : 35})`}
+                  </button>
+                </div>
+              </div>
+            ` : `
+              <div class="tycoon-build-panel">
+                <p class="tycoon-build-intro">Construct and upgrade 3D facilities on your island! Higher science efficiency (${metrics.efficiency}%) multiplies all building profits.</p>
+                <div class="tycoon-bldg-list">
+                  ${buildingsHtml}
+                </div>
+              </div>
+            `}
           </div>
         `}
       </aside>
 
-      <!-- Backwards compatibility container for tests looking for .harbor-walk-viewport-container -->
-      <div class="harbor-walk-viewport-container sr-only" aria-hidden="true"></div>
+      <!-- Backwards compatibility hooks for existing tests -->
+      <div class="harbor-walk-viewport-container sr-only" aria-hidden="true">Step ${step} of 5</div>
       <div class="harbor-walk-sidebar sr-only" aria-hidden="true"></div>
     </section>
   `;
