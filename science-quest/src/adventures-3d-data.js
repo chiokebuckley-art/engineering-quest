@@ -998,6 +998,8 @@ export function createAdventureState(regionId = 'motion') {
   return {
     regionId: config.id,
     step: 1,
+    cameraMode: 'city',
+    selectedObject: null,
     ...structuredClone(config.defaultState)
   };
 }

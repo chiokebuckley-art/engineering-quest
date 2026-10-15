@@ -6,24 +6,50 @@ export function adventure3DView(regionId, profile, state) {
   const step = state.step || 1;
   const isCollapsed = !!state.cardCollapsed;
   const activeTab = state.activeTab || 'tune';
+  const cameraMode = state.cameraMode || 'city';
   const funds = Math.floor(state.funds ?? 220);
   const metrics = config.calculateTycoonMetrics(state);
+  const lvls = state.buildingLevels || {};
+  const totalBuiltLevels = Object.values(lvls).reduce((a, b) => a + b, 0);
+  const selectedObj = state.selectedObject || null;
 
-  const stepsList = [
-    { num: 1, label: config.stepTitles[1] || 'Inspect' },
-    { num: 2, label: config.stepTitles[2] || 'Tune' },
-    { num: 3, label: config.stepTitles[3] || 'Optimize' },
-    { num: 4, label: config.stepTitles[4] || 'Expand' },
-    { num: 5, label: config.stepTitles[5] || 'Thriving' }
-  ];
-
-  // Region switcher pills so player can manage all 6 islands like SimCity
+  // Region switcher pills so player can jump between all 6 3D islands like SimCity
   const regionTabsHtml = Object.values(ADVENTURE_CONFIGS).map(r => `
     <button type="button" class="tycoon-sector-pill ${r.id === config.id ? 'active' : ''}" data-action="open-3d-adventure" data-region="${r.id}" title="Switch to ${esc(r.regionName)}">
       <span>${r.icon}</span>
       <span class="sector-pill-name">${esc(r.regionName.split(' ')[0])}</span>
     </button>
   `).join('');
+
+  // Floating 3D World Markers projected directly over the 3D machine and 3D building pads
+  const bldgs = config.buildings || [];
+  const mainMachineBldg = bldgs[0] || { name: config.targetName, icon: config.icon };
+  const worldMarkersHtml = `
+    <button type="button" class="tycoon-3d-marker marker-machine ${metrics.isOptimal ? 'is-optimal' : 'needs-tune'} ${selectedObj?.type === 'machine' ? 'is-selected' : ''}" data-marker-id="machine" data-action="tycoon-select-object" data-obj-type="machine" style="left:50%;top:42%;">
+      <span class="marker-icon">${config.icon}</span>
+      <span class="marker-info">
+        <strong>${esc(mainMachineBldg.name)}</strong>
+        <small>${metrics.isOptimal ? `✓ ${metrics.efficiency}% Peak` : `🎛️ ${metrics.efficiency}% · Tap to Tune`}</small>
+      </span>
+    </button>
+    ${bldgs.slice(1).map((b, idx) => {
+      const lvl = lvls[b.id] || 0;
+      const cost = Math.round(b.baseCost * Math.pow(1.5, lvl));
+      const inc = lvl > 0 ? Math.round(b.baseIncome * (1 + (lvl - 1) * 0.6)) : b.baseIncome;
+      const canAfford = funds >= cost && lvl < 3;
+      const defaultLeft = idx === 0 ? 32 : idx === 1 ? 68 : 72;
+      const defaultTop = idx === 0 ? 55 : idx === 1 ? 52 : 36;
+      return `
+        <button type="button" class="tycoon-3d-marker marker-bldg ${lvl > 0 ? 'is-built' : 'is-unbuilt'} ${canAfford ? 'can-afford' : ''} ${selectedObj?.id === b.id ? 'is-selected' : ''}" data-marker-id="bldg-${b.id}" data-action="tycoon-select-object" data-obj-type="building" data-bldg="${b.id}" style="left:${defaultLeft}%;top:${defaultTop}%;">
+          <span class="marker-icon">${lvl === 0 ? '🔨' : b.icon}</span>
+          <span class="marker-info">
+            <strong>${esc(b.name)} ${lvl > 0 ? `Lv.${lvl}` : ''}</strong>
+            <small>${lvl === 0 ? `Build $${cost} (+$${inc}/s)` : lvl < 3 ? `+$${inc}/s · Upgr $${cost}` : `+$${inc}/s · MAX`}</small>
+          </span>
+        </button>
+      `;
+    }).join('')}
+  `;
 
   // Region-specific live tuning controls (No quizzes—pure live physics & science tuning!)
   let tunerControlsHtml = '';
@@ -179,16 +205,24 @@ export function adventure3DView(regionId, profile, state) {
     `;
   }
 
-  // Buildings grid for the "Build & Upgrade" tab
-  const lvls = state.buildingLevels || {};
-  const buildingsHtml = (config.buildings || []).map(b => {
+  // Buildings grid for the "Build & Upgrade" tab (highlights selected 3D plot if one was tapped)
+  const orderedBuildings = [...bldgs].sort((a, b) => {
+    if (selectedObj?.type === 'building') {
+      if (a.id === selectedObj.id) return -1;
+      if (b.id === selectedObj.id) return 1;
+    }
+    return 0;
+  });
+
+  const buildingsHtml = orderedBuildings.map(b => {
     const lvl = lvls[b.id] || 0;
     const cost = Math.round(b.baseCost * Math.pow(1.5, lvl));
     const currentInc = lvl > 0 ? Math.round(b.baseIncome * (1 + (lvl - 1) * 0.6)) : 0;
     const nextInc = Math.round(b.baseIncome * (1 + lvl * 0.6));
     const canAfford = funds >= cost && lvl < 3;
+    const isSelectedPlot = selectedObj?.type === 'building' && selectedObj.id === b.id;
     return `
-      <div class="tycoon-bldg-card ${lvl > 0 ? 'is-built' : 'is-unbuilt'}">
+      <div class="tycoon-bldg-card ${lvl > 0 ? 'is-built' : 'is-unbuilt'} ${isSelectedPlot ? 'is-selected-plot' : ''}">
         <div class="tycoon-bldg-icon">${b.icon}</div>
         <div class="tycoon-bldg-info">
           <div class="tycoon-bldg-title-row">
@@ -207,13 +241,42 @@ export function adventure3DView(regionId, profile, state) {
     `;
   }).join('');
 
+  // Sleek 3D Entry Title Overlay (dismissible right into the live 3D island)
+  const titleOverlayHtml = state.showTitleOverlay ? `
+    <div class="tycoon-title-overlay" role="dialog" aria-label="Science Quest Island Tycoon 3D Title Screen">
+      <div class="tycoon-title-card">
+        <div class="tycoon-title-badge">✦ FULL 3D SIM-TYCOON WORLD</div>
+        <h2 class="tycoon-hero-heading">SCIENCE QUEST: <span>ISLAND TYCOON</span></h2>
+        <p class="tycoon-hero-sub">Tap any 3D machine or glowing construction pad on the island to tune real physics, generate power, and build your research metropolis!</p>
+        <div class="tycoon-island-picker">
+          ${Object.values(ADVENTURE_CONFIGS).map(r => `
+            <button type="button" class="tycoon-island-card ${r.id === config.id ? 'selected' : ''}" data-action="tycoon-pick-island" data-region="${r.id}">
+              <span class="island-card-icon">${r.icon}</span>
+              <strong>${esc(r.regionName)}</strong>
+              <small>${esc(r.tycoonTitle)}</small>
+            </button>
+          `).join('')}
+        </div>
+        <div class="tycoon-title-actions">
+          <button type="button" class="primary tycoon-start-btn" data-action="tycoon-start-game">
+            ▶ PLAY ${esc(config.regionName.toUpperCase())} IN 3D
+          </button>
+          <div class="tycoon-secondary-links">
+            <button type="button" class="secondary" data-action="watch-video" data-region="${config.id}">🎬 Island Cinema</button>
+            <button type="button" class="secondary" data-action="adventure-3d-exit" data-region="">🗺️ 2D Field Map</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  ` : '';
+
   return `
     <section class="adventure-3d-wrap harbor-walk-wrap is-immersive" aria-label="3D Island Tycoon: ${config.regionName}">
       <!-- Top HUD Floating SimCity / Tycoon Bar -->
       <header class="adventure-3d-topbar harbor-walk-topbar tycoon-topbar" role="banner">
         <div class="tycoon-topbar-left">
-          <button class="adventure-3d-exit-btn back" data-action="adventure-3d-exit" data-region="${config.id}" aria-label="Exit 3D world to map">
-            ← Map
+          <button class="adventure-3d-exit-btn back" data-action="adventure-3d-exit" data-region="${config.id}" aria-label="Open 2D Map & Missions">
+            🗺️ Map
           </button>
           <div class="tycoon-sector-switcher" role="navigation" aria-label="Switch Island Sector">
             ${regionTabsHtml}
@@ -255,6 +318,9 @@ export function adventure3DView(regionId, profile, state) {
           <div class="adventure-3d-title harbor-walk-title sr-only">
             <h1>${config.regionName} · Step ${step} of 5</h1>
           </div>
+          <button class="adventure-3d-focus-btn" data-action="tycoon-camera-mode" aria-label="Switch Camera Mode">
+            <span>${cameraMode === 'city' ? '🏙️ City Cam' : '🚶 Walk Cam'}</span>
+          </button>
           <button class="adventure-3d-focus-btn harbor-walk-cam-reset" data-action="adventure-3d-focus-target" data-region="${config.id}" aria-label="Point camera toward ${config.targetName}">
             <span class="cam-icon">🎯</span> <span>Center</span>
           </button>
@@ -269,13 +335,14 @@ export function adventure3DView(regionId, profile, state) {
         <!-- WebGL Canvas renders full screen here -->
       </div>
 
-      <!-- Controls Guidance -->
-      <div class="adventure-3d-keys-guide harbor-walk-keys-guide" aria-hidden="true">
-        <span class="desktop-guide"><span class="key-badge">W</span><span class="key-badge">A</span><span class="key-badge">S</span><span class="key-badge">D</span> Walk · Drag to Orbit · Tune & Build on Right</span>
-        <span class="mobile-guide">◀ ▲ ▶ Left D-Pad to Walk · Swipe to Look</span>
+      <!-- Interactive 3D World Floating Badges (Projected over 3D Machine & Building Pads) -->
+      <div id="tycoon-3d-markers" class="tycoon-3d-markers-layer" aria-label="Interactive 3D World Structures">
+        ${worldMarkersHtml}
       </div>
 
-      <!-- Finger-Friendly Touch D-Pad for Mobile Phones -->
+      ${titleOverlayHtml}
+
+      <!-- Finger-Friendly Touch D-Pad for Mobile Phones / Walking -->
       <div class="adventure-3d-touch-controls harbor-walk-touch-controls" role="group" aria-label="Touch walk controls">
         <div class="harbor-walk-dpad adventure-3d-dpad">
           <button type="button" class="touch-btn touch-up" data-action="touch-walk" data-dir="forward" aria-label="Walk forward">▲</button>
@@ -286,39 +353,44 @@ export function adventure3DView(regionId, profile, state) {
         </div>
       </div>
 
-      <!-- Floating Sim-Tycoon Command Dock -->
-      <aside class="adventure-3d-card harbor-walk-card tycoon-dock ${isCollapsed ? 'is-collapsed' : ''}" aria-label="Tycoon Command Dock">
+      <!-- Sleek Bottom Game Action Bar (Always accessible while keeping 90% of screen clear) -->
+      <div class="tycoon-bottom-hud" role="toolbar" aria-label="Island Tycoon Actions">
+        <button type="button" class="tycoon-hud-btn ${!isCollapsed && activeTab === 'tune' ? 'active' : ''}" data-action="tycoon-select-object" data-obj-type="machine">
+          <span>🎛️</span> <span>Tune ${esc(config.targetName)} (${metrics.efficiency}%)</span>
+        </button>
+        <button type="button" class="tycoon-hud-btn hud-btn-pulse" data-action="adventure-3d-run-trial" ${state.isSimulating ? 'disabled' : ''}>
+          <span>⚡</span> <span>${state.isSimulating ? 'Running...' : `Test Shipment (+$${metrics.isOptimal ? 90 : 35})`}</span>
+        </button>
+        <button type="button" class="tycoon-hud-btn ${!isCollapsed && activeTab === 'build' ? 'active' : ''}" data-action="tycoon-open-build">
+          <span>🏗️</span> <span>Build (${totalBuiltLevels})</span>
+        </button>
+        <button type="button" class="tycoon-hud-btn" data-action="watch-video" data-region="${config.id}">
+          <span>🎬</span> <span>Briefing</span>
+        </button>
+      </div>
+
+      <!-- Compact Contextual Popover (Appears when a 3D machine or building pad is tapped; collapses to keep 90% screen clear!) -->
+      <aside class="adventure-3d-card harbor-walk-card tycoon-dock tycoon-context-popover ${isCollapsed ? 'is-collapsed' : ''}" aria-label="Tycoon Inspector">
         <div class="adventure-card-header">
           <div class="pip-face-icon">${config.icon}</div>
           <div class="adventure-card-header-text">
             <span class="card-eyebrow">${esc(config.tycoonTitle.toUpperCase())} · +$${metrics.totalIncome}/SEC · STEP ${step}</span>
-            <h4 class="card-title">${state.completed ? `✓ ${config.facilityName} Thriving!` : `${config.regionName} Director`}</h4>
+            <h4 class="card-title">${state.completed ? `✓ ${config.facilityName} Thriving!` : `${config.regionName} Inspector`}</h4>
           </div>
-          <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-expanded="${!isCollapsed}" aria-controls="adventure-task-body" aria-label="${isCollapsed ? 'Expand Tycoon Dock' : 'Minimize Tycoon Dock'}">
-            ${isCollapsed ? '▲ Expand' : '▼ Hide'}
+          <button class="adventure-card-toggle-btn" data-action="adventure-3d-toggle-card" aria-expanded="${!isCollapsed}" aria-controls="adventure-task-body" aria-label="${isCollapsed ? 'Open Inspector' : 'Close Inspector'}">
+            ${isCollapsed ? '🎛️ Inspect' : '✕ Close'}
           </button>
         </div>
 
         ${isCollapsed ? '' : `
           <div class="adventure-card-body" id="adventure-task-body">
-            <!-- Prosperity Progress Bar -->
-            <div class="tycoon-prosperity-bar-wrap">
-              <div class="tycoon-prosperity-labels">
-                <span>🏙️ Sector Prosperity: <strong>${metrics.prosperity}%</strong></span>
-                <span class="prosperity-goal">${state.completed ? '🏆 Facility Restored!' : 'Goal: Tune to 100% + Build'}</span>
-              </div>
-              <div class="tycoon-progress-track">
-                <div class="tycoon-progress-fill ${metrics.isOptimal ? 'optimal' : ''}" style="width: ${metrics.prosperity}%"></div>
-              </div>
-            </div>
-
             <!-- Mode Tabs: Tune Science vs Build City -->
             <div class="tycoon-mode-tabs" role="tablist">
               <button type="button" class="tycoon-tab-btn ${activeTab === 'tune' ? 'active' : ''}" data-action="tycoon-tab" data-tab="tune">
-                🎛️ Tune Science (${metrics.efficiency}%)
+                🎛️ Tune Machine (${metrics.efficiency}%)
               </button>
               <button type="button" class="tycoon-tab-btn ${activeTab === 'build' ? 'active' : ''}" data-action="tycoon-tab" data-tab="build">
-                🏗️ Build City (${Object.values(lvls).reduce((a, b) => a + b, 0)})
+                🏗️ Build Facilities (${totalBuiltLevels})
               </button>
             </div>
 
@@ -346,7 +418,7 @@ export function adventure3DView(regionId, profile, state) {
               </div>
             ` : `
               <div class="tycoon-build-panel">
-                <p class="tycoon-build-intro">Construct and upgrade 3D facilities on your island! Higher science efficiency (${metrics.efficiency}%) multiplies all building profits.</p>
+                <p class="tycoon-build-intro">Tap any glowing pad in 3D or upgrade below! Machine efficiency (${metrics.efficiency}%) boosts all facility income.</p>
                 <div class="tycoon-bldg-list">
                   ${buildingsHtml}
                 </div>
