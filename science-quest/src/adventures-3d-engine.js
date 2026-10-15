@@ -648,11 +648,38 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   }
 
   // -------------------------------------------------------------
-  // 3D SimCity / Tycoon Buildable Facilities Grid
+  // 3D SimCity / Tycoon Buildable Facilities Grid & Raycast Hitboxes
   // -------------------------------------------------------------
   const tycoonBuildingsGroup = new THREE.Group();
   scene.add(tycoonBuildingsGroup);
   const spinningRotors = [];
+
+  // Central Science Machine Interactive Base Ring & Hitbox
+  const machineHitMesh = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.1, 2.1, 2.8, 16),
+    new THREE.MeshBasicMaterial({ color: 0x54dfc2, transparent: true, opacity: 0.0, depthWrite: false })
+  );
+  machineHitMesh.position.set(worldTargetPos.x, 1.4, worldTargetPos.z);
+  machineHitMesh.userData = { interactType: 'machine' };
+  scene.add(machineHitMesh);
+
+  const machineBaseRing = new THREE.Mesh(
+    new THREE.RingGeometry(1.85, 2.05, 32),
+    new THREE.MeshBasicMaterial({ color: 0x54dfc2, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+  );
+  machineBaseRing.rotation.x = Math.PI / 2;
+  machineBaseRing.position.set(worldTargetPos.x, 0.04, worldTargetPos.z);
+  scene.add(machineBaseRing);
+
+  // Active 3D Selection Ring
+  const selectionRing = new THREE.Mesh(
+    new THREE.RingGeometry(1.55, 1.85, 32),
+    new THREE.MeshBasicMaterial({ color: 0xffd166, side: THREE.DoubleSide, transparent: true, opacity: 0.9 })
+  );
+  selectionRing.rotation.x = Math.PI / 2;
+  selectionRing.position.set(worldTargetPos.x, 0.06, worldTargetPos.z);
+  selectionRing.visible = false;
+  scene.add(selectionRing);
 
   function rebuildTycoonBuildings(currentState = state) {
     while (tycoonBuildingsGroup.children.length > 0) {
@@ -670,6 +697,16 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       const [bx, bz] = b.pos || [4, 2];
       const plotGroup = new THREE.Group();
       plotGroup.position.set(bx, 0, bz);
+      plotGroup.userData = { interactType: 'building', buildingId: b.id, pos: [bx, bz] };
+
+      // Invisible clickable volume for easy finger/mouse picking
+      const hitBox = new THREE.Mesh(
+        new THREE.BoxGeometry(2.8, 3.2, 2.8),
+        new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.0, depthWrite: false })
+      );
+      hitBox.position.y = 1.6;
+      hitBox.userData = { interactType: 'building', buildingId: b.id };
+      plotGroup.add(hitBox);
 
       // Foundation Pad
       const padMat = new THREE.MeshStandardMaterial({
@@ -680,25 +717,28 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       const pad = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.16, 2.6), padMat);
       pad.position.y = 0.08;
       pad.receiveShadow = true;
+      pad.userData = { interactType: 'building', buildingId: b.id };
       plotGroup.add(pad);
 
       if (lvl === 0) {
         // Unbuilt Blueprint Holo-Ring
         const holoRing = new THREE.Mesh(
-          new THREE.RingGeometry(0.85, 1.05, 24),
-          new THREE.MeshBasicMaterial({ color: 0x54dfc2, side: THREE.DoubleSide, transparent: true, opacity: 0.65 })
+          new THREE.RingGeometry(0.85, 1.08, 24),
+          new THREE.MeshBasicMaterial({ color: 0x54dfc2, side: THREE.DoubleSide, transparent: true, opacity: 0.75 })
         );
         holoRing.rotation.x = Math.PI / 2;
         holoRing.position.y = 0.18;
+        holoRing.userData = { interactType: 'building', buildingId: b.id };
         plotGroup.add(holoRing);
 
         // Corner blueprint posts
         for (const [cx, cz] of [[-1.1, -1.1], [1.1, -1.1], [-1.1, 1.1], [1.1, 1.1]]) {
           const post = new THREE.Mesh(
-            new THREE.BoxGeometry(0.1, 0.45, 0.1),
-            new THREE.MeshStandardMaterial({ color: 0x54dfc2, emissive: 0x54dfc2, emissiveIntensity: 0.3 })
+            new THREE.BoxGeometry(0.12, 0.55, 0.12),
+            new THREE.MeshStandardMaterial({ color: 0x54dfc2, emissive: 0x54dfc2, emissiveIntensity: 0.45 })
           );
-          post.position.set(cx, 0.3, cz);
+          post.position.set(cx, 0.32, cz);
+          post.userData = { interactType: 'building', buildingId: b.id };
           plotGroup.add(post);
         }
       } else {
@@ -711,6 +751,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
         );
         baseMesh.position.y = 0.16 + mainH / 2;
         baseMesh.castShadow = true;
+        baseMesh.userData = { interactType: 'building', buildingId: b.id };
         plotGroup.add(baseMesh);
 
         // Glowing Energy Core Band
@@ -719,6 +760,7 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
           new THREE.MeshStandardMaterial({ color: 0x54dfc2, emissive: 0x54dfc2, emissiveIntensity: 0.7 })
         );
         glowBand.position.y = 0.16 + mainH * 0.65;
+        glowBand.userData = { interactType: 'building', buildingId: b.id };
         plotGroup.add(glowBand);
 
         // Rotating Turbine / Dish / Solar Array on Roof
@@ -742,6 +784,26 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       }
 
       tycoonBuildingsGroup.add(plotGroup);
+    }
+
+    // Update 3D selection ring placement
+    const sel = currentState.selectedObject;
+    if (sel?.type === 'machine') {
+      selectionRing.position.set(worldTargetPos.x, 0.06, worldTargetPos.z);
+      selectionRing.scale.set(1.15, 1.15, 1);
+      selectionRing.visible = true;
+    } else if (sel?.type === 'building') {
+      const targetBldg = bldgs.find(x => x.id === sel.id);
+      if (targetBldg) {
+        const [bx, bz] = targetBldg.pos || [0, -2.5];
+        selectionRing.position.set(bx, 0.06, bz);
+        selectionRing.scale.set(1.0, 1.0, 1);
+        selectionRing.visible = true;
+      } else {
+        selectionRing.visible = false;
+      }
+    } else {
+      selectionRing.visible = false;
     }
   }
 
@@ -798,24 +860,36 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   syncWorldToState(state);
 
   // -------------------------------------------------------------
-  // Controls & Camera Navigation
+  // Controls, 3D Raycasting & Camera Navigation
   // -------------------------------------------------------------
   const keys = { forward: false, backward: false, left: false, right: false };
-  let cameraAngle = 0; // horizontal orbit angle
-  let cameraPitch = 0.38; // vertical tilt angle
-  let cameraDist = 8; // distance behind avatar
+  let cameraAngle = 0.28; // Slight isometric angle for SimCity view
+  let cameraPitch = 0.52; // Elevated SimCity tilt
+  let cameraDist = 14.0;
   let walkPhase = 0;
   const avatarHeading = { val: 0 };
 
+  const raycaster = new THREE.Raycaster();
+  const pointerNDC = new THREE.Vector2();
   let isPointerDown = false;
+  let downPointerX = 0;
+  let downPointerY = 0;
   let lastPointerX = 0;
   let lastPointerY = 0;
 
   function onPointerDown(e) {
-    if (e.target.closest('[data-action="touch-walk"]') || e.target.closest('.adventure-3d-card') || e.target.closest('.adventure-3d-topbar')) {
+    if (
+      e.target.closest('[data-action]') ||
+      e.target.closest('.adventure-3d-card') ||
+      e.target.closest('.adventure-3d-topbar') ||
+      e.target.closest('.tycoon-title-overlay') ||
+      e.target.closest('.tycoon-bottom-hud')
+    ) {
       return;
     }
     isPointerDown = true;
+    downPointerX = e.clientX;
+    downPointerY = e.clientY;
     lastPointerX = e.clientX;
     lastPointerY = e.clientY;
   }
@@ -828,17 +902,61 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     lastPointerY = e.clientY;
 
     cameraAngle -= dx * 0.006;
-    cameraPitch = Math.max(0.22, Math.min(0.72, cameraPitch - dy * 0.005));
+    cameraPitch = Math.max(0.24, Math.min(0.78, cameraPitch - dy * 0.005));
   }
 
-  function onPointerUp() {
+  function onPointerUp(e) {
+    if (!isPointerDown) return;
     isPointerDown = false;
+
+    const moveDist = Math.hypot(e.clientX - downPointerX, e.clientY - downPointerY);
+    if (moveDist < 9 && renderer.domElement && (e.target === renderer.domElement || container.contains(e.target))) {
+      const rect = renderer.domElement.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        pointerNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        pointerNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(pointerNDC, camera);
+        const hits = raycaster.intersectObjects([machineHitMesh, ...tycoonBuildingsGroup.children], true);
+        if (hits.length > 0) {
+          let obj = hits[0].object;
+          while (obj && !obj.userData?.interactType && obj.parent) {
+            obj = obj.parent;
+          }
+          const uData = obj?.userData;
+          if (uData?.interactType === 'machine') {
+            state.selectedObject = { type: 'machine' };
+            state.activeTab = 'tune';
+            state.cardCollapsed = false;
+            state.showTitleOverlay = false;
+            rebuildTycoonBuildings(state);
+            onStateChange({ selectedObject: state.selectedObject, activeTab: 'tune', cardCollapsed: false, showTitleOverlay: false });
+            return;
+          }
+          if (uData?.interactType === 'building' && uData.buildingId) {
+            state.selectedObject = { type: 'building', id: uData.buildingId };
+            state.activeTab = 'build';
+            state.cardCollapsed = false;
+            state.showTitleOverlay = false;
+            rebuildTycoonBuildings(state);
+            onStateChange({ selectedObject: state.selectedObject, activeTab: 'build', cardCollapsed: false, showTitleOverlay: false });
+            return;
+          }
+        }
+        // Tapped empty ground/water/sky -> collapse popover to keep 90% screen clear
+        if (!state.cardCollapsed) {
+          state.selectedObject = null;
+          state.cardCollapsed = true;
+          rebuildTycoonBuildings(state);
+          onStateChange({ selectedObject: null, cardCollapsed: true });
+        }
+      }
+    }
   }
 
   window.addEventListener('pointerdown', onPointerDown);
   window.addEventListener('pointermove', onPointerMove);
   window.addEventListener('pointerup', onPointerUp);
-  window.addEventListener('pointercancel', onPointerUp);
+  window.addEventListener('pointercancel', () => { isPointerDown = false; });
 
   // Keyboard navigation
   function onKeyDown(e) {
@@ -964,6 +1082,48 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
   }
 
   // -------------------------------------------------------------
+  // 3D-to-2D World Marker Projection Helper
+  // -------------------------------------------------------------
+  const projVec = new THREE.Vector3();
+
+  function updateFloatingMarkers() {
+    const wrap = container.parentElement;
+    if (!wrap) return;
+    const markersBox = wrap.querySelector('#tycoon-3d-markers');
+    if (!markersBox) return;
+
+    const projectPoint = (x, y, z, markerId) => {
+      const el = markersBox.querySelector(`[data-marker-id="${markerId}"]`);
+      if (!el) return;
+      projVec.set(x, y, z);
+      projVec.project(camera);
+      if (projVec.z > 1.0 || projVec.z < -1.0) {
+        el.style.display = 'none';
+        return;
+      }
+      const leftPct = (projVec.x * 0.5 + 0.5) * 100;
+      const topPct = (-projVec.y * 0.5 + 0.5) * 100;
+      if (leftPct < 4 || leftPct > 96 || topPct < 10 || topPct > 88) {
+        el.style.display = 'none';
+        return;
+      }
+      el.style.display = 'inline-flex';
+      el.style.left = `${leftPct.toFixed(1)}%`;
+      el.style.top = `${topPct.toFixed(1)}%`;
+    };
+
+    projectPoint(worldTargetPos.x, 2.35, worldTargetPos.z, 'machine');
+    const bldgs = config.buildings || [];
+    for (let i = 1; i < bldgs.length; i++) {
+      const b = bldgs[i];
+      const [bx, bz] = b.pos || [4, 2];
+      const lvl = (state.buildingLevels || {})[b.id] || 0;
+      const topY = lvl > 0 ? 2.4 + (lvl - 1) * 0.5 : 1.35;
+      projectPoint(bx, topY, bz, `bldg-${b.id}`);
+    }
+  }
+
+  // -------------------------------------------------------------
   // Main Animation / Render Loop
   // -------------------------------------------------------------
   let lastTime = performance.now();
@@ -980,6 +1140,13 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
     // Spin built tycoon facility rotors continuously
     for (const rotor of spinningRotors) {
       rotor.rotation.y += dt * 1.8;
+    }
+
+    // Pulse 3D rings
+    machineBaseRing.material.opacity = 0.4 + Math.sin(simClock * 3.0) * 0.2;
+    if (selectionRing.visible) {
+      const pulse = 1.0 + Math.sin(simClock * 5.0) * 0.06;
+      selectionRing.scale.set(pulse, pulse, 1);
     }
 
     // Continuous background Sim-Tycoon machine motion when not in burst simulation
@@ -1062,15 +1229,27 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       if (Math.abs(diff) < 0.02) isCameraFocusing = false;
     }
 
-    const camX = avatar.position.x + Math.sin(cameraAngle) * Math.cos(cameraPitch) * cameraDist;
-    const camY = avatar.position.y + 1.2 + Math.sin(cameraPitch) * cameraDist;
-    const camZ = avatar.position.z + Math.cos(cameraAngle) * Math.cos(cameraPitch) * cameraDist;
+    // Camera mode: 'city' (elevated SimCity overview of island) vs 'walk' (third-person avatar follow)
+    const isCityMode = (state.cameraMode || 'city') === 'city' && !isMoving;
+    const targetDist = isCityMode ? 14.2 : 7.8;
+    cameraDist += (targetDist - cameraDist) * 0.08;
+
+    const focusOriginX = isCityMode ? 0 : avatar.position.x;
+    const focusOriginY = isCityMode ? 0.8 : avatar.position.y + 1.4;
+    const focusOriginZ = isCityMode ? -1.0 : avatar.position.z;
+
+    const camX = focusOriginX + Math.sin(cameraAngle) * Math.cos(cameraPitch) * cameraDist;
+    const camY = focusOriginY + Math.sin(cameraPitch) * cameraDist;
+    const camZ = focusOriginZ + Math.cos(cameraAngle) * Math.cos(cameraPitch) * cameraDist;
 
     camera.position.set(camX, camY, camZ);
-    guardCamera(camera, avatar.position);
-    camera.lookAt(avatar.position.x, avatar.position.y + 1.4, avatar.position.z);
+    if (!isCityMode) {
+      guardCamera(camera, avatar.position);
+    }
+    camera.lookAt(focusOriginX, focusOriginY, focusOriginZ);
 
     renderer.render(scene, camera);
+    updateFloatingMarkers();
   }
 
   animFrameId = requestAnimationFrame(animate);
@@ -1082,7 +1261,6 @@ export function initAdventure3D(container, regionId, state, onStateChange = () =
       window.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', onPointerUp);
-      window.removeEventListener('pointercancel', onPointerUp);
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('resize', handleResize);

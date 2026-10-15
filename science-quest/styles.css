@@ -988,3 +988,319 @@ body.is-immersive-3d .harbor-walk-sidebar {
   }
 }
 
+/* ============================================================
+   FULL-SCREEN 3D WORLD INTERACTION: FLOATING MARKERS, TITLE
+   OVERLAY, BOTTOM HUD & COMPACT CONTEXTUAL POPOVER
+   ============================================================ */
+
+.tycoon-3d-markers-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 18;
+  overflow: hidden;
+}
+
+.tycoon-3d-marker {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(8, 28, 34, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(84, 223, 194, 0.55);
+  color: #fff;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.tycoon-3d-marker::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: rgba(84, 223, 194, 0.75) transparent transparent transparent;
+}
+
+.tycoon-3d-marker:hover,
+.tycoon-3d-marker.is-selected {
+  transform: translate(-50%, -106%) scale(1.06);
+  border-color: #ffd54f;
+  background: rgba(14, 46, 54, 0.95);
+  box-shadow: 0 0 18px rgba(255, 213, 79, 0.55);
+}
+
+.tycoon-3d-marker.marker-machine.needs-tune {
+  border-color: #ffb74d;
+  animation: markerBob 2.4s ease-in-out infinite;
+}
+
+.tycoon-3d-marker.marker-bldg.can-afford {
+  border-color: #ffd54f;
+}
+
+@keyframes markerBob {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -5px; }
+}
+
+.tycoon-3d-marker .marker-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.tycoon-3d-marker .marker-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.tycoon-3d-marker .marker-info strong {
+  font-size: 11.5px;
+  color: #fff;
+}
+
+.tycoon-3d-marker .marker-info small {
+  font-size: 10px;
+  color: #80f5dc;
+  font-weight: 700;
+}
+
+/* Sleek Bottom Game Action Bar */
+.tycoon-bottom-hud {
+  position: absolute;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(7, 24, 30, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(84, 223, 194, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tycoon-bottom-hud::-webkit-scrollbar {
+  display: none;
+}
+
+.tycoon-hud-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e6f7f3;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
+  transition: all 0.15s ease;
+}
+
+.tycoon-hud-btn:hover,
+.tycoon-hud-btn.active {
+  background: #54dfc2;
+  color: #062127;
+  border-color: #b5faec;
+}
+
+.tycoon-hud-btn.hud-btn-pulse {
+  background: linear-gradient(135deg, #ffd54f, #ffb300);
+  color: #1c1502;
+  border-color: #ffe57f;
+  box-shadow: 0 3px 12px rgba(255, 193, 7, 0.35);
+}
+
+/* Compact Contextual Popover (Collapsed by default so 90%+ of screen is unobstructed 3D world) */
+.adventure-3d-card.tycoon-context-popover.is-collapsed {
+  width: auto !important;
+  max-width: 240px !important;
+  padding: 6px 10px !important;
+  bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+  right: 14px !important;
+  opacity: 0.92;
+}
+
+.adventure-3d-card.tycoon-context-popover.is-collapsed .adventure-card-header-text {
+  display: none;
+}
+
+.adventure-3d-card.tycoon-context-popover:not(.is-collapsed) {
+  bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+  max-height: min(62dvh, 430px) !important;
+}
+
+.tycoon-bldg-card.is-selected-plot {
+  border: 2px solid #ffd54f !important;
+  background: rgba(45, 65, 38, 0.65) !important;
+  box-shadow: 0 0 16px rgba(255, 213, 79, 0.35);
+}
+
+/* 3D Game Entry Title Screen Overlay */
+.tycoon-title-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: radial-gradient(circle at center, rgba(6, 22, 28, 0.45) 0%, rgba(4, 15, 20, 0.82) 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.tycoon-title-card {
+  width: min(680px, 95vw);
+  max-height: 90dvh;
+  overflow-y: auto;
+  background: rgba(8, 27, 34, 0.92);
+  border: 2px solid rgba(84, 223, 194, 0.55);
+  border-radius: 24px;
+  padding: 22px 24px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+.tycoon-title-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(84, 223, 194, 0.18);
+  border: 1px solid rgba(84, 223, 194, 0.5);
+  color: #54dfc2;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.tycoon-hero-heading {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 900;
+  margin: 0 0 8px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.tycoon-hero-heading span {
+  color: #ffd54f;
+}
+
+.tycoon-hero-sub {
+  font-size: 13.5px;
+  color: #bfe3dc;
+  margin: 0 auto 16px;
+  max-width: 540px;
+  line-height: 1.45;
+}
+
+.tycoon-island-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tycoon-island-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  color: #e4f7f3;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tycoon-island-card:hover,
+.tycoon-island-card.selected {
+  background: rgba(84, 223, 194, 0.2);
+  border-color: #54dfc2;
+  transform: translateY(-2px);
+}
+
+.tycoon-island-card .island-card-icon {
+  font-size: 22px;
+}
+
+.tycoon-island-card strong {
+  font-size: 12px;
+  color: #fff;
+}
+
+.tycoon-island-card small {
+  font-size: 10px;
+  color: #9ad1c6;
+}
+
+.tycoon-title-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.tycoon-start-btn {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 22px !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #54dfc2, #1ecead) !important;
+  color: #041e24 !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(84, 223, 194, 0.45) !important;
+  cursor: pointer;
+}
+
+.tycoon-secondary-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .tycoon-island-picker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tycoon-3d-marker {
+    padding: 4px 8px;
+  }
+  .tycoon-3d-marker .marker-info strong {
+    font-size: 10.5px;
+  }
+  .tycoon-3d-marker .marker-info small {
+    font-size: 9px;
+  }
+}
+

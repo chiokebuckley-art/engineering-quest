@@ -246,6 +246,16 @@ test('SimCity / Island Tycoon live science tuning and building upgrades boost ec
     const buildHtml = adventure3DView(reg, profile, state);
     assert.ok(buildHtml.includes('data-action="tycoon-build"'), `${reg} build tab renders build buttons`);
     assert.ok(buildHtml.includes('Lv.2'), `${reg} build tab displays upgraded building level`);
+
+    // Verify 3D Floating World Markers, Bottom HUD, and Title Overlay
+    assert.ok(buildHtml.includes('id="tycoon-3d-markers"'), `${reg} renders 3D world markers container`);
+    assert.ok(buildHtml.includes('data-marker-id="machine"'), `${reg} renders 3D machine marker`);
+    assert.ok(buildHtml.includes('class="tycoon-bottom-hud"'), `${reg} renders bottom game action bar`);
+
+    state.showTitleOverlay = true;
+    const overlayHtml = adventure3DView(reg, profile, state);
+    assert.ok(overlayHtml.includes('class="tycoon-title-overlay"'), `${reg} renders 3D entry title overlay when showTitleOverlay is true`);
+    assert.ok(overlayHtml.includes('data-action="tycoon-start-game"'), `${reg} title overlay includes start game button`);
   }
 });
 
