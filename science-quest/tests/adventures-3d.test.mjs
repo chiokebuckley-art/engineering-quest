@@ -205,4 +205,47 @@ test('styles.css contains full-screen immersive styles for 3D adventures', async
   assert.ok(css.includes('z-index: 1001 !important'), 'Viewport elevated above standard layout');
   assert.ok(css.includes('.adventure-3d-dpad'), '3D touch D-pad styled');
   assert.ok(css.includes('.adventure-3d-card.is-collapsed'), 'Collapsible card style supported');
+  assert.ok(css.includes('.tycoon-economy-strip'), 'Tycoon economy strip styled');
+  assert.ok(css.includes('.tycoon-bldg-card'), 'Tycoon buildable facility cards styled');
 });
+
+test('SimCity / Island Tycoon live science tuning and building upgrades boost economy and prosperity', () => {
+  const profile = makeProfile('Leo');
+  for (const reg of ['motion', 'matter', 'living', 'earth', 'signal', 'orbit']) {
+    const cfg = ADVENTURE_CONFIGS[reg];
+    assert.ok(Array.isArray(cfg.buildings) && cfg.buildings.length === 4, `${reg} has 4 buildable 3D facilities`);
+    assert.equal(typeof cfg.calculateTycoonMetrics, 'function', `${reg} has calculateTycoonMetrics`);
+
+    const state = createAdventureState(reg);
+    const mInitial = cfg.calculateTycoonMetrics(state);
+    assert.equal(mInitial.isOptimal, false, `${reg} starts suboptimal so player learns by tuning`);
+    assert.ok(mInitial.totalIncome > 0, `${reg} generates base $/sec income`);
+
+    // Tune each region's science controls to optimal physics/chemistry/biology settings
+    if (reg === 'motion') { state.height = 0.35; state.surface = 'smooth'; }
+    if (reg === 'matter') { state.stopper = 'sealed'; state.reactantsMass = 60.0; }
+    if (reg === 'living') { state.lightLevel = 900; state.waterPerDay = 50; }
+    if (reg === 'earth') { state.cover = 'vegetation'; state.rainfallRate = 30; }
+    if (reg === 'signal') { state.frequency = 2.0; state.waterDepth = 1.0; }
+    if (reg === 'orbit') { state.radiusAU = 2.0; state.starMass = 1.0; }
+
+    const mOptimal = cfg.calculateTycoonMetrics(state);
+    assert.equal(mOptimal.isOptimal, true, `${reg} reaches optimal state via science tuning`);
+    assert.equal(mOptimal.efficiency, 100, `${reg} reaches 100% efficiency`);
+    assert.ok(mOptimal.totalIncome > mInitial.totalIncome, `${reg} optimal tuning boosts $/sec income`);
+
+    // Construct a 3D facility and verify income & prosperity increase further
+    const firstBldg = cfg.buildings[0].id;
+    state.buildingLevels[firstBldg] = 2;
+    const mBuilt = cfg.calculateTycoonMetrics(state);
+    assert.ok(mBuilt.totalIncome > mOptimal.totalIncome, `${reg} building upgrades multiply $/sec income`);
+    assert.ok(mBuilt.prosperity > mOptimal.prosperity, `${reg} building upgrades raise sector prosperity`);
+
+    // Verify Build tab renders facility cards
+    state.activeTab = 'build';
+    const buildHtml = adventure3DView(reg, profile, state);
+    assert.ok(buildHtml.includes('data-action="tycoon-build"'), `${reg} build tab renders build buttons`);
+    assert.ok(buildHtml.includes('Lv.2'), `${reg} build tab displays upgraded building level`);
+  }
+});
+
