@@ -45,13 +45,17 @@ Mastery requires all six dimensions at 2 without targeted help on first exposure
 
 ## Persistence and privacy
 
-`analytical-adventure-v1` contains anonymous local mission sessions, reasoning events and archived replays. `analytical-adventure-preferences-v1` contains accessibility/difficulty preferences. No progress data is transmitted. No collection of names, birthdays, recordings, or contact details. Keep personal information out of optional notes. Browser speech processing depends on device/browser voices; all content remains available in text.
+`analytical-adventure-v1` contains anonymous local mission sessions, reasoning events and archived replays. `analytical-adventure-preferences-v1` contains accessibility/difficulty preferences. No progress data is transmitted unless the player opts into Sync. No collection of names, birthdays, recordings, or contact details. Keep personal information out of optional notes. Browser speech processing depends on device/browser voices; all content remains available in text.
 
-There is no cross-device sync, online multiplayer, server analytics, automatic free-text grader, or offline installation promise. Browser storage may be cleared or unavailable; a visible warning reports save failures. Sessions are versioned; future content changes should provide explicit save migration.
+Optional cross-device sync uses the existing Engineering Quest / WordRaiders service with separate cryptographically generated AA-prefixed 12-character codes. Open Sync on the first device, turn it on, and enter that AA code on the second device. Progress, notes, reasoning history, and settings are uploaded after opting in. Anyone with the code can read and update the cloud save. Turning off sync here preserves local and cloud copies. Automatic checks run every 15 seconds while visible and on focus/reconnection; incoming saves are loaded with Sync now to avoid interrupting play. Concurrent edits preserve both copies in local recovery backups and require an explicit choice. Download backup exports current/recovery snapshots without the private code. Sync requires Web Locks and has a 400 KB request limit. Failed first uploads retain their code for retry. Save the code before clearing browser data.
+
+`sync.js` implements the shared revision-controlled GET/POST protocol, gzip encoding, and validation. `sync-ui.js` provides create/link/copy/sync/disconnect, conflict choices, and backups. Credentials/baselines are stored separately in `analytical-adventure.sync.v1`; recovery snapshots use `analytical-adventure.sync-recovery.v1`. No existing Engineering Quest codes or saves are changed.
+
+There is no online multiplayer, server analytics, automatic free-text grader, or offline installation promise. Browser storage may be cleared or unavailable; a visible warning reports save failures. Sessions are versioned; future content changes should provide explicit save migration.
 
 ## Verification
 
-Run `node --test tests.mjs` and `node --check app.js`. Automated tests cover every authored test outcome, invalid transitions, immutable prediction history, direct and elimination routes, different transfer fault, unsupported guesses, failed repairs, one-fault dependencies, hint caps, save/resume serialization, repeat actions, and practice/mastery separation.
+Run `node --test tests.mjs sync.test.mjs` and `node --check app.js`. Automated tests cover every authored test outcome, invalid transitions, immutable prediction history, direct and elimination routes, different transfer fault, unsupported guesses, failed repairs, one-fault dependencies, hint caps, save/resume serialization, repeat actions, and practice/mastery separation.
 
 Browser QA could not run in the build environment: the managed preview service failed with `bwrap: Can't mount proc on /newroot/proc: Operation not permitted`. No visual, mobile, screen-reader, or speech-device verification is claimed. Mixed-age pilot testing and observation remain human evaluation milestones.
 
