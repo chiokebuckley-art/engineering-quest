@@ -20,9 +20,11 @@ Serve this directory with `python3 -m http.server 8000`, then open `http://local
 
 Node 24 or later: `npm ci` then `npm test`. The app itself does not depend on npm packages. jsdom is a development-only dependency for DOM integration tests.
 
+Optional live integration check: `node scripts/smoke-live-sync.mjs`. This creates a synthetic cloud save on the existing sync service and checks two-client synchronization and recovery. It is not run by `npm test`.
+
 ## GitHub placement and publication
 
-The app is published from `electricity/` in `chiokebuckley-art/engineering-quest`, using the existing GitHub Pages hosting. The source is also retained under `electricity/` in `chiokebuckley-art/command-center`. Existing app entry points and deployment settings are preserved.
+The source is in `electricity/` on `main` in `chiokebuckley-art/engineering-quest`. The runtime files are published from the matching directory on its existing `gh-pages` branch. The source is also retained under `electricity/` in `chiokebuckley-art/command-center`. Existing app entry points and deployment settings are preserved. Future releases must update both the source and the published runtime files.
 
 App URL: https://chiokebuckley-art.github.io/engineering-quest/electricity/
 

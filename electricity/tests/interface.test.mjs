@@ -11,6 +11,7 @@ const saved=()=>parseStore(window.localStorage.getItem(STORE_KEY));
 test('Learning journey, notes, independent checks, hints after reload, labs and profiles',async()=>{
  assert.match(document.querySelector('h1').textContent,/make it click/);
  await go('lesson/L01.01');assert.match(document.querySelector('h1').textContent,/light turn on/);
+ click('.skip');assert.equal(location.hash,'#lesson/L01.01');assert.equal(document.activeElement.id,'main');
  assert.equal(document.querySelector('[data-step="4"]').disabled,true);
  click('[data-action="next-step"]');assert.equal(document.querySelector('[data-action="next-step"]').disabled,true);
  click('[data-predict="0"]');click('[data-action="next-step"]');assert.match(document.body.textContent,/Prediction saved/);
