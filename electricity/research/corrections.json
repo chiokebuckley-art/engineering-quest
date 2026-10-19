@@ -1,0 +1,176 @@
+[
+  {
+    "id": "C01",
+    "location": "B1 pp. 23-26; L05.02 roadmap",
+    "issue": "Finite propagation",
+    "replacement": "Replace “stops everywhere at once” with “the change propagates around the small circuit so quickly that the response appears immediate; after the transient there is no steady conduction current in this open path.” Conventional current is a sign convention, not another speed.",
+    "sources": [
+      101,
+      107
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C02",
+    "location": "B1 pp. 25, 87; B2 p. 63",
+    "issue": "Unknown LED reverse rating",
+    "replacement": "The representative Kingbright part does not establish the kit LED rating. Keep reversal experiments in simulation unless the actual LED’s reverse-voltage rating is verified. Current limiting alone does not make arbitrary reverse voltage permissible.",
+    "sources": [
+      81,
+      83
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C03",
+    "location": "B2 pp. 18-20, 61-62",
+    "issue": "Touch-to-test warmth",
+    "replacement": "Remove the required finger-touch demonstration and “never hot” prediction. Use a calculated power/thermal simulation or verified temperature instrumentation. A wattage fraction cannot guarantee a surface temperature.",
+    "sources": [
+      72,
+      87
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C04",
+    "location": "B2 p. 67; inherited power rule",
+    "issue": "Resistor ratings",
+    "replacement": "Keep 50% as a conservative course design policy, not a physical law or substitute for temperature derating. Mark an unknown resistor wattage as unknown. Do not unlock a heating exercise using an assumed 1/4 W rating.",
+    "sources": [
+      87
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C05",
+    "location": "B1 p. 22 and M01 sequence",
+    "issue": "Safety before the first build",
+    "replacement": "Add an unnumbered safety orientation using an excerpt from L01.06 before L01.01 hardware. Preserve L01.06’s ID and later full treatment.",
+    "sources": [
+      81,
+      100
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C06",
+    "location": "B1 pp. 87-88",
+    "issue": "Live breadboard probing",
+    "replacement": "Use an unpowered continuity map for a physical breadboard and an interactive animation for the LED tester. Remove live free-jumper probing from the beginner default; the app cannot verify that a protective piece of tape is correctly placed.",
+    "sources": [
+      100
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C07",
+    "location": "B1 p. 8; B1 p. 86",
+    "issue": "Original-board versus clone specifications",
+    "replacement": "Arduino documentation is a reference for the UNO R3 design, not proof of the exact ELEGOO clone’s regulator or protection circuit. Capture board identity and manufacturer documentation; do not promise that USB protection will save a part or computer.",
+    "sources": [
+      81,
+      82,
+      83
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C08",
+    "location": "B1 p. 5",
+    "issue": "Current arrows beyond simple DC",
+    "replacement": "The “higher to lower” arrow rule applies to passive resistive external loads under the stated DC conditions. Inside a source, capacitors during discharge, active devices and AC need explicit reference arrows and signed solved currents. Reverse animation when computed current is negative.",
+    "sources": [
+      102,
+      105
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C09",
+    "location": "B3 p. 7",
+    "issue": "Unit scope",
+    "replacement": "Replace “everything in this course is built from four pieces” with “many introductory electrical units can be expressed using s, m, kg and A.” Temperature work also requires kelvin, and the full SI has seven base units.",
+    "sources": [
+      108
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C10",
+    "location": "B3 p. 62 and source metadata",
+    "issue": "Provider-specific video controls",
+    "replacement": "Keep Gemini Apps, Omni Flash API and Veo API in separate configuration records. The current retrieved documentation supports Omni naming; it is not an error. Do not infer that an 8-second prompt guarantees exact timing in every interface.",
+    "sources": [
+      24,
+      26,
+      56
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C11",
+    "location": "B3 p. 21; G-0057",
+    "issue": "Glossary aliases and senses",
+    "replacement": "Retain G-0104 as an alias of G-0020 and G-0093 as the schematic sense of G-0040. Expand G-0057 as the uncertainty overview; give accuracy, precision and resolution distinct child entries. Do not renumber existing IDs.",
+    "sources": [
+      71,
+      72
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C12",
+    "location": "B1 pp. 22-26 and B3 pp. 6-10",
+    "issue": "Cognitive prerequisites",
+    "replacement": "Move the drift-speed computation, full SI derivations and seven-base-unit memorization into optional depth. Teach the minimum visible terms before each activity. This is a design decision supported by pretraining/segmenting research, not a medical or learning-style diagnosis.",
+    "sources": [
+      76
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C13",
+    "location": "B2 p. 19; inherited fault diagnosis",
+    "issue": "Diagnosis is not certainty",
+    "replacement": "An ON light going out can indicate supply protection, cable problems or other faults. Say “possible overcurrent or supply problem,” then unplug and test. Do not assert the polyfuse tripped solely from the observed light.",
+    "sources": [
+      81,
+      100
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C14",
+    "location": "B3 p. 21 forward references",
+    "issue": "Cross-reference repair",
+    "replacement": "Ohm’s law is L05.05 in the authoritative roadmap; L05.04 is resistance and resistivity. Update forward references that call L05.04 the Ohm’s-law lesson.",
+    "sources": [
+      89
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C15",
+    "location": "B1 p. 5; app presentation",
+    "issue": "Accessibility and safe visuals",
+    "replacement": "Replace the 12 px display minimum with a responsive design default: 18 px main text, scalable labels, 44 px preferred targets, keyboard alternatives and a text data table. These chosen sizes are product defaults; conformance still requires testing against WCAG.",
+    "sources": [
+      99
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  },
+  {
+    "id": "C16",
+    "location": "M12, M24, M27, M28 production",
+    "issue": "Hardware-specific uncertainty",
+    "replacement": "No real motor, relay, capacitor, power module or meter-current lab is released from a representative part name alone. Require exact ratings, pinout, protection and power budget. Simulation can continue while hardware is unverified.",
+    "sources": [
+      81,
+      85,
+      86,
+      100
+    ],
+    "status": "specified_not_applied_to_original_pdfs"
+  }
+]

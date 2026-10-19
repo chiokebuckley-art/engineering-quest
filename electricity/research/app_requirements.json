@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "date": "2026-10-19",
+  "sections": [
+    {
+      "title": "What is ready, and what remains",
+      "paragraphs": [
+        "The three supplied PDFs total 226 pages. Their authoritative inventory is 41 modules, 154 common-foundation lessons and 66 specialization/capstone lessons: 220 lessons. Nine have full lesson drafts; the rest were outlines. The supplied glossary reserves 160 IDs, including aliases and closely related senses. The documents contain production briefs, not a finished media library.",
+        "This handoff adds research/design dossiers for all 41 modules, a concrete learning-task and expected-reasoning seed for every one of the 220 lessons, 16 correction/change instructions, three new 18-component lesson drafts, 36 glossary definitions, 15 visual briefs and nine self-contained video prompts. It maps the full course to official technical resources and original learning research. It is sufficient to begin app architecture and a reviewed first learning sequence.",
+        "It does not represent 220 finished lesson scripts. There are now 12 full drafts, leaving 208 full scripts to author. Media generation, component-specific datasheet checks, independent educational review, physical bench validation and learner pilots remain production work. Nothing has been built, deployed or tested as an app in this task. No claim of expert competence follows from completing a checklist.",
+        "Scope of the review: curriculum-level coverage and focused technical/instructional audit of the supplied material. It is not a claim that every sentence, reference or calculation in all three PDFs received an independent line-by-line verification. Existing PDFs remain unchanged; the correction log must be applied during import."
+      ]
+    },
+    {
+      "title": "Research conclusion: teach through visible causes",
+      "paragraphs": [
+        "Keep the curriculum’s Observe → Name → Inspect → Predict → Test → Explain → Calculate → Apply loop. On the learner screen, compress it to one action at a time: see the object, name the relevant feature, predict a change, manipulate it, compare the result and explain why. The full 18-part structure belongs in authoring data, not as 18 simultaneous panels.",
+        "The working hypothesis is that external visual representations, short explanations, deliberate prediction and corrective feedback will make the relationships easier to inspect. This is a product design inference, not a claim that the user belongs to a fixed “visual learner” category or that mental imagery ability determines electrical aptitude.",
+        "Mayer and Moreno support segmentation and pretraining [76]; Karpicke and Roediger support repeated retrieval for retention in their studied tasks [77]; Cepeda and colleagues motivate distributed review [78]; Chi and colleagues motivate self-explanation with attention to understanding [79]. These results do not establish this app’s effectiveness, a universal session length, an optimal 90% cutoff or a guaranteed path to expertise.",
+        "Finkelstein and colleagues found useful circuit-learning outcomes with simulation in a particular instructional setting [80]. Use simulation to expose hidden mechanisms and reduce early setup demands, then keep practical measurement and construction evidence separate. The app must test transfer to unfamiliar circuits, not only repeated onscreen patterns."
+      ]
+    },
+    {
+      "title": "The first release and expansion sequence",
+      "paragraphs": [
+        "Build the first release around the 12 full drafts: L01.01-L01.06, L02.01-L02.05 and L03.01. Insert a short safety orientation before the first physical build without allocating a conflicting lesson ID. Review and correct the nine inherited drafts before release. The initial achievement is “first circuits and measurement,” not “electricity mastery.”",
+        "Show the whole learning map so the direction is clear, but mark later content as planned rather than opening empty or automatically generated lessons. Every original ID remains stable. Later release gates follow S1-S2 through L09.06, then S3-S5, S6-S8, and one chosen advanced track. Concepts can be previewed before full prerequisite depth; scoring must state which level was tested.",
+        "Do not force memorization of seven SI base units or a drift-speed calculation before a learner can close a loop. Keep those as optional depth. Give arithmetic, signed-number, unit, ratio and graph bridges immediately before they are needed. The mathematical treatment of transforms, controls and electromagnetics requires real prerequisites, not just an optional badge.",
+        "Recommended first vertical slice: safety orientation → L01.01 simulation → L01.02 node mapping → L01.03 voltage probes → delayed transfer check. Add the remaining first-release lessons after that complete path works on a phone. This is sequencing guidance; no implementation was performed here."
+      ]
+    },
+    {
+      "title": "A screen that supports reasoning",
+      "paragraphs": [
+        "Default layout: one large interactive scene; one short prompt; one primary action; optional “Why?”, “Name this”, “Show again” and “Try it yourself”. Put the vocabulary beside the object it names. A persistent diagram can stay visible while the learner explains; a later retrieval task can remove the cues. Do not require closing the eyes or generating a mental picture.",
+        "Provide Real object, Inside view, Schematic and Numbers tabs that all share one underlying circuit state. When a representation changes, retain part/node identity. Reveal only the relevant mechanism. A current animation must be driven by the calculated signed branch current, never by a decorative fixed-speed loop.",
+        "Use explicit model badges, numerical labels and non-color cues. Teal solid arrows retain conventional current; orange dashed arrows retain electron drift in metals, opposite in sign. In AC or active circuits, use reference arrows and signed results instead of assuming every current flows from a higher-potential point to a lower-potential point.",
+        "Offer 5-, 10- and 20-minute session choices as adjustable design defaults. End at a coherent checkpoint and save it. Narration, captions, transcript, replay, step-by-step mode, keyboard controls and reduced motion must all work. Suggested UI defaults are 18 px main text and 44 px preferred touch targets; WCAG 2.2 conformance requires actual inspection and testing [99].",
+        "Phone screens must not require hover or a precise drag. Every drag task needs tap-to-select/place and a structured answer alternative. Graphs need data tables; resistor bands need written color names; polarity needs signs and labels. Reading speed and motor dexterity must not silently become the measure of electrical knowledge."
+      ]
+    },
+    {
+      "title": "Mastery means evidence, not lesson completion",
+      "paragraphs": [
+        "Track six separate dimensions already present in the source: explanation, prediction, measurement, troubleshooting, transfer and design. Track safety separately as a required gate for hardware. Distinguish “seen”, “practiced”, “independent evidence”, “retained on review” and “needs review”. Watching a video adds exposure only.",
+        "Proposed first-release gate: at least five varied independent items on a concept, at least four correct, one unfamiliar transfer item, and a rubric-based explanation. Critical misconceptions such as “current is consumed” and unsafe meter placement require successful correction regardless of aggregate score. These numbers are tunable product policies, not psychometric validation.",
+        "An item answered after revealing the solution is assisted evidence. Retrying the identical item immediately is practice, not a second independent success. Record hints, attempts, misconception code, model version and item family. A learner may explain orally or by arranging a causal diagram; do not score vocabulary elegance as physical understanding.",
+        "Schedule an initial retrieval opportunity next session, then approximately 3, 7, 14 and 30 days after successful independent performance. Shorten the interval after forgetting; lengthen after successful delayed transfer. These are transparent starter settings informed by spacing principles [78], not a proven optimal schedule. Due review is not a punishment and never wipes prior work.",
+        "Keep conceptual and hardware evidence distinct. A successful simulation can satisfy prediction; it cannot silently satisfy physical construction or instrument handling. User-entered bench logs are self-reported until reviewed. Avoid a single “expert percentage”; show exactly which competencies have evidence and which still need practice."
+      ]
+    },
+    {
+      "title": "Misconception-specific feedback and teaching recovery",
+      "paragraphs": [
+        "Use stable codes: MC_CURRENT_USED_UP, MC_GROUND_SINK, MC_VOLTAGE_IS_FLOW, MC_NEUTRAL_HAS_NO_CHARGE, MC_DRIFT_EQUALS_SIGNAL, MC_SLOPE_ALWAYS_R, MC_DIGITS_MEAN_ACCURACY, MC_MILLI_MEGA, MC_DIVIDER_UNLOADED, MC_PWM_IS_DC, MC_THRESHOLD_FULL_ON and MC_MAXIMUM_IS_TARGET. Link each item to one or more concepts and codes.",
+        "For an incorrect prediction, retain the learner’s choice beside the result. Ask which visible relationship conflicts with the prediction. Offer one worked example, then a faded example, then an independent changed case. Do not respond only with “wrong” or a long paragraph. A confusion between mA and A routes to a units bridge rather than repeating an entire transistor module.",
+        "For charge-consumption errors, show equal charge-flow counts entering/leaving a steady single branch and a separate energy conversion bar. For voltage-as-flow errors, move two meter probes and show that the reading is a difference. For node errors, expose the exact conducting strips. For fake accuracy, hold a simulated offset fixed while repeating the reading.",
+        "Never let a fluent AI explanation determine a safety-critical or numerical pass by itself. Use explicit rubrics and deterministic solutions. AI feedback may propose an explanation, but uncertain grading must be shown as uncertain and allow learner/reviewer correction. Do not claim diagnostic certainty about a person from error patterns."
+      ]
+    },
+    {
+      "title": "Simulation contract and physically meaningful limits",
+      "paragraphs": [
+        "Start with a bounded DC engine for approved topologies and passive components. The breadboard is a connectivity graph, not a bitmap. Union connected holes/wires into nets, then solve a netlist. The physical view, schematic, meters and grading read the same model state. Separate model data from rendering so screenshots cannot become the source of truth.",
+        "For resistive DC analysis, stamp conductances into nodal equations; include ideal voltage-source constraints through an appropriate modified nodal formulation when needed. Check singular/floating nets, conflicting ideal sources, source shorts, nonfinite values and residuals. Never use an arbitrary tiny resistor to hide an invalid topology without disclosing the approximation.",
+        "Label ideal models. An LED fixed-drop approximation is acceptable only for a named introductory calculation with explicit limits; use an appropriate nonlinear component model for an I-V lesson. A schematic symbol does not establish a device rating. Display estimated brightness qualitatively, not as an unsupported photometric measurement.",
+        "Golden cases include series/parallel networks, loaded dividers, probe reversal, reference changes, open paths and invalid shorts. Later phases add RC transients, sinusoidal AC/phasors and nonlinear/time-domain models using a suitable tested engine. ngspice documentation provides a reference for analysis types [97], not evidence that a future browser port will work.",
+        "An ideal wire may be approximately equipotential in the introductory lumped model. Preserve a route to real wire resistance, inductance, propagation and return paths. Capacitor voltage and inductor current cannot jump in the ideal finite-excitation model; distinguish impulsive idealizations and numerical artifacts. Failed solver convergence must never generate a plausible-looking teaching animation."
+      ]
+    },
+    {
+      "title": "Component and lab specification",
+      "paragraphs": [
+        "Preserve the original standard layout: 3.3V → 1a; 220 Ω resistor 1c-5c; LED anode 5e, cathode 6e; 6a → GND. Nodes A=1a-1e, B=5a-5e, C=6a-6e. The documented branch add-on is 1 kΩ 1e-1g, LED 1h/2h, and 2j → GND. These coordinates require the same board orientation and verified strip layout.",
+        "Before a real lab is released, specify exact board/part identity, pinout, supply range, current/power calculations, tolerances, source protection, measurement mode/jacks, safe assembly steps and stop conditions. The hardware manifest must allow “unknown”; it must not replace missing ratings with representative values.",
+        "Use simulation by default for unknown or hazardous hardware. The introductory physical route stays within the approved low-voltage setup, with power removed before rewiring and resistance/continuity checks. Do not require live jumper probing, reversed-LED stress or a touch-to-test heating exercise. Preserve the useful calculations while changing those activities.",
+        "For later motors/servos/relays, validate driver, supply, startup/stall current and inductive protection. The L293D and ULN2003 are different driver structures; their ratings, clamp connections and losses must be checked [85,86]. No claim that a UNO pin can supply an actuator because sample code compiles.",
+        "Mains, distribution, inverter power stages, high-energy batteries and grid integration remain simulation/observation in this course. Soldering, oscilloscope grounding and any expanded hardware work require their own practical instruction and verified equipment. This boundary comes from the curriculum itself; it is not an obstacle to building the app."
+      ]
+    },
+    {
+      "title": "Vocabulary database and content model",
+      "paragraphs": [
+        "Preserve glossary IDs G-0001-G-0160. This package adds G-0161-G-0196, with first-lesson and related-entry fields. G-0104 remains an alias to G-0020; G-0093 is the schematic sense connected to G-0040. Existing raw glossary extracts are migration inputs, not cleaned learner-facing content.",
+        "Every published term needs plain-language meaning, a visible example, a contrast/nonexample, a model limit where relevant, pronunciation/text-to-speech handling, first lesson, related terms and provenance. Use staged depth: a one-sentence first look, then mechanism and formal definition. Full-course vocabulary remains to be expanded during the 208 script authoring tasks; the original 900-1,200 estimate is not an achieved count.",
+        "Core objects: Course, Stage, Module, Lesson, Concept, GlossaryTerm, MediaAsset, CircuitModel, Experiment, AssessmentItem, Misconception, EvidenceEvent, ReviewSchedule and Source. A lesson references stable IDs, not copied blobs. Every content object has a version, author/reviewer state and source/date metadata.",
+        "The first-release lesson shape follows the 18 components in batch4_lessons.json. Keep item prompt, options if any, correct outcome, solution steps, scoring tolerance, misconception mapping, difficulty, independent/assisted eligibility and source IDs separate. Do not evaluate formulas by executing arbitrary text as code."
+      ]
+    },
+    {
+      "title": "Progress, sync and offline use",
+      "paragraphs": [
+        "Use separate learner profiles and explicit account/profile binding. Sync should work through ordinary browser network requests with a server-backed store; never make Windows file picking or hardware serial access a requirement for learning or cross-device progress. Reuse an existing family sync service only after inspecting its actual repository and data/security model; that inspection was not part of this research task.",
+        "Store append-only evidence events with unique IDs, learner ID, lesson/concept/item versions, timestamp, attempt, hints and outcome. Deduplicate retries on the server. Derive progress from events rather than overwriting a whole progress blob from the last device online. Conflicting preferences can use a documented resolution rule; conflicting learning evidence should be merged, not discarded.",
+        "An offline queue needs retry, visible sync status and conflict handling. A service worker/content cache is an implementation option to test, not a prerequisite for using the first lesson. Export progress in a documented portable format and provide restore validation. A short family code alone should not be treated as strong authorization for sensitive shared data.",
+        "Use data minimization. Voice explanations are optional, with a text/diagram alternative; do not retain raw audio by default. Capture only analytics that help teaching. Keep API credentials on the server and do not put provider keys into static frontend bundles. These are implementation requirements, not claims that an authentication system is already deployed."
+      ]
+    },
+    {
+      "title": "Images, animation and Gemini production",
+      "paragraphs": [
+        "Deterministic SVG/Canvas/plots should carry exact wiring, pin identities, graphs, resistor bands, numerical labels and charge counts. Use real verified photographs for component recognition and measured readings. Generated imagery can provide context or a nontechnical backdrop; it must not determine scientific topology or numerical truth.",
+        "The three new lessons each have five visual briefs and a video package with three self-contained 8-second, 16:9 prompt targets. The prompts deliberately leave scientific overlays to the app/editor. They are ready for media production; no video was generated, watched or approved in this task.",
+        "Google documentation checked on October 19, 2026 distinguishes Gemini Apps (Omni) [24], Omni Flash API output durations [26], and Veo API durations/constraints [56]. Keep provider/interface/model settings configurable. The 8-second clip is a production preference, not a guarantee that every Gemini surface exposes that control. Recheck before production.",
+        "Each media asset needs provenance, rights/license, generation prompt where relevant, reviewer, alt text, transcript, model badge and rejection criteria. Reject wrong counts, connections, polarity, units or time scales. Retain required provenance/watermarks. Short clips can be assembled into a longer explanation, but the learner must control the transitions.",
+        "Link to official educational resources when useful. Do not assume a publicly readable simulation, textbook figure or video is licensed for embedding, redistribution or commercial reuse. This package supplies original descriptions and citations; third-party reuse permissions are not adjudicated here."
+      ]
+    },
+    {
+      "title": "Release gates and meaningful validation",
+      "paragraphs": [
+        "Content gate: IDs and links resolve; prerequisites do not cycle; every stated equation has a domain/assumption; each assessment has an unambiguous solution and provenance. Apply the correction log before importing inherited lessons. The 220 authoring seeds are not an independently validated exam.",
+        "Physics gate: compare solver output with analytic golden cases and selected reference-engine cases. Assert KCL/KVL residuals where applicable, unit consistency, reference invariance and equivalent-layout identity. Validate direction and animation against computed signs. Check invalid topologies explicitly.",
+        "Media gate: inspect both representative frames and full transitions. The same diagram can be correct at endpoints and wrong during animation. Check readable phone labels, captions, reduced motion and a nonvisual route. A screenshot or generated face-value visual is insufficient to approve connectivity.",
+        "Learning gate: pilot with novices using pretest, immediate unfamiliar transfer, and delayed checks. Include explanation and fault diagnosis, not only multiple choice. Compare the proposed workflow with a reasonable text/example baseline, account for time on task, and report errors as well as successes. A small usability pilot does not establish causal effectiveness.",
+        "Practical gate: test approved hardware with the actual bill of materials and measurement equipment; document deviations. No physical experiment was performed during this research. Mark practical evidence absent until it exists.",
+        "Product gate: test save/resume, offline retries if supported, two-device merge, account separation, keyboard use, small-screen reflow, audio alternatives and recovery from a failed media load. Only reviewed lesson content becomes reachable in a released app. Planned lessons remain visible as planned."
+      ]
+    },
+    {
+      "title": "Definition of research completion for this handoff",
+      "paragraphs": [
+        "Completed: the supplied roadmap is inventoried; missing research domains are mapped; teaching design is supported by original research; priority technical issues are logged; every lesson has a concrete authoring seed; the next three lessons have full drafts and production inputs; the app content/simulation/mastery contracts are specified; numerical fixtures and package integrity are checked.",
+        "Not claimed complete: 208 remaining scripts, a 900-1,200-term glossary, 220 finished videos, a final circuit simulator, a hardware-tested lab collection, independent expert review or a published app. These are explicit production deliverables, with statuses preserved in the manifest.",
+        "The next action can therefore be implementation of the first reviewed learning path, alongside script/media production from this packet. Additional research is still required when a specific component, instrument, advanced derivation or software integration is selected. The package is a bounded research-and-build handoff, not a claim that an entire engineering discipline has no unanswered questions."
+      ]
+    }
+  ],
+  "content_states": [
+    "outline",
+    "research_brief",
+    "script_draft",
+    "technically_reviewed",
+    "media_reviewed",
+    "pilot_reviewed",
+    "released"
+  ],
+  "learner_states": [
+    "not_started",
+    "exposed",
+    "practicing",
+    "independent_evidence",
+    "retained",
+    "review_due"
+  ],
+  "deployment_performed": false
+}

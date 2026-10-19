@@ -1,0 +1,278 @@
+{
+  "status": "analytic_specifications_not_runtime_tests",
+  "numeric_comparison": "Use explicit absolute/relative tolerances; these examples are computed ideal-model expectations, not physical measurements.",
+  "cases": [
+    {
+      "id": "F01",
+      "model": "series_dc",
+      "inputs": {
+        "Vs_V": 3.0,
+        "R_ohm": [
+          1000,
+          2000
+        ]
+      },
+      "expected": {
+        "I_A": 0.001,
+        "drops_V": [
+          1.0,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "F02",
+      "model": "parallel_dc",
+      "inputs": {
+        "Vs_V": 3.0,
+        "R_ohm": [
+          1000,
+          2000
+        ]
+      },
+      "expected": {
+        "branch_A": [
+          0.003,
+          0.0015
+        ],
+        "source_A": 0.0045
+      }
+    },
+    {
+      "id": "F03",
+      "model": "unloaded_divider",
+      "inputs": {
+        "Vs_V": 3.3,
+        "top_ohm": 1000,
+        "bottom_ohm": 1000
+      },
+      "expected": {
+        "out_V": 1.65
+      }
+    },
+    {
+      "id": "F04",
+      "model": "loaded_divider",
+      "inputs": {
+        "Vs_V": 3.3,
+        "top_ohm": 1000,
+        "bottom_ohm": 1000,
+        "load_ohm": 1000
+      },
+      "expected": {
+        "out_V": 1.1
+      }
+    },
+    {
+      "id": "F05",
+      "model": "probe_sign",
+      "inputs": {
+        "A_V": 3.3,
+        "B_V": 0.0,
+        "red": "B",
+        "black": "A"
+      },
+      "expected": {
+        "reading_V": -3.3
+      }
+    },
+    {
+      "id": "F06",
+      "model": "reference_shift",
+      "inputs": {
+        "original_nodes_V": [
+          0,
+          1,
+          3
+        ],
+        "shift_V": 10
+      },
+      "expected": {
+        "pairwise_differences_unchanged": true
+      }
+    },
+    {
+      "id": "F07",
+      "model": "open_dc",
+      "inputs": {
+        "single_path_open": true
+      },
+      "expected": {
+        "steady_I_A": 0.0,
+        "floating_potentials": "not automatically defined"
+      }
+    },
+    {
+      "id": "F08",
+      "model": "ideal_source_short",
+      "inputs": {
+        "Vs_V": 3.3,
+        "short_ohm": 0
+      },
+      "expected": {
+        "solver_status": "invalid_or_unbounded",
+        "finite_current_allowed": false
+      }
+    },
+    {
+      "id": "F09",
+      "model": "rc_charge",
+      "inputs": {
+        "Vs_V": 3,
+        "R_ohm": 10000,
+        "C_F": 0.0001,
+        "initial_V": 0,
+        "time_s": 1
+      },
+      "expected": {
+        "tau_s": 1,
+        "Vc_V": 1.896361676485673
+      }
+    },
+    {
+      "id": "F10",
+      "model": "meter_bound_fictional",
+      "inputs": {
+        "reading_V": 3.3,
+        "percent": 0.5,
+        "counts": 2,
+        "resolution_V": 0.01
+      },
+      "expected": {
+        "bound_V": 0.0365,
+        "reported_conservative_bound_V": 0.04
+      }
+    },
+    {
+      "id": "F11",
+      "model": "graph_slope",
+      "inputs": {
+        "delta_I_mA": 2,
+        "delta_V": 2
+      },
+      "expected": {
+        "slope_I_vs_V_S": 0.001,
+        "slope_V_vs_I_ohm": 1000
+      }
+    },
+    {
+      "id": "F12",
+      "model": "charge_count",
+      "inputs": {
+        "protons": 8,
+        "electrons": 10
+      },
+      "expected": {
+        "net_in_e": -2
+      }
+    },
+    {
+      "id": "F13",
+      "model": "pwm_ideal",
+      "inputs": {
+        "high_V": 5,
+        "low_V": 0,
+        "duty": 0.25
+      },
+      "expected": {
+        "mean_V": 1.25,
+        "rms_V": 2.5
+      }
+    },
+    {
+      "id": "F14",
+      "model": "adc_ideal_bins",
+      "inputs": {
+        "bits": 10,
+        "Vref_V": 5
+      },
+      "expected": {
+        "levels": 1024,
+        "max_code": 1023,
+        "bin_width_V": 0.0048828125
+      }
+    },
+    {
+      "id": "F15",
+      "model": "resistor_tolerance",
+      "inputs": {
+        "nominal_ohm": 220,
+        "fraction": 0.05
+      },
+      "expected": {
+        "low_ohm": 209,
+        "high_ohm": 231
+      }
+    },
+    {
+      "id": "F16",
+      "model": "thevenin_divider",
+      "inputs": {
+        "Vs_V": 5,
+        "top_ohm": 1000,
+        "bottom_ohm": 1000
+      },
+      "expected": {
+        "Vth_V": 2.5,
+        "Rth_ohm": 500
+      }
+    },
+    {
+      "id": "F17",
+      "model": "filter_cutoff",
+      "inputs": {
+        "R_ohm": 1000,
+        "C_F": 1e-06
+      },
+      "expected": {
+        "fc_Hz": 159.15494309189535
+      }
+    },
+    {
+      "id": "F18",
+      "model": "reflection_coefficient",
+      "inputs": {
+        "Z0_ohm": 50,
+        "ZL_ohm": 100
+      },
+      "expected": {
+        "Gamma": 0.3333333333333333
+      }
+    },
+    {
+      "id": "F19",
+      "model": "convolution",
+      "inputs": {
+        "x": [
+          1,
+          1
+        ],
+        "h": [
+          1,
+          1
+        ]
+      },
+      "expected": {
+        "y": [
+          1,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "F20",
+      "model": "led_resistor_worst_case",
+      "inputs": {
+        "Vs_max_V": 3.3,
+        "Vf_min_V": 1.8,
+        "R_nominal_ohm": 330,
+        "tolerance_fraction": 0.05
+      },
+      "expected": {
+        "R_min_ohm": 313.5,
+        "I_max_A": 0.004784688995215311
+      }
+    }
+  ]
+}
