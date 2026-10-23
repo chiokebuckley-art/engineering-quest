@@ -1,1 +1,1 @@
-{"name":"analytical-adventure","private":true,"type":"module","scripts":{"test":"node --test tests.mjs sync.test.mjs"}}
+{"name":"analytical-adventure","private":true,"type":"module","scripts":{"test":"node --test tests.mjs sync.test.mjs lab.test.mjs"}}

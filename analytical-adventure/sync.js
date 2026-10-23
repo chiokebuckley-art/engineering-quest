@@ -1,4 +1,5 @@
 // Engineering Quest / WordRaiders wire protocol. AA codes isolate this game's saves.
+import {validateLab} from './lab-engine.js';
 export const SERVICE='https://wordraiders-sync.wordraiders.workers.dev';
 export const LINK_KEY='analytical-adventure.sync.v1';
 export const RECOVERY_KEY='analytical-adventure.sync-recovery.v1';
@@ -10,6 +11,7 @@ export function newCode(){const bytes=crypto.getRandomValues(new Uint8Array(10))
 export function snapshot(db,settings){return {app:'analytical-adventure',version:1,db,settings};}
 export function validate(value){
  if(value?.app!=='analytical-adventure'||value.version!==1||!value.db?.sessions||!value.db?.seen||!value.settings)throw Error('This is not a compatible Analytical Adventure save.');
+ if(value.db.relationshipLab)validateLab(value.db.relationshipLab);
  if(!['normal','large','larger'].includes(value.settings.size)||(value.settings.variant!==undefined&&!['starter','investigator'].includes(value.settings.variant)))throw Error('Unsupported display settings.');
  for(const [key,s] of Object.entries(value.db.sessions)){
   if(!/^(lighthouse|greenhouse):(starter|investigator)$/.test(key)||s.schema!=='1.0.0'||key!==`${s.id}:${s.variant}`||typeof s.session!=='string')throw Error('Unsupported investigation save.');

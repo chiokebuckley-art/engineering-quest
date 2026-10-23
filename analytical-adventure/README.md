@@ -10,7 +10,9 @@ Published path: `/engineering-quest/analytical-adventure/`.
 
 ## Implemented scope
 
-The specific developer specification narrows the broader curriculum blueprint to one complete investigation and a transfer probe. This build implements that slice:
+The original lighthouse/greenhouse investigation slice remains available. The October 23 update adds Relationship Lab: six levels, 43 authored cases, six laboratory entry points, variable manipulation, rule construction, prediction/test/revision, independent transfer, daily routes, and nine-skill analytics. Open Today's Task or Relationship Lab from the home page. See RELATIONSHIP_LAB_REPORT.md for verification and remaining validation, and RELATIONSHIP_LAB_PLAN.md for the architecture, research, and assessment design.
+
+The original investigation slice includes:
 
 - Original responsive island scenes rendered as SVG, with tap and keyboard inspection controls.
 - Lighthouse Starter (visible disconnect) and Investigator (hidden open cable, stale report).
@@ -33,7 +35,9 @@ The specific developer specification narrows the broader curriculum blueprint to
 - `app.js`: screens, interaction, local persistence, optional narration.
 - `scene.js`: original SVG scene artwork, component state visuals.
 - `style.css`: responsive interface and accessibility styling.
-- `tests.mjs`: acceptance coverage; run `node --test tests.mjs` (Node 20+).
+- `lab-content.js`, `lab-models.js`, `lab-engine.js`: relationship curriculum, simulations, and assessment/review logic.
+- `lab-ui.js`, `lab-visuals.js`, `lab.css`: visual lab workspace and dashboard.
+- `tests.mjs`, `sync.test.mjs`, `lab.test.mjs`: acceptance coverage; run `npm test` (Node 20+).
 
 ## Educational and simulation boundaries
 
