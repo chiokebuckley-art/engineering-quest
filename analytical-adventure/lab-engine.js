@@ -64,7 +64,7 @@ export function nextRecommendation(lab,now=Date.now()){
 }
 export function skillSummary(lab){return skillKeys.map(skill=>{const rows=lab.attempts.flatMap(a=>a.records.filter(r=>r.skill===skill).map(r=>({...r,independent:r.independent??isIndependent(a)})));const independent=rows.filter(r=>r.independent),hinted=rows.filter(r=>!r.independent);return {skill,n:rows.length,correct:rows.filter(r=>r.correct).length,independent:independent.length,independentCorrect:independent.filter(r=>r.correct).length,supported:hinted.length,supportedCorrect:hinted.filter(r=>r.correct).length};});}
 export function dailyPlan(lab,now=Date.now()){
- const date=new Intl.DateTimeFormat('en-CA').format(new Date(now));if(lab.daily?.date===date)return lab.daily;
+ const date=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago'}).format(new Date(now));if(lab.daily?.date===date)return lab.daily;
  const next=nextRecommendation(lab,now),old=lab.attempts.filter(a=>success(a)).at(-1);const warm=old?.lesson||'attributes';
  const queue=[{lesson:warm,mode:!old?'guided':now-old.finishedAt>=DAY?'retention':'independent',role:'Retrieval warm-up'},{...next,role:'Focused discovery'},{lesson:next.lesson,mode:'independent',role:'Independent prediction'},{lesson:next.lesson,mode:'transfer',role:'New-domain transfer'}];
  lab.daily={date,queue:lab.fatigue==='tired'||lab.duration<=10?queue.slice(0,2):queue,index:0,reflection:''};return lab.daily;
